@@ -1,0 +1,9 @@
+/* Colors */
+$primary-very-dark: #1F2041;
+$primary-dark: transparentize($primary-very-dark, 0.25);
+$primary-medium: transparentize($primary-dark, 0.25);
+$primary-light: transparentize($primary-medium, 0.25);
+$primary-very-light: transparentize($primaty-light, 0.20);
+$accent-main: #BC9CFF;
+$accent-secondary: #6FCF97;
+

@@ -2,9 +2,9 @@
   "name": "FSD_2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "entry.js",
   "scripts": {
-    "start": "parcel index.pug --open"
+    "start": "parcel src/ui-kit/colors-and-type/colors-and-type.pug --open"
   },
   "keywords": [],
   "author": "Olga Tarasova",
