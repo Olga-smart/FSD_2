@@ -1,0 +1,20 @@
+{
+  "name": "FSD_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.pug --open"
+  },
+  "keywords": [],
+  "author": "Olga Tarasova",
+  "license": "ISC",
+  "devDependencies": {
+    "pug": "^3.0.0",
+    "sass": "^1.27.0"
+  },
+  "dependencies": {
+    "components": "^0.1.0",
+    "html2bemjson": "^1.10.0"
+  }
+}
