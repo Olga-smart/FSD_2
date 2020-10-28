@@ -1,0 +1,7 @@
+.colors-and-type-wrapper {
+  display: flex;
+  border: 2px solid red;
+}
+.colors-and-type-wrapper > * {
+  flex-grow: 1;
+}
