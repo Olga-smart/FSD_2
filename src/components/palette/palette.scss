@@ -1,0 +1,17 @@
+.palette {
+  list-style: none;
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  &__color-block {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    margin-right: 40px;
+  }
+  &__color-name {
+    font-weight: bold;
+  }
+}

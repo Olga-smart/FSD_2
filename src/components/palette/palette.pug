@@ -1,0 +1,8 @@
+mixin palette(colors)
+  ul.palette
+    each color in colors
+      li.palette__item
+        .palette__color-block(style={"background-color": color[1], opacity: color[2]})
+        .palette__color-legend
+          p.palette__color-name= color[0]
+          p.palette__color-code= color[1]

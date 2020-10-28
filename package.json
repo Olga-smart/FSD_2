@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "components": "^0.1.0",
-    "html2bemjson": "^1.10.0"
+    "html2bemjson": "^1.10.0",
+    "pug-sass-filter": "^1.0.2"
   }
 }
