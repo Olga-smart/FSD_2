@@ -1,7 +1,35 @@
+@import '../../theme/variables.scss';
+
 .colors-and-type-wrapper {
-  display: flex;
-  border: 2px solid red;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-column-gap: 10px;
+  @include media-breakpoint-down($lg) {
+    grid-template-columns: 2fr 3fr;
+  }
+  @include media-breakpoint-down($sm) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+  }
 }
-.colors-and-type-wrapper > * {
-  flex-grow: 1;
+
+.type-samples {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-column-gap: 30px;
+  grid-row-gap: 50px;
+  align-content: flex-start;
+  padding: 6px;
+  dt {
+    text-align: right;
+    color: $primary-light;
+    font-weight: 400;
+  }
+  @include media-breakpoint-up($lg) {
+    padding-right: 45px;
+  }
+  @include media-breakpoint-down($sm) {
+    grid-row-gap: 30px;
+  }
 }

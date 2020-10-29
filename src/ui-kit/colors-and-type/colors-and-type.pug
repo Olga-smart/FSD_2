@@ -4,10 +4,10 @@ html(lang="ru")
     meta(charset='utf-8')
     meta(name='viewport', content="initial-scale=1.0, width=device-width")
     title Colors & Type
-    link(rel="stylesheet" href="../../style.scss")
+    link(rel="stylesheet" href="../ui-kit.scss")
     link(rel="stylesheet" href="colors-and-type.scss")
-  body
-    .container-fluid
+  body.ui-kit-page
+    .ui-kit-container
       .colors-and-type-wrapper
         include ../../components/palette/palette
         +palette([
@@ -19,9 +19,17 @@ html(lang="ru")
           ["Purple", "#BC9CFF", 1],
           ["Green", "#6FCF97", 1]
         ])
-        .type
-          h1 This one is the sub-section or widget title
-          h2 Next one is the item title inside widgets
-          h3 This is a label or CTA text
-          p  This is the body text which is used for most of the design, like paragraphs, lists, etc.
+        dl.type-samples
+          dt.h1 H1
+          dd 
+            h1 This one is the sub-section or widget title
+          dt.h2 H2
+          dd
+            h2 Next one is the item title inside widgets
+          dt.h3 H3 
+          dd
+            h3 This is a label or CTA text
+          dt Body
+          dd
+            p  This is the body text which is used for most of the design, like paragraphs, lists, etc.
     script(src="colors-and-type.js")
