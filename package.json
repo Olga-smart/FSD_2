@@ -2,9 +2,9 @@
   "name": "FSD_2",
   "version": "1.0.0",
   "description": "",
-  "main": "entry.js",
+  "main": "main.js",
   "scripts": {
-    "start": "parcel src/ui-kit/colors-and-type/colors-and-type.pug --open"
+    "start": "parcel src/ui-kit/form-elements/form-elements.pug --open"
   },
   "keywords": [],
   "author": "Olga Tarasova",
@@ -14,8 +14,10 @@
     "sass": "^1.27.0"
   },
   "dependencies": {
+    "air-datepicker": "^2.2.3",
     "components": "^0.1.0",
     "html2bemjson": "^1.10.0",
+    "jquery": "^3.5.1",
     "pug-sass-filter": "^1.0.2"
   }
 }

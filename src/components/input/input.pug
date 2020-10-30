@@ -1,0 +1,12 @@
+mixin input(options)
+  .input(class= options.class)
+    label.input__label.h3= options.label
+      input.input__input(
+        type = options.type
+        name = options.name
+        placeholder = options.placeholder
+        pattern = options.pattern
+        tadindex = options.tabindex
+        required = options.required
+        value = options.value
+      )

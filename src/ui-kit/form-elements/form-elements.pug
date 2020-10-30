@@ -1,0 +1,37 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content="initial-scale=1.0, width=device-width")
+    title Form Elements
+    link(rel="stylesheet" href="../ui-kit.scss")
+    link(rel="stylesheet" href="form-elements.scss")
+  body.ui-kit-page
+    .ui-kit-container
+      .form-elements-wrapper
+        include ../../components/input/input
+        .col
+          +input({
+            class: "default-text-field",
+            label: "text field",
+            placeholder: "Email",
+            type: "email"
+          })
+          +input({
+            class: "hover-focus-text-field",
+            label: "text field",
+            value: "This is pretty awesome",
+            type: "text"
+          })
+          +input({
+            label: "dropdown",
+            value: ""
+          })
+          +input({
+            label: "masked text field",
+            type: "date",
+            placeholder: "ДД.ММ.ГГГ"
+          })
+          
+    script(src="form-elements.js")
+    script(src="../../main.js")
