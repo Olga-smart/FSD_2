@@ -33,5 +33,24 @@ html(lang="ru")
             placeholder: "ДД.ММ.ГГГ"
           })
           input.datepicker-here
-    script(src="form-elements.js")
+          
+          .iqdropdown
+            p.iqdropdown-selection
+            .iqdropdown-menu
+              .iqdropdown-menu-option(data-id="item 1")
+                div
+                  p.iqdropdown-item Item 1
+                  p.iqdropdown-description A short description
+              .iqdropdown-menu-option(data-id="item 2")
+                div
+                  p.iqdropdown-item Item 2
+                  p.iqdropdown-description A short description
+              .iqdropdown-menu-option(data-id="item 3")
+                div
+                  p.iqdropdown-item Item 3
+                  p.iqdropdown-description A short description
+          
+          input.birthday-input(placeholder="ДД.ММ.ГГГГ")
     script(src="../../main.js")
+    script(src="form-elements.js")
+    
