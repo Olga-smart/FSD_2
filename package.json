@@ -20,6 +20,7 @@
     "html2bemjson": "^1.10.0",
     "item-quantity-dropdown": "^2.1.0",
     "jquery": "^3.5.1",
-    "pug-sass-filter": "^1.0.2"
+    "pug-sass-filter": "^1.0.2",
+    "theme": "^0.1.0"
   }
 }

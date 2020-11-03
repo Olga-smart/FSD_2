@@ -1,15 +1,17 @@
 .input {
   &__input {
     display: block;
-    padding: 0.86rem 1.1rem;
+    height: 44px;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
     width: 100%;
     border: 1px solid $primary-light;
     border-radius: 4px;
     font-size: 1rem;
     &:hover,
     &:focus {
-    border-color: $primary-medium;
-    outline: none;
+      border-color: $primary-medium;
+      outline: none;
     }
     &[type='date'] {
       text-transform: uppercase;

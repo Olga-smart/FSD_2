@@ -23,32 +23,24 @@ html(lang="ru")
             value: "This is pretty awesome",
             type: "text"
           })
-          +input({
-            label: "dropdown",
-            value: ""
-          })
-          +input({
-            label: "masked text field",
-            type: "date",
-            placeholder: "ДД.ММ.ГГГ"
-          })
-          input.datepicker-here
           
-          .iqdropdown
-            p.iqdropdown-selection
-            .iqdropdown-menu
-              .iqdropdown-menu-option(data-id="item 1")
-                div
-                  p.iqdropdown-item Item 1
-                  p.iqdropdown-description A short description
-              .iqdropdown-menu-option(data-id="item 2")
-                div
-                  p.iqdropdown-item Item 2
-                  p.iqdropdown-description A short description
-              .iqdropdown-menu-option(data-id="item 3")
-                div
-                  p.iqdropdown-item Item 3
-                  p.iqdropdown-description A short description
+          .input
+            label.input__label.h3 Dropdown
+              .iqdropdown
+                p.iqdropdown-selection
+                .iqdropdown-menu
+                  .iqdropdown-menu-option(data-id="item 1")
+                    div
+                      p.iqdropdown-item Взрослые
+                  .iqdropdown-menu-option(data-id="item 2")
+                    div
+                      p.iqdropdown-item Дети
+                  .iqdropdown-menu-option(data-id="item 3")
+                    div
+                      p.iqdropdown-item Младенцы
+          
+          input.datepicker-here
+                  
           
           input.birthday-input(placeholder="ДД.ММ.ГГГГ")
     script(src="../../main.js")
