@@ -10,6 +10,8 @@ html(lang="ru")
     .ui-kit-container
       .form-elements-wrapper
         include ../../components/input/input
+        include ../../components/dropdown/dropdown
+        include ../../components/button/button
         .col
           +input({
             class: "default-text-field",
@@ -24,25 +26,60 @@ html(lang="ru")
             type: "text"
           })
           
-          .input
-            label.input__label.h3 Dropdown
-              .iqdropdown
-                p.iqdropdown-selection
-                .iqdropdown-menu
-                  .iqdropdown-menu-option(data-id="item 1")
-                    div
-                      p.iqdropdown-item Взрослые
-                  .iqdropdown-menu-option(data-id="item 2")
-                    div
-                      p.iqdropdown-item Дети
-                  .iqdropdown-menu-option(data-id="item 3")
-                    div
-                      p.iqdropdown-item Младенцы
+          .dropdown
+            label.h3 Dropdown
+            .iqdropdown
+              p.iqdropdown-selection
+              .iqdropdown-menu
+                .iqdropdown-menu-option(data-id="item 1")
+                  div
+                    p.iqdropdown-item Взрослые
+                .iqdropdown-menu-option(data-id="item 2")
+                  div
+                    p.iqdropdown-item Дети
+                .iqdropdown-menu-option(data-id="item 3")
+                  div
+                    p.iqdropdown-item Младенцы
+                    
+          .dropdown
+            label.h3 Dropdown
+            .iqdropdown
+              p.iqdropdown-selection
+              .iqdropdown-menu
+                .iqdropdown-menu-option(data-id="item 1")
+                  div
+                    p.iqdropdown-item Взрослые
+                .iqdropdown-menu-option(data-id="item 2")
+                  div
+                    p.iqdropdown-item Дети
+                .iqdropdown-menu-option(data-id="item 3")
+                  div
+                    p.iqdropdown-item Младенцы
+                .dropdown__dropdown-buttons
+                  +button({
+                    text: "Очистить"
+                  })
+                  +button
           
           input.datepicker-here
                   
-          
           input.birthday-input(placeholder="ДД.ММ.ГГГГ")
+          
+        .col
+        .col
+          div 
+            .h3 Buttons
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button"
+            })
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              disabled: true
+            })
     script(src="../../main.js")
     script(src="form-elements.js")
     

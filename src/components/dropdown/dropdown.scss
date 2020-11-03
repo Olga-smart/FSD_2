@@ -32,9 +32,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 7px;
-  }
-  .iqdropdown-menu-option:last-child {
-    margin-bottom: 0;
+    text-transform: uppercase;
   }
   .iqdropdown-item {
     font-family: inherit;
@@ -110,5 +108,11 @@
   }
   &.menu-open .iqdropdown-selection::after {
     background-image: none;
+  }
+}
+.dropdown {
+  &__dropdown-buttons {
+    display: flex;
+    justify-content: space-between;
   }
 }

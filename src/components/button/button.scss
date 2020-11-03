@@ -1,0 +1,11 @@
+.button {
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: $accent-main;
+  &:disabled {
+    color: $primary-medium;
+  }
+}

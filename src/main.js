@@ -4,8 +4,6 @@ import jquery from "jquery";
 require('air-datepicker');
 require('air-datepicker/dist/css/datepicker.min.css');
 
-
-
 import Cleave from 'cleave.js';
 
 var cleave = new Cleave('.birthday-input', {
