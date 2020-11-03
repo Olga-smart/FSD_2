@@ -58,6 +58,7 @@
       button.button-decrement,
       button.button-increment {
         border-radius: 50%;
+        border-color: $primary-light;
         padding: 0;
         width: 30px;
         height: 30px;
@@ -66,11 +67,12 @@
       .icon-increment {
         margin: 0;
         width: 30px;
-        height: 30px;
+        height: 30px;        
       }
       .icon-decrement::after, 
       .icon-increment::before {
         background-color: transparent;
+        color: $primary-medium;
         font-size: 1.29rem;
         font-weight: 400;
         font-style: normal;
