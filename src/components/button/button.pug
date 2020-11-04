@@ -2,6 +2,7 @@ mixin button(options)
   if !options
     - options = {}
   button.button(
-    type= options.type,
-    disabled= options.disabled
+    type = options.type,
+    class = options.class,
+    disabled = options.disabled
   )= options.text || "Click me"

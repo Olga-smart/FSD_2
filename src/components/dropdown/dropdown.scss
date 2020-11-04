@@ -20,6 +20,7 @@
   .iqdropdown-menu {
     padding: 7px;
     padding-left: 15px;
+    padding-bottom: 13px;
     top: 44px;
     box-shadow: none;
     border: 1px solid $primary-medium;
@@ -111,8 +112,9 @@
   }
 }
 .dropdown {
-  &__dropdown-buttons {
+  &__buttons {
     display: flex;
     justify-content: space-between;
+    padding-top: 12px;
   }
 }
