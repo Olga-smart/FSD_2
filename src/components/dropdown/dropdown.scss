@@ -116,9 +116,14 @@
 .dropdown {
   &__buttons {
     display: flex;
-    display: none;
     justify-content: space-between;
     padding-top: 13px;
     padding-bottom: 12px; 
+    &.hidden {
+      display: none;
+    }
+  }
+  &__button[disabled]  {
+    opacity: 0;
   }
 }
