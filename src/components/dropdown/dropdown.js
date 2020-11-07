@@ -3,6 +3,70 @@ import 'item-quantity-dropdown/lib/item-quantity-dropdown.min.css';
 require('item-quantity-dropdown/lib/item-quantity-dropdown.min.js');
 require('item-quantity-dropdown/lib/item-quantity-dropdown.min.css');
 
+$(document).ready(() => {
+  $('.iqdropdown-guests').iqDropdown({
+    setSelectionText: (itemCount, totalItems) => {
+      if (totalItems == 0) {
+        return 'Сколько гостей';
+      }
+      
+      let guestsWord = wordToPlural(totalItems, 'гость', 'гостя', 'гостей');
+      
+      let babiesCount = itemCount['guests-item3'];
+      let babiesWord = wordToPlural(babiesCount, 'младенец', 'младенца', 'младенцев');
+      
+      if (babiesCount == 0) {
+        return totalItems + ' ' + guestsWord;
+      }
+      return totalItems + ' ' + guestsWord + ', ' + babiesCount + ' ' + babiesWord;
+    },
+    onChange: (id, count, totalItems) => {
+      toggleDisabledMinusBtn(id, count);
+    }
+  });
+  
+  $('.iqdropdown-facilities').iqDropdown({
+    setSelectionText: (itemCount, totalItems) => {
+      if (totalItems == 0) {
+        return '';
+      }
+      
+      let result = '';
+      
+      let bedroomsCount = itemCount['facilities-item1'];
+      if (bedroomsCount > 0) {
+        let bedroomsWord = wordToPlural(bedroomsCount, 'спальня', 'спальни', 'спален');
+        result += bedroomsCount + ' ' + bedroomsWord;
+      }
+      
+      let bedsCount = itemCount['facilities-item2'];
+      if (bedsCount > 0) {
+        let bedsWord = wordToPlural(bedsCount, 'кровать', 'кровати', 'кроватей');
+        if (result.length > 0) {
+          result += ', ';
+        }
+        result += bedsCount + ' ' + bedsWord;
+      }
+      
+      let bathroomsCount = itemCount['facilities-item3'];
+      if (bathroomsCount > 0) {
+        let bathroomsWord = wordToPlural(bathroomsCount, 'ванная', 'ванные', 'ванных');
+        if (result.length > 0) {
+          result += ', ';
+        } 
+        result += bathroomsCount + ' ' + bathroomsWord;
+      }
+      
+      return result;
+    },
+    onChange: (id, count, totalItems) => {
+      toggleDisabledMinusBtn(id, count);
+    }
+  });
+  
+  disableMinusBtns();
+});
+
 function lastDigit(num) {
  return +num.toString().slice(-1); 
 }
@@ -22,66 +86,27 @@ function wordToPlural(number, wordWith1, wordWith2, wordWith5) {
   return result;
 }
 
-$(document).ready(() => {
-  $('.iqdropdown-guests').iqDropdown({
-    setSelectionText: (itemCount, totalItems) => {
-      if (totalItems == 0) {
-        return 'Сколько гостей';
-      }
-      
-      let guestsWord = wordToPlural(totalItems, 'гость', 'гостя', 'гостей');
-      
-      let babiesCount = itemCount['item3'];
-      let babiesWord = wordToPlural(babiesCount, 'младенец', 'младенца', 'младенцев');
-      
-      if (babiesCount == 0) {
-        return totalItems + ' ' + guestsWord;
-      }
-      return totalItems + ' ' + guestsWord + ', ' + babiesCount + ' ' + babiesWord;
-    },
-//    onChange: (id, count, totalItems) => {
-//      if (count == 0) {
-//        let thisMenuOption = document.querySelector(`.iqdropdown-menu-option[data-id=${id}]`);
-//        let btnDecrement = thisMenuOption.querySelector('.button-decrement').background = "red"; 
-//      }
-//    }
-  });
-  $('.iqdropdown-facilities').iqDropdown({
-    setSelectionText: (itemCount, totalItems) => {
-      if (totalItems == 0) {
-        return '';
-      }
-      
-      let result = '';
-      
-      let bedroomsCount = itemCount['item1'];
-      if (bedroomsCount > 0) {
-        let bedroomsWord = wordToPlural(bedroomsCount, 'спальня', 'спальни', 'спален');
-        result += bedroomsCount + ' ' + bedroomsWord;
-      }
-      
-      let bedsCount = itemCount['item2'];
-      if (bedsCount > 0) {
-        let bedsWord = wordToPlural(bedsCount, 'кровать', 'кровати', 'кроватей');
-        if (result.length > 0) {
-          result += ', ';
-        }
-        result += bedsCount + ' ' + bedsWord;
-      }
-      
-      let bathroomsCount = itemCount['item3'];
-      if (bathroomsCount > 0) {
-        let bathroomsWord = wordToPlural(bathroomsCount, 'ванная', 'ванные', 'ванных');
-        if (result.length > 0) {
-          result += ', ';
-        } 
-        result += bathroomsCount + ' ' + bathroomsWord;
-      }
-      
-      return result;
+function toggleDisabledMinusBtn(id, count) {
+  let thisMenuOption = document.querySelector(`.iqdropdown-menu-option[data-id=${id}]`);
+  let btnDecrement = thisMenuOption.querySelector('.button-decrement');
+  if (count == 0 || count == thisMenuOption.dataset.mincount) {    
+    btnDecrement.disabled = true; 
+  } else {
+    btnDecrement.disabled = false; 
+  }
+}
+
+function disableMinusBtns() {
+  let iqdropdowns = document.querySelectorAll('.iqdropdown');
+  for (let iqdropdown of iqdropdowns) {
+    let menuOptions = iqdropdown.querySelectorAll(`.iqdropdown-menu-option`);
+    for (let menuOption of menuOptions) {
+      let id = menuOption.dataset.id;
+      let count = menuOption.querySelector('.counter').textContent;
+      toggleDisabledMinusBtn(id, count);
     }
-  });
-});
+  }
+}
 
 let resetBtns = document.querySelectorAll('.dropdown__button_reset');
 for (let btn of resetBtns) {
