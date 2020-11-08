@@ -26,53 +26,49 @@ html(lang="ru")
             type: "text"
           })
           
-          .dropdown
-            label.h3 Dropdown
-            .iqdropdown.iqdropdown-guests
-              p.iqdropdown-selection
-              .iqdropdown-menu
-                .iqdropdown-menu-option(data-id="guests-item1")
-                  div
-                    p.iqdropdown-item Взрослые
-                .iqdropdown-menu-option(data-id="guests-item2")
-                  div
-                    p.iqdropdown-item Дети
-                .iqdropdown-menu-option(data-id="guests-item3")
-                  div
-                    p.iqdropdown-item Младенцы
-                .dropdown__buttons.hidden
-                  +button({
-                    text: "Очистить",
-                    class: "dropdown__button dropdown__button_reset"
-                  })
-                  +button({
-                    text: "Применить",
-                    class: "dropdown__button dropdown__button_apply"
-                  })
-                    
-          .dropdown
-            label.h3 Dropdown
-            .iqdropdown.iqdropdown-facilities
-              p.iqdropdown-selection
-              .iqdropdown-menu
-                .iqdropdown-menu-option(data-id="facilities-item1" data-defaultcount="2" data-mincount="1")
-                  div
-                    p.iqdropdown-item Спальни
-                .iqdropdown-menu-option(data-id="facilities-item2" data-defaultcount="2" data-mincount="1")
-                  div
-                    p.iqdropdown-item Кровати
-                .iqdropdown-menu-option(data-id="facilities-item3")
-                  div
-                    p.iqdropdown-item Ванные комнаты
-                .dropdown__buttons
-                  +button({
-                    text: "Очистить",
-                    class: "dropdown__button dropdown__button_reset"
-                  })
-                  +button({
-                    text: "Применить",
-                    class: "dropdown__button dropdown__button_apply"
-                  })
+          +dropdown({
+            label: "Dropdown",
+            class: "iqdropdown-guests",
+            items: [
+              {
+                id: "guests-item1",
+                text: "Взрослые"
+              },
+              {
+                id: "guests-item2",
+                text: "Дети"
+              },
+              {
+                id: "guests-item3",
+                text: "Младенцы"
+              }
+            ],
+            buttonsClass: "hidden",
+          })
+          
+          +dropdown({
+            label: "Dropdown",
+            class: "iqdropdown-facilities",
+            items: [
+              {
+                id: "facilities-item1",
+                text: "Спальни",
+                defaultcount: 2,
+                mincount: 1
+              },
+              {
+                id: "facilities-item2",
+                text: "Кровати",
+                defaultcount: 2,
+                mincount: 1
+              },
+              {
+                id: "facilities-item3",
+                text: "Ванные комнаты"
+              }
+            ],
+            buttonsClass: "hidden",
+          })
           
           input.datepicker-here
                   

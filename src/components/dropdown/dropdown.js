@@ -173,7 +173,9 @@ for (let btn of applyBtns) {
 let iqdropdownMenus = document.querySelectorAll('.iqdropdown-menu');
 for (let menu of iqdropdownMenus) {
   menu.addEventListener('click', function(event) {
-    event.stopPropagation();
+    if ( event.target.classList.contains('iqdropdown-menu') || event.target.classList.contains('dropdown__buttons') ) {
+      event.stopPropagation();
+    }    
   });
 }
 

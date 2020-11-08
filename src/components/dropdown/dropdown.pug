@@ -1,1 +1,24 @@
 include ../../components/button/button
+
+mixin dropdown(options)
+  if !options
+    - options = {}
+    
+  .dropdown
+    label.h3= options.label
+    .iqdropdown(class = options.class)
+      p.iqdropdown-selection
+      .iqdropdown-menu
+        each item in options.items
+          .iqdropdown-menu-option(data-id = item.id, data-defaultcount = item.defaultcount, data-mincount = item.mincount)
+            div
+              p.iqdropdown-item= item.text
+        .dropdown__buttons(class = options.buttonsClass)
+          +button({
+            text: "Очистить",
+            class: "dropdown__button dropdown__button_reset"
+          })
+          +button({
+            text: "Применить",
+            class: "dropdown__button dropdown__button_apply"
+          })
