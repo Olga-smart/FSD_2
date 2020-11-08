@@ -9,12 +9,12 @@ $(document).ready(() => {
       if (totalItems == 0) {
         return 'Сколько гостей';
       }
-      
+
       let guestsWord = wordToPlural(totalItems, 'гость', 'гостя', 'гостей');
-      
+
       let babiesCount = itemCount['guests-item3'];
       let babiesWord = wordToPlural(babiesCount, 'младенец', 'младенца', 'младенцев');
-      
+
       if (babiesCount == 0) {
         return totalItems + ' ' + guestsWord;
       }
@@ -118,7 +118,7 @@ function disableMinusBtns() {
     let menuOptions = iqdropdown.querySelectorAll(`.iqdropdown-menu-option`);
     for (let menuOption of menuOptions) {
       let id = menuOption.dataset.id;
-      let count = menuOption.querySelector('.counter').textContent;
+      let count = menuOption.querySelector('.counter').innerHTML;
       toggleDisabledMinusBtn(id, count);
     }
   }
@@ -132,7 +132,7 @@ function showResetAndApplyBtns(dropdown) {
 function isResetBtnNeed(dropdown) {
   let counts = dropdown.querySelectorAll('.counter');
   for (let count of counts) {   
-    if (count.textContent == 0 || count.textContent == count.closest('.iqdropdown-menu-option').dataset.mincount) {
+    if (count.innerHTML == 0 || count.innerHTML == count.closest('.iqdropdown-menu-option').dataset.mincount) {
       continue;
     } else {
       return true;
@@ -143,12 +143,23 @@ function isResetBtnNeed(dropdown) {
 
 let resetBtns = document.querySelectorAll('.dropdown__button_reset');
 for (let btn of resetBtns) {
-  btn.addEventListener('click', function() {
+  btn.addEventListener('click', function(event) {
+    event.stopPropagation();
     let counters = this.closest('.iqdropdown-menu').querySelectorAll('.counter');
     for (let counter of counters) {
-      counter.textContent = '0';
+      let minusBtn = counter.previousElementSibling;
+      if (counter.closest('.iqdropdown-menu-option').dataset.mincount) {
+        while (counter.innerHTML > counter.closest('.iqdropdown-menu-option').dataset.mincount) {
+          minusBtn.click();
+        } 
+      } else {
+        while (counter.innerHTML > 0) {
+          minusBtn.click();
+        }
+      }
     }
-  })
+    btn.disabled = true;
+  });
 }
 
 let applyBtns = document.querySelectorAll('.dropdown__button_apply');
@@ -156,5 +167,13 @@ for (let btn of applyBtns) {
   btn.addEventListener('click', function() {
     this.closest('.iqdropdown').classList.remove('.menu-open');
     btn.disabled = true;
-  })
+  });
 }
+
+let iqdropdownMenus = document.querySelectorAll('.iqdropdown-menu');
+for (let menu of iqdropdownMenus) {
+  menu.addEventListener('click', function(event) {
+    event.stopPropagation();
+  });
+}
+
