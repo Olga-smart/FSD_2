@@ -53,42 +53,43 @@ html(lang="ru")
             placeholder: "ДД.ММ.ГГГГ"
           })
           
-          +datepicker({
-            class: "datepicker-here",
-            label: "date dropdown",
-            placeholder: "ДД.ММ.ГГГГ",
-            attributes: {
-              "data-multiple-dates": "2", 
-              "data-multiple-dates-separator": " - ",
-              "data-min-date": "new Date()"
-            }
-          })
-          
-          .datepicker-here
-          
-          +dropdown({
-            label: "Dropdown",
-            class: "iqdropdown-facilities",
-            items: [
-              {
-                id: "facilities-item1",
-                text: "Спальни",
-                defaultcount: 2,
-                mincount: 1
-              },
-              {
-                id: "facilities-item2",
-                text: "Кровати",
-                defaultcount: 2,
-                mincount: 1
-              },
-              {
-                id: "facilities-item3",
-                text: "Ванные комнаты"
+          .col-266
+            +datepicker({
+              class: "filter-date-dropdown",
+              label: "filter date dropdown",
+              placeholder: "ДД.ММ.ГГГГ",
+              attributes: {
+                "data-range": "true",
+                "data-multiple-dates-separator": " - ",
+                "data-toggle-selected": "false"
               }
-            ],
-            buttonsClass: "hidden",
-          })
+            })
+          
+            .datepicker-here
+
+            +dropdown({
+              label: "Dropdown",
+              class: "iqdropdown-facilities",
+              items: [
+                {
+                  id: "facilities-item1",
+                  text: "Спальни",
+                  defaultcount: 2,
+                  mincount: 1
+                },
+                {
+                  id: "facilities-item2",
+                  text: "Кровати",
+                  defaultcount: 2,
+                  mincount: 1
+                },
+                {
+                  id: "facilities-item3",
+                  text: "Ванные комнаты"
+                }
+              ],
+              buttonsClass: "hidden",
+            })
                     
           
           

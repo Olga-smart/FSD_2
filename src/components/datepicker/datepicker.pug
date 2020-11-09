@@ -1,0 +1,13 @@
+include ../../components/input/input
+
+mixin datepicker(options)
+  if !options
+    - options = {}
+  
+  +input({
+    inputClass: "datepicker-here",
+    label: options.label,
+    placeholder: options.placeholder,
+    attributes: options.attributes
+  })
+  

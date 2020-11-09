@@ -1,0 +1,10 @@
+.datepicker {
+  width: 266px;
+  border: 1px solid $primary-light;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.datepicker-inline .datepicker {
+  border: 1px solid $primary-light;
+}
