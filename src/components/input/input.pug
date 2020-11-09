@@ -2,6 +2,7 @@ mixin input(options)
   .input(class = options.class)
     label.input__label.h3= options.label
       input.input__input(
+        class = options.inputClass,
         type = options.type
         name = options.name
         placeholder = options.placeholder
@@ -9,4 +10,4 @@ mixin input(options)
         tadindex = options.tabindex
         required = options.required
         value = options.value
-      )
+      )&attributes(options.attributes)

@@ -12,6 +12,7 @@ html(lang="ru")
         include ../../components/input/input
         include ../../components/dropdown/dropdown
         include ../../components/button/button
+        include ../../components/datepicker/datepicker
         .col
           +input({
             class: "default-text-field",
@@ -46,6 +47,25 @@ html(lang="ru")
             buttonsClass: "hidden",
           })
           
+          +input({
+            class: "birthday-input",
+            label: "masked text field",
+            placeholder: "ДД.ММ.ГГГГ"
+          })
+          
+          +datepicker({
+            class: "datepicker-here",
+            label: "date dropdown",
+            placeholder: "ДД.ММ.ГГГГ",
+            attributes: {
+              "data-multiple-dates": "2", 
+              "data-multiple-dates-separator": " - ",
+              "data-min-date": "new Date()"
+            }
+          })
+          
+          .datepicker-here
+          
           +dropdown({
             label: "Dropdown",
             class: "iqdropdown-facilities",
@@ -69,10 +89,8 @@ html(lang="ru")
             ],
             buttonsClass: "hidden",
           })
+                    
           
-          input.datepicker-here
-                  
-          input.birthday-input(placeholder="ДД.ММ.ГГГГ")
           
         .col
         .col

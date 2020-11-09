@@ -5,6 +5,7 @@
     padding-left: 1.1rem;
     padding-right: 1.1rem;
     width: 100%;
+    color: $primary-dark;
     border: 1px solid $primary-light;
     border-radius: 4px;
     font-size: 1rem;
@@ -15,6 +16,9 @@
     }
     &[type='date'] {
       text-transform: uppercase;
+    }
+    &::placeholder {
+      color: $primary-light;
     }
   }  
 }

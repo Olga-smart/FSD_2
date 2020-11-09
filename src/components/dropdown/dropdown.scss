@@ -17,6 +17,7 @@
   & &-selection {
     font-family: inherit;
     font-size: 1rem;
+    color: $primary-dark;
     &::after {
       background-image: none;
       width: 8px;
