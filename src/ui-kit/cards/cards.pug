@@ -1,0 +1,20 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content="initial-scale=1.0, width=device-width")
+    title Cards
+    link(rel="stylesheet" href="../ui-kit.scss")
+  body.ui-kit-page
+    .ui-kit-container
+      .form-elements-wrapper
+        include ../../components/input/input
+        include ../../components/dropdown/dropdown
+        include ../../components/button/button
+        include ../../components/datepicker/datepicker
+        .col
+          .datepicker-here(data-range = "true", data-multiple-dates-separator = " - ", data-toggle-selected = "false")
+      
+        
+    script(src="../../main.js")
+    
