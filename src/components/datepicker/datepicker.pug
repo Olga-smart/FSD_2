@@ -5,7 +5,9 @@ mixin datepicker(options)
     - options = {}
   
   +input({
-    inputClass: "datepicker-here",
+    class: options.class,
+    inputClass: "datepicker-here" + ' ' + options.inputClass,
+    inputId: options.id,
     label: options.label,
     placeholder: options.placeholder,
     attributes: options.attributes

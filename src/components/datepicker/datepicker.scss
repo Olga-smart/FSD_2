@@ -1,11 +1,14 @@
 .datepicker {
-  width: 266px;
-  width: 320px;
+//  width: 266px;
+//  width: 320px;
   border: 1px solid $primary-light;
   box-sizing: border-box;
   font-family: inherit;
   padding: 1.43rem;
   box-shadow: none;
+  &--pointer {
+    display: none;
+  }
   &--nav {
     border-bottom: none;
     padding: 0;
@@ -96,6 +99,9 @@
             linear-gradient(to left, #fff 50%, transparent 50%),
             linear-gradient(to bottom, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
         }
+        &.-range-from-.-range-to- {
+          background: none;
+        }
         &.-focus- {
           background-color: transparent;
         }
@@ -161,3 +167,10 @@
 .datepicker-inline .datepicker {
   border: 1px solid $primary-light;
 }
+
+.double-datepicker-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1.43rem;
+}
+

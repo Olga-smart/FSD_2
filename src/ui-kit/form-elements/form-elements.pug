@@ -53,6 +53,30 @@ html(lang="ru")
             placeholder: "ДД.ММ.ГГГГ"
           })
           
+          .double-datepicker-wrap
+            +datepicker({
+              class: "date-dropdown",
+              label: "date dropdown",
+              id: "date-start",
+              inputClass: "input__input_arrow_down",
+              placeholder: "ДД.ММ.ГГГГ",
+              attributes: {
+                "data-range": "true",
+                "data-multiple-dates-separator": " - ",
+                "data-toggle-selected": "false"
+              }
+            })
+
+            +datepicker({
+              class: "date-dropdown",
+              label: "date dropdown",
+              id: "date-end",
+              placeholder: "ДД.ММ.ГГГГ",
+              attributes: {
+                "data-position": "bottom right"
+              }
+            })
+          
           .col-266
             +datepicker({
               class: "filter-date-dropdown",
@@ -64,6 +88,8 @@ html(lang="ru")
                 "data-toggle-selected": "false"
               }
             })
+            
+            
           
             .datepicker-here(data-range = "true", data-multiple-dates-separator = " - ", data-toggle-selected = "false")
 
