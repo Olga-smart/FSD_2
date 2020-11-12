@@ -20,6 +20,7 @@ html(lang="ru")
             placeholder: "Email",
             type: "email"
           })
+          
           +input({
             class: "hover-focus-text-field",
             label: "text field",
@@ -55,7 +56,7 @@ html(lang="ru")
           
           .double-datepicker-wrap
             +datepicker({
-              class: "date-dropdown input__input_arrow_down",
+              class: "date-dropdown input_arrow_down",
               label: "date dropdown",
               id: "date-start",
               placeholder: "ДД.ММ.ГГГГ",
@@ -123,6 +124,40 @@ html(lang="ru")
           
           
         .col
+          .h3 Checkbox buttons
+          +input({
+            label: "Можно курить",
+            type: "checkbox",
+            inputId: "checkbox-1"
+          })
+          +input({
+            label: "Можно с питомцами",
+            type: "checkbox",
+            checked: true,
+            inputId: "checkbox-2"
+          })
+          +input({
+            label: "Можно пригласить гостей (до 10 человек)",
+            type: "checkbox",
+            checked: true,
+            inputId: "checkbox-3"
+          })
+          
+          .h3 Radio buttons
+          +input({
+            label: "Мужчина",
+            type: "radio",
+            name: "checkbox",
+            checked: true,
+            inputId: "radio-1"
+          })
+          +input({
+            label: "Женщина",
+            type: "radio",
+            name: "checkbox",
+            inputId: "radio-2"
+          })
+          
         .col
           div 
             .h3 Buttons

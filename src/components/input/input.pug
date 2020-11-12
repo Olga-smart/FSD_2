@@ -1,14 +1,43 @@
 mixin input(options)
   .input(class = options.class)
-    label.input__label.h3= options.label
-      input.input__input(
+    - if (options.type === 'checkbox')
+      input.input__input.input__input_checkbox(
         class = options.inputClass,
         id = options.inputId,
         type = options.type
         name = options.name
-        placeholder = options.placeholder
-        pattern = options.pattern
         tadindex = options.tabindex
         required = options.required
         value = options.value
+        checked = options.checked
       )&attributes(options.attributes)
+      label.input__label(
+        for = options.inputId
+      )= options.label
+    - else if (options.type === 'radio')
+      input.input__input.input__input_radio(
+        class = options.inputClass,
+        id = options.inputId,
+        type = options.type
+        name = options.name
+        tadindex = options.tabindex
+        required = options.required
+        value = options.value
+        checked = options.checked
+      )&attributes(options.attributes)
+      label.input__label(
+        for = options.inputId
+      )= options.label
+    - else
+      label.input__label.h3= options.label
+        input.input__input(
+          class = options.inputClass,
+          id = options.inputId,
+          type = options.type
+          name = options.name
+          placeholder = options.placeholder
+          pattern = options.pattern
+          tadindex = options.tabindex
+          required = options.required
+          value = options.value
+        )&attributes(options.attributes)

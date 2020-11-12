@@ -20,6 +20,47 @@
     &::placeholder {
       color: $primary-light;
     }
+    &_checkbox, &_radio {
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      & + label {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-column-gap: 10px;
+        line-height: 1.3;
+        &::before {
+          content: '';
+          display: block;
+          width: 20px;
+          height: 20px;
+          border: 1px solid $primary-light;
+        }
+      }
+    }
+    &_checkbox {
+      & + label::before {  
+        border-radius: 4px;
+      }
+      &:checked + label::before {
+        background-image: url(../components/input/img/check_mark.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        border-color: $accent-main;
+      }
+      
+    }
+    &_radio {
+      & + label::before {
+        border-radius: 50%;
+      }
+      &:checked + label::before {
+        background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
+        box-shadow: inset 0 0 0 3px #fff;
+      }
+    }
   }  
   &_arrow_down {
    position: relative;
