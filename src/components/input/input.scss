@@ -20,23 +20,31 @@
     &::placeholder {
       color: $primary-light;
     }
-    &_arrow_down {
-     position: relative;
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        border-left: 2px solid $primary-medium;
-        border-bottom: 2px solid $primary-medium;
-        transform: rotate(-45deg);
-        bottom: 19px;
-        right: 15px;
-      }
-      & input {
-        padding-right: 2.5rem;
-      }
-    }
   }  
+  &_arrow_down {
+   position: relative;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-left: 2px solid $primary-medium;
+      border-bottom: 2px solid $primary-medium;
+      transform: rotate(-45deg);
+      bottom: 19px;
+      right: 15px;
+    }
+    & input {
+      padding-right: 2.5rem;
+    }
+  }
+  &_arrow_right {
+    & input {
+      background-image: url(../components/input/img/arrow_right.svg);
+      background-repeat: no-repeat;
+      background-position: right 13px center;
+      padding-right: 2.5rem;
+    }
+  }
 }

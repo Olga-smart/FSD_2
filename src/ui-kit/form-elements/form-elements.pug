@@ -67,7 +67,7 @@ html(lang="ru")
             })
 
             +datepicker({
-              class: "date-dropdown input__input_arrow_down",
+              class: "date-dropdown input_arrow_down",
               label: "date dropdown",
               id: "date-end",
               placeholder: "ДД.ММ.ГГГГ",
@@ -78,7 +78,7 @@ html(lang="ru")
           
           .col-266
             +datepicker({
-              class: "filter-date-dropdown input__input_arrow_down",
+              class: "filter-date-dropdown input_arrow_down",
               label: "filter date dropdown",
               placeholder: "ДД.ММ.ГГГГ",
               attributes: {
@@ -88,9 +88,13 @@ html(lang="ru")
               }
             })
             
-            
+            +input({
+              class: "input_arrow_right",
+              label: "subscription text field",
+              placeholder: "Email",
+              type: "email"
+            })
           
-            .datepicker-here(data-range = "true", data-multiple-dates-separator = " - ", data-toggle-selected = "false")
 
             +dropdown({
               label: "Dropdown",
