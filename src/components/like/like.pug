@@ -1,0 +1,7 @@
+mixin like(options)
+  if !options
+    - options = {}
+  .like(
+    class = options.class
+  )= options.value
+  
