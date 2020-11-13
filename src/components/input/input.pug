@@ -1,5 +1,6 @@
 mixin input(options)
   .input(class = options.class)
+    - var label = options.label
     - if (options.type === 'checkbox')
       input.input__input.input__input_checkbox(
         class = options.inputClass
@@ -13,7 +14,7 @@ mixin input(options)
       )&attributes(options.attributes)
       label.input__label(
         for = options.inputId
-      )= options.label
+      ) !{label}
     - else if (options.type === 'radio')
       input.input__input.input__input_radio(
         class = options.inputClass
@@ -27,7 +28,7 @@ mixin input(options)
       )&attributes(options.attributes)
       label.input__label(
         for = options.inputId
-      )= options.label
+      ) !{label}
     - else if (options.type === 'toggle')
       input.input__input.input__input_toggle(
         class = options.inputClass
@@ -41,9 +42,9 @@ mixin input(options)
       )&attributes(options.attributes)
       label.input__label(
         for = options.inputId
-      )= options.label
+      ) !{label}
     - else
-      label.input__label.h3= options.label
+      label.input__label.h3 !{label}
         input.input__input(
           class = options.inputClass
           id = options.inputId
