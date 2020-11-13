@@ -28,6 +28,20 @@ mixin input(options)
       label.input__label(
         for = options.inputId
       )= options.label
+    - else if (options.type === 'toggle')
+      input.input__input.input__input_toggle(
+        class = options.inputClass,
+        id = options.inputId,
+        type = 'checkbox',
+        name = options.name
+        tadindex = options.tabindex
+        required = options.required
+        value = options.value
+        checked = options.checked
+      )&attributes(options.attributes)
+      label.input__label(
+        for = options.inputId
+      )= options.label
     - else
       label.input__label.h3= options.label
         input.input__input(
