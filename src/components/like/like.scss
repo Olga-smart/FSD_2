@@ -1,9 +1,9 @@
 .like {
   display: inline-block;
-  min-width: 40px;
+  min-width: 38px;
   width: auto;
-  height: 20px;
-  border: 1px solid $primary-light;
+  height: 18px;
+//  border: 1px solid $primary-light;
   border-radius: 10px;
   font-size: 0.7rem;
   line-height: 18px;
@@ -13,7 +13,20 @@
   padding-right: 6px;
   position: relative;
   transition: all 0.2s ease-in-out;
+  background-color: #fff;
+  margin: 1px;
   &::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    background-color: $primary-light;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  &::after {
     content: '';
     display: block;
     width: 10px;
@@ -28,6 +41,9 @@
     border-color: $accent-main;
     color: $accent-main;
     &::before {
+      background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
+    }
+    &::after {
       background-image: url(../../src/components/like/img/like_checked.svg);
     }
   }
