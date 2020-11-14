@@ -1,13 +1,16 @@
 .like {
-  width: 40px;
+  display: inline-block;
+  min-width: 40px;
+  width: auto;
   height: 20px;
   border: 1px solid $primary-light;
   border-radius: 10px;
   font-size: 0.7rem;
-  line-height: 20px;
+  line-height: 18px;
   color: $primary-light;
   text-align: center;
-  padding-left: 14px;
+  padding-left: 16px;
+  padding-right: 6px;
   position: relative;
   transition: all 0.2s ease-in-out;
   &::before {
@@ -17,7 +20,7 @@
     height: 8px;
     position: absolute;
     top: calc(50% - 4px);
-    left: 6px;
+    left: 5px;
     background-image: url(../../src/components/like/img/like_border.svg);
     transition: all 0.2s ease-in-out;
   }
