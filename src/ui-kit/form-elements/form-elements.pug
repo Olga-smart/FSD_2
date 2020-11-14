@@ -14,6 +14,7 @@ html(lang="ru")
         include ../../components/button/button
         include ../../components/datepicker/datepicker
         include ../../components/like/like
+        include ../../components/rate/rate
         
         .col
           +input({
@@ -182,6 +183,14 @@ html(lang="ru")
               value: 12,
               class: "checked"
             })
+            
+          .h3 Rate button
+          +rate({
+            value: 4
+          })
+          +rate({
+            value: 5
+          })
           
         .col
           div 

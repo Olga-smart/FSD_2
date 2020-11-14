@@ -1,4 +1,6 @@
 mixin input(options)
+  if !options
+    - options = {}
   .input(class = options.class)
     - var label = options.label
     - if (options.type === 'checkbox')

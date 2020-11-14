@@ -1,0 +1,9 @@
+.rate {
+  display: grid;
+  grid-template-columns: repeat(5, 20px);
+  grid-column-gap: 4px;
+  &__star {
+    width: 20px;
+    height: 19px;
+  }
+}
