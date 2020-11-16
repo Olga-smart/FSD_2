@@ -15,6 +15,7 @@ html(lang="ru")
         include ../../components/datepicker/datepicker
         include ../../components/like/like
         include ../../components/rate/rate
+        include ../../components/range/range
         
         .col
           +input({
@@ -193,6 +194,18 @@ html(lang="ru")
           })
           
         .col
+          .col-266
+            +range({
+              label: "Range slider",
+              note: "Стоимость за сутки пребывания в номере",
+              min: 700,
+              max: 15200,
+              from: 5000,
+              to: 10000,
+              step: 10
+            }) 
+        
+        
           div 
             .h3 Buttons
             +button({

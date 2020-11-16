@@ -1,0 +1,17 @@
+mixin range(options)
+  if !options
+    - options = {}
+    
+  .range
+    .h3.range__title= options.label
+    .range__output
+    input.js-range-slider(type="text"
+      data-min= options.min
+      data-max= options.max
+      data-from= options.from
+      data-to= options.to
+      data-step= options.step
+      )&attributes(options.attributes)
+    if (options.note)  
+      .range__note= options.note   
+    
