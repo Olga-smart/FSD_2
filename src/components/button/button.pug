@@ -1,8 +1,23 @@
 mixin button(options)
   if !options
     - options = {}
+  
+  - let classList = []
+  
+  - if (options.view)
+    - if ( Array.isArray(options.view) )      
+      - for (let view of options.view)
+        - classList.push("button_" + view)
+    - else
+      - classList.push("button_" + options.view)
+    
+  - if (options.class)
+    - classList.push(options.class)
+    
+  - let list = classList.join(" ")
+  
   button.button(
     type = options.type,
-    class = options.class,
-    disabled = options.disabled
+    disabled = options.disabled,
+    class = list
   )= options.text || "Click me"

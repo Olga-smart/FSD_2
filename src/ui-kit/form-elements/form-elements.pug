@@ -206,8 +206,39 @@ html(lang="ru")
             }) 
         
         
-          div 
-            .h3 Buttons
+      
+          .h3 Buttons
+          div
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              view: "fill"
+            })
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              view: "fill",
+              class: "button_fill_hovered"
+            })
+            
+          div
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              view: "outline"
+            })
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              view: "outline",
+              class: "button_outline_hovered"
+            })  
+
+          div
             +button({
               tag: "button",
               text: "Click me",
@@ -217,8 +248,19 @@ html(lang="ru")
               tag: "button",
               text: "Click me",
               type: "button",
-              disabled: true
+              class: "button_hovered"
             })
+            
+          div  
+            +button({
+              tag: "button",
+              text: "Перейти к оплате",
+              type: "button",
+              view: ["fill", "full-width", "arrow_right"],
+              class: "button_hovered"
+            })
+            
+            
     script(src="../../main.js")
     script(src="form-elements.js")
     
