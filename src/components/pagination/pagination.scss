@@ -1,0 +1,50 @@
+.paginationjs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-list {
+    list-style-type: none;
+    display: flex;
+  }
+  &-page, &-ellipsis {
+    display: flex;
+    width: 2.86rem;
+    height: 2.86rem;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.86rem;
+    a {
+      color: $primary-medium;
+      text-decoration: none;
+    }
+    &.active {
+      background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
+        a {
+          color: #fff;
+          font-weight: 700;
+        }
+    }
+  }
+  &-prev, &-next {
+    width: 2.86rem;
+    height: 2.86rem;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45%, 100%;
+  }
+  &-prev {
+    background-image:
+      url(../components/pagination/img/arrow_backward.svg),
+      linear-gradient(to bottom, $accent-secondary, $accent-secondary-additional);
+  }
+  &-next {
+    background-image:
+      url(../components/pagination/img/arrow_forward.svg),
+      linear-gradient(to bottom, $accent-secondary, $accent-secondary-additional);
+  }
+  &-nav {
+    margin-top: 0.55rem;
+  }
+}

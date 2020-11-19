@@ -7,5 +7,6 @@ import './components/datepicker/datepicker.js';
 import './components/like/like.js';
 import './components/rate/rate.js';
 import './components/range/range.js';
+import './components/pagination/pagination.js';
 
 import './theme/style.scss';
