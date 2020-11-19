@@ -1,0 +1,37 @@
+.expandable-checklist {
+  &__title {
+    cursor: pointer;
+    padding-bottom: 0.55rem;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-bottom: 2px solid $primary-medium; 
+      border-right: 2px solid $primary-medium; 
+      right: 17px;
+      top: 2px;
+      transform: rotate(45deg);
+    }
+  }
+  &__list {
+    display: none;
+    grid-row-gap: 0.7rem;
+    padding-top: 0.7rem;
+  }
+  &_open {
+    .expandable-checklist__title {
+      &::after {
+        border: none;
+        border-top: 2px solid $primary-medium;
+        border-left: 2px solid $primary-medium;
+        top: 6px;
+      }
+    }
+    .expandable-checklist__list {
+      display: grid;
+    } 
+  }
+}

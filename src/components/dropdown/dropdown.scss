@@ -9,8 +9,7 @@
     border-color: $primary-medium;
     outline: none;
   }
-  &:focus,
-  &.menu-open {
+  &:focus, &.menu-open {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
