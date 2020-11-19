@@ -18,6 +18,12 @@
       color: $primary-medium;
       text-decoration: none;
     }
+  }
+  &-page {
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: $primary-very-light;
+    }
     &.active {
       background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
         a {
