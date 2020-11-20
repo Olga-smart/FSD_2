@@ -1,0 +1,24 @@
+.bullet-list {
+  &__title {
+    margin-bottom: 0.95rem;
+  }
+  &__list {
+    list-style-type: none;
+    display: grid;
+    grid-row-gap: 0.7rem;
+  }
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 0.7rem;
+    align-items: baseline;
+    &::before {
+      display: block;
+      content: '';
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      background-color: $primary-light;
+    }
+  }
+}

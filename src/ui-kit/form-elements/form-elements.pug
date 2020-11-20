@@ -18,6 +18,7 @@ html(lang="ru")
         include ../../components/range/range
         include ../../components/expandable-checklist/expandable-checklist
         include ../../components/rich-checklist/rich-checklist
+        include ../../components/bullet-list/bullet-list
         
         .col
           +input({
@@ -333,6 +334,16 @@ html(lang="ru")
                 label: "Помощник для инвалидов",
                 sublabel: "На 1 этаже вас встретит специалист <br>и проводит до номера."
               }                
+            ]
+          })
+          
+        .col
+          +bullet-list({
+            title: "Bullet list",
+            items: [
+              "Нельзя с питомцами",
+              "Без вечеринок и мероприятий",
+              "Время прибытия — после 13:00, <br>а выезд до 12:00"
             ]
           })
           
