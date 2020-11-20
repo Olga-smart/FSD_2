@@ -19,6 +19,7 @@ html(lang="ru")
         include ../../components/expandable-checklist/expandable-checklist
         include ../../components/rich-checklist/rich-checklist
         include ../../components/bullet-list/bullet-list
+        include ../../components/icon-list/icon-list
         
         .col
           +input({
@@ -346,6 +347,22 @@ html(lang="ru")
               "Время прибытия — после 13:00, <br>а выезд до 12:00"
             ]
           })
+          
+        .col
+          +icon-list({
+            items: [
+              {
+                icon: "img/emoticon.svg",
+                label: "Комфорт",
+                sublabel: "Шумопоглощающие стены"
+              },
+              {
+                icon: "img/city.svg",
+                label: "Удобство",
+                sublabel: "Окно в каждой из спален"
+              }
+            ]
+          }) 
           
           
           .visually-hidden

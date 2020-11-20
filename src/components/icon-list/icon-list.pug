@@ -1,0 +1,10 @@
+mixin icon-list(options)
+  if !options
+    - options = {}
+    
+  ul.icon-list
+    - for (let item of options.items)
+      li.icon-list__item
+        .icon-list__icon(style = "background-image: url(" + item.icon + ")")
+        p.icon-list__label= item.label
+        p.icon-list__sublabel= item.sublabel
