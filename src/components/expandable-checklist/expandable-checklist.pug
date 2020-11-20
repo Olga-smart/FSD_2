@@ -3,8 +3,12 @@ include ../../components/input/input
 mixin expandable-checklist(options)
   if !options
     - options = {}
+    
+  - let modifier
+  if (options.opened)
+   - modifier = "expandable-checklist_open"
   
-  .expandable-checklist
+  .expandable-checklist(class = modifier)
     .expandable-checklist__title.h3= options.title
     .expandable-checklist__list
       - for (let i = 0; i < options.items.length; i++)

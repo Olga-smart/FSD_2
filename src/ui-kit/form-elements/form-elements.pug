@@ -267,7 +267,33 @@ html(lang="ru")
           .col-266
             +expandable-checklist({
               title: "Expandable checkbox list",
-              uniqueName: "expandable-checklist-example",
+              uniqueName: "expandable-checklist-example1",
+              items: [
+                {
+                  label: "Завтрак"
+                },
+                {
+                  label: "Письменный стол"
+                },
+                {
+                  label: "Стул для кормления"
+                },
+                {
+                  label: "Кроватка"
+                },
+                {
+                  label: "Телевизор"
+                },
+                {
+                  label: "Шампунь"
+                }
+              ]
+            })
+          
+            +expandable-checklist({
+              title: "Expandable checkbox list",
+              uniqueName: "expandable-checklist-example2",
+              opened: true,
               items: [
                 {
                   label: "Завтрак"
@@ -293,6 +319,7 @@ html(lang="ru")
               ] 
             })
           
+        .col
           
           
           
