@@ -1,9 +1,9 @@
 // Colors
 $primary-very-dark: #1F2041;
-$primary-dark: transparentize($primary-very-dark, 0.25);
-$primary-medium: transparentize($primary-dark, 0.25);
-$primary-light: transparentize($primary-medium, 0.25);
-$primary-very-light: transparentize($primary-light, 0.20);
+$primary-dark: rgba($primary-very-dark, 0.75);
+$primary-medium: rgba($primary-dark, 0.5);
+$primary-light: rgba($primary-medium, 0.25);
+$primary-very-light: rgba($primary-light, 0.05);
 $accent-main: #BC9CFF;
 $accent-secondary: #6FCF97;
 $accent-main-additional: #8BA4F9;
