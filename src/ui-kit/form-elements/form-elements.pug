@@ -17,6 +17,7 @@ html(lang="ru")
         include ../../components/rate/rate
         include ../../components/range/range
         include ../../components/expandable-checklist/expandable-checklist
+        include ../../components/rich-checklist/rich-checklist
         
         .col
           +input({
@@ -320,7 +321,20 @@ html(lang="ru")
             })
           
         .col
-          
+          +rich-checklist({
+            title: "Rich checkbox buttons",
+            uniqueName: "rich-checklist-example",
+            items: [
+              {
+                label: "Широкий коридор",
+                sublabel: "Ширина коридоров в номере <br>не менее 91 см."
+              },
+              {
+                label: "Помощник для инвалидов",
+                sublabel: "На 1 этаже вас встретит специалист <br>и проводит до номера."
+              }                
+            ]
+          })
           
           
           .visually-hidden
