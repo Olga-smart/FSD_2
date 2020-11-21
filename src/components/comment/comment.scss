@@ -1,0 +1,23 @@
+.comment {
+  display: grid;
+  grid-template-columns: auto 1fr; 
+  grid-column-gap: 0.7rem;
+  grid-row-gap: 0.55rem;
+  &__avatar {
+    width: 3.43rem;
+    height: 3.43rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.1);
+  }
+  &__name {
+    font-weight: 700;
+  }
+  &__like-container {
+    text-align: center;
+  }
+  &__text {
+    padding-top: 0.15rem;
+  }
+}

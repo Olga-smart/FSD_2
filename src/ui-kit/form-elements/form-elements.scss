@@ -37,6 +37,9 @@
     display: grid;
     grid-gap: 40px;
   }
+  .col-2 {
+    grid-column: span 2;
+  }
   .pagination-container {
     display: flex;
   }

@@ -1,0 +1,17 @@
+mixin comment(options)
+  .comment
+    img.comment__avatar(
+      src = options.avatar
+    )
+    div
+      p.comment__name= options.name
+      p.comment__date= options.date
+    .comment__like-container
+      +like({
+        value: options.like.value,
+        class: options.like.class
+      }) 
+    .comment__text= options.text 
+    
+    
+    

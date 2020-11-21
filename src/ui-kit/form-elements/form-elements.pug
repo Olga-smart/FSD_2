@@ -20,6 +20,7 @@ html(lang="ru")
         include ../../components/rich-checklist/rich-checklist
         include ../../components/bullet-list/bullet-list
         include ../../components/icon-list/icon-list
+        include ../../components/comment/comment
         
         .col
           +input({
@@ -362,7 +363,19 @@ html(lang="ru")
                 sublabel: "Окно в каждой из спален"
               }
             ]
-          }) 
+          })
+          
+        .col-2  
+          +comment({
+            avatar: "img/avatar.jpg",
+            name: "Мурад Сарафанов",
+            date: "2020-11-21",
+            like: {
+              value: 12,
+              class: "checked"              
+            },
+            text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+          })
           
           
           .visually-hidden
