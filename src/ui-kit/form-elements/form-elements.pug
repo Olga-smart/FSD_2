@@ -81,6 +81,7 @@ html(lang="ru")
               label: "date dropdown",
               id: "date-end",
               placeholder: "ДД.ММ.ГГГГ",
+              value: "2021-08-18",
               attributes: {
                 "data-position": "bottom right"
               }
@@ -90,11 +91,14 @@ html(lang="ru")
             +datepicker({
               class: "filter-date-dropdown input_arrow_down",
               label: "filter date dropdown",
+              id: "date-filter",
               placeholder: "ДД.ММ.ГГГГ",
+              value: "2021-08-19 - 2021-08-23",
               attributes: {
                 "data-range": "true",
                 "data-multiple-dates-separator": " - ",
-                "data-toggle-selected": "false"
+                "data-toggle-selected": "false",
+                "data-date-format": "d M"
               }
             })
             
@@ -350,20 +354,21 @@ html(lang="ru")
           })
           
         .col
-          +icon-list({
-            items: [
-              {
-                icon: "img/emoticon.svg",
-                label: "Комфорт",
-                sublabel: "Шумопоглощающие стены"
-              },
-              {
-                icon: "img/city.svg",
-                label: "Удобство",
-                sublabel: "Окно в каждой из спален"
-              }
-            ]
-          })
+          .col-266
+            +icon-list({
+              items: [
+                {
+                  icon: "img/emoticon.svg",
+                  label: "Комфорт",
+                  sublabel: "Шумопоглощающие стены"
+                },
+                {
+                  icon: "img/city.svg",
+                  label: "Удобство",
+                  sublabel: "Окно в каждой из спален"
+                }
+              ]
+            })
           
         .col-2  
           +comment({

@@ -6,7 +6,11 @@ $('.datepicker-here').datepicker({
   navTitles: {
     days: 'MM yyyy'
   },
-  offset: 6
+  offset: 6,
+  minDate: new Date(),
+  language: {
+    monthsShort: ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек']
+  }
 })
 
 let calendars = document.querySelectorAll('.datepicker');
@@ -37,6 +41,7 @@ function addLogicForApplyBtn(btn) {
   btn.addEventListener('click', function() {
     let thisCalendar = btn.closest('.datepicker');
     thisCalendar.classList.remove('active');
+    $('.datepicker-here').blur();
   });
 }
 
@@ -55,5 +60,25 @@ $('#date-start').datepicker({
   }
 });
 
+let dateStart = document.querySelector('#date-start');
+let myDatepickerForDateStart = $('#date-start').datepicker().data('datepicker');
+if ( dateStart.defaultValue ) {
+  myDatepickerForDateStart.selectDate( new Date( Date.parse(dateStart.defaultValue) ) );
+}
+
+let dateEnd = document.querySelector('#date-end');
+let myDatepickerForDateEnd = $('#date-end').datepicker().data('datepicker');
+if ( dateEnd.defaultValue ) {
+  myDatepickerForDateEnd.selectDate( new Date( Date.parse(dateEnd.defaultValue) ) );
+}
+
+let dateFilter = document.querySelector('#date-filter');
+let myDatepickerForFilter = $('#date-filter').datepicker().data('datepicker');
+if ( dateFilter.defaultValue ) {
+  myDatepickerForFilter.selectDate([
+    new Date( Date.parse( dateFilter.defaultValue.slice(0, 10) ) ),
+    new Date( Date.parse( dateFilter.defaultValue.slice(13) ) ) 
+  ]);
+}
 
 
