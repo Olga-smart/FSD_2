@@ -2,7 +2,7 @@ mixin button(options)
   if !options
     - options = {}
   
-  - let classList = []
+  - let classList = ['button']
   
   - if (options.view)
     - if ( Array.isArray(options.view) )      
@@ -16,8 +16,11 @@ mixin button(options)
     
   - let list = classList.join(" ")
   
-  button.button(
+  - let tag = options.tag || "button"
+  
+  #{tag}(
     type = options.type,
     disabled = options.disabled,
-    class = list
+    class = list,
+    href = options.href
   )= options.text || "Click me"

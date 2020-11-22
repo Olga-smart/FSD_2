@@ -5,6 +5,10 @@
   font-weight: 700;
   font-size: 0.86rem;
   color: $accent-main;
+  display: inline-block;
+  text-align: center;
+  line-height: normal;
+  text-decoration: none;
   &:hover, &_hovered {
     color: $primary-medium;
   }
