@@ -13,6 +13,7 @@ html(lang="ru")
         include ../../components/dropdown/dropdown
         include ../../components/button/button
         include ../../components/datepicker/datepicker
+        include ../../components/input-with-button/input-with-button
         include ../../components/like/like
         include ../../components/rate/rate
         include ../../components/range/range
@@ -101,14 +102,13 @@ html(lang="ru")
                 "data-date-format": "d M"
               }
             })
-            
-            +input({
-              class: "input_arrow_right",
-              label: "subscription text field",
-              placeholder: "Email",
-              type: "email"
-            })
           
+            +input-with-button({
+              label: "Subscription text field",
+              placeholder: "Email",
+              type: "email",
+              name: "email"
+            })
 
             +dropdown({
               label: "Dropdown",
@@ -133,8 +133,6 @@ html(lang="ru")
               ],
               buttonsClass: "hidden",
             })
-                    
-          
           
         .col
           .h3 Checkbox buttons

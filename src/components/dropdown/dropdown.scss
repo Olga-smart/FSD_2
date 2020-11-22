@@ -1,6 +1,6 @@
 .iqdropdown {
   padding: 0.86rem 1.1rem;
-  height: 44px;
+  height: 3.14rem;
   border: 1px solid $primary-light;
   background-color: #fff;
   &:hover,
@@ -19,12 +19,12 @@
     color: $primary-dark;
     &::after {
       background-image: none;
-      width: 8px;
-      height: 8px;
+      width: 0.57rem;
+      height: 0.57rem;
       border-left: 2px solid $primary-medium;
       border-bottom: 2px solid $primary-medium;
       transform: rotate(-45deg);
-      top: calc(50% - 5px);
+      top: calc(50% - 0.36rem);
     }
   }
   & &-menu {

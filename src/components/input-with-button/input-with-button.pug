@@ -1,0 +1,17 @@
+include ../../components/input/input
+
+mixin input-with-button(options)
+  if !options
+    - options = {}
+  form.input-with-button(
+    method = "post"
+  )
+    +input({
+      label: options.label,
+      placeholder: options.placeholder,
+      type: options.type,
+      name: options.name
+    })
+    button.input-with-button__button(
+      type = "submit"
+    )
