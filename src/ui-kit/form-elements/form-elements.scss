@@ -5,7 +5,9 @@
   grid-column-gap: 40px;
   grid-gap: 100px;
   .default-text-field,
-  .hover-focus-text-field {
+  .hover-focus-text-field,
+  .default-dropdown,
+  .expanded-dropdown {
     position: relative;
     &::before {
       position: absolute;
@@ -27,6 +29,13 @@
       border-color: $primary-medium;
     }
   }
+  .default-dropdown::before {
+    content: "default";
+  }
+  .expanded-dropdown::before {
+    content: "expanded"
+  }
+  
   .col {
     display: grid;
     grid-gap: 17px;

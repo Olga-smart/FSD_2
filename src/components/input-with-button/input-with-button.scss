@@ -1,5 +1,8 @@
 .input-with-button {
   position: relative;
+  &__input {
+    padding-right: 3.14rem;
+  }
   &__button {
     position: absolute;
     right: 0;

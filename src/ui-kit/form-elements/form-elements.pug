@@ -109,30 +109,6 @@ html(lang="ru")
               type: "email",
               name: "email"
             })
-
-            +dropdown({
-              label: "Dropdown",
-              class: "iqdropdown-facilities",
-              items: [
-                {
-                  id: "facilities-item1",
-                  text: "Спальни",
-                  defaultcount: 2,
-                  mincount: 1
-                },
-                {
-                  id: "facilities-item2",
-                  text: "Кровати",
-                  defaultcount: 2,
-                  mincount: 1
-                },
-                {
-                  id: "facilities-item3",
-                  text: "Ванные комнаты"
-                }
-              ],
-              buttonsClass: "hidden",
-            })
           
         .col
           .h3 Checkbox buttons
@@ -267,6 +243,104 @@ html(lang="ru")
           .h3 Pagination
        
           .pagination-container
+          
+        .col
+          .col-266
+            +dropdown({
+              label: "Dropdown",
+              class: "iqdropdown-facilities",
+              items: [
+                {
+                  id: "facilities-item1",
+                  text: "Спальни",
+                  defaultcount: 2,
+                  mincount: 1
+                },
+                {
+                  id: "facilities-item2",
+                  text: "Кровати",
+                  defaultcount: 2,
+                  mincount: 1
+                },
+                {
+                  id: "facilities-item3",
+                  text: "Ванные комнаты"
+                }
+              ],
+              buttonsClass: "hidden",
+              attributes: {
+                class: "default-dropdown"
+              }
+            })
+            
+            +dropdown({
+              label: "Dropdown",
+              class: "iqdropdown-facilities menu-open",
+              items: [
+                {
+                  id: "facilities-item1",
+                  text: "Спальни",
+                  defaultcount: 2,
+                  mincount: 1
+                },
+                {
+                  id: "facilities-item2",
+                  text: "Кровати",
+                  defaultcount: 2,
+                  mincount: 1
+                },
+                {
+                  id: "facilities-item3",
+                  text: "Ванные комнаты"
+                }
+              ],
+              buttonsClass: "hidden",
+              attributes: {
+                class: "expanded-dropdown"
+              }
+            })
+            
+        .col
+          +dropdown({
+            label: "Dropdown",
+            class: "iqdropdown-guests menu-open",
+            items: [
+              {
+                id: "guests-item1",
+                text: "Взрослые"
+              },
+              {
+                id: "guests-item2",
+                text: "Дети"
+              },
+              {
+                id: "guests-item3",
+                text: "Младенцы"
+              }
+            ]
+          })
+        
+        .col
+          +dropdown({
+            label: "Dropdown",
+            class: "iqdropdown-guests menu-open",
+            items: [
+              {
+                id: "guests-item1",
+                text: "Взрослые",
+                defaultcount: 2
+              },
+              {
+                id: "guests-item2",
+                text: "Дети",
+                defaultcount: 1
+              },
+              {
+                id: "guests-item3",
+                text: "Младенцы"
+              }
+            ]
+          })
           
         .col
           .col-266

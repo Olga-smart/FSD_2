@@ -1,10 +1,7 @@
 include ../../components/button/button
 
-mixin dropdown(options)
-  if !options
-    - options = {}
-    
-  .dropdown
+mixin dropdown(options)    
+  .dropdown()&attributes(options.attributes)
     label.h3= options.label
     .iqdropdown(class = options.class)
       p.iqdropdown-selection

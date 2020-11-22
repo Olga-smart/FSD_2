@@ -10,7 +10,9 @@ $(document).ready(() => {
         return 'Сколько гостей';
       }
 
-      let guestsWord = wordToPlural(totalItems, 'гость', 'гостя', 'гостей');
+      let guestsCount = itemCount['guests-item1'] + itemCount['guests-item2'];
+      
+      let guestsWord = wordToPlural(guestsCount, 'гость', 'гостя', 'гостей');
 
       let babiesCount = itemCount['guests-item3'];
       let babiesWord = wordToPlural(babiesCount, 'младенец', 'младенца', 'младенцев');
@@ -18,7 +20,7 @@ $(document).ready(() => {
       if (babiesCount == 0) {
         return totalItems + ' ' + guestsWord;
       }
-      return totalItems + ' ' + guestsWord + ', ' + babiesCount + ' ' + babiesWord;
+      return guestsCount + ' ' + guestsWord + ', ' + babiesCount + ' ' + babiesWord;
     },
     onChange: (id, count, totalItems) => {
       toggleDisabledMinusBtn(id, count);
