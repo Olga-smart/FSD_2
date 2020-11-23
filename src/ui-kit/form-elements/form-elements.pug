@@ -14,6 +14,7 @@ html(lang="ru")
         include ../../components/button/button
         include ../../components/datepicker/datepicker
         include ../../components/input-with-button/input-with-button
+        include ../../components/checklist/checklist
         include ../../components/like/like
         include ../../components/rate/rate
         include ../../components/range/range
@@ -110,24 +111,23 @@ html(lang="ru")
               name: "email"
             })
           
-        .col
-          .h3 Checkbox buttons
-          +input({
-            label: "Можно курить",
-            type: "checkbox",
-            inputId: "checkbox-1"
-          })
-          +input({
-            label: "Можно с питомцами",
-            type: "checkbox",
-            checked: true,
-            inputId: "checkbox-2"
-          })
-          +input({
-            label: "Можно пригласить гостей <br> (до 10 человек)",
-            type: "checkbox",
-            checked: true,
-            inputId: "checkbox-3"
+        .col          
+          +checklist({
+            title: "Checkbox buttons",
+            uniqueName: "checklist-example",
+            items:[
+              {
+                label: "Можно курить"
+              },
+              {
+                label: "Можно с питомцами",
+                checked: true
+              },
+              {
+                label: "Можно пригласить гостей <br> (до 10 человек)",
+                checked: true
+              }
+            ] 
           })
           
           .h3 Radio buttons

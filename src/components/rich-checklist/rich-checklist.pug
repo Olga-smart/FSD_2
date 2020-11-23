@@ -1,9 +1,6 @@
 include ../../components/input/input
 
-mixin rich-checklist(options)
-  if !options
-    - options = {}
-    
+mixin rich-checklist(options)    
   .rich-checklist
     .rich-checklist__title.h3= options.title
     .rich-checklist__list
