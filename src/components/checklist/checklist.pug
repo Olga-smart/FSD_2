@@ -3,7 +3,7 @@ include ../../components/input/input
 mixin checklist(options)
   .checklist
     .checklist__title.h3= options.title
-    .checklist__list
+    .checklist__list(class = options.listClass)
       - for (let i = 0; i < options.items.length; i++)
         +input({
           label: options.items[i].label,
