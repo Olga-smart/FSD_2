@@ -1,7 +1,7 @@
 .expandable-checklist {
   &__title {
     cursor: pointer;
-    padding-bottom: 0.55rem;
+    padding-bottom: 0.3rem;
     position: relative;
     &::after {
       content: '';
@@ -19,7 +19,6 @@
   &__list {
     display: none;
     grid-row-gap: 0.7rem;
-    padding-top: 0.7rem;
   }
   &_open {
     .expandable-checklist__title {
