@@ -3,7 +3,7 @@
   box-sizing: border-box;
   font-family: inherit;
   padding: 1.43rem;
-  box-shadow: none;
+  box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
   &--pointer {
     display: none;
   }
@@ -175,6 +175,7 @@
 
 .datepicker-inline .datepicker {
   border: 1px solid $primary-light;
+  box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
 }
 
 .double-datepicker-wrap {

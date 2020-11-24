@@ -3,7 +3,7 @@ require('paginationjs');
 let cards = document.querySelectorAll('.card');
 let arr = Array.from(cards);
 
-$('.pagination-container').pagination({
+$('.pagination').pagination({
   dataSource: arr,
   showNavigator: true,
   pageSize: 12,

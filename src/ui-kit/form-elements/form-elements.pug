@@ -59,59 +59,60 @@ html(lang="ru")
             buttonsClass: "hidden",
           })
           
-          +input({
-            class: "birthday-input",
-            label: "masked text field",
-            placeholder: "ДД.ММ.ГГГГ"
-          })
-          
-          .double-datepicker-wrap
-            +datepicker({
-              class: "date-dropdown input_arrow_down",
-              label: "date dropdown",
-              id: "date-start",
-              placeholder: "ДД.ММ.ГГГГ",
-              attributes: {
-                "data-range": "true",
-                "data-multiple-dates-separator": " - ",
-                "data-toggle-selected": "false"
-              }
+          .gap-37px.pt-3px
+            +input({
+              class: "birthday-input",
+              label: "masked text field",
+              placeholder: "ДД.ММ.ГГГГ"
             })
 
-            +datepicker({
-              class: "date-dropdown input_arrow_down",
-              label: "date dropdown",
-              id: "date-end",
-              placeholder: "ДД.ММ.ГГГГ",
-              value: "2021-08-18",
-              attributes: {
-                "data-position": "bottom right"
-              }
-            })
+            .double-datepicker-wrap
+              +datepicker({
+                class: "date-dropdown input_arrow_down",
+                label: "date dropdown",
+                id: "date-start",
+                placeholder: "ДД.ММ.ГГГГ",
+                attributes: {
+                  "data-range": "true",
+                  "data-multiple-dates-separator": " - ",
+                  "data-toggle-selected": "false"
+                }
+              })
+
+              +datepicker({
+                class: "date-dropdown input_arrow_down",
+                label: "date dropdown",
+                id: "date-end",
+                placeholder: "ДД.ММ.ГГГГ",
+                value: "2021-08-18",
+                attributes: {
+                  "data-position": "bottom right"
+                }
+              })
           
-          .col-266
-            +datepicker({
-              class: "filter-date-dropdown input_arrow_down",
-              label: "filter date dropdown",
-              id: "date-filter",
-              placeholder: "ДД.ММ.ГГГГ",
-              value: "2021-08-19 - 2021-08-23",
-              attributes: {
-                "data-range": "true",
-                "data-multiple-dates-separator": " - ",
-                "data-toggle-selected": "false",
-                "data-date-format": "d M"
-              }
-            })
+            .col-266.gap-40px
+              +datepicker({
+                class: "filter-date-dropdown input_arrow_down",
+                label: "filter date dropdown",
+                id: "date-filter",
+                placeholder: "ДД.ММ.ГГГГ",
+                value: "2021-08-19 - 2021-08-23",
+                attributes: {
+                  "data-range": "true",
+                  "data-multiple-dates-separator": " - ",
+                  "data-toggle-selected": "false",
+                  "data-date-format": "d M"
+                }
+              })
+
+              +input-with-button({
+                label: "Subscription text field",
+                placeholder: "Email",
+                type: "email",
+                name: "email"
+              })
           
-            +input-with-button({
-              label: "Subscription text field",
-              placeholder: "Email",
-              type: "email",
-              name: "email"
-            })
-          
-        .col          
+        .col.gap-40px          
           +checklist({
             title: "Checkbox buttons",
             uniqueName: "checklist-example",
@@ -130,36 +131,38 @@ html(lang="ru")
             ] 
           })
           
-          .h3 Radio buttons
-          +input({
-            label: "Мужчина",
-            type: "radio",
-            name: "checkbox",
-            checked: true,
-            inputId: "radio-1"
-          })
-          +input({
-            label: "Женщина",
-            type: "radio",
-            name: "checkbox",
-            inputId: "radio-2"
-          })
+          .radio-container
+            .h3 Radio buttons
+            +input({
+              label: "Мужчина",
+              type: "radio",
+              name: "checkbox",
+              checked: true,
+              inputId: "radio-1"
+            })
+            +input({
+              label: "Женщина",
+              type: "radio",
+              name: "checkbox",
+              inputId: "radio-2"
+            })
           
-          .h3 Toggle
-          +input({
-            label: "Получать спецпредложения",
-            type: "toggle",
-            checked: true,
-            inputId: "toggle-1"
-          })
-          +input({
-            label: "Получать спецпредложения",
-            type: "toggle",
-            inputId: "toggle-2"
-          })
+          .toggle-container
+            .h3 Toggle
+            +input({
+              label: "Получать спецпредложения",
+              type: "toggle",
+              checked: true,
+              inputId: "toggle-1"
+            })
+            +input({
+              label: "Получать спецпредложения",
+              type: "toggle",
+              inputId: "toggle-2"
+            })
           
-          .h3 Like button
-          div
+          .like-container
+            .h3 Like button
             +like({
               value: 2
             })
@@ -168,19 +171,19 @@ html(lang="ru")
               class: "checked"
             })
             
-          .h3 Rate button
-          +rate({
-            value: 4
-          })
-          +rate({
-            value: 5
-          })
+          .rate-container  
+            .h3 Rate button
+            +rate({
+              value: 4
+            })
+            +rate({
+              value: 5
+            })
           
-        .col
+        .col.gap-40px
           .col-266
             +range({
               label: "Range slider",
-              note: "Стоимость за сутки пребывания в номере",
               min: 700,
               max: 15200,
               from: 5000,
@@ -188,51 +191,51 @@ html(lang="ru")
               step: 10
             })
       
-          .h3 Buttons
-          div
-            +button({
-              tag: "button",
-              text: "Click me",
-              type: "button",
-              view: "fill"
-            })
-            +button({
-              tag: "button",
-              text: "Click me",
-              type: "button",
-              view: "fill",
-              class: "button_fill_hovered"
-            })
-            
-          div
-            +button({
-              tag: "button",
-              text: "Click me",
-              type: "button",
-              view: "outline"
-            })
-            +button({
-              tag: "button",
-              text: "Click me",
-              type: "button",
-              view: "outline",
-              class: "button_outline_hovered"
-            })  
+          .buttons-container
+            .h3 Buttons
+            .buttons-row
+              +button({
+                tag: "button",
+                text: "Click me",
+                type: "button",
+                view: "fill"
+              })
+              +button({
+                tag: "button",
+                text: "Click me",
+                type: "button",
+                view: "fill",
+                class: "button_fill_hovered"
+              })
 
-          div
-            +button({
-              tag: "button",
-              text: "Click me",
-              type: "button"
-            })
-            +button({
-              tag: "button",
-              text: "Click me",
-              type: "button",
-              class: "button_hovered"
-            })
-            
-          div  
+            .buttons-row  
+              +button({
+                tag: "button",
+                text: "Click me",
+                type: "button",
+                view: "outline"
+              })
+              +button({
+                tag: "button",
+                text: "Click me",
+                type: "button",
+                view: "outline",
+                class: "button_outline_hovered"
+              }) 
+
+            .buttons-row
+              +button({
+                tag: "button",
+                text: "Click me",
+                type: "button"
+              })
+              +button({
+                tag: "button",
+                text: "Click me",
+                type: "button",
+                class: "button_hovered"
+              })
+ 
             +button({
               text: "Перейти к оплате",
               type: "button",
@@ -240,110 +243,112 @@ html(lang="ru")
               class: "button_hovered"
             })
             
-          .h3 Pagination
-       
           .pagination-container
-          
-        .col
-          .col-266
+            .h3 Pagination
+            .pagination
+            
+            
+        .dropdown-row.mt--5px    
+          .col
+            .col-266.gap-20px
+              +dropdown({
+                label: "Dropdown",
+                class: "iqdropdown-facilities",
+                items: [
+                  {
+                    id: "facilities-item1",
+                    text: "Спальни",
+                    defaultcount: 2,
+                    mincount: 1
+                  },
+                  {
+                    id: "facilities-item2",
+                    text: "Кровати",
+                    defaultcount: 2,
+                    mincount: 1
+                  },
+                  {
+                    id: "facilities-item3",
+                    text: "Ванные комнаты"
+                  }
+                ],
+                buttonsClass: "hidden",
+                attributes: {
+                  class: "default-dropdown"
+                }
+              })
+
+              +dropdown({
+                label: "Dropdown",
+                class: "iqdropdown-facilities menu-open",
+                items: [
+                  {
+                    id: "facilities-item1",
+                    text: "Спальни",
+                    defaultcount: 2,
+                    mincount: 1
+                  },
+                  {
+                    id: "facilities-item2",
+                    text: "Кровати",
+                    defaultcount: 2,
+                    mincount: 1
+                  },
+                  {
+                    id: "facilities-item3",
+                    text: "Ванные комнаты"
+                  }
+                ],
+                buttonsClass: "hidden",
+                attributes: {
+                  class: "expanded-dropdown"
+                }
+              })
+
+          .col
             +dropdown({
               label: "Dropdown",
-              class: "iqdropdown-facilities",
+              class: "iqdropdown-guests menu-open",
               items: [
                 {
-                  id: "facilities-item1",
-                  text: "Спальни",
-                  defaultcount: 2,
-                  mincount: 1
+                  id: "guests-item1",
+                  text: "Взрослые"
                 },
                 {
-                  id: "facilities-item2",
-                  text: "Кровати",
-                  defaultcount: 2,
-                  mincount: 1
+                  id: "guests-item2",
+                  text: "Дети"
                 },
                 {
-                  id: "facilities-item3",
-                  text: "Ванные комнаты"
+                  id: "guests-item3",
+                  text: "Младенцы"
                 }
-              ],
-              buttonsClass: "hidden",
-              attributes: {
-                class: "default-dropdown"
-              }
+              ]
             })
-            
+
+          .col
             +dropdown({
               label: "Dropdown",
-              class: "iqdropdown-facilities menu-open",
+              class: "iqdropdown-guests menu-open",
               items: [
                 {
-                  id: "facilities-item1",
-                  text: "Спальни",
-                  defaultcount: 2,
-                  mincount: 1
+                  id: "guests-item1",
+                  text: "Взрослые",
+                  defaultcount: 2
                 },
                 {
-                  id: "facilities-item2",
-                  text: "Кровати",
-                  defaultcount: 2,
-                  mincount: 1
+                  id: "guests-item2",
+                  text: "Дети",
+                  defaultcount: 1
                 },
                 {
-                  id: "facilities-item3",
-                  text: "Ванные комнаты"
+                  id: "guests-item3",
+                  text: "Младенцы"
                 }
-              ],
-              buttonsClass: "hidden",
-              attributes: {
-                class: "expanded-dropdown"
-              }
+              ]
             })
-            
-        .col
-          +dropdown({
-            label: "Dropdown",
-            class: "iqdropdown-guests menu-open",
-            items: [
-              {
-                id: "guests-item1",
-                text: "Взрослые"
-              },
-              {
-                id: "guests-item2",
-                text: "Дети"
-              },
-              {
-                id: "guests-item3",
-                text: "Младенцы"
-              }
-            ]
-          })
-        
-        .col
-          +dropdown({
-            label: "Dropdown",
-            class: "iqdropdown-guests menu-open",
-            items: [
-              {
-                id: "guests-item1",
-                text: "Взрослые",
-                defaultcount: 2
-              },
-              {
-                id: "guests-item2",
-                text: "Дети",
-                defaultcount: 1
-              },
-              {
-                id: "guests-item3",
-                text: "Младенцы"
-              }
-            ]
-          })
           
         .col
-          .col-266
+          .col-266.gap-37px
             +expandable-checklist({
               title: "Expandable checkbox list",
               uniqueName: "expandable-checklist-example1",
@@ -441,7 +446,7 @@ html(lang="ru")
               ]
             })
           
-        .col-2  
+        .col-2.pt-10px  
           +comment({
             avatar: "img/avatar.jpg",
             name: "Мурад Сарафанов",
