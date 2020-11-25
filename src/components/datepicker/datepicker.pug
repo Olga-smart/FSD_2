@@ -9,7 +9,7 @@ mixin datepicker(options)
     inputClass: "datepicker-here",
     inputId: options.id,
     label: options.label,
-    placeholder: options.placeholder,
+    placeholder: options.placeholder || "ДД.ММ.ГГГГ",
     value: options.value,
     attributes: options.attributes
   })

@@ -17,7 +17,7 @@ let calendars = document.querySelectorAll('.datepicker');
 for (let calendar of calendars) {
   addStyleForBtns(calendar);
   addApplyBtn(calendar);
-  setWidthForCalendar(calendar);
+//  setWidthForCalendar(calendar);
 }
 
 function addStyleForBtns(calendar) {
@@ -45,7 +45,7 @@ function addLogicForApplyBtn(btn) {
   });
 }
 
-function setWidthForCalendar(calendar) {
+//function setWidthForCalendar(calendar) {
   let input = document.querySelector('.datepicker-here');
   calendar.style.width = input.offsetWidth + 'px';
   if (document.querySelector('.double-datepicker-wrap')) {
