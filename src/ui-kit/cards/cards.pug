@@ -11,15 +11,14 @@ html(lang="ru")
       .cards-wrapper
         include ../../components/card-find-room/card-find-room
         include ../../components/card-sign-up/card-sign-up
+        include ../../components/card-sign-in/card-sign-in
         
         .col
           +card-find-room
-          
-          +card-sign-up
-            
-            
+          +card-sign-up       
             
         .col
+          +card-sign-in
         
         .col
           .datepicker-here(data-range = "true", data-multiple-da+tes-separator = " - ", data-toggle-selected = "false")

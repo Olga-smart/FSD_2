@@ -1,0 +1,18 @@
+.card-sign-in {
+  &__title {
+    margin-bottom: 1.4rem;
+  }
+  &__form {
+    display: grid;
+    grid-row-gap: 0.7rem;
+  }
+  &__submit-btn {
+    margin-top: 0.85rem;
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 2.14rem;
+  }
+}
