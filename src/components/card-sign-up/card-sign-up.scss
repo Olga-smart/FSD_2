@@ -1,0 +1,28 @@
+.card-sign-up {
+  &__title {
+    margin-bottom: 1.3rem;
+  }
+  &__form {
+    display: grid;
+    grid-row-gap: 0.7rem;
+  }
+  &__radio-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 1.43rem;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+  &__birthday-input {
+    margin-bottom: 0.5rem;
+  }
+  &__submit-btn {
+    margin-top: 1rem;
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 2.14rem;
+  }
+}

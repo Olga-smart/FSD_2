@@ -1,10 +1,15 @@
 .card-find-room {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 1.43rem;
-  grid-row-gap: 1.3rem;
-  &__title, &__dropdown, .button {
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.43rem;
+    grid-row-gap: 1.3rem;
+  }
+  &__dropdown, .button {
     grid-column: 1/-1;
+  }
+  &__title {
+    margin-bottom: 1.3rem;
   }
   .button {
     margin-top: 0.9rem;

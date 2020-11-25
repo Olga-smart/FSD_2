@@ -1,0 +1,73 @@
+include ../../components/input/input
+include ../../components/button/button
+
+mixin card-sign-up
+  .card-sign-up.card
+    .card-sign-up__title.h1 Регистрация аккаунта
+    form.card-sign-up__form
+      +input({
+        placeholder: "Имя",
+        type: "text",
+        name: "name",
+        required: true
+      }) 
+      +input({
+        placeholder: "Фамилия",
+        type: "text",
+        name: "surname",
+        required: true
+      }) 
+      .card-sign-up__radio-container
+        +input({
+          label: "Мужчина",
+          type: "radio",
+          name: "checkbox",
+          checked: true,
+          inputId: "radio-1"
+        })
+        +input({
+          label: "Женщина",
+          type: "radio",
+          name: "checkbox",
+          inputId: "radio-2"
+        })
+      +input({
+        class: "birthday-input card-sign-up__birthday-input",
+        label: "Дата рождения",
+        placeholder: "ДД.ММ.ГГГГ",
+        name: "birthday"
+      }) 
+      +input({
+        label: "Данные для входа в сервис",
+        placeholder: "Email",
+        type: "email",
+        name: "email",
+        required: true
+      }) 
+      +input({
+        placeholder: "Пароль",
+        type: "password",
+        name: "password",
+        required: true
+      }) 
+      +input({
+        label: "Получать спецпредложения",
+        type: "toggle",
+        inputId: "toggle",
+        name: "offers"
+      })
+      +button({
+        class: "card-sign-up__submit-btn",
+        text: "Перейти к оплате",
+        type: "submit",
+        view: ["fill", "full-width", "arrow_right"]
+      })
+    .card-sign-up__footer
+      p Уже есть аккаунт на Toxin
+      +button({
+        text: "Войти",
+        type: "button",
+        view: "outline"
+      })
+    
+    

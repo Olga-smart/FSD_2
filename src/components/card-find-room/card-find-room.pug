@@ -5,50 +5,51 @@ include ../../components/button/button
 mixin card-find-room
   .card-find-room.card
     .card-find-room__title.h1 Найдём номера под ваши пожелания
-    +datepicker({
-      class: "date-dropdown input_arrow_down",
-      label: "прибытие",
-      id: "date-start",
-      attributes: {
-        "data-range": "true",
-        "data-multiple-dates-separator": " - ",
-        "data-toggle-selected": "false"
-      }
-    })
-
-    +datepicker({
-      class: "date-dropdown input_arrow_down",
-      label: "выезд",
-      id: "date-end",
-      attributes: {
-        "data-position": "bottom right"
-      }
-    })
-
-    +dropdown({
-      label: "гости",
-      class: "iqdropdown-guests",
-      wrapperClass: "card-find-room__dropdown",
-      items: [
-        {
-          id: "guests-item1",
-          text: "Взрослые"
-        },
-        {
-          id: "guests-item2",
-          text: "Дети"
-        },
-        {
-          id: "guests-item3",
-          text: "Младенцы"
+    form.card-find-room__form
+      +datepicker({
+        class: "date-dropdown input_arrow_down",
+        label: "прибытие",
+        id: "date-start",
+        attributes: {
+          "data-range": "true",
+          "data-multiple-dates-separator": " - ",
+          "data-toggle-selected": "false"
         }
-      ],
-      buttonsClass: "hidden",
-    })
+      })
 
-    +button({
-      text: "Подобрать номер",
-      type: "button",
-      view: ["fill", "full-width", "arrow_right"],
-      class: "button_hovered"
-    })
+      +datepicker({
+        class: "date-dropdown input_arrow_down",
+        label: "выезд",
+        id: "date-end",
+        attributes: {
+          "data-position": "bottom right"
+        }
+      })
+
+      +dropdown({
+        label: "гости",
+        class: "iqdropdown-guests",
+        wrapperClass: "card-find-room__dropdown",
+        items: [
+          {
+            id: "guests-item1",
+            text: "Взрослые"
+          },
+          {
+            id: "guests-item2",
+            text: "Дети"
+          },
+          {
+            id: "guests-item3",
+            text: "Младенцы"
+          }
+        ],
+        buttonsClass: "hidden",
+      })
+
+      +button({
+        text: "Подобрать номер",
+        type: "submit",
+        view: ["fill", "full-width", "arrow_right"],
+        class: "button_hovered"
+      })
