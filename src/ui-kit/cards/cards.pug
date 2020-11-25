@@ -5,15 +5,24 @@ html(lang="ru")
     meta(name='viewport', content="initial-scale=1.0, width=device-width")
     title Cards
     link(rel="stylesheet" href="../ui-kit.scss")
+    link(rel="stylesheet" href="cards.scss")
   body.ui-kit-page
     .ui-kit-container
-      .form-elements-wrapper
-        include ../../components/input/input
-        include ../../components/dropdown/dropdown
-        include ../../components/button/button
-        include ../../components/datepicker/datepicker
+      .cards-wrapper
+        include ../../components/card-find-room/card-find-room
+        
+        
         .col
-          .datepicker-here(data-range = "true", data-multiple-dates-separator = " - ", data-toggle-selected = "false")
+          +card-find-room
+            
+          .card
+            .h1 Регистрация аккаунта
+            
+            
+        .col
+        
+        .col
+          .datepicker-here(data-range = "true", data-multiple-da+tes-separator = " - ", data-toggle-selected = "false")
       
         
     script(src="../../main.js")

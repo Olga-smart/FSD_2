@@ -1,7 +1,7 @@
 include ../../components/button/button
 
 mixin dropdown(options)    
-  .dropdown()&attributes(options.attributes)
+  .dropdown(class = options.wrapperClass)&attributes(options.attributes)
     label.h3= options.label
     .iqdropdown(class = options.class)
       p.iqdropdown-selection

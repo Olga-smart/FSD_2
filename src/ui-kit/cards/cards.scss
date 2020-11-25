@@ -1,0 +1,18 @@
+@import '../../theme/variables.scss';
+
+body {
+  background-color: #e5e5e5;
+}
+.ui-kit-page {
+  padding-top: 150px;
+}
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: 380px 380px 320px;
+  grid-gap: 40px;
+  
+  .col {
+    display: grid;
+    grid-gap: 40px;
+  }
+}

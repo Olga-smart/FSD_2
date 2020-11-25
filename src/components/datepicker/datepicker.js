@@ -45,7 +45,7 @@ function addLogicForApplyBtn(btn) {
   });
 }
 
-//function setWidthForCalendar(calendar) {
+function setWidthForCalendar(calendar) {
   let input = document.querySelector('.datepicker-here');
   calendar.style.width = input.offsetWidth + 'px';
   if (document.querySelector('.double-datepicker-wrap')) {

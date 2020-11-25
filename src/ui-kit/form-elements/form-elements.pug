@@ -71,7 +71,6 @@ html(lang="ru")
                 class: "date-dropdown input_arrow_down",
                 label: "date dropdown",
                 id: "date-start",
-                placeholder: "ДД.ММ.ГГГГ",
                 attributes: {
                   "data-range": "true",
                   "data-multiple-dates-separator": " - ",
@@ -83,7 +82,6 @@ html(lang="ru")
                 class: "date-dropdown input_arrow_down",
                 label: "date dropdown",
                 id: "date-end",
-                placeholder: "ДД.ММ.ГГГГ",
                 value: "2021-08-18",
                 attributes: {
                   "data-position": "bottom right"
@@ -95,7 +93,6 @@ html(lang="ru")
                 class: "filter-date-dropdown input_arrow_down",
                 label: "filter date dropdown",
                 id: "date-filter",
-                placeholder: "ДД.ММ.ГГГГ",
                 value: "2021-08-19 - 2021-08-23",
                 attributes: {
                   "data-range": "true",
@@ -239,8 +236,7 @@ html(lang="ru")
             +button({
               text: "Перейти к оплате",
               type: "button",
-              view: ["fill", "full-width", "arrow_right"],
-              class: "button_hovered"
+              view: ["fill", "full-width", "arrow_right"]
             })
             
           .pagination-container
@@ -639,5 +635,4 @@ html(lang="ru")
             
             
     script(src="../../main.js")
-    script(src="form-elements.js")
     
