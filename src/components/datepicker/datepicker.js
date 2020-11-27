@@ -1,3 +1,4 @@
+"use strict";
 require('air-datepicker');
 require('air-datepicker/dist/css/datepicker.min.css');
 
@@ -80,5 +81,28 @@ if ( dateFilter.defaultValue ) {
     new Date( Date.parse( dateFilter.defaultValue.slice(13) ) ) 
   ]);
 }
+
+
+// Spare Code
+$('#date-start1').datepicker({ 
+  onSelect: function (fd, d, picker) { 
+    $("#date-start1").val(fd.split("-")[0]);
+    $("#date-end1").val(fd.split("-")[1]);
+  }
+});
+
+let dateStart1 = document.querySelector('#date-start1');
+let myDatepickerForDateStart1 = $('#date-start1').datepicker().data('datepicker');
+if ( dateStart1.defaultValue ) {
+  myDatepickerForDateStart1.selectDate( new Date( Date.parse(dateStart1.defaultValue) ) );
+}
+
+let dateEnd1 = document.querySelector('#date-end1');
+let myDatepickerForDateEnd1 = $('#date-end1').datepicker().data('datepicker');
+if ( dateEnd1.defaultValue ) {
+  myDatepickerForDateEnd1.selectDate( new Date( Date.parse(dateEnd1.defaultValue) ) );
+}
+// End Spare Code
+
 
 

@@ -1,0 +1,97 @@
+include ../../components/input/input
+include ../../components/button/button
+include ../../components/datepicker/datepicker
+include ../../components/dropdown/dropdown
+
+- function prettifyPrice(num)
+  - var n = num.toString()
+  - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ')
+
+mixin card-booking(options)
+  .card-booking.card
+    .card-booking__form
+      .card-booking__title
+        span №
+        span.card-booking__number= ' ' + options.number + ' '
+        - if (options.lux)
+          span.card-booking__lux люкс
+      .card-booking__price-container   
+        span.card-booking__price !{prettifyPrice(options.price)}₽ 
+        span в сутки 
+      +datepicker({
+        class: "date-dropdown input_arrow_down",
+        label: "прибытие",
+        id: "date-start",
+        value: options.arrival,
+        attributes: {
+          "data-range": "true",
+          "data-multiple-dates-separator": " - ",
+          "data-toggle-selected": "false"
+        }
+      })
+
+      +datepicker({
+        class: "date-dropdown input_arrow_down",
+        label: "выезд",
+        id: "date-end",
+        value: options.departure,
+        attributes: {
+          "data-position": "bottom right"
+        }
+      })
+
+      +dropdown({
+        label: "гости",
+        class: "iqdropdown-guests",
+        wrapperClass: "card-booking__dropdown",
+        items: [
+          {
+            id: "guests-item1",
+            text: "Взрослые",
+            defaultcount: options.adults
+          },
+          {
+            id: "guests-item2",
+            text: "Дети",
+            defaultcount: options.children
+          },
+          {
+            id: "guests-item3",
+            text: "Младенцы",
+            defaultcount: options.babies
+          }
+        ],
+        buttonsClass: "hidden",
+      })  
+    
+      - let days = ( Date.parse(options.departure) - Date.parse(options.arrival) ) / (1000 * 3600 * 24)
+      
+      table.card-booking__table
+        tbody
+          tr          
+            td !{prettifyPrice(options.price)}₽ х !{days} 
+              - if ([1, 21, 31, 41, 51, 61, 71, 81, 91].includes(days))
+                span сутки
+              - else
+                span суток
+            td !{prettifyPrice(options.price * days)}₽
+          tr
+            td Сбор за услуги: 
+              - if (options.discount)
+                span скидка !{prettifyPrice(options.discount)}₽
+            td !{prettifyPrice(options.serviceFee)}₽
+          tr   
+            td Сбор за дополнительные услуги
+            td !{prettifyPrice(options.additionalServiceFee)}₽
+        tfoot
+          tr
+            td 
+              span Итого
+            td !{prettifyPrice( options.price * days + options.serviceFee - options.discount + options.additionalServiceFee )}₽
+
+      +button({
+        class: "card-booking__submit-btn",
+        text: "Забронировать",
+        type: "submit",
+        view: ["fill", "full-width", "arrow_right"]
+      })   

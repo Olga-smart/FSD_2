@@ -10,5 +10,6 @@ import './components/range/range.js';
 import './components/pagination/pagination.js';
 import './components/expandable-checklist/expandable-checklist.js';
 import './components/comment/comment.js';
+import './components/card-booking/card-booking.js';
 
 import './theme/style.scss';

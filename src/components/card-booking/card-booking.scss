@@ -1,0 +1,85 @@
+.card-booking {
+  &__form {
+    display: grid;
+    grid-row-gap: 1.15rem;
+    grid-column-gap: 1.43rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+  }
+  &__dropdown, &__table, &__submit-btn {
+    grid-column: 1/-1;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    line-height: 1.3;
+    color: $primary-very-dark;
+  }
+  &__number {
+    font-size: 1.7rem;
+  }
+  &__lux {
+    text-transform: uppercase;
+    font-size: 0.86rem;
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    color: $accent-main;
+  }
+  &__price-container {
+    text-align: right;
+    font-size: 0.86rem; 
+    color: $primary-medium;
+  }
+  &__price {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  &__table {
+    border-spacing: 0;
+    td {
+      padding-top: 0.5rem;
+      padding-bottom: 0.65rem;
+      line-height: 1.29;
+      vertical-align: baseline;
+    }
+    td:first-child {
+      padding-right: 1.79rem;
+    }
+    td:last-child {
+      text-align: right;
+      width: 5.2rem;
+    }
+    tfoot {
+      font-family: 'Open Sans', 'Arial', sans-serif;
+      font-weight: 700;
+      color: $primary-very-dark;
+      font-size: 1.34rem;
+      td {
+        padding-top: 1.45rem;
+        padding-bottom: 0.36rem;
+      }
+      td:first-child {
+        position: relative;
+        z-index: 1;
+        span {
+          background-color: #fff;
+          display: inline-block;
+          padding-right: 0.43rem;
+        }
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          border-bottom: 1px dotted $primary-light;
+          width: 100%;
+          height: 0;
+          bottom: 0.7rem;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  &__submit-btn {
+    
+  }
+}
