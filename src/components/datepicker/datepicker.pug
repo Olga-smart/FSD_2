@@ -3,10 +3,18 @@ include ../../components/input/input
 mixin datepicker(options)
   if !options
     - options = {}
+    
+  - let classList = "input_arrow_down"
+  - if (options.class)
+    - classList = classList + ' ' + options.class
+    
+  - let inputClassList = "datepicker-here" 
+  - if (options.inputClass)
+    - inputClassList = inputClassList + ' ' + options.inputClass
   
   +input({
-    class: options.class,
-    inputClass: "datepicker-here",
+    class: classList,
+    inputClass: inputClassList,
     inputId: options.id,
     label: options.label,
     placeholder: options.placeholder || "ДД.ММ.ГГГГ",

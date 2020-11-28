@@ -1,4 +1,3 @@
-"use strict";
 require('air-datepicker');
 require('air-datepicker/dist/css/datepicker.min.css');
 
@@ -11,14 +10,16 @@ $('.datepicker-here').datepicker({
   minDate: new Date(),
   language: {
     monthsShort: ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек']
-  }
+  },
+  range: true,
+  multipleDatesSeparator: ' - ',
+  toggleSelected: false
 })
 
 let calendars = document.querySelectorAll('.datepicker');
 for (let calendar of calendars) {
   addStyleForBtns(calendar);
   addApplyBtn(calendar);
-//  setWidthForCalendar(calendar);
 }
 
 function addStyleForBtns(calendar) {
@@ -46,63 +47,51 @@ function addLogicForApplyBtn(btn) {
   });
 }
 
-function setWidthForCalendar(calendar) {
-  let input = document.querySelector('.datepicker-here');
-  calendar.style.width = input.offsetWidth + 'px';
-  if (document.querySelector('.double-datepicker-wrap')) {
-    calendar.style.width = document.querySelector('.double-datepicker-wrap').offsetWidth + 'px';
+let dateStartCollection = document.querySelectorAll('.date-start');
+for (let dateStart of dateStartCollection) {
+  $(dateStart).datepicker({
+    onSelect: function(fd, d, picker) {
+    $(dateStart).val(fd.split(" - ")[0]);
+    let dateEnd = dateStart.parentElement.parentElement.nextElementSibling.querySelector('.date-end');
+    $(dateEnd).val(fd.split(" - ")[1]);
   }
+  });
 }
 
-$('#date-start').datepicker({ 
-  onSelect: function (fd, d, picker) { 
-    $("#date-start").val(fd.split("-")[0]);
-    $("#date-end").val(fd.split("-")[1]);
+let dateEndCollection = document.querySelectorAll('.date-end');
+for (let dateEnd of dateEndCollection) {
+  $(dateEnd).datepicker({
+    onSelect: function(fd, d, picker) {
+      let dateStart = dateEnd.parentElement.parentElement.previousElementSibling.querySelector('.date-start');
+      $(dateStart).val(fd.split(" - ")[0]);
+      $(dateEnd).val(fd.split(" - ")[1]);
+    },
+    position: "bottom right"
+  })
+}
+
+let calendarInputs = document.querySelectorAll('.datepicker-here');
+for (let input of calendarInputs) {
+  let myDatepicker = $(input).datepicker().data('datepicker');
+  if (input.defaultValue) {    
+    if (input.defaultValue.includes(' - ')) {
+      myDatepicker.selectDate([
+        new Date( Date.parse( input.defaultValue.slice(0, 10) ) ),
+        new Date( Date.parse( input.defaultValue.slice(13) ) )
+      ]);
+    } else {
+      myDatepicker.selectDate( new Date( Date.parse(input.defaultValue) ) );
+    }
   }
-});
-
-let dateStart = document.querySelector('#date-start');
-let myDatepickerForDateStart = $('#date-start').datepicker().data('datepicker');
-if ( dateStart.defaultValue ) {
-  myDatepickerForDateStart.selectDate( new Date( Date.parse(dateStart.defaultValue) ) );
-}
-
-let dateEnd = document.querySelector('#date-end');
-let myDatepickerForDateEnd = $('#date-end').datepicker().data('datepicker');
-if ( dateEnd.defaultValue ) {
-  myDatepickerForDateEnd.selectDate( new Date( Date.parse(dateEnd.defaultValue) ) );
-}
-
-let dateFilter = document.querySelector('#date-filter');
-let myDatepickerForFilter = $('#date-filter').datepicker().data('datepicker');
-if ( dateFilter.defaultValue ) {
-  myDatepickerForFilter.selectDate([
-    new Date( Date.parse( dateFilter.defaultValue.slice(0, 10) ) ),
-    new Date( Date.parse( dateFilter.defaultValue.slice(13) ) ) 
-  ]);
+  input.addEventListener('keydown', function(e) {
+    e.preventDefault();
+  });
 }
 
 
-// Spare Code
-$('#date-start1').datepicker({ 
-  onSelect: function (fd, d, picker) { 
-    $("#date-start1").val(fd.split("-")[0]);
-    $("#date-end1").val(fd.split("-")[1]);
-  }
-});
 
-let dateStart1 = document.querySelector('#date-start1');
-let myDatepickerForDateStart1 = $('#date-start1').datepicker().data('datepicker');
-if ( dateStart1.defaultValue ) {
-  myDatepickerForDateStart1.selectDate( new Date( Date.parse(dateStart1.defaultValue) ) );
-}
 
-let dateEnd1 = document.querySelector('#date-end1');
-let myDatepickerForDateEnd1 = $('#date-end1').datepicker().data('datepicker');
-if ( dateEnd1.defaultValue ) {
-  myDatepickerForDateEnd1.selectDate( new Date( Date.parse(dateEnd1.defaultValue) ) );
-}
-// End Spare Code
+
 
 
 

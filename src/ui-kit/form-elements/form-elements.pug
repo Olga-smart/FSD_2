@@ -68,36 +68,21 @@ html(lang="ru")
 
             .double-datepicker-wrap
               +datepicker({
-                class: "date-dropdown input_arrow_down",
                 label: "date dropdown",
-                id: "date-start",
-                attributes: {
-                  "data-range": "true",
-                  "data-multiple-dates-separator": " - ",
-                  "data-toggle-selected": "false"
-                }
+                inputClass: "date-start"
               })
 
               +datepicker({
-                class: "date-dropdown input_arrow_down",
                 label: "date dropdown",
-                id: "date-end",
-                value: "2021-08-18",
-                attributes: {
-                  "data-position": "bottom right"
-                }
+                inputClass: "date-end",
+                value: "2021-08-18"
               })
           
             .col-266.gap-40px
               +datepicker({
-                class: "filter-date-dropdown input_arrow_down",
                 label: "filter date dropdown",
-                id: "date-filter",
                 value: "2021-08-19 - 2021-08-23",
                 attributes: {
-                  "data-range": "true",
-                  "data-multiple-dates-separator": " - ",
-                  "data-toggle-selected": "false",
                   "data-date-format": "d M"
                 }
               })

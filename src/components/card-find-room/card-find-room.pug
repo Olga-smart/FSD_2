@@ -7,23 +7,13 @@ mixin card-find-room
     .card-find-room__title.h1 Найдём номера под ваши пожелания
     form.card-find-room__form
       +datepicker({
-        class: "date-dropdown input_arrow_down",
-        label: "прибытие",
-        id: "date-start",
-        attributes: {
-          "data-range": "true",
-          "data-multiple-dates-separator": " - ",
-          "data-toggle-selected": "false"
-        }
+        inputClass: "date-start",
+        label: "прибытие"
       })
 
       +datepicker({
-        class: "date-dropdown input_arrow_down",
-        label: "выезд",
-        id: "date-end",
-        attributes: {
-          "data-position": "bottom right"
-        }
+        inputClass: "date-end",
+        label: "выезд"
       })
 
       +dropdown({

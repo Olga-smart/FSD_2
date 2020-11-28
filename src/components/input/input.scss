@@ -110,6 +110,7 @@
       transform: rotate(-45deg);
       bottom: 1.3rem;
       right: 1.24rem;
+      pointer-events: none;
     }
     & input {
       padding-right: 2.5rem;
