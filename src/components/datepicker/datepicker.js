@@ -12,8 +12,7 @@ $('.datepicker-here').datepicker({
     monthsShort: ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек']
   },
   range: true,
-  multipleDatesSeparator: ' - ',
-  toggleSelected: false
+  multipleDatesSeparator: ' - '
 })
 
 let calendars = document.querySelectorAll('.datepicker');
@@ -47,29 +46,6 @@ function addLogicForApplyBtn(btn) {
   });
 }
 
-let dateStartCollection = document.querySelectorAll('.date-start');
-for (let dateStart of dateStartCollection) {
-  $(dateStart).datepicker({
-    onSelect: function(fd, d, picker) {
-    $(dateStart).val(fd.split(" - ")[0]);
-    let dateEnd = dateStart.parentElement.parentElement.nextElementSibling.querySelector('.date-end');
-    $(dateEnd).val(fd.split(" - ")[1]);
-  }
-  });
-}
-
-let dateEndCollection = document.querySelectorAll('.date-end');
-for (let dateEnd of dateEndCollection) {
-  $(dateEnd).datepicker({
-    onSelect: function(fd, d, picker) {
-      let dateStart = dateEnd.parentElement.parentElement.previousElementSibling.querySelector('.date-start');
-      $(dateStart).val(fd.split(" - ")[0]);
-      $(dateEnd).val(fd.split(" - ")[1]);
-    },
-    position: "bottom right"
-  })
-}
-
 let calendarInputs = document.querySelectorAll('.datepicker-here');
 for (let input of calendarInputs) {
   let myDatepicker = $(input).datepicker().data('datepicker');
@@ -87,6 +63,31 @@ for (let input of calendarInputs) {
     e.preventDefault();
   });
 }
+
+let dateStartCollection = document.querySelectorAll('.date-start');
+for (let dateStart of dateStartCollection) {
+  $(dateStart).datepicker({
+    onSelect: function(fd, d, picker) {
+      $(dateStart).val(fd.split(" - ")[0]);
+      let dateEnd = dateStart.parentElement.parentElement.nextElementSibling.querySelector('.date-end');
+      $(dateEnd).val(fd.split(" - ")[1]);
+    }
+  })
+}
+
+let dateEndCollection = document.querySelectorAll('.date-end');
+for (let dateEnd of dateEndCollection) {
+  $(dateEnd).datepicker({
+    onSelect: function(fd, d, picker) {
+      let dateStart = dateEnd.parentElement.parentElement.previousElementSibling.querySelector('.date-start');
+      $(dateStart).val(fd.split(" - ")[0]);
+      $(dateEnd).val(fd.split(" - ")[1]);
+    },
+    position: "bottom right"
+  })
+}
+
+
 
 
 

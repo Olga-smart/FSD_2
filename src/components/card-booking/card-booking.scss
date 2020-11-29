@@ -44,6 +44,7 @@
     }
     td:first-child {
       padding-right: 1.79rem;
+      position: relative;
     }
     td:last-child {
       text-align: right;
@@ -79,7 +80,29 @@
       }
     }
   }
-  &__submit-btn {
-    
+  &__info-icon {
+    position: absolute;
+    width: 1.43rem;
+    height: 1.43rem;
+    border: 1px solid $primary-light;
+    border-radius: 50%;
+    color: $primary-light;
+    font-weight: 700;
+    font-size: 0.86rem;
+    text-align: center;
+    line-height: calc(1.43rem - 2px);
+    right: 0.5rem;
+    top: 0.5rem;
+    cursor: pointer;
+  }
+  &__tooltip {
+    background-color: $primary-very-dark;
+    color: #fff;
+    font-size: 0.86rem;
+    border-radius: 4px;
+    padding: 0.3rem 0.7rem;
+    position: fixed;
+    width: 200px;
+    z-index: 100;
   }
 }

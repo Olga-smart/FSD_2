@@ -7,7 +7,7 @@ import './components/datepicker/datepicker.js';
 import './components/like/like.js';
 import './components/rate/rate.js';
 import './components/range/range.js';
-import './components/pagination/pagination.js';
+//import './components/pagination/pagination.js';
 import './components/expandable-checklist/expandable-checklist.js';
 import './components/comment/comment.js';
 import './components/card-booking/card-booking.js';

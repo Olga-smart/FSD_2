@@ -4,7 +4,7 @@ include ../../components/datepicker/datepicker
 include ../../components/dropdown/dropdown
 
 - function prettifyPrice(num)
-  - var n = num.toString()
+  - let n = num.toString()
   - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ')
 
 mixin card-booking(options)
@@ -19,25 +19,15 @@ mixin card-booking(options)
         span.card-booking__price !{prettifyPrice(options.price)}₽ 
         span в сутки 
       +datepicker({
-        class: "date-dropdown input_arrow_down",
+        inputClass: "date-start card-booking__arrival",
         label: "прибытие",
-        id: "date-start",
-        value: options.arrival,
-        attributes: {
-          "data-range": "true",
-          "data-multiple-dates-separator": " - ",
-          "data-toggle-selected": "false"
-        }
+        value: options.arrival
       })
 
       +datepicker({
-        class: "date-dropdown input_arrow_down",
+        inputClass: "date-end card-booking__departure",
         label: "выезд",
-        id: "date-end",
-        value: options.departure,
-        attributes: {
-          "data-position": "bottom right"
-        }
+        value: options.departure
       })
 
       +dropdown({
@@ -64,30 +54,35 @@ mixin card-booking(options)
         buttonsClass: "hidden",
       })  
     
-      - let days = ( Date.parse(options.departure) - Date.parse(options.arrival) ) / (1000 * 3600 * 24)
+      - let days = 0;
+      - if (options.arrival && options.departure)
+        - days = ( Date.parse(options.departure) - Date.parse(options.arrival) ) / (1000 * 3600 * 24)
       
       table.card-booking__table
         tbody
           tr          
-            td !{prettifyPrice(options.price)}₽ х !{days} 
+            td !{prettifyPrice(options.price)}₽ х 
+              span.card-booking__days !{days}
               - if ([1, 21, 31, 41, 51, 61, 71, 81, 91].includes(days))
-                span сутки
+                span.card-booking__days-word  сутки
               - else
-                span суток
-            td !{prettifyPrice(options.price * days)}₽
+                span.card-booking__days-word  суток
+            td.card-booking__price-for-x-days !{prettifyPrice(options.price * days)}₽
           tr
-            td Сбор за услуги: 
+            td.card-booking__service-fee-label Сбор за услуги: 
               - if (options.discount)
-                span скидка !{prettifyPrice(options.discount)}₽
-            td !{prettifyPrice(options.serviceFee)}₽
+                span.card-booking__discount скидка !{prettifyPrice(options.discount)}₽
+              .card-booking__info-icon(data-tooltip="Подсказка по сборам за услуги") i 
+            td.card-booking__service-fee !{prettifyPrice(options.serviceFee)}₽
           tr   
-            td Сбор за дополнительные услуги
-            td !{prettifyPrice(options.additionalServiceFee)}₽
+            td.card-booking__additional-service-fee-label Сбор за дополнительные услуги
+              .card-booking__info-icon(data-tooltip="Подсказка по сборам за доп. услуги") i
+            td.card-booking__additional-service-fee !{prettifyPrice(options.additionalServiceFee)}₽
         tfoot
           tr
             td 
               span Итого
-            td !{prettifyPrice( options.price * days + options.serviceFee - options.discount + options.additionalServiceFee )}₽
+            td.card-booking__total !{prettifyPrice( options.price * days + options.serviceFee - options.discount + options.additionalServiceFee )}₽
 
       +button({
         class: "card-booking__submit-btn",
