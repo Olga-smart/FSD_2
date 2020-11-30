@@ -23,4 +23,5 @@ mixin button(options)
     disabled = options.disabled,
     class = list,
     href = options.href
-  )= options.text || "Click me"
+  )
+    span.button__text= options.text || "Click me"

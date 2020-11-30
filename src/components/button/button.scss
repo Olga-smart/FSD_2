@@ -26,28 +26,18 @@
     }
   }
   &_outline {
-    background-color: #fff;
     border-radius: 1.57rem;
-    padding: calc(1rem - 2px) calc(1.36rem - 2px);
-    position: relative;
-    margin: 2px;
-    &::before {
-      content: '';
+    padding: 2px;
+    background-image: linear-gradient(to bottom, $accent-main, $accent-main-additional);
+    .button__text {
       display: block;
-      position: absolute;
-      top: -2px;
-      right: -2px;
-      bottom: -2px;
-      left: -2px;
-      background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
-      z-index: -1;
+      background-color: #fff;
+      padding: calc(1rem - 2px) calc(1.36rem - 2px);
       border-radius: inherit;
     }
     &:hover, &_hovered {
       color: $accent-main;
-      &::before {
-        opacity: 0.5;
-      }
+      background-image: linear-gradient(to bottom, rgba($accent-main, 0.5), rgba($accent-main-additional, 0.5));      
     }
   }
   &_full-width {
