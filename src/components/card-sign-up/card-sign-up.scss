@@ -20,8 +20,9 @@
     margin-top: 1rem;
   }
   &__footer {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 7.07rem;
+    grid-column-gap: 0.7rem;
     align-items: baseline;
     margin-top: 2.14rem;
   }
