@@ -30,29 +30,29 @@ mixin card-booking(options)
         value: options.departure
       })
 
-      +dropdown({
-        label: "гости",
-        class: "iqdropdown-guests",
-        wrapperClass: "card-booking__dropdown",
-        items: [
-          {
-            id: "guests-item1",
-            text: "Взрослые",
-            defaultcount: options.adults
-          },
-          {
-            id: "guests-item2",
-            text: "Дети",
-            defaultcount: options.children
-          },
-          {
-            id: "guests-item3",
-            text: "Младенцы",
-            defaultcount: options.babies
-          }
-        ],
-        buttonsClass: "hidden",
-      })  
+      .card-booking__dropdown
+        +dropdown({
+          label: "гости",
+          class: "iqdropdown-guests",
+          items: [
+            {
+              id: "guests-item1",
+              text: "Взрослые",
+              defaultcount: options.adults
+            },
+            {
+              id: "guests-item2",
+              text: "Дети",
+              defaultcount: options.children
+            },
+            {
+              id: "guests-item3",
+              text: "Младенцы",
+              defaultcount: options.babies
+            }
+          ],
+          buttonsClass: "hidden",
+        })  
     
       - let days = 0;
       - if (options.arrival && options.departure)

@@ -1,9 +1,14 @@
-import 'item-quantity-dropdown/lib/item-quantity-dropdown.min.js';
-import 'item-quantity-dropdown/lib/item-quantity-dropdown.min.css';
-require('item-quantity-dropdown/lib/item-quantity-dropdown.min.js');
-require('item-quantity-dropdown/lib/item-quantity-dropdown.min.css');
+let dropdowns = document.querySelectorAll('.dropdown');
+for (let dropdown of dropdowns) {
+  let output = dropdown.querySelector('.dropdown__output input');
+  output.addEventListener('click', function() {
+    dropdown.classList.toggle('dropdown_menu_open');
+    output.classList.toggle('input__input_dropdown_open');
+    output.classList.toggle('input__input_focused');
+  });
+}
 
-$(document).ready(() => {
+$(document).ready(() => {  
   $('.iqdropdown-guests').iqDropdown({
     setSelectionText: (itemCount, totalItems) => {
       if (totalItems == 0) {
@@ -11,7 +16,6 @@ $(document).ready(() => {
       }
 
       let guestsCount = itemCount['guests-item1'] + itemCount['guests-item2'];
-      
       let guestsWord = wordToPlural(guestsCount, 'гость', 'гостя', 'гостей');
 
       let babiesCount = itemCount['guests-item3'];
@@ -19,10 +23,11 @@ $(document).ready(() => {
 
       if (babiesCount == 0) {
         return totalItems + ' ' + guestsWord;
-      }
-      return guestsCount + ' ' + guestsWord + ', ' + babiesCount + ' ' + babiesWord;
+      } else {
+        return guestsCount + ' ' + guestsWord + ', ' + babiesCount + ' ' + babiesWord;
+      }      
     },
-    onChange: (id, count, totalItems) => {
+    onChange: function (id, count, totalItems) {
       toggleDisabledMinusBtn(id, count);
       let dropdown = document.querySelector('.iqdropdown-guests');
       showResetAndApplyBtns(dropdown);
@@ -149,16 +154,7 @@ for (let btn of resetBtns) {
     event.stopPropagation();
     let counters = this.closest('.iqdropdown-menu').querySelectorAll('.counter');
     for (let counter of counters) {
-      let minusBtn = counter.previousElementSibling;
-      if (counter.closest('.iqdropdown-menu-option').dataset.mincount) {
-        while (counter.innerHTML > counter.closest('.iqdropdown-menu-option').dataset.mincount) {
-          minusBtn.click();
-        } 
-      } else {
-        while (counter.innerHTML > 0) {
-          minusBtn.click();
-        }
-      }
+      counter.val('0');
     }
     btn.disabled = true;
   });
@@ -180,4 +176,5 @@ for (let menu of iqdropdownMenus) {
     }    
   });
 }
+
 

@@ -1,8 +1,8 @@
 doctype html
 html(lang="ru")
   head
-    meta(charset='utf-8')
-    meta(name='viewport', content="initial-scale=1.0, width=device-width")
+    meta(charset="utf-8'")
+    meta(name="viewport", content="initial-scale=1.0, width=device-width")
     title Cards
     link(rel="stylesheet" href="../ui-kit.scss")
     link(rel="stylesheet" href="cards.scss")
@@ -13,6 +13,7 @@ html(lang="ru")
         include ../../components/card-sign-up/card-sign-up
         include ../../components/card-booking/card-booking
         include ../../components/card-sign-in/card-sign-in
+        include ../../components/card-room/card-room
         
         .col
           +card-find-room
@@ -33,7 +34,18 @@ html(lang="ru")
           +card-sign-in
         
         .col
-          .datepicker-here      
+          .datepicker-here
+          
+          .col-270
+            +card-room({
+              img: "img/room1.jpg",
+
+            })
+            
+            +card-room({
+              img: "img/room2.jpg",
+
+            })
         
     script(src="../../main.js")
     

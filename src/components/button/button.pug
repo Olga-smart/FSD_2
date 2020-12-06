@@ -19,9 +19,10 @@ mixin button(options)
   - let tag = options.tag || "button"
   
   #{tag}(
-    type = options.type,
+    type = options.type || "button",
     disabled = options.disabled,
     class = list,
-    href = options.href
+    href = options.href,
+    hidden = options.hidden
   )
     span.button__text= options.text || "Click me"

@@ -1,13 +1,52 @@
 include ../../components/button/button
 
-mixin dropdown(options)    
+mixin dropdown(options)
+  .dropdown(class = options.class)&attributes(options.attributes)
+    .dropdown__output
+      +input({
+        class: "input_arrow_down",
+        type: "text",
+        label: options.label,
+        required: options.required,
+        value: "Сколько гостей?"
+      })
+    .dropdown__menu
+      each item in options.items
+        .dropdown__item(
+          data-id = item.id, 
+          data-defaultcount = item.defaultcount, 
+          data-mincount = item.mincount
+        )
+          label.dropdown__item-label= item.text
+          button.dropdown__button-minus= "-"
+          input.dropdown__item-input(
+            value = item.defaultcount || 0
+          )
+          button.dropdown__button-plus= "+"
+      .dropdown__buttons
+        .dropdown__button_reset
+          +button({
+            text: "Очистить",
+            hidden: true
+          })
+        .dropdown__button_apply  
+          +button({
+            text: "Применить",
+            hidden: true
+          })
+          
+//-mixin dropdown(options)    
   .dropdown(class = options.wrapperClass)&attributes(options.attributes)
     label.h3= options.label
     .iqdropdown(class = options.class)
       p.iqdropdown-selection
       .iqdropdown-menu
         each item in options.items
-          .iqdropdown-menu-option(data-id = item.id, data-defaultcount = item.defaultcount, data-mincount = item.mincount)
+          .iqdropdown-menu-option(
+            data-id = item.id, 
+            data-defaultcount = item.defaultcount, 
+            data-mincount = item.mincount
+          )
             div
               p.iqdropdown-item= item.text
         .dropdown__buttons(class = options.buttonsClass)

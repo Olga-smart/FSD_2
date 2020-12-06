@@ -1,131 +1,62 @@
-.iqdropdown {
-  padding: 0.86rem 1.1rem;
-  height: 3.14rem;
-  border: 1px solid $primary-light;
-  background-color: #fff;
-  &:hover,
-  &:focus,
-  &.menu-open {
-    border-color: $primary-medium;
-    outline: none;
-  }
-  &:focus, &.menu-open {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  & &-selection {
-    font-family: inherit;
-    font-size: 1rem;
-    color: $primary-dark;
-    &::after {
-      background-image: none;
-      width: 0.57rem;
-      height: 0.57rem;
-      border-left: 2px solid $primary-medium;
-      border-bottom: 2px solid $primary-medium;
-      transform: rotate(-45deg);
-      top: calc(50% - 0.36rem);
-    }
-  }
-  & &-menu {
-    padding: 7px;
-    padding-left: 15px;
-    padding-bottom: 0;
-    top: 44px;
-    box-shadow: none;
+.dropdown {
+  position: relative;
+  &__menu {
+    display: none;
+    grid-gap: 0.5rem;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    background-color: #fff;
+    padding: 0.5rem;
+    padding-left: 1.07rem;
     border: 1px solid $primary-medium;
+    border-top: none;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
-    z-index: 100;
   }
-  & &-menu-option {
-    height: auto;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    margin-bottom: 7px;
-    text-transform: uppercase;
+  &_menu_open {
+    .dropdown__menu {
+      display: grid;
+    }
   }
-  & &-item {
-    font-family: inherit;
-    line-height: 1;
-    font-weight: 700;
-    font-size: 0.86rem;
-    &-controls {
-      height: auto;
-      .counter {
-        font-family: inherit;
-        font-weight: 700;
-        font-size: 0.86rem;
-        border-top: none;
-        border-bottom: none;
-        padding: 0;
-        width: 32px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-      }
-      button.button-decrement,
-      button.button-increment {
-        border-radius: 50%;
-        border-color: $primary-light;
-        padding: 0;
-        width: 30px;
-        height: 30px;
-      }
-      button:disabled {
-        opacity: 0.38;
-        pointer-events: none;
-      }
-      .icon-decrement,
-      .icon-increment {
-        margin: 0;
-        width: 30px;
-        height: 30px;        
-      }
-      .icon-decrement::after, 
-      .icon-increment::before {
-        background-color: transparent;
-        color: $primary-medium;
-        font-size: 1.29rem;
-        font-weight: 400;
-        font-style: normal;
-        line-height: 30px;
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-      .icon-decrement::after {
-        content: '-';     
-      }
-      .icon-increment::after {
-        display: none;
-      }
-      .icon-increment::before {
-        content: '+';
-      }
-    }      
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 2.14rem);
+    &-label {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: $primary-very-dark;
+    }
+    &-input {
+      text-align: center;
+      font-size: 0.86rem;
+      font-weight: 700;
+      border: none;
+    }
   }
-  &.menu-open &-selection::after {
-    background-image: none;
+  &__button-minus, &__button-plus {
+    width: 2.14rem;
+    height: 2.14rem;
+    background-color: transparent;
+    border: 1px solid $primary-light;
+    border-radius: 50%;
+    color: $primary-medium;
+    font-size: 1.29rem;
+    &:disabled {
+      opacity: 0.38;
+      pointer-events: none;
+    }
   }
-}
-.dropdown {
   &__buttons {
     display: flex;
     justify-content: space-between;
-    padding-top: 13px;
-    padding-bottom: 12px; 
-    &.hidden {
-      display: none;
-    }
   }
-  &__button[disabled]  {
-    opacity: 0;
+  &__button {
+    &_reset, &_apply {
+      margin-top: 0.93rem;
+      margin-bottom: 0.43rem;
+    }
   }
 }

@@ -5,13 +5,13 @@
     grid-column-gap: 1.43rem;
     grid-row-gap: 1.3rem;
   }
-  &__dropdown, .button {
+  &__dropdown, &__button-submit {
     grid-column: 1/-1;
   }
   &__title {
     margin-bottom: 1.3rem;
   }
-  .button {
+  &__button-submit {
     margin-top: 0.9rem;
   }
 }

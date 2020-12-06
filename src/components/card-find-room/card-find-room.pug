@@ -16,30 +16,31 @@ mixin card-find-room
         label: "выезд"
       })
 
-      +dropdown({
-        label: "гости",
-        class: "iqdropdown-guests",
-        wrapperClass: "card-find-room__dropdown",
-        items: [
-          {
-            id: "guests-item1",
-            text: "Взрослые"
-          },
-          {
-            id: "guests-item2",
-            text: "Дети"
-          },
-          {
-            id: "guests-item3",
-            text: "Младенцы"
-          }
-        ],
-        buttonsClass: "hidden",
-      })
-
-      +button({
-        text: "Подобрать номер",
-        type: "submit",
-        view: ["fill", "full-width", "arrow_right"],
-        class: "button_hovered"
-      })
+      .card-find-room__dropdown
+        +dropdown({
+          label: "гости",
+          class: "iqdropdown-guests",
+          items: [
+            {
+              id: "guests-item1",
+              text: "Взрослые"
+            },
+            {
+              id: "guests-item2",
+              text: "Дети"
+            },
+            {
+              id: "guests-item3",
+              text: "Младенцы"
+            }
+          ],
+          buttonsClass: "hidden",
+        })
+      
+      .card-find-room__button-submit
+        +button({
+          text: "Подобрать номер",
+          type: "submit",
+          view: ["fill", "full-width", "arrow_right"],
+          class: "button_hovered"
+        })
