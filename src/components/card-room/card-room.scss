@@ -1,0 +1,17 @@
+.card-room {
+  display: grid;
+  grid-template-rows: 10.81rem auto;
+  padding: 0;
+  border: none;
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+  &__info {
+    padding: 1.43rem;
+    padding-right: 1.14rem;
+    
+  }
+}
