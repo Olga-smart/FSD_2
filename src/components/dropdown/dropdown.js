@@ -6,6 +6,26 @@ for (let dropdown of dropdowns) {
     output.classList.toggle('input__input_dropdown_open');
     output.classList.toggle('input__input_focused');
   });
+  
+  let items = dropdown.querySelectorAll('.dropdown__item');
+  for (let item of items) {
+    let input = item.querySelector('.dropdown__item-input');
+    let minus = item.querySelector('.dropdown__button-minus');
+    let plus = item.querySelector('.dropdown__button-plus');
+    minus.addEventListener('click', function() {
+      if (input.value > item.dataset.minCount || input.value > 0) {
+        input.value--;
+      }
+      
+    })
+    plus.addEventListener('click', function() {
+      if (item.dataset.maxCount && input.value < item.dataset.maxCount) {
+        input.value++;        
+      } else {
+        input.value++;
+      }      
+    })
+  } 
 }
 
 $(document).ready(() => {  

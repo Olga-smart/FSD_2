@@ -21,25 +21,23 @@ mixin dropdown(options)
       each item in options.items
         .dropdown__item(
           data-id = item.id, 
-          data-defaultcount = item.defaultcount, 
-          data-mincount = item.mincount
+          data-defaultcount = item.defaultCount, 
+          data-mincount = item.minCount
         )
           .dropdown__item-label= item.text
           button.dropdown__button-minus= "-"
           input.dropdown__item-input(
-            value = item.defaultcount || 0
+            value = item.defaultCount || 0
           )
           button.dropdown__button-plus= "+"
       .dropdown__buttons
         .dropdown__button_reset
           +button({
-            text: "Очистить",
-            hidden: options.hidden
+            text: "Очистить"
           })
         .dropdown__button_apply  
           +button({
-            text: "Применить",
-            hidden: options.hidden
+            text: "Применить"
           })
       
     
