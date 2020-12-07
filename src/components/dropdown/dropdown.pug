@@ -1,14 +1,21 @@
 include ../../components/button/button
 
 mixin dropdown(options)
-  .dropdown(class = options.class)&attributes(options.attributes)
+  - let classList = options.class
+  - let outputClass
+  - if (options.open)
+    - classList = classList + " dropdown_menu_open" 
+    - outputClass = "input__input_dropdown_open input__input_focused"
+
+  .dropdown(class = classList)&attributes(options.attributes)
     .dropdown__output
       +input({
         class: "input_arrow_down",
         type: "text",
         label: options.label,
         required: options.required,
-        value: "Сколько гостей?"
+        value: "Сколько гостей?",
+        inputClass: outputClass
       })
     .dropdown__menu
       each item in options.items
@@ -18,23 +25,25 @@ mixin dropdown(options)
           data-mincount = item.mincount
         )
           label.dropdown__item-label= item.text
-          button.dropdown__button-minus= "-"
-          input.dropdown__item-input(
-            value = item.defaultcount || 0
-          )
-          button.dropdown__button-plus= "+"
+            button.dropdown__button-minus= "-"
+            input.dropdown__item-input(
+              value = item.defaultcount || 0
+            )
+            button.dropdown__button-plus= "+"
       .dropdown__buttons
         .dropdown__button_reset
           +button({
             text: "Очистить",
-            hidden: true
+            hidden: options.hidden
           })
         .dropdown__button_apply  
           +button({
             text: "Применить",
-            hidden: true
+            hidden: options.hidden
           })
-          
+      
+    
+    
 //-mixin dropdown(options)    
   .dropdown(class = options.wrapperClass)&attributes(options.attributes)
     label.h3= options.label
