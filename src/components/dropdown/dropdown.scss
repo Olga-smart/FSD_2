@@ -21,13 +21,13 @@
     }
   }
   &__item {
+    display: grid;
+    grid-template-columns: 1fr 2.14rem 2.29rem 2.14rem;
     &-label {
       text-transform: uppercase;
       font-weight: 700;
       font-size: 0.86rem;
       color: $primary-very-dark;
-      display: grid;
-      grid-template-columns: 1fr 2.14rem 2.29rem 2.14rem;
       align-items: center;
     }
     &-input {

@@ -24,12 +24,12 @@ mixin dropdown(options)
           data-defaultcount = item.defaultcount, 
           data-mincount = item.mincount
         )
-          label.dropdown__item-label= item.text
-            button.dropdown__button-minus= "-"
-            input.dropdown__item-input(
-              value = item.defaultcount || 0
-            )
-            button.dropdown__button-plus= "+"
+          .dropdown__item-label= item.text
+          button.dropdown__button-minus= "-"
+          input.dropdown__item-input(
+            value = item.defaultcount || 0
+          )
+          button.dropdown__button-plus= "+"
       .dropdown__buttons
         .dropdown__button_reset
           +button({
