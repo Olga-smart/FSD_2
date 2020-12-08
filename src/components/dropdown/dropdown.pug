@@ -15,7 +15,8 @@ mixin dropdown(options)
         label: options.label,
         required: options.required,
         value: "Сколько гостей?",
-        inputClass: outputClass
+        inputClass: outputClass,
+        readonly: true
       })
     .dropdown__menu
       each item in options.items
@@ -28,6 +29,7 @@ mixin dropdown(options)
           button.dropdown__button-minus= "-"
           input.dropdown__item-input(
             value = item.defaultCount || 0
+            readonly
           )
           button.dropdown__button-plus= "+"
       .dropdown__buttons

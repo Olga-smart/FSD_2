@@ -11,7 +11,8 @@ mixin input-with-button(options)
       placeholder: options.placeholder,
       type: options.type,
       name: options.name,
-      inputClass: "input-with-button__input"
+      inputClass: "input-with-button__input",
+      readonly: options.readonly
     })
     button.input-with-button__button(
       type = "submit"
