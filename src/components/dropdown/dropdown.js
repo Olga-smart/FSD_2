@@ -2,9 +2,7 @@ let dropdowns = document.querySelectorAll('.dropdown');
 for (let dropdown of dropdowns) {
   let output = dropdown.querySelector('.dropdown__output input');
   output.addEventListener('click', function() {
-    dropdown.classList.toggle('dropdown_menu_open');
-    output.classList.toggle('input__input_dropdown_open');
-    output.classList.toggle('input__input_focused');
+    toggleDropdown(dropdown, output);
   });
   
   let items = dropdown.querySelectorAll('.dropdown__item');
@@ -13,20 +11,41 @@ for (let dropdown of dropdowns) {
     let minus = item.querySelector('.dropdown__button-minus');
     let plus = item.querySelector('.dropdown__button-plus');
     minus.addEventListener('click', function() {
-      if (input.value > item.dataset.minCount || input.value > 0) {
+      if ( counterCanBeDecreased(item,input) ) {
         input.value--;
       }
       
     })
     plus.addEventListener('click', function() {
-      if (item.dataset.maxCount && input.value < item.dataset.maxCount) {
-        input.value++;        
-      } else {
+      if ( counterCanBeIncreased(item, input) ) {
         input.value++;
-      }      
+      }     
     })
   } 
 }
+
+function toggleDropdown(dropdown, output) {
+  dropdown.classList.toggle('dropdown_menu_open');
+  output.classList.toggle('input__input_dropdown_open');
+  output.classList.toggle('input__input_focused');
+} 
+
+function counterCanBeDecreased(item, input) {
+  if (item.dataset.minCount) {
+    return input.value > item.dataset.minCount;
+  } else {
+    return input.value > 0;
+  }  
+}
+
+function counterCanBeIncreased(item, input) {
+  if (item.dataset.maxCount) {
+    return input.value < item.dataset.maxCount;
+  }
+  return true;
+}
+
+//-------------------------------
 
 $(document).ready(() => {  
   $('.iqdropdown-guests').iqDropdown({

@@ -22,8 +22,9 @@ mixin dropdown(options)
       each item in options.items
         .dropdown__item(
           data-id = item.id, 
-          data-defaultcount = item.defaultCount, 
-          data-mincount = item.minCount
+          data-default-count = item.defaultCount, 
+          data-min-count = item.minCount,
+          data-max-count = item.maxCount
         )
           .dropdown__item-label= item.text
           button.dropdown__button-minus= "-"
