@@ -3,7 +3,6 @@
   min-width: 38px;
   width: auto;
   height: 18px;
-//  border: 1px solid $primary-light;
   border-radius: 10px;
   font-size: 0.7rem;
   line-height: 18px;
@@ -15,6 +14,7 @@
   transition: all 0.2s ease-in-out;
   background-color: #fff;
   margin: 1px;
+  cursor: pointer;
   &::before {
     content: '';
     position: absolute;
