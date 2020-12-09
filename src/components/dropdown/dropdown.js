@@ -1,25 +1,26 @@
-let dropdowns = document.querySelectorAll('.dropdown');
+let dropdowns = document.querySelectorAll('.js-dropdown');
 for (let dropdown of dropdowns) {
-  let output = dropdown.querySelector('.dropdown__output input');
+  let output = dropdown.querySelector('.js-dropdown__output .js-input .js-input__input');
   output.addEventListener('click', function() {
     toggleDropdown(dropdown, output);
   });
   
-  let items = dropdown.querySelectorAll('.dropdown__item');
+  let items = dropdown.querySelectorAll('.js-dropdown__item');
   for (let item of items) {
-    let input = item.querySelector('.dropdown__item-input');
-    let minus = item.querySelector('.dropdown__button-minus');
-    let plus = item.querySelector('.dropdown__button-plus');
+    let input = item.querySelector('.js-dropdown__item-input');
+    let minus = item.querySelector('.js-dropdown__button-minus');
+    let plus = item.querySelector('.js-dropdown__button-plus');
     minus.addEventListener('click', function() {
-      if ( counterCanBeDecreased(item,input) ) {
+      if ( counterCanBeDecreased(item, input) ) {
         input.value--;
       }
-      
+      updateDropdownOutput(dropdown);
     })
     plus.addEventListener('click', function() {
       if ( counterCanBeIncreased(item, input) ) {
         input.value++;
-      }     
+      }
+      updateDropdownOutput(dropdown);
     })
   } 
 }
@@ -43,6 +44,73 @@ function counterCanBeIncreased(item, input) {
     return input.value < item.dataset.maxCount;
   }
   return true;
+}
+
+function updateDropdownOutput(dropdown) {
+  let output = dropdown.querySelector('.js-dropdown__output .js-input .js-input__input');
+  let counters = dropdown.querySelectorAll('.js-dropdown__item-input');
+  
+  if (dropdown.dataset.type == 'guests') {
+    if ( sumDropdownValues(dropdown) == 0 ) {
+      output.value = 'Сколько гостей';
+    } else {
+      let guestsCount = +counters[0].value + +counters[1].value;
+      let guestsWord = wordToPlural(guestsCount, 'гость', 'гостя', 'гостей');
+
+      let babiesCount = +counters[2].value;
+      let babiesWord = wordToPlural(babiesCount, 'младенец', 'младенца', 'младенцев');
+
+      if (babiesCount == 0) {
+        output.value = guestsCount + ' ' + guestsWord;
+      } else {
+        output.value = guestsCount + ' ' + guestsWord + ', ' + babiesCount + ' ' + babiesWord;
+      }
+    }
+  }
+   
+  if (dropdown.dataset.type == 'facilities') {
+    if ( sumDropdownValues(dropdown) == 0 ) {
+      output.value = 'Выберите удобства';
+    } else {
+      let result = '';
+      
+      let bedroomsCount = +counters[0].value;
+      if (bedroomsCount > 0) {
+        let bedroomsWord = wordToPlural(bedroomsCount, 'спальня', 'спальни', 'спален');
+        result += bedroomsCount + ' ' + bedroomsWord;
+      }
+
+      let bedsCount = +counters[1].value;
+      if (bedsCount > 0) {
+        let bedsWord = wordToPlural(bedsCount, 'кровать', 'кровати', 'кроватей');
+        if (result.length > 0) {
+          result += ', ';
+        }
+        result += bedsCount + ' ' + bedsWord;
+      }
+
+      let bathroomsCount = +counters[2].value;
+      if (bathroomsCount > 0) {
+        let bathroomsWord = wordToPlural(bathroomsCount, 'ванная', 'ванные', 'ванных');
+        if (result.length > 0) {
+          result += ', ';
+        } 
+        result += bathroomsCount + ' ' + bathroomsWord;
+      }
+
+      output.value = result;
+    }
+  }
+     
+}
+
+function sumDropdownValues(dropdown) {
+  let sum = 0;
+  let counters = dropdown.querySelectorAll('.js-dropdown__item-input');
+  for (let counter of counters) {
+    sum += +counter.value;
+  }
+  return sum;
 }
 
 //-------------------------------

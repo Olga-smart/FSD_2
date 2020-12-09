@@ -13,7 +13,10 @@ mixin dropdown(options)
   - if (options.type == 'facilities')
     - placeholder = 'Выберите удобства'
 
-  .dropdown.js-dropdown(class = classList)&attributes(options.attributes)
+  .dropdown.js-dropdown(
+    class = classList
+    data-type = options.type
+  )&attributes(options.attributes)
     .dropdown__output.js-dropdown__output
       +input({
         class: "input_arrow_down",
@@ -27,9 +30,9 @@ mixin dropdown(options)
     .dropdown__menu
       each item in options.items
         .dropdown__item.js-dropdown__item(
-          data-id = item.id, 
-          data-default-count = item.defaultCount, 
-          data-min-count = item.minCount,
+          data-id = item.id
+          data-default-count = item.defaultCount
+          data-min-count = item.minCount
           data-max-count = item.maxCount
         )
           .dropdown__item-label= item.text

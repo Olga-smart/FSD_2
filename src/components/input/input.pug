@@ -1,7 +1,7 @@
 mixin input(options)
   if !options
     - options = {}
-  .input(class = options.class)
+  .input.js-input(class = options.class)
     - let label = options.label
     - if (options.type === 'checkbox')
       input.input__input.input__input_checkbox(
@@ -47,7 +47,7 @@ mixin input(options)
       ) !{label}
     - else
       label.input__label.h3 !{label}
-        input.input__input(
+        input.input__input.js-input__input(
           class = options.inputClass
           id = options.inputId
           type = options.type
