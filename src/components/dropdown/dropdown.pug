@@ -2,13 +2,13 @@ include ../../components/button/button
 
 mixin dropdown(options)
   - let classList = options.class
-  - let outputClass
+  - let outputClass = "input__input_cursor_pointer"
   - if (options.open)
     - classList = classList + " dropdown_menu_open" 
-    - outputClass = "input__input_dropdown_open input__input_focused"
+    - outputClass = outputClass + " input__input_dropdown_open input__input_focused input__input_cursor_pointer"
 
-  .dropdown(class = classList)&attributes(options.attributes)
-    .dropdown__output
+  .dropdown.js-dropdown(class = classList)&attributes(options.attributes)
+    .dropdown__output.js-dropdown__output
       +input({
         class: "input_arrow_down",
         type: "text",
@@ -20,19 +20,19 @@ mixin dropdown(options)
       })
     .dropdown__menu
       each item in options.items
-        .dropdown__item(
+        .dropdown__item.js-dropdown__item(
           data-id = item.id, 
           data-default-count = item.defaultCount, 
           data-min-count = item.minCount,
           data-max-count = item.maxCount
         )
           .dropdown__item-label= item.text
-          button.dropdown__button-minus= "-"
-          input.dropdown__item-input(
+          button.dropdown__button-minus.js-dropdown__button-minus= "-"
+          input.dropdown__item-input.js-dropdown__item-input(
             value = item.defaultCount || 0
             readonly
           )
-          button.dropdown__button-plus= "+"
+          button.dropdown__button-plus.js-dropdown__button-plus= "+"
       .dropdown__buttons
         .dropdown__button_reset
           +button({
