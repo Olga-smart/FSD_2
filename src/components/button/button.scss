@@ -9,6 +9,7 @@
   text-align: center;
   line-height: normal;
   text-decoration: none;
+  cursor: pointer;
   &:hover, &_hovered {
     color: $primary-medium;
   }
