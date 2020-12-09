@@ -6,6 +6,12 @@ mixin dropdown(options)
   - if (options.open)
     - classList = classList + " dropdown_menu_open" 
     - outputClass = outputClass + " input__input_dropdown_open input__input_focused input__input_cursor_pointer"
+    
+  - let placeholder = ''
+  - if (options.type == 'guests')
+    - placeholder = 'Сколько гостей'
+  - if (options.type == 'facilities')
+    - placeholder = 'Выберите удобства'
 
   .dropdown.js-dropdown(class = classList)&attributes(options.attributes)
     .dropdown__output.js-dropdown__output
@@ -14,7 +20,7 @@ mixin dropdown(options)
         type: "text",
         label: options.label,
         required: options.required,
-        value: "Сколько гостей?",
+        value: placeholder,
         inputClass: outputClass,
         readonly: true
       })
