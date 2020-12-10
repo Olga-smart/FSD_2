@@ -1,5 +1,6 @@
 let dropdowns = document.querySelectorAll('.js-dropdown');
 for (let dropdown of dropdowns) {
+  updateDropdownOutput(dropdown);
   let output = dropdown.querySelector('.js-dropdown__output .js-input .js-input__input');
   output.addEventListener('click', function() {
     toggleDropdown(dropdown, output);

@@ -41,18 +41,7 @@ html(lang="ru")
           
           +dropdown({
             type: "guests",
-            label: "Dropdown",
-            items: [
-              {
-                text: "Взрослые"
-              },
-              {
-                text: "Дети"
-              },
-              {
-                text: "Младенцы"
-              }
-            ]
+            label: "Dropdown"
           })
           
           .gap-37px.pt-3px
@@ -231,21 +220,10 @@ html(lang="ru")
               +dropdown({
                 type: "facilities",
                 label: "Dropdown",
-                items: [
-                  {
-                    text: "Спальни",
-                    defaultCount: 2,
-                    minCount: 1
-                  },
-                  {
-                    text: "Кровати",
-                    defaultCount: 2,
-                    minCount: 1
-                  },
-                  {
-                    text: "Ванные комнаты"
-                  }
-                ],
+                bedroomsDefaultCount: 2,
+                bedroomsMinCount: 1,
+                bedsDefaultCount: 2,
+                bedsMinCount: 1,
                 attributes: {
                   class: "default-dropdown"
                 }
@@ -255,21 +233,10 @@ html(lang="ru")
                 type: "facilities",
                 label: "Dropdown",
                 open: true,
-                items: [
-                  {
-                    text: "Спальни",
-                    defaultcount: 2,
-                    minCount: 1
-                  },
-                  {
-                    text: "Кровати",
-                    defaultCount: 2,
-                    minCount: 1
-                  },
-                  {
-                    text: "Ванные комнаты"
-                  }
-                ],
+                bedroomsDefaultCount: 2,
+                bedroomsMinCount: 1,
+                bedsDefaultCount: 2,
+                bedsMinCount: 1,
                 attributes: {
                   class: "expanded-dropdown"
                 }
@@ -279,18 +246,7 @@ html(lang="ru")
             +dropdown({
               type: "guests",
               label: "Dropdown",
-              open: true,
-              items: [
-                {
-                  text: "Взрослые"
-                },
-                {
-                  text: "Дети"
-                },
-                {
-                  text: "Младенцы"
-                }
-              ]
+              open: true
             })
 
           .col
@@ -298,19 +254,8 @@ html(lang="ru")
               type: "guests",
               label: "Dropdown",
               open: true,
-              items: [
-                {
-                  text: "Взрослые",
-                  defaultCount: 2
-                },
-                {
-                  text: "Дети",
-                  defaultCount: 1
-                },
-                {
-                  text: "Младенцы"
-                }
-              ]
+              adultsDefaultCount: 2,
+              childrenDefaultCount: 1
             })
           
         .col

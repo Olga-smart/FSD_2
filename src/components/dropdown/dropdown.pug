@@ -7,11 +7,51 @@ mixin dropdown(options)
     - classList = classList + " dropdown_menu_open" 
     - outputClass = outputClass + " input__input_dropdown_open input__input_focused input__input_cursor_pointer"
     
-  - let placeholder = ''
-  - if (options.type == 'guests')
-    - placeholder = 'Сколько гостей'
-  - if (options.type == 'facilities')
-    - placeholder = 'Выберите удобства'
+  - let items = [];
+  - 
+    if (options.type == "guests")
+      items = [
+        {
+          label: "взрослые",
+          defaultCount: options.adultsDefaultCount,
+          minCount: options.adultsMinCount,
+          maxCount: options.adultsMaxCount 
+        },
+        {
+          label: "дети",
+          defaultCount: options.childrenDefaultCount,
+          minCount: options.childrenMinCount,
+          maxCount: options.childrenMaxCount
+        },
+        {
+          label: "младенцы",
+          defaultCount: options.babiesDefaultCount,
+          minCount: options.babiesMinCount,
+          maxCount: options.babiesMaxCount
+        }
+      ]
+    if (options.type == "facilities")
+      items = [
+        {
+          label: "спальни",
+          defaultCount: options.bedroomsDefaultCount,
+          minCount: options.bedroomsMinCount,
+          maxCount: options.bedroomsMaxCount 
+        },
+        {
+          label: "кровати",
+          defaultCount: options.bedsDefaultCount,
+          minCount: options.bedsMinCount,
+          maxCount: options.bedsMaxCount
+        },
+        {
+          label: "ванные комнаты",
+          defaultCount: options.bathroomsDefaultCount,
+          minCount: options.bathroomsMinCount,
+          maxCount: options.bathroomsMaxCount
+        }
+      ]
+    
 
   .dropdown.js-dropdown(
     class = classList
@@ -23,19 +63,17 @@ mixin dropdown(options)
         type: "text",
         label: options.label,
         required: options.required,
-        value: placeholder,
         inputClass: outputClass,
         readonly: true
       })
     .dropdown__menu
-      each item in options.items
+      each item in items
         .dropdown__item.js-dropdown__item(
-          data-id = item.id
           data-default-count = item.defaultCount
           data-min-count = item.minCount
           data-max-count = item.maxCount
         )
-          .dropdown__item-label= item.text
+          .dropdown__item-label= item.label
           button.dropdown__button-minus.js-dropdown__button-minus= "-"
           input.dropdown__item-input.js-dropdown__item-input(
             value = item.defaultCount || 0
