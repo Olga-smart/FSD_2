@@ -15,6 +15,9 @@ for (let dropdown of dropdowns) {
     minus.addEventListener('click', function() {
       if ( counterCanBeDecreased(item, input) ) {
         input.value--;
+        if ( counterValueIsMinimal(item, input) ) {
+          minus.disabled = true;
+        }
       }
       updateDropdownOutput(dropdown);
       apply.style.display = 'inline-block';
@@ -25,11 +28,20 @@ for (let dropdown of dropdowns) {
     plus.addEventListener('click', function() {
       if ( counterCanBeIncreased(item, input) ) {
         input.value++;
+        if ( counterValueIsMaximal(item, input) ) {
+          plus.disabled = true;
+        }
       }
       updateDropdownOutput(dropdown);
       apply.style.display = 'inline-block';
       reset.style.display = 'inline-block';
     })
+    if ( counterValueIsMinimal(item, input) ) {
+      minus.disabled = true;
+    }
+    if ( counterValueIsMaximal(item, input) ) {
+      plus.disabled = true;
+    }
   }
   
   let reset = dropdown.querySelector('.js-dropdown__button-reset');
@@ -177,6 +189,14 @@ function resetDropdown(dropdown) {
   for (let input of inputs) {
     input.value = input.closest('.js-dropdown__item').dataset.defaultCount || 0;
   }
+}
+
+function counterValueIsMinimal(item, input) {
+  return input.value == item.dataset.minCount || input.value == 0;
+}
+
+function counterValueIsMaximal(item, input) {
+  return input.value == item.dataset.maxCount;
 }
 
 //-------------------------------
