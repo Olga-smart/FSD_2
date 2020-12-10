@@ -1,6 +1,7 @@
 let dropdowns = document.querySelectorAll('.js-dropdown');
 for (let dropdown of dropdowns) {
   updateDropdownOutput(dropdown);
+  
   let output = dropdown.querySelector('.js-dropdown__output .js-input .js-input__input');
   output.addEventListener('click', function() {
     toggleDropdown(dropdown, output);
@@ -16,14 +17,36 @@ for (let dropdown of dropdowns) {
         input.value--;
       }
       updateDropdownOutput(dropdown);
+      apply.style.display = 'inline-block';
+      if ( buttonResetIsNecessary(dropdown) ) {
+        reset.style.display = 'inline-block';
+      }
     })
     plus.addEventListener('click', function() {
       if ( counterCanBeIncreased(item, input) ) {
         input.value++;
       }
       updateDropdownOutput(dropdown);
+      apply.style.display = 'inline-block';
+      reset.style.display = 'inline-block';
     })
-  } 
+  }
+  
+  let reset = dropdown.querySelector('.js-dropdown__button-reset');
+  if ( buttonResetIsNecessary(dropdown) ) {
+    reset.style.display = 'inline-block';
+  }
+  reset.addEventListener('click', function() {
+    resetDropdown(dropdown);
+    reset.style.display = 'none';
+  })
+  
+  let apply = dropdown.querySelector('.js-dropdown__button-apply');
+  apply.addEventListener('click', function() {
+    toggleDropdown(dropdown, output);
+    apply.style.display = 'none';
+  })
+
 }
 
 function toggleDropdown(dropdown, output) {
@@ -49,16 +72,16 @@ function counterCanBeIncreased(item, input) {
 
 function updateDropdownOutput(dropdown) {
   let output = dropdown.querySelector('.js-dropdown__output .js-input .js-input__input');
-  let counters = dropdown.querySelectorAll('.js-dropdown__item-input');
+  let inputs = dropdown.querySelectorAll('.js-dropdown__item-input');
   
   if (dropdown.dataset.type == 'guests') {
     if ( sumDropdownValues(dropdown) == 0 ) {
       output.value = 'Сколько гостей';
     } else {
-      let guestsCount = +counters[0].value + +counters[1].value;
+      let guestsCount = +inputs[0].value + +inputs[1].value;
       let guestsWord = wordToPlural(guestsCount, 'гость', 'гостя', 'гостей');
 
-      let babiesCount = +counters[2].value;
+      let babiesCount = +inputs[2].value;
       let babiesWord = wordToPlural(babiesCount, 'младенец', 'младенца', 'младенцев');
 
       if (babiesCount == 0) {
@@ -75,13 +98,13 @@ function updateDropdownOutput(dropdown) {
     } else {
       let result = '';
       
-      let bedroomsCount = +counters[0].value;
+      let bedroomsCount = +inputs[0].value;
       if (bedroomsCount > 0) {
         let bedroomsWord = wordToPlural(bedroomsCount, 'спальня', 'спальни', 'спален');
         result += bedroomsCount + ' ' + bedroomsWord;
       }
 
-      let bedsCount = +counters[1].value;
+      let bedsCount = +inputs[1].value;
       if (bedsCount > 0) {
         let bedsWord = wordToPlural(bedsCount, 'кровать', 'кровати', 'кроватей');
         if (result.length > 0) {
@@ -90,7 +113,7 @@ function updateDropdownOutput(dropdown) {
         result += bedsCount + ' ' + bedsWord;
       }
 
-      let bathroomsCount = +counters[2].value;
+      let bathroomsCount = +inputs[2].value;
       if (bathroomsCount > 0) {
         let bathroomsWord = wordToPlural(bathroomsCount, 'ванная', 'ванные', 'ванных');
         if (result.length > 0) {
@@ -112,6 +135,48 @@ function sumDropdownValues(dropdown) {
     sum += +counter.value;
   }
   return sum;
+}
+
+function lastDigit(num) {
+ return +num.toString().slice(-1); 
+}
+
+function last2Digits(num) {
+ return +num.toString().slice(-2); 
+}
+
+function wordToPlural(number, wordWith1, wordWith2, wordWith5) {
+  let result = wordWith5;
+  if ([1, 21, 31, 41, 51, 61, 71, 81, 91].includes(last2Digits(number))) {
+    result = wordWith1;
+  }
+  if ([2, 3, 4].includes(lastDigit(number)) && ![12, 13, 14].includes(last2Digits(number))) {
+    result = wordWith2;
+  }
+  return result;
+}
+
+function buttonResetIsNecessary(dropdown) {
+  let inputs = dropdown.querySelectorAll('.js-dropdown__item-input');
+  for (let input of inputs) {   
+    if (input.value == 0 || input.value == input.closest('.js-dropdown__item').dataset.minCount) {
+      continue;
+    } else {
+      return true;
+    }
+    return false;
+  }
+}
+
+function buttonApplyIsNecessary(dropdown) {
+  return true;
+}
+
+function resetDropdown(dropdown) {
+  let inputs = dropdown.querySelectorAll('.js-dropdown__item-input');
+  for (let input of inputs) {
+    input.value = input.closest('.js-dropdown__item').dataset.defaultCount || 0;
+  }
 }
 
 //-------------------------------
