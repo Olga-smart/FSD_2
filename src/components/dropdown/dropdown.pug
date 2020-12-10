@@ -79,16 +79,15 @@ mixin dropdown(options)
             value = item.defaultCount || 0
             readonly
           )
-          button.dropdown__button-plus.js-dropdown__button-plus= "+"
-      .dropdown__buttons
-        .dropdown__button_reset
-          +button({
-            text: "Очистить"
-          })
-        .dropdown__button_apply  
-          +button({
-            text: "Применить"
-          })
+          button.dropdown__button-plus.js-dropdown__button-plus= "+"   
+      .dropdown__button-reset
+        +button({
+          text: "Очистить"
+        })     
+      .dropdown__button-apply  
+        +button({
+          text: "Применить"
+        })
       
     
     

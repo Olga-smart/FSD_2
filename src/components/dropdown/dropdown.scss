@@ -2,6 +2,7 @@
   position: relative;
   &__menu {
     display: none;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 0.5rem;
     position: absolute;
     width: 100%;
@@ -21,6 +22,7 @@
     }
   }
   &__item {
+    grid-column: 1/-1;
     display: grid;
     grid-template-columns: 1fr 2.14rem 2.29rem 2.14rem;
     align-items: center;
@@ -56,15 +58,17 @@
       outline: none;
     }
   }
-  &__buttons {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 0.7rem;
-    padding-bottom: 0.08rem;
-  }
   &__button {
-    &_reset, &_apply {
-      
+    &-reset, &-apply {
+      padding-top: 0.7rem;
+      padding-bottom: 0.08rem;
+    }
+    &-reset {
+      grid-column: 1/2;
+    }
+    &-apply {
+      grid-column: 2/3;
+      text-align: right;
     }
   }
 }
