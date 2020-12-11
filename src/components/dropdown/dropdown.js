@@ -18,6 +18,7 @@ for (let dropdown of dropdowns) {
         if ( counterValueIsMinimal(item, input) ) {
           minus.disabled = true;
         }
+        plus.disabled = false;
       }
       updateDropdownOutput(dropdown);
       apply.style.display = 'inline-block';
@@ -31,6 +32,7 @@ for (let dropdown of dropdowns) {
         if ( counterValueIsMaximal(item, input) ) {
           plus.disabled = true;
         }
+        minus.disabled = false;
       }
       updateDropdownOutput(dropdown);
       apply.style.display = 'inline-block';
