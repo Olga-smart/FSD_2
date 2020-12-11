@@ -187,10 +187,14 @@ function buttonApplyIsNecessary(dropdown) {
 }
 
 function resetDropdown(dropdown) {
-  let inputs = dropdown.querySelectorAll('.js-dropdown__item-input');
-  for (let input of inputs) {
-    input.value = input.closest('.js-dropdown__item').dataset.defaultCount || 0;
+  let items = dropdown.querySelectorAll('.js-dropdown__item')
+  for (let item of items) {
+    let input = item.querySelector('.js-dropdown__item-input');
+    input.value = input.closest('.js-dropdown__item').dataset.minCount || 0;
+    let minus = item.querySelector('.js-dropdown__button-minus');
+    minus.disabled = true;
   }
+  updateDropdownOutput(dropdown);
 }
 
 function counterValueIsMinimal(item, input) {
