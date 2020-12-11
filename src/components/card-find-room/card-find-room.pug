@@ -19,22 +19,7 @@ mixin card-find-room
       .card-find-room__dropdown
         +dropdown({
           label: "гости",
-          class: "iqdropdown-guests",
-          items: [
-            {
-              id: "guests-item1",
-              text: "Взрослые"
-            },
-            {
-              id: "guests-item2",
-              text: "Дети"
-            },
-            {
-              id: "guests-item3",
-              text: "Младенцы"
-            }
-          ],
-          buttonsClass: "hidden",
+          type: "guests"
         })
       
       .card-find-room__button-submit

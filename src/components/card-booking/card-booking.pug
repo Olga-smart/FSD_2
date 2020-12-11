@@ -9,7 +9,7 @@ include ../../components/dropdown/dropdown
 
 mixin card-booking(options)
   .card-booking.card
-    .card-booking__form
+    form.card-booking__form
       .card-booking__title
         span №
         span.card-booking__number= ' ' + options.number + ' '
@@ -33,25 +33,10 @@ mixin card-booking(options)
       .card-booking__dropdown
         +dropdown({
           label: "гости",
-          class: "iqdropdown-guests",
-          items: [
-            {
-              id: "guests-item1",
-              text: "Взрослые",
-              defaultcount: options.adults
-            },
-            {
-              id: "guests-item2",
-              text: "Дети",
-              defaultcount: options.children
-            },
-            {
-              id: "guests-item3",
-              text: "Младенцы",
-              defaultcount: options.babies
-            }
-          ],
-          buttonsClass: "hidden",
+          type: "guests",
+          adultsDefaultCount: options.adults,
+          childrenDefaultCount: options.children,
+          babiesDefaultCount: options.babies
         })  
     
       - let days = 0;
