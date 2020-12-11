@@ -78,7 +78,7 @@ mixin dropdown(options)
             type = "button"
           )= "-"
           input.dropdown__item-input.js-dropdown__item-input(
-            value = item.defaultCount || 0
+            value = item.defaultCount || item.minCount || 0
             readonly
           )
           button.dropdown__button-plus.js-dropdown__button-plus(
