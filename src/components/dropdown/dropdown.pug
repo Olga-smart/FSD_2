@@ -74,12 +74,16 @@ mixin dropdown(options)
           data-max-count = item.maxCount
         )
           .dropdown__item-label= item.label
-          button.dropdown__button-minus.js-dropdown__button-minus= "-"
+          button.dropdown__button-minus.js-dropdown__button-minus(
+            type = "button"
+          )= "-"
           input.dropdown__item-input.js-dropdown__item-input(
             value = item.defaultCount || 0
             readonly
           )
-          button.dropdown__button-plus.js-dropdown__button-plus= "+"   
+          button.dropdown__button-plus.js-dropdown__button-plus(
+            type = "button"
+          )= "+"   
       .dropdown__button-reset.js-dropdown__button-reset
         +button({
           text: "Очистить"
