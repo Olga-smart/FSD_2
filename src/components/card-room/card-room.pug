@@ -1,8 +1,29 @@
 include ../../components/rate/rate
 
+- function prettifyPrice(num)
+  - let n = num.toString()
+  - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ')
+
 mixin card-room(options)
-  .card-room.card
-    img.card-room__img(
-      src = options.img
-    )
+  .card-room.js-card-room.card
+    .card-room__slider.js-card-room__slider
+      each img in options.images
+        img.card-room__img(src = img)
     .card-room__info
+      .card-room__number-container
+        span.card-room__number-sign= '№ '
+        span.card-room__number= options.number + ' '
+          - if (options.lux)
+            span.card-room__lux люкс
+      .card-room__price-container   
+        span.card-room__price !{prettifyPrice(options.price)}₽ 
+        span в сутки
+      .card-room__hr
+      +rate({
+        value: options.rate
+      })
+      .card-room__comments-container
+        span.card-room__comments-number.js-card-room__comments-number= options.comments + ' '
+        span.card-room__comments-word.js-card-room__comments-word Отзывов
+        
+        

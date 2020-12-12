@@ -4,6 +4,7 @@ html(lang="ru")
     meta(charset="utf-8'")
     meta(name="viewport", content="initial-scale=1.0, width=device-width")
     title Cards
+    
     link(rel="stylesheet" href="../ui-kit.scss")
     link(rel="stylesheet" href="cards.scss")
   body.ui-kit-page
@@ -38,14 +39,31 @@ html(lang="ru")
           
           .col-270
             +card-room({
-              img: "img/room1.jpg",
-
+              images: [
+                "img/room1.jpg",
+                "img/room2.jpg",
+                "img/room3.jpg",
+                "img/room4.jpg",
+              ],
+              number: 888,
+              lux: true,
+              price: 9990,
+              rate: 5,
+              comments: 145
             })
             
             +card-room({
-              img: "img/room2.jpg",
-
+              images: [
+                "img/room2.jpg",
+                "img/room1.jpg",
+                "img/room3.jpg",
+                "img/room4.jpg",
+              ],
+              number: 840,
+              price: 9900,
+              rate: 4,
+              comments: 65
             })
-        
+          
     script(src="../../main.js")
     
