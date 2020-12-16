@@ -61,4 +61,15 @@
       top: calc(50% - 0.6rem);
     }
   }
+  &_height_small {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    &.button_outline {
+      padding: 2px;
+      .button__text {
+        padding-top: calc(0.7rem - 2px);
+        padding-bottom: calc(0.7rem - 2px);
+      }
+    }
+  }
 }

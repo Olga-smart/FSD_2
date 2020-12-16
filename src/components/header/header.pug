@@ -1,0 +1,117 @@
+mixin header(options)
+  if !options
+    - options = {}
+    
+  include ../../components/logo/logo
+  include ../../components/button/button
+  
+  header.header
+    .container
+      nav.header__nav
+        button.header__burger.js-header__burger
+          span.visually-hidden Меню
+        .header__logo
+          +logo()
+        ul.header__menu.js-header__menu
+          li.header__menu-item
+            a.header__menu-link.header__menu-link_hovered(
+              href = "#"
+            ) О нас
+          li.header__menu-item.header__menu-item_dropdown
+            a.header__menu-link(
+              href = "#"
+            ) Услуги
+            ul.header__sub-menu
+              li.header__sub-menu-item
+                a.header__sub-menu-link(
+                  href="#"
+                ) Трансфер
+              li.header__sub-menu-item
+                a.header__sub-menu-link(
+                  href="#"
+                ) Экскурсии
+              li.header__sub-menu-item
+                a.header__sub-menu-link(
+                  href="#"
+                ) Аренда бытовых приборов 
+              li.header__sub-menu-item
+                a.header__sub-menu-link(
+                  href="#"
+                ) Массаж  
+          li.header__menu-item  
+            a.header__menu-link(
+              href = "#"
+            ) Вакансии
+          li.header__menu-item  
+            a.header__menu-link(
+              href = "#"
+            ) Новости
+          li.header__menu-item.header__menu-item_dropdown  
+            a.header__menu-link(
+              href = "#"
+            ) Соглашения
+            ul.header__sub-menu
+              li.header__sub-menu-item
+                a.header__sub-menu-link(
+                  href="#"
+                ) Соглашение 1
+              li.header__sub-menu-item
+                a.header__sub-menu-link(
+                  href="#"
+                ) Соглашение 2
+              li.header__sub-menu-item
+                a.header__sub-menu-link(
+                  href="#"
+                ) Соглашение 3
+        if (options.loggedIn !== true)        
+          ul.header__user-nav    
+            li.header__button-sign-in  
+              +button({
+                tag: "button",
+                text: "Войти",
+                type: "button",
+                view: ["outline", "height_small"]
+              })
+            li.header__button-sign-up  
+              +button({
+                tag: "button",
+                text: "Зарегистрироваться",
+                type: "button",
+                view: ["fill", "height_small"]
+              })
+          button.header__icon-sign-in
+            img.header__icon-sign-in-img(
+              src = "../../components/header/img/login.svg"
+            )
+            span.visually-hidden Войти
+        if (options.loggedIn == true)
+          .header__user-profile
+            button.header__user-name= options.userName
+            button.header__user-icon
+              img.header__user-icon-img(
+                src = "../../components/header/img/user.svg"
+              )
+              span.visually-hidden= options.userName
+            ul.header__user-menu
+              li.header__user-menu-item
+                a.header__user-menu-link(
+                  href = "#"
+                ) Профиль  
+              li.header__user-menu-item
+                a.header__user-menu-link(
+                  href = "#"
+                ) Сообщения  
+              li.header__user-menu-item
+                a.header__user-menu-link(
+                  href = "#"
+                ) Помощь  
+              li.header__user-menu-item
+                a.header__user-menu-link(
+                  href = "#"
+                ) Выход  
+          
+          
+          
+          
+          
+          

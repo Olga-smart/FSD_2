@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 *,
 *::before,
 *::after {
@@ -11,6 +13,18 @@ html {
   font-size: 14px;
   line-height: 1.7;
   color: $primary-dark;
+}
+
+@include media-breakpoint-down($md) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@include media-breakpoint-down($xs) {
+  html {
+    font-size: 10px;
+  }
 }
 
 h1, h2, h3, .h1, .h2, .h3 {
@@ -48,6 +62,19 @@ h3, .h3 {
   margin-left: auto;
 }
 
+.container {
+  min-width: 320px;
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  @include media-breakpoint-down($sm) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 input,
 button,
 textarea,
@@ -62,4 +89,6 @@ select {
   height: 1px;
   margin: -1px;
 }
+
+
 

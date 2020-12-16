@@ -1,0 +1,20 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="initial-scale=1.0, width=device-width")
+    title Headers & Footers
+    
+    link(rel="stylesheet" href="../ui-kit.scss")
+    link(rel="stylesheet" href="headers-and-footers.scss")
+  body.ui-kit-page.headers-and-footers-page
+    include ../../components/header/header
+
+    +header()
+    
+    +header({
+      loggedIn: true,
+      userName: 'Юлий Цезарь'
+    })
+    
+    script(src="../../main.js")
