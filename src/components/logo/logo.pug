@@ -1,0 +1,18 @@
+mixin logo(options)
+  if !options
+    - options = {}
+  
+  - let tag = 'div';
+    
+  - if (options.href)
+    - tag = 'a'
+    
+  #{tag}(
+    class = "logo"
+    href = options.href || "../../index.pug"    
+  )  
+    img.logo__img(
+      src = "../../../src/components/logo/img/logo.svg"
+      alt = "Логотип"
+    )
+    span.visually-hidden На главную
