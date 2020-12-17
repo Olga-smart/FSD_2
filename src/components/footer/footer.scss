@@ -1,0 +1,136 @@
+.footer {
+  background-color: #fff;
+  padding-top: 7.14rem;
+  line-height: 1.22;
+  box-shadow: 0 10px 20px rgba($primary-very-dark, 0.05);
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 2.857rem;
+    padding-bottom: 7.14rem;
+  }
+  &__logo {
+    margin-bottom: 1.3rem;
+    &-column {
+      grid-column: 1/4;
+      line-height: 1.7;
+    }
+  }
+  &__menu {
+    grid-column: 4/10;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2.86rem;
+    grid-row-gap: 1.6rem;
+    line-height: 1.22;
+    padding-top: 0.29rem;
+    &-list {
+      list-style-type: none;
+      display: grid;
+      grid-row-gap: 1.5rem;
+    }
+    &-link {
+      text-decoration: none;
+      color: $primary-medium;
+    }
+  }
+  &__heading {
+    grid-row: 1/2;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.86rem;
+    line-height: 1.22;
+  }
+  &__subscription {
+    &-column {
+      grid-column: 10/-1;
+      display: grid;
+      grid-row-gap: 1.5rem;
+      align-content: start;
+      padding-top: 0.29rem;
+    }
+    &-text {
+      line-height: 1.7;
+    }
+  }
+  &__bottom {
+    border-top: 1px solid rgba($primary-very-dark, 0.1);
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+  &__socials {
+    list-style-type: none;
+    display: flex;
+    &-item + &-item {
+      margin-left: 1.43rem;
+    }
+    &-link {
+      display: block;
+      width: 24px;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+    &-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@include media-breakpoint-down($md) {
+  .footer {
+    &__container {
+      grid-row-gap: 2.857rem;
+    }
+    &__logo-column {
+      grid-column: 1/6;
+      grid-row: 2/3;
+    }
+    &__menu {
+      grid-column: 1/-1;
+    }
+    &__subscription-column {
+      grid-column: 7/-1;
+    }
+  }
+}
+
+@include media-breakpoint-down($sm) {
+  .footer {
+    padding-top: 8.57rem;
+    &__container {
+      padding-bottom: 0;
+    }
+    &__text-under-logo,
+    &__menu,
+    &__subscription-column {
+      display: none;
+    }
+    &__logo {
+      text-align: center;
+      margin-bottom: 0;
+      &-column {
+        grid-column: 1/-1;
+        grid-row: 1/2;
+      }
+    }
+    &__bottom {
+      border-top: none;
+      &-container {
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 8.57rem;
+      } 
+    }
+    &__copyright {
+      margin-bottom: 1.79rem;
+    }
+  }
+}

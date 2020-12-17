@@ -1,0 +1,86 @@
+mixin footer(options)
+  if !options
+    - options = {}
+    
+  include ../../components/logo/logo
+  include ../../components/input-with-button/input-with-button
+  
+  footer.footer
+    .container
+      .footer__container
+        .footer__logo-column
+          .footer__logo
+            +logo()
+          p.footer__text-under-logo Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+        dl.footer__menu
+          dt.footer__heading Навигация
+          dd
+            ul.footer__menu-list
+              li
+                a.footer__menu-link(href="#") О нас 
+              li
+                a.footer__menu-link(href="#") Новости
+              li
+                a.footer__menu-link(href="#") Служба поддержки
+              li
+                a.footer__menu-link(href="#") Услуги
+          dt.footer__heading О нас
+          dd
+            ul.footer__menu-list
+              li
+                a.footer__menu-link(href="#") О сервисе 
+              li
+                a.footer__menu-link(href="#") Наша команда
+              li
+                a.footer__menu-link(href="#") Вакансии
+              li
+                a.footer__menu-link(href="#") Инвесторы
+          dt.footer__heading Служба поддержки
+          dd
+            ul.footer__menu-list
+              li
+                a.footer__menu-link(href="#") Соглашения 
+              li
+                a.footer__menu-link(href="#") Сообщества
+              li
+                a.footer__menu-link(href="#") Связь с нами
+        .footer__subscription-column
+          .footer__heading Подписка
+          p.footer__subscription-text Получайте специальные предложения и новости сервиса
+          +input-with-button({
+            placeholder: "Email",
+            type: "email",
+            name: "email"
+          })
+    .footer__bottom
+      .container
+        .footer__bottom-container
+          p.footer__copyright Copyright © 2018 Toxin отель. Все права зачищены.
+          ul.footer__socials
+            li.footer__socials-item
+              a.footer__socials-link(href="#")
+                img.footer__socials-img(
+                  src="../../../src/components/footer/img/twitter.svg"
+                  alt="Twitter"
+                )
+                span.visually-hidden Twitter
+            li.footer__socials-item
+              a.footer__socials-link(href="#")
+                img.footer__socials-img(
+                  src="../../../src/components/footer/img/facebook.svg"
+                  alt="Facebook"
+                )
+                span.visually-hidden Facebook
+            li.footer__socials-item
+              a.footer__socials-link(href="#")
+                img.footer__socials-img(
+                  src="../../../src/components/footer/img/instagram.svg"
+                  alt="Instagram"
+                )
+                span.visually-hidden Instagram    
+                
+                
+                
+                
+                
+                

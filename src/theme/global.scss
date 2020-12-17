@@ -13,18 +13,7 @@ html {
   font-size: 14px;
   line-height: 1.7;
   color: $primary-dark;
-}
-
-@include media-breakpoint-down($md) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@include media-breakpoint-down($xs) {
-  html {
-    font-size: 10px;
-  }
+  overflow-x: hidden;
 }
 
 h1, h2, h3, .h1, .h2, .h3 {
@@ -89,6 +78,8 @@ select {
   height: 1px;
   margin: -1px;
 }
+
+
 
 
 

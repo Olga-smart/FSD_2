@@ -9,6 +9,7 @@ html(lang="ru")
     link(rel="stylesheet" href="headers-and-footers.scss")
   body.ui-kit-page.headers-and-footers-page
     include ../../components/header/header
+    include ../../components/footer/footer
 
     +header()
     
@@ -16,5 +17,7 @@ html(lang="ru")
       loggedIn: true,
       userName: 'Юлий Цезарь'
     })
+    
+    +footer()
     
     script(src="../../main.js")
