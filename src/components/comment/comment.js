@@ -1,4 +1,4 @@
-let commentDates = document.querySelectorAll('.comment__date');
+let commentDates = document.querySelectorAll('.js-comment__date');
 for (let date of commentDates) {
   dateToText(date);
 } 
