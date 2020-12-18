@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "parcel src/ui-kit/colors-and-type/colors-and-type.pug --open"
+    "start": "parcel src/ui-kit/form-elements/form-elements.pug --open"
   },
   "keywords": [],
   "author": "Olga Tarasova",
