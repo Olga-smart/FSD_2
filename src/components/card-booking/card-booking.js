@@ -1,28 +1,28 @@
-let cardBooking = document.querySelector('.card-booking');
+let cardBooking = document.querySelector('.js-card-booking');
 
-let inputArrival = cardBooking.querySelector('.card-booking__arrival');
-let inputDeparture = cardBooking.querySelector('.card-booking__departure');
+let inputArrival = cardBooking.querySelector('.js-card-booking__arrival');
+let inputDeparture = cardBooking.querySelector('.js-card-booking__departure');
 let dateArrival;
 let dateDeparture;
 
-let daysNum = cardBooking.querySelector('.card-booking__days');
-let daysWord = cardBooking.querySelector('.card-booking__days-word');
+let daysNum = cardBooking.querySelector('.js-card-booking__days');
+let daysWord = cardBooking.querySelector('.js-card-booking__days-word');
 let days = +daysNum.textContent;
 
-let priceElem = cardBooking.querySelector('.card-booking__price');
+let priceElem = cardBooking.querySelector('.js-card-booking__price');
 let price = extractNumbers(priceElem.textContent);
-let priceForXDays = cardBooking.querySelector('.card-booking__price-for-x-days');
+let priceForXDays = cardBooking.querySelector('.js-card-booking__price-for-x-days');
 
-let serviceFeeElem = cardBooking.querySelector('.card-booking__service-fee');
+let serviceFeeElem = cardBooking.querySelector('.js-card-booking__service-fee');
 let serviceFee = +extractNumbers(serviceFeeElem.textContent);
 
-let discountElem = cardBooking.querySelector('.card-booking__discount');
+let discountElem = cardBooking.querySelector('.js-card-booking__discount');
 let discount = +extractNumbers(discountElem.textContent);
 
-let additionalServiceFeeElem = cardBooking.querySelector('.card-booking__additional-service-fee');
+let additionalServiceFeeElem = cardBooking.querySelector('.js-card-booking__additional-service-fee');
 let additionalServiceFee = +extractNumbers(additionalServiceFeeElem.textContent);
 
-let totalElem = cardBooking.querySelector('.card-booking__total');
+let totalElem = cardBooking.querySelector('.js-card-booking__total');
 
 $(inputArrival).datepicker({
   onSelect: function(fd, d, picker) {
@@ -81,7 +81,7 @@ function extractNumbers(string) {
   return string.replace(/\D+/g, "");
 }
 
-let infoIcons = cardBooking.querySelectorAll('.card-booking__info-icon');
+let infoIcons = cardBooking.querySelectorAll('.js-card-booking__info-icon');
 for (let icon of infoIcons) {
   let tooltip;
   icon.addEventListener('mouseover', function(event) {
