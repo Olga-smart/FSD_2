@@ -17,12 +17,12 @@ mixin card-sign-in
         name: "password",
         required: true
       })
-      +button({
-        class: "card-sign-in__submit-btn",
-        text: "Войти",
-        type: "submit",
-        view: ["fill", "width_full", "arrow_right"]
-      })
+      .card-sign-in__submit-btn
+        +button({
+          text: "Войти",
+          type: "submit",
+          view: ["fill", "width_full", "arrow_right"]
+        })
     .card-sign-in__footer
       p Нет аккаунта на Toxin?
       +button({
