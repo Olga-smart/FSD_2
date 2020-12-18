@@ -37,7 +37,7 @@
     background-image: url(../../src/components/like/img/like_border.svg);
     transition: all 0.2s ease-in-out;
   }
-  &.checked {
+  &_checked {
     border-color: $accent-main;
     color: $accent-main;
     &::before {
