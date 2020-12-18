@@ -1,9 +1,9 @@
 require('paginationjs');
 
-let cards = document.querySelectorAll('.card');
+let cards = document.querySelectorAll('.js-card');
 let arr = Array.from(cards);
 
-$('.pagination').pagination({
+$('.js-pagination').pagination({
   dataSource: arr,
   showNavigator: true,
   pageSize: 12,
