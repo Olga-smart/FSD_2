@@ -6,9 +6,10 @@ mixin expandable-checklist(options)
    - modifier = "expandable-checklist_open"
    
   .expandable-checklist(class = modifier)
-    .expandable-checklist__title.h3= options.title
-    +checklist({
-      items: options.items,
-      uniqueName: options.uniqueName,
-      listClass: "expandable-checklist__list"
-    })
+    .expandable-checklist__title.js-expandable-checklist__title.h3= options.title
+    .expandable-checklist__list
+      +checklist({
+        items: options.items,
+        uniqueName: options.uniqueName,
+        listClass: "checklist__list_row-gap_small"
+      })
