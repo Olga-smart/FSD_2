@@ -4,7 +4,7 @@ mixin range(options)
     
   .range
     .h3.range__title= options.label
-    .range__output
+    .range__output.js-range__output
     input.js-range-slider(type="text"
       data-min= options.min
       data-max= options.max

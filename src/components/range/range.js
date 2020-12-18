@@ -1,7 +1,7 @@
 require('ion-rangeslider');
 require('ion-rangeslider/css/ion.rangeSlider.min.css');
 
-let output = document.querySelector('.range__output');
+let output = document.querySelector('.js-range__output');
 
 $('.js-range-slider').ionRangeSlider({
   skin: 'round',
