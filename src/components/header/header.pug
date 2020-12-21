@@ -1,9 +1,9 @@
+include ../../components/logo/logo
+include ../../components/button/button
+
 mixin header(options)
   if !options
     - options = {}
-    
-  include ../../components/logo/logo
-  include ../../components/button/button
   
   header.header
     .container
