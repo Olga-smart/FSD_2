@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     font-size: 0.86rem;
+    cursor: pointer;
     a {
       color: $primary-medium;
       text-decoration: none;
@@ -41,6 +42,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 45%, 100%;
+    cursor: pointer;
   }
   &-prev {
     background-image:
