@@ -1,3 +1,5 @@
+@import '../../theme/variables.scss';
+
 .button {
   border: none;
   background-color: transparent;
@@ -55,7 +57,7 @@
       position: absolute;
       width: 1.23rem;
       height: 1.23rem;
-      background-image: url(../components/button/img/arrow_right.svg);
+      background-image: url(./img/arrow_right.svg);
       background-size: contain;
       right: 0.93rem;
       top: calc(50% - 0.6rem);

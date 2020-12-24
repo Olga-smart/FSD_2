@@ -1,3 +1,5 @@
+@import '../../theme/variables.scss';
+
 .like {
   display: inline-block;
   min-width: 38px;
@@ -34,7 +36,7 @@
     position: absolute;
     top: calc(50% - 4px);
     left: 5px;
-    background-image: url(../../src/components/like/img/like_border.svg);
+    background-image: url(./img/like_border.svg);
     transition: all 0.2s ease-in-out;
   }
   &_checked {
@@ -44,7 +46,7 @@
       background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
     }
     &::after {
-      background-image: url(../../src/components/like/img/like_checked.svg);
+      background-image: url(./img/like_checked.svg);
     }
   }
 }

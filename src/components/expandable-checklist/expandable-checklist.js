@@ -1,3 +1,7 @@
+import './expandable-checklist.scss';
+
+import '../checklist/checklist.js'
+
 let expandableChecklistTitles = document.querySelectorAll('.js-expandable-checklist__title');
 
 for (let title of expandableChecklistTitles) {

@@ -1,6 +1,10 @@
 require('air-datepicker');
 require('air-datepicker/dist/css/datepicker.min.css');
 
+import './datepicker.scss';
+
+import '../input/input.js'
+
 $('.datepicker-here').datepicker({
   clearButton: true,
   navTitles: {

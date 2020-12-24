@@ -1,3 +1,8 @@
+import './header.scss';
+
+import '../logo/logo.js'
+import '../button/button.js'
+
 let headers = document.querySelectorAll('.header');
 for (let header of headers) {
   let burger = header.querySelector('.js-header__burger');

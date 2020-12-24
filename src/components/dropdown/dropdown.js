@@ -1,3 +1,7 @@
+import './dropdown.scss';
+
+import '../button/button.js'
+
 let dropdowns = document.querySelectorAll('.js-dropdown');
 for (let dropdown of dropdowns) {
   updateDropdownOutput(dropdown);

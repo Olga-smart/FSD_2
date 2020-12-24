@@ -1,3 +1,7 @@
+import './comment.scss';
+
+import '../like/like.js'
+
 let commentDates = document.querySelectorAll('.js-comment__date');
 for (let date of commentDates) {
   dateToText(date);

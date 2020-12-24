@@ -1,3 +1,5 @@
+@import '../../theme/variables.scss';
+
 .paginationjs {
   display: flex;
   flex-direction: column;
@@ -42,12 +44,12 @@
   }
   &-prev {
     background-image:
-      url(../components/pagination/img/arrow_backward.svg),
+      url(./img/arrow_backward.svg),
       linear-gradient(to bottom, $accent-secondary, $accent-secondary-additional);
   }
   &-next {
     background-image:
-      url(../components/pagination/img/arrow_forward.svg),
+      url(./img/arrow_forward.svg),
       linear-gradient(to bottom, $accent-secondary, $accent-secondary-additional);
   }
   &-nav {

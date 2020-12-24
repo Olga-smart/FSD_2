@@ -1,6 +1,8 @@
 require('ion-rangeslider');
 require('ion-rangeslider/css/ion.rangeSlider.min.css');
 
+import './range.scss';
+
 let output = document.querySelector('.js-range__output');
 
 $('.js-range-slider').ionRangeSlider({
@@ -16,5 +18,6 @@ $('.js-range-slider').ionRangeSlider({
   }
 });
 
+import './range.scss';
 
 

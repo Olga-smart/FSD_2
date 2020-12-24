@@ -1,5 +1,7 @@
 require('paginationjs');
 
+import './pagination.scss';
+
 let cards = document.querySelectorAll('.js-card');
 let arr = Array.from(cards);
 

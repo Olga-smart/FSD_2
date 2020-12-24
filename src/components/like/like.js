@@ -1,3 +1,5 @@
+import './like.scss';
+
 let likes = document.querySelectorAll('.js-like');
 for (let like of likes) {
   like.addEventListener('click', function() {

@@ -1,3 +1,5 @@
+@import '../../theme/variables.scss';
+
 .datepicker {
   width: 320px;
   border: 1px solid $primary-light;
@@ -33,10 +35,10 @@
         display: none;
       }
       &[data-action="prev"] {
-        background-image: url(../components/datepicker/img/arrow_back.svg);
+        background-image: url(./img/arrow_back.svg);
       }
       &[data-action="next"] {
-        background-image: url(../components/datepicker/img/arrow_forward.svg);
+        background-image: url(./img/arrow_forward.svg);
       }
       &:hover {
         background-repeat: no-repeat;

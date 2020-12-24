@@ -1,3 +1,11 @@
+import './card-booking.scss';
+
+import '../card/card.js'
+import '../input/input.js'
+import '../button/button.js'
+import '../datepicker/datepicker.js'
+import '../dropdown/dropdown.js'
+
 let cardBooking = document.querySelector('.js-card-booking');
 
 let inputArrival = cardBooking.querySelector('.js-card-booking__arrival');
