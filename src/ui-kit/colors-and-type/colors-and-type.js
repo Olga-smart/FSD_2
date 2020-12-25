@@ -1,3 +1,5 @@
+import '../../theme/global.scss';
+
 import '../../components/palette/palette.js';
 
 import '../ui-kit.scss';

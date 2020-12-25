@@ -1,6 +1,8 @@
 import '../../connect-jquery.js';
 import jquery from "jquery";
 
+import '../../theme/global.scss';
+
 import '../../components/card-booking/card-booking.js';
 import '../../components/card-find-room/card-find-room.js';
 import '../../components/card-room/card-room.js';

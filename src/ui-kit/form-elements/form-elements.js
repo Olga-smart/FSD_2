@@ -1,6 +1,8 @@
 import '../../connect-jquery.js';
 import jquery from "jquery";
 
+import '../../theme/global.scss';
+
 import '../../components/bullet-list/bullet-list.js';
 import '../../components/button/button.js';
 import '../../components/checklist/checklist.js';
