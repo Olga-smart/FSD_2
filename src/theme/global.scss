@@ -59,6 +59,7 @@ h3, .h3 {
   padding-right: 20px;
   margin-right: auto;
   margin-left: auto;
+  height: 100%;
   @include media-breakpoint-down($sm) {
     padding-left: 10px;
     padding-right: 10px;
