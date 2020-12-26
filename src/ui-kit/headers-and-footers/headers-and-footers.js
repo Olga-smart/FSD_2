@@ -1,6 +1,3 @@
-import '../../connect-jquery.js';
-import jquery from "jquery";
-
 import '../../theme/global.scss';
 
 import '../../components/footer/footer.js';

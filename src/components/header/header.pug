@@ -14,7 +14,7 @@ mixin header(options)
           +logo()
         ul.header__menu.js-header__menu
           li.header__menu-item
-            a.header__menu-link.header__menu-link_hovered(
+            a.header__menu-link(
               href = "#"
             ) О нас
           li.header__menu-item.header__menu-item_dropdown
@@ -82,16 +82,18 @@ mixin header(options)
           button.header__icon-sign-in
             img.header__icon-sign-in-img(
               src = "../../components/header/img/login.svg"
+              alt = "Войти"
             )
-            span.visually-hidden Войти
+            //span.visually-hidden Войти
         if (options.loggedIn == true)
           .header__user-profile
             button.header__user-name= options.userName
             button.header__user-icon
               img.header__user-icon-img(
                 src = "../../components/header/img/user.svg"
+                alt = "Меню пользователя"
               )
-              span.visually-hidden= options.userName
+              //span.visually-hidden= options.userName
             ul.header__user-menu
               li.header__user-menu-item
                 a.header__user-menu-link(

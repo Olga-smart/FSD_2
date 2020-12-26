@@ -109,6 +109,8 @@
     padding-top: 8.57rem;
     &__container {
       padding-bottom: 0;
+      display: flex;
+      justify-content: center;
     }
     &__text-under-logo,
     &__menu,
@@ -128,6 +130,7 @@
       &-container {
         flex-direction: column;
         justify-content: center;
+        text-align: center;
         padding-bottom: 8.57rem;
       } 
     }

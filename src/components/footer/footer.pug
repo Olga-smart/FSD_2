@@ -1,10 +1,8 @@
 include ../../components/logo/logo
 include ../../components/input-with-button/input-with-button
 
-mixin footer(options)
-  if !options
-    - options = {}
-  
+mixin footer
+
   footer.footer
     .container
       .footer__container
@@ -63,21 +61,18 @@ mixin footer(options)
                   src="../../../src/components/footer/img/twitter.svg"
                   alt="Twitter"
                 )
-                span.visually-hidden Twitter
             li.footer__socials-item
               a.footer__socials-link(href="#")
                 img.footer__socials-img(
                   src="../../../src/components/footer/img/facebook.svg"
                   alt="Facebook"
                 )
-                span.visually-hidden Facebook
             li.footer__socials-item
               a.footer__socials-link(href="#")
                 img.footer__socials-img(
                   src="../../../src/components/footer/img/instagram.svg"
                   alt="Instagram"
-                )
-                span.visually-hidden Instagram    
+                )   
                 
                 
                 
