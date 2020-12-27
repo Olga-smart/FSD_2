@@ -5,13 +5,12 @@
   background-position: center;
   background-size: cover;
   min-height: calc(100vh - 70px);
-  padding-top: 5rem;
-  padding-bottom: 1.29rem;
-  &__container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding-top: 1.43rem;
+  padding-bottom: 1.43rem;
+  position: relative;
   &__card {
     width: 380px;
   }
