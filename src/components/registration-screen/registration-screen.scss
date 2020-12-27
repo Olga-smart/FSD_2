@@ -1,0 +1,18 @@
+@import '../../theme/variables.scss';
+
+.registration-screen {
+  background-image: url(img/registration-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: calc(100vh - 70px);
+  padding-top: 5rem;
+  padding-bottom: 1.29rem;
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  &__card {
+    width: 380px;
+  }
+}
