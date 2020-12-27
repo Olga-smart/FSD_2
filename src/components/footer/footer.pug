@@ -4,54 +4,52 @@ include ../../components/input-with-button/input-with-button
 mixin footer
 
   footer.footer
-    //- Обертка .footer__top нужна чтобы .footer__bottom не вываливалась из .footer (так происходит, когда у .container задано width: 100%, а у body - display: grid) 
-    .footer__top
-      .container
-        .footer__container
-          .footer__logo-column
-            .footer__logo
-              +logo()
-            p.footer__text-under-logo Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-          dl.footer__menu
-            dt.footer__heading Навигация
-            dd
-              ul.footer__menu-list
-                li
-                  a.footer__menu-link(href="#") О нас 
-                li
-                  a.footer__menu-link(href="#") Новости
-                li
-                  a.footer__menu-link(href="#") Служба поддержки
-                li
-                  a.footer__menu-link(href="#") Услуги
-            dt.footer__heading О нас
-            dd
-              ul.footer__menu-list
-                li
-                  a.footer__menu-link(href="#") О сервисе 
-                li
-                  a.footer__menu-link(href="#") Наша команда
-                li
-                  a.footer__menu-link(href="#") Вакансии
-                li
-                  a.footer__menu-link(href="#") Инвесторы
-            dt.footer__heading Служба поддержки
-            dd
-              ul.footer__menu-list
-                li
-                  a.footer__menu-link(href="#") Соглашения 
-                li
-                  a.footer__menu-link(href="#") Сообщества
-                li
-                  a.footer__menu-link(href="#") Связь с нами
-          .footer__subscription-column
-            .footer__heading Подписка
-            p.footer__subscription-text Получайте специальные предложения и новости сервиса
-            +input-with-button({
-              placeholder: "Email",
-              type: "email",
-              name: "email"
-            })
+    .container
+      .footer__container
+        .footer__logo-column
+          .footer__logo
+            +logo()
+          p.footer__text-under-logo Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+        dl.footer__menu
+          dt.footer__heading Навигация
+          dd
+            ul.footer__menu-list
+              li
+                a.footer__menu-link(href="#") О нас 
+              li
+                a.footer__menu-link(href="#") Новости
+              li
+                a.footer__menu-link(href="#") Служба поддержки
+              li
+                a.footer__menu-link(href="#") Услуги
+          dt.footer__heading О нас
+          dd
+            ul.footer__menu-list
+              li
+                a.footer__menu-link(href="#") О сервисе 
+              li
+                a.footer__menu-link(href="#") Наша команда
+              li
+                a.footer__menu-link(href="#") Вакансии
+              li
+                a.footer__menu-link(href="#") Инвесторы
+          dt.footer__heading Служба поддержки
+          dd
+            ul.footer__menu-list
+              li
+                a.footer__menu-link(href="#") Соглашения 
+              li
+                a.footer__menu-link(href="#") Сообщества
+              li
+                a.footer__menu-link(href="#") Связь с нами
+        .footer__subscription-column
+          .footer__heading Подписка
+          p.footer__subscription-text Получайте специальные предложения и новости сервиса
+          +input-with-button({
+            placeholder: "Email",
+            type: "email",
+            name: "email"
+          })
     .footer__bottom
       .container
         .footer__bottom-container
