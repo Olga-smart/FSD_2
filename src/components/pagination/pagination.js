@@ -1,5 +1,6 @@
 require('paginationjs');
 
+import '../card-room/card-room.js'
 import './pagination.scss';
 
 let cards = document.querySelectorAll('.js-pagination__item');
