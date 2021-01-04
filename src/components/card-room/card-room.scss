@@ -12,16 +12,18 @@
     overflow: hidden;
   }
   &__info {
-    padding: 1.55rem; 
-    padding-top: 1.28rem;
-    padding-bottom: 1.25rem;
+    padding: 1.43rem;
+    padding-bottom: 1.6rem;   
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 0.55rem;
+    grid-gap: 0.7rem;
     align-items: baseline;
+    align-content: start;
   }
   &__number {
     font-size: 1.29rem;
+    line-height: 1.22;
     &-container {
       font-family: 'Open Sans', 'Arial', sans-serif;
       font-weight: 700;
@@ -31,16 +33,19 @@
   &__lux {
     text-transform: uppercase;
     font-size: 0.86rem;
+    line-height: 1.22;
     font-family: 'Montserrat', 'Arial', sans-serif;
     color: $accent-main;
   }
   &__price {
     font-size: 1rem;
     font-weight: 700;
+    line-height: 1.29rem;
     &-container {
       text-align: right;
       font-size: 0.86rem; 
       color: $primary-medium;
+      line-height: 1.5;
     }
   }
   &__hr {
@@ -52,6 +57,8 @@
     &-container {
       text-align: right;
       color: $primary-medium;
+      line-height: 1.29;
+      align-self: center;
     }
     &-number {
       font-weight: 700;
