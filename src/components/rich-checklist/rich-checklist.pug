@@ -2,7 +2,8 @@ include ../../components/input/input
 
 mixin rich-checklist(options)    
   .rich-checklist
-    .rich-checklist__title.h3= options.title
+    if (options.title)
+      .rich-checklist__title.h3= options.title
     .rich-checklist__list
       - for (let i = 0; i < options.items.length; i++)
         +input({
