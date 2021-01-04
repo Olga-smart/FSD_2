@@ -3,7 +3,8 @@
 .expandable-checklist {
   &__title {
     cursor: pointer;
-    padding-bottom: 0.3rem;
+//    padding-bottom: 0.3rem;
+    padding-bottom: 1.23rem;
     position: relative;
     &::after {
       content: '';

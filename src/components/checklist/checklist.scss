@@ -1,12 +1,13 @@
 .checklist {
   &__title {
-    line-height: 1.2;
-    padding-bottom: 0.55rem;
+    line-height: 1.22;
+//    padding-bottom: 0.55rem;
+    padding-bottom: 1.18rem;
   }
   &__list {
     display: grid;
     grid-row-gap: 0.8rem;
-    padding-top: 0.5rem;
+//    padding-top: 0.5rem;
     &_row-gap_small {
       grid-row-gap: 0.7rem;
     }
