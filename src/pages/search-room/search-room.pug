@@ -1,0 +1,313 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="initial-scale=1.0, width=device-width")
+    title Search room
+  body.search-room
+    include ../../components/header/header
+    include ../../components/footer/footer
+    include ../../components/datepicker/datepicker   
+    include ../../components/dropdown/dropdown
+    include ../../components/range/range
+    include ../../components/checklist/checklist
+    include ../../components/rich-checklist/rich-checklist
+    include ../../components/expandable-checklist/expandable-checklist
+    include ../../components/card-room/card-room
+
+    +header
+    
+    main
+      .container
+        .search-room__main-container
+          .search-room__filters
+            +datepicker({
+              label: "Даты пребывания в отеле",
+              value: "2021-08-19 - 2021-08-23",
+              attributes: {
+                "data-date-format": "d M"
+              }
+            })
+            
+            +dropdown({
+              type: "guests",
+              label: "Гости",
+              adultsDefaultCount: 2,
+              childrenDefaultCount: 1,
+              babiesDefaultCount: 1
+            })
+            
+            +range({
+              label: "Диапазон цены",
+              min: 700,
+              max: 15200,
+              from: 5000,
+              to: 10000,
+              step: 10,
+              note: "Стоимость за сутки пребывания в номере"
+            })
+            
+            +checklist({
+              title: "Правила дома",
+              uniqueName: "houseRules",
+              items:[
+                {
+                  label: "Можно курить"
+                },
+                {
+                  label: "Можно с питомцами",
+                  checked: true
+                },
+                {
+                  label: "Можно пригласить гостей <br> (до 10 человек)",
+                  checked: true
+                }
+              ] 
+            })
+            
+            +rich-checklist({
+              title: "Доступность",
+              uniqueName: "accessibilityСhecklist",
+              items: [
+                {
+                  label: "Широкий коридор",
+                  sublabel: "Ширина коридоров в номере <br>не менее 91 см."
+                },
+                {
+                  label: "Помощник для инвалидов",
+                  sublabel: "На 1 этаже вас встретит специалист <br>и проводит до номера."
+                }                
+              ]
+            })
+            
+            +dropdown({
+              type: "facilities",
+              label: "Удобства номера",
+              bedroomsDefaultCount: 2,
+              bedroomsMinCount: 1,
+              bedsDefaultCount: 2,
+              bedsMinCount: 1
+            })
+            
+            +expandable-checklist({
+              title: "Дополнительные удобства",
+              uniqueName: "expandable-checklist-example1",
+              items: [
+                {
+                  label: "Завтрак"
+                },
+                {
+                  label: "Письменный стол",
+                  checked: true
+                },
+                {
+                  label: "Стул для кормления",
+                  checked: true
+                },
+                {
+                  label: "Кроватка",
+                  checked: true
+                },
+                {
+                  label: "Телевизор"
+                },
+                {
+                  label: "Шампунь"
+                }
+              ]
+            })
+          .search-room__cards
+            h1 Номера, которые мы для вас подобрали
+            .search-room__cards-list.pagination__data-container
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room1.jpg",
+                    "img/room2.jpg",
+                    "img/room3.jpg",
+                    "img/room4.jpg",
+                  ],
+                  number: 888,
+                  lux: true,
+                  price: 9990,
+                  rate: 5,
+                  comments: 145
+                })
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room2.jpg",
+                    "img/room3.jpg",
+                    "img/room4.jpg",
+                    "img/room5.jpg",
+                  ],
+                  number: 840,
+                  lux: false,
+                  price: 9900,
+                  rate: 4,
+                  comments: 65
+                }) 
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room3.jpg",
+                    "img/room4.jpg",
+                    "img/room5.jpg",
+                    "img/room6.jpg",
+                  ],
+                  number: 980,
+                  lux: true,
+                  price: 8500,
+                  rate: 3,
+                  comments: 35
+                }) 
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room4.jpg",
+                    "img/room5.jpg",
+                    "img/room6.jpg",
+                    "img/room7.jpg",
+                  ],
+                  number: 856,
+                  lux: false,
+                  price: 7300,
+                  rate: 5,
+                  comments: 19
+                }) 
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room5.jpg",
+                    "img/room6.jpg",
+                    "img/room7.jpg",
+                    "img/room8.jpg",
+                  ],
+                  number: 740,
+                  lux: false,
+                  price: 6000,
+                  rate: 4,
+                  comments: 44
+                })    
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room6.jpg",
+                    "img/room7.jpg",
+                    "img/room8.jpg",
+                    "img/room9.jpg",
+                  ],
+                  number: 982,
+                  lux: false,
+                  price: 5800,
+                  rate: 3,
+                  comments: 56
+                })
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room7.jpg",
+                    "img/room8.jpg",
+                    "img/room9.jpg",
+                    "img/room10.jpg",
+                  ],
+                  number: 978,
+                  lux: false,
+                  price: 5500,
+                  rate: 5,
+                  comments: 45
+                })
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room8.jpg",
+                    "img/room9.jpg",
+                    "img/room10.jpg",
+                    "img/room11.jpg",
+                  ],
+                  number: 450,
+                  lux: false,
+                  price: 5300,
+                  rate: 4,
+                  comments: 39
+                })   
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room9.jpg",
+                    "img/room10.jpg",
+                    "img/room11.jpg",
+                    "img/room12.jpg",
+                  ],
+                  number: 350,
+                  lux: false,
+                  price: 5000,
+                  rate: 3,
+                  comments: 77
+                })
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room10.jpg",
+                    "img/room11.jpg",
+                    "img/room12.jpg",
+                    "img/room1.jpg",
+                  ],
+                  number: 666,
+                  lux: false,
+                  price: 5000,
+                  rate: 5,
+                  comments: 25
+                }) 
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room11.jpg",
+                    "img/room12.jpg",
+                    "img/room1.jpg",
+                    "img/room2.jpg",
+                  ],
+                  number: 444,
+                  lux: false,
+                  price: 5000,
+                  rate: 3,
+                  comments: 15
+                })  
+              .js-pagination__item
+                +card-room({
+                  images: [
+                    "img/room12.jpg",
+                    "img/room1.jpg",
+                    "img/room2.jpg",
+                    "img/room3.jpg",
+                  ],
+                  number: 352,
+                  lux: false,
+                  price: 5000,
+                  rate: 3,
+                  comments: 55
+                })  
+            
+              - let n = 0;
+              while n++ < 164
+                .js-pagination__item
+                  +card-room({
+                    images: [
+                      "img/room1.jpg",
+                      "img/room2.jpg",
+                      "img/room3.jpg",
+                      "img/room4.jpg",
+                    ],
+                    number: 888,
+                    lux: true,
+                    price: 9990,
+                    rate: 5,
+                    comments: 145
+                  })
+            
+            .search-room__pagination
+              .pagination.js-pagination
+    
+    +footer
+    
+    script(src="search-room.js")

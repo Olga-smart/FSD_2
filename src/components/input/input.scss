@@ -48,6 +48,9 @@
       }
     }
     &_checkbox {
+      & + label {
+        color: $primary-medium;
+      }      
       & + label::before {  
         border-radius: 4px;
       }
@@ -60,8 +63,14 @@
       
     }
     &_radio {
+      & + label {
+        color: $primary-medium;
+      }
       & + label::before {
         border-radius: 50%;
+      }
+      &:checked + label {
+        color: $primary-dark;
       }
       &:checked + label::before {
         background: linear-gradient(to bottom, $accent-main, $accent-main-additional);

@@ -1,0 +1,35 @@
+.search-room {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  &__main-container {
+    display: grid;
+    grid-template-columns: 19rem auto;
+    grid-column-gap: 4.23rem;
+    padding-top: 2.14rem;
+  }
+  &__filters {
+    display: grid;
+    grid-row-gap: 2.14rem;
+    align-content: start;
+  }
+  .datepicker {
+    width: 19rem;
+  }
+  &__cards {
+    h1 {
+      grid-column: 1/-1;
+      margin-bottom: 1.43rem;
+    }
+    &-list {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-column-gap: 0.86rem;
+      grid-row-gap: 1.43rem; 
+      align-content: start;
+    }
+  }
+  &__pagination {
+    margin-top: 2.86rem;
+    grid-column: 1/-1;
+  }
+}

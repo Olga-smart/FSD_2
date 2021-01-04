@@ -2,7 +2,7 @@ require('paginationjs');
 
 import './pagination.scss';
 
-let cards = document.querySelectorAll('.js-card');
+let cards = document.querySelectorAll('.js-pagination__item');
 let arr = Array.from(cards);
 
 $('.js-pagination').pagination({
@@ -18,6 +18,9 @@ $('.js-pagination').pagination({
   formatNavigator: function(currentPage, totalPage, totalNumber) {
     let firstNum = (currentPage - 1) * 12 + 1;
     let lastNum = firstNum + 11;
+    if (lastNum > totalNumber) {
+      lastNum = totalNumber;
+    }
     if (totalNumber > 100) {
       totalNumber = '100+'
     }
@@ -25,7 +28,12 @@ $('.js-pagination').pagination({
   },
   callback: function(data, pagination) {
     let html = template(data);
-    $('.data-container').html(html);
+    $('.pagination__data-container').html(html);
+  },
+  afterPaging: function() {
+    $('.js-card-room__slider').slick({
+      dots: true
+    });
   }
 })
 
@@ -34,5 +42,5 @@ function template(data) {
   $.each(data, function(index, item){
       html += item.outerHTML;
   });
-  return html;
+  return html;  
 }

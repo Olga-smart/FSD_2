@@ -1,10 +1,10 @@
 require('slick-carousel/slick/slick.min.js');
 require('slick-carousel/slick/slick.css');
 
-import './card-room.scss';
-
 import '../card/card.js'
 import '../rate/rate.js'
+
+import './card-room.scss';
 
 $(document).ready(function(){
   $('.js-card-room__slider').slick({
