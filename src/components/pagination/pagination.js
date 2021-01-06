@@ -3,11 +3,11 @@ require('paginationjs');
 import '../card-room/card-room.js'
 import './pagination.scss';
 
-let cards = document.querySelectorAll('.js-pagination__item');
-let arr = Array.from(cards);
+let paginationCards = document.querySelectorAll('.js-pagination__item');
+let paginationArr = Array.from(paginationCards);
 
 $('.js-pagination').pagination({
-  dataSource: arr,
+  dataSource: paginationArr,
   showNavigator: true,
   pageSize: 12,
   autoHidePrevious: true,
@@ -40,8 +40,8 @@ $('.js-pagination').pagination({
 
 function template(data) {
   let html = '';
-  $.each(data, function(index, item){
-      html += item.outerHTML;
+  $.each(data, function(index, item) {
+    html += item.outerHTML;
   });
   return html;  
 }

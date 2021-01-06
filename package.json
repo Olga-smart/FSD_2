@@ -6,10 +6,20 @@
   "scripts": {
     "start": "parcel run src/index.pug --open --no-hmr"
   },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "src/pages/search-room/img",
+        "staticOutDir": "pages/search-room/img"
+      }
+    ],
+    "watcherGlob": "**"
+  },
   "keywords": [],
   "author": "Olga Tarasova",
   "license": "ISC",
   "devDependencies": {
+    "parcel-plugin-static-files-copy": "^2.5.0",
     "pug": "^3.0.0",
     "sass": "^1.30.0"
   },

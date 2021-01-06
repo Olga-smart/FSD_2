@@ -13,7 +13,7 @@ mixin card-room(options)
       .card-room__number-container
         span.card-room__number-sign= '№ '
         span.card-room__number= options.number + ' '
-          - if (options.lux)
+          if (options.lux)
             span.card-room__lux люкс
       .card-room__price-container   
         span.card-room__price !{prettifyPrice(options.price)}₽ 
