@@ -59,6 +59,7 @@ h3, .h3 {
 .container {
   min-width: 300px;
   max-width: 1200px;
+  max-width: 1920px;
   padding-left: 20px;
   padding-right: 20px;
   margin-right: auto;
@@ -66,6 +67,10 @@ h3, .h3 {
   @include media-breakpoint-down($sm) {
     padding-left: 10px;
     padding-right: 10px;
+  }
+  @include media-breakpoint-up($xl){
+    padding-left: 140px;
+    padding-right: 140px;
   }
 }
 
