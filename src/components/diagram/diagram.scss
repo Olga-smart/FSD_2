@@ -1,0 +1,70 @@
+@import '../../theme/variables.scss';
+
+.diagram {
+  display: grid;
+  grid-template-columns: 35% 57%;
+  grid-column-gap: 8%;
+  align-items: end;
+  &__chart {
+    display: grid;
+    align-items: center;
+  }
+  &__svg {
+    width: 100%;
+    height: auto;
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }  
+  &__segment {
+    fill: none;
+    stroke-width: 1;    
+  }
+  &__votes {
+    color: $accent-main;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 700;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    &-number {
+      font-size: 1.7rem;
+      line-height: 1.25;
+    }
+    &-word {
+      font-size: 0.86rem;
+      line-height: 1.23;
+      text-transform: uppercase;
+    }
+  }
+  &__legend {
+    &-list {
+      list-style: none;
+    }
+    &-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-column-gap: 5px;
+      align-items: center;
+      &::before {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%; 
+      }
+      &_great::before {
+        background: linear-gradient(#FFE39C, #FFBA9C);
+      }
+      &_good::before {
+        background: linear-gradient($accent-secondary, $accent-secondary-additional);
+      }
+      &_alright::before {
+        background: linear-gradient($accent-main, $accent-main-additional);
+      }
+      &_bad::before {
+        background: linear-gradient(#919191, #3D4975);
+      }
+    }
+  }
+}
