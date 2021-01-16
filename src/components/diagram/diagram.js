@@ -27,6 +27,5 @@ for (let diagram of diagrams) {
 function updateVotesWord(diagram) {
   let votesWord = diagram.querySelector('.js-diagram__votes-word');
   let votesNumber = diagram.querySelector('.js-diagram__votes-number').textContent;
-  console.log(votesWord + ' ' + votesNumber);
   votesWord.textContent = wordToPlural(votesNumber, 'голос', 'голоса', 'голосов'); 
 }

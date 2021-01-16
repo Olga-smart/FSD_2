@@ -11,7 +11,8 @@ mixin comment(options)
     .comment__like-container
       +like({
         value: options.like.value,
-        class: options.like.class
+        class: options.like.class,
+        checked: options.like.checked
       }) 
     .comment__text= options.text 
     
