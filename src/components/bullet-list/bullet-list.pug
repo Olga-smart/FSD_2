@@ -1,10 +1,8 @@
 mixin bullet-list(options)
-  if !options
-    - options = {}
     
   .bullet-list
-    .bullet-list__title.h3= options.title
+    if (options.title)
+      .bullet-list__title.h3= options.title
     ul.bullet-list__list
       - for (let item of options.items)
-        - let text = item
-        li.bullet-list__item !{text}
+        li.bullet-list__item !{item}
