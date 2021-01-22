@@ -1,3 +1,16 @@
+//-
+  options.number - номер комнаты
+  options.lux - является ли комната люксом (true/false, можно не указывать, если false)
+  options.price - цена за сутки
+  options.arrival - дата прибытия ('гггг-мм-дд')
+  options.departure - дата выезда ('гггг-мм-дд')
+  options.adults - дефолтное кол-во взрослых (опционально)
+  options.children - дефолтное кол-во детей (опционально)
+  options.babies - дефолтное кол-во младенцев (опционально)
+  options.serviceFee - сбор за услуги (в рублях)
+  options.discount - скидка (в рублях)
+  options.additionalServiceFee - сбор за доп. услуги
+  
 include ../../components/input/input
 include ../../components/button/button
 include ../../components/datepicker/datepicker
@@ -13,7 +26,7 @@ mixin card-booking(options)
       .card-booking__title
         span №
         span.card-booking__number= ' ' + options.number + ' '
-        - if (options.lux)
+        if (options.lux)
           span.card-booking__lux люкс
       .card-booking__price-container   
         span.card-booking__price.js-card-booking__price !{prettifyPrice(options.price)}₽ 
@@ -40,7 +53,7 @@ mixin card-booking(options)
         })  
     
       - let days = 0;
-      - if (options.arrival && options.departure)
+      if (options.arrival && options.departure)
         - days = ( Date.parse(options.departure) - Date.parse(options.arrival) ) / (1000 * 3600 * 24)
       
       table.card-booking__table
@@ -48,14 +61,14 @@ mixin card-booking(options)
           tr          
             td !{prettifyPrice(options.price)}₽ х 
               span.card-booking__days.js-card-booking__days !{days}
-              - if ([1, 21, 31, 41, 51, 61, 71, 81, 91].includes(days))
+              if ([1, 21, 31, 41, 51, 61, 71, 81, 91].includes(days))
                 span.card-booking__days-word.js-card-booking__days-word  сутки
-              - else
+              else
                 span.card-booking__days-word.js-card-booking__days-word  суток
             td.card-booking__price-for-x-days.js-card-booking__price-for-x-days !{prettifyPrice(options.price * days)}₽
           tr
             td.card-booking__service-fee-label Сбор за услуги: 
-              - if (options.discount)
+              if (options.discount)
                 span.card-booking__discount.js-card-booking__discount скидка !{prettifyPrice(options.discount)}₽
               .card-booking__info-icon.js-card-booking__info-icon(data-tooltip="Подсказка по сборам за услуги") i 
             td.card-booking__service-fee.js-card-booking__service-fee !{prettifyPrice(options.serviceFee)}₽

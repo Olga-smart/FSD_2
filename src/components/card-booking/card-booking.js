@@ -18,7 +18,7 @@ let daysWord = cardBooking.querySelector('.js-card-booking__days-word');
 let days = +daysNum.textContent;
 
 let priceElem = cardBooking.querySelector('.js-card-booking__price');
-let price = extractNumbers(priceElem.textContent);
+let price = +extractNumbers(priceElem.textContent);
 let priceForXDays = cardBooking.querySelector('.js-card-booking__price-for-x-days');
 
 let serviceFeeElem = cardBooking.querySelector('.js-card-booking__service-fee');
