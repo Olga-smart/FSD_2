@@ -1,5 +1,8 @@
-mixin bullet-list(options)
-    
+//- 
+  options.title - заголовок списка (опционален)
+  options.items - массив пунктов списка
+
+mixin bullet-list(options)    
   .bullet-list
     if (options.title)
       .bullet-list__title.h3= options.title
