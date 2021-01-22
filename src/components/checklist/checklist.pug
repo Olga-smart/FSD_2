@@ -1,3 +1,11 @@
+//-
+  options.title - заголовок списка (опционален)
+  options.uniqueName - уникальное имя для генерации id инпутов
+  options.items - массив объектов пунктов
+  options.items[0].label - текст пункта
+  options.items[0].checked - состояние соответствующего чекбокса (true/false, по умолчанию false)
+  options.listClass - дополнительный класс, который хотим примиксовать к контейнеру списка (не рекомендуется)
+
 include ../../components/input/input
 
 mixin checklist(options)
