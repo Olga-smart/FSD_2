@@ -60,7 +60,8 @@
       background-image: url(./img/arrow_right.svg);
       background-size: contain;
       right: 0.93rem;
-      top: calc(50% - 0.6rem);
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
   &_height_small {

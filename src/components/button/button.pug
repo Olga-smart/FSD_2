@@ -1,27 +1,34 @@
+//-
+  options.tag - тэг ('a', 'button')
+  options.text -  текст (по умолчанию 'Click me')
+  options.type - тип ('button', 'reset', 'submit', по умолчанию 'button')
+  options.view - вид ('fill', 'outline', 'width_full', 'arrow_right', 'height_small', опционально, может быть массивом)
+  options.class - дополнительный класс, который хотим примиксовать (не рекомендуется)
+
 mixin button(options)
   if !options
     - options = {}
+
+  - let classArray = ['button']
   
-  - let classList = ['button']
-  
-  - if (options.view)
-    - if ( Array.isArray(options.view) )      
+  if (options.view)
+    if ( Array.isArray(options.view) )      
       - for (let view of options.view)
-        - classList.push("button_" + view)
-    - else
-      - classList.push("button_" + options.view)
+        - classArray.push("button_" + view)
+    else
+      - classArray.push("button_" + options.view)
     
-  - if (options.class)
-    - classList.push(options.class)
+  if (options.class)
+    - classArray.push(options.class)
     
-  - let list = classList.join(" ")
+  - let classList = classArray.join(" ")
   
   - let tag = options.tag || "button"
   
   #{tag}(
     type = options.type || "button",
     disabled = options.disabled,
-    class = list,
+    class = classList,
     href = options.href,
     hidden = options.hidden
   )
