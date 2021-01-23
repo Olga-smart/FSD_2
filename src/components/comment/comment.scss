@@ -12,6 +12,11 @@
     object-fit: cover;
     border: 2px solid #fff;
     box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.1);
+    background: linear-gradient($accent-main, $accent-main-additional);
+    color: #fff;
+    text-align: center;
+    line-height: calc(3.43rem - 4px);
+    font-size: 1.5rem;
   }
   &__name {
     font-weight: 700;

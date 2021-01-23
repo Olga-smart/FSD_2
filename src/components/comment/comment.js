@@ -7,26 +7,30 @@ for (let date of commentDates) {
   dateToText(date);
 } 
 
-function dateToText(date) {
-  let today = new Date();
+function dateToText(date) {  
   let commentDate = new Date( Date.parse(date.textContent) );
-  if ( today.getFullYear() > commentDate.getFullYear() ) {
-    let years = today.getFullYear() - commentDate.getFullYear();
+  let days = daysPassed(commentDate);
+  if (days >= 365) {
+    let years = Math.floor(days / 365);
     date.textContent = years + ' ' + wordToPlural(years, 'год', 'года', 'лет') + ' назад';
-  } else if ( today.getMonth() > commentDate.getMonth() ) {
-    let months = today.getMonth() - commentDate.getMonth();
+  } else if (days >= 30) {
+    let months = Math.floor(days / 30);
     date.textContent = months + ' ' + wordToPlural(months, 'месяц', 'месяца', 'месяцев') + ' назад';
-  } else if ( today.getDate() > commentDate.getDate() ) {
-    let days = today.getDate() - commentDate.getDate();
-    if (days > 6) {
-      let weeks = Math.floor(days / 7);
-      date.textContent = weeks + ' ' + wordToPlural(weeks, 'неделя', 'недели', 'недель') + ' назад';
-    } else {
-      date.textContent = days + ' ' + wordToPlural(days, 'день', 'дня', 'дней') + ' назад';
-    }
+  } else if (days >= 7) {
+    let weeks = Math.floor(days / 7);
+    date.textContent = weeks + ' ' + wordToPlural(weeks, 'неделю', 'недели', 'недель') + ' назад';
+  } else if (days > 1) {
+    date.textContent = days + ' ' + wordToPlural(days, 'день', 'дня', 'дней') + ' назад';
+  } else if (days == 1) {
+    date.textContent = 'вчера';
   } else {
     date.textContent = 'сегодня';
-  }  
+  } 
+}
+
+function daysPassed(date) {
+  let today = new Date();
+  return Math.floor( (today - date) / (60 * 60 * 24 * 1000) );
 }
 
 function wordToPlural(number, wordWith1, wordWith2, wordWith5) {

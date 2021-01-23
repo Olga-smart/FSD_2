@@ -2,9 +2,9 @@ mixin like(options)
   if !options
     - options = {}
   - let classList = options.class || ''
-  - if (options.checked == true)
+  - if (options.checked == true && options.value > 0)
     - classList = classList + ' like_checked'
   .like.js-like(
     class = classList
-  )= options.value
+  )= options.value || 0
   
