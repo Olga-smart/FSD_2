@@ -1,3 +1,12 @@
+//-
+  options.class - класс, который будет примиксован к обертке .input (не рекомендуется)
+  options.inputClass - класс, который будет примиксован к самому инпуту (не рекомендуется)
+  options.id - id, который будет назначен инпуту (опционально) 
+  options.label - заголовок (опционально)
+  options.placeholder - плейсхолдер (по умолчанию "ДД.ММ.ГГГГ")
+  options.value - дата или диапазон дат (опционально)
+  options.attributes - объект с атрибутами, которые хотим передать инпуту (например, "data-date-format": "d M")
+
 include ../../components/input/input
 
 mixin datepicker(options)
@@ -5,11 +14,11 @@ mixin datepicker(options)
     - options = {}
     
   - let classList = "input_arrow_down"
-  - if (options.class)
+  if options.class
     - classList = classList + ' ' + options.class
     
   - let inputClassList = "datepicker-here" 
-  - if (options.inputClass)
+  if options.inputClass
     - inputClassList = inputClassList + ' ' + options.inputClass
   
   +input({
