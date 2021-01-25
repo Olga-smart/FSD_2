@@ -1,3 +1,7 @@
+//-
+  options.loggedIn - залогинен ли пользователь (true/false, по умолчанию false)
+  options.userName - имя пользователя (если залогинен)
+
 include ../../components/logo/logo
 include ../../components/button/button
 
@@ -11,7 +15,7 @@ mixin header(options)
         button.header__burger.js-header__burger
           span.visually-hidden Меню
         .header__logo
-          +logo()
+          +logo
         ul.header__menu.js-header__menu
           li.header__menu-item
             a.header__menu-link(
@@ -63,7 +67,7 @@ mixin header(options)
                 a.header__sub-menu-link(
                   href="#"
                 ) Соглашение 3
-        if (options.loggedIn !== true)        
+        if options.loggedIn !== true        
           ul.header__user-nav    
             li.header__button-sign-in  
               +button({
@@ -84,8 +88,7 @@ mixin header(options)
               src = "../../components/header/img/login.svg"
               alt = "Войти"
             )
-            //span.visually-hidden Войти
-        if (options.loggedIn == true)
+        if options.loggedIn == true
           .header__user-profile
             button.header__user-name= options.userName
             button.header__user-icon
@@ -93,7 +96,6 @@ mixin header(options)
                 src = "../../components/header/img/user.svg"
                 alt = "Меню пользователя"
               )
-              //span.visually-hidden= options.userName
             ul.header__user-menu
               li.header__user-menu-item
                 a.header__user-menu-link(

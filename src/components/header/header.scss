@@ -110,7 +110,7 @@
       transition: all 0.3s ease-in-out;
       &:hover, &_hovered {
         color: $primary-dark;
-        font-weight: 700;
+        text-shadow: 0 0 1px $primary-dark, 0 0 1px $primary-dark;
       }
     }
   }
