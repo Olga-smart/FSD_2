@@ -1,11 +1,48 @@
+//-
+  options.type - тип дропдауна ('guests', 'facilities')
+  options.label - заголовок (опционально)
+  options.open - будет ли дропдаун сразу развёрнут (true/false, по умолчанию false)
+  options.class - класс, который хотим примиксовать к .dropdown (не рекомендуется)
+  
+  options.adultsDefaultCount - кол-во взрослых по умолчанию
+  options.adultsMinCount - минимальное кол-во взрослых
+  options.adultsMaxCount - максимальное кол-во взрослых
+  
+  Аналогично для детей:
+  options.childrenDefaultCount
+  options.childrenMinCount
+  options.childrenMaxCount
+  
+  Аналогично для младенцев:
+  options.babiesDefaultCount
+  options.babiesMinCount
+  options.babiesMaxCount
+  
+  Аналогично для спален:
+  options.bedroomsDefaultCount
+  options.bedroomsMinCount
+  options.bedroomsMaxCount
+  
+  Аналогично для кроватей:
+  options.bedsDefaultCount
+  options.bedsMinCount
+  options.bedsMaxCount
+  
+  Аналогично для ванных комнат:
+  options.bathroomsDefaultCount
+  options.bathroomsMinCount
+  options.bathroomsMaxCount
+  
+  options.attributes - любые атрибуты, которые хотим передать обертке .dropdown
+
 include ../../components/button/button
 
 mixin dropdown(options)
   - let classList = options.class
   - let outputClass = "input__input_cursor_pointer"
-  - if (options.open)
+  if options.open
     - classList = classList + " dropdown_menu_open" 
-    - outputClass = outputClass + " input__input_dropdown_open input__input_focused input__input_cursor_pointer"
+    - outputClass = outputClass + " input__input_dropdown_open input__input_focused"
     
   - let items = [];
   - 
@@ -62,7 +99,6 @@ mixin dropdown(options)
         class: "input_arrow_down",
         type: "text",
         label: options.label,
-        required: options.required,
         inputClass: outputClass,
         readonly: true
       })
