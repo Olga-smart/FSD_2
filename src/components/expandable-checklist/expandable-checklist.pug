@@ -1,8 +1,16 @@
+//-
+  options.title - заголовок
+  options.uniqueName - уникальное имя для генерации id инпутов
+  options.opened - будет ли чеклист сразу развёрнут (true/false, по умолчанию false)
+  options.items - массив объектов пунктов
+  options.items[0].label - текст пункта
+  options.items[0].checked - состояние соответствующего чекбокса (true/false, по умолчанию false)
+
 include ../../components/checklist/checklist
 
 mixin expandable-checklist(options)    
   - let modifier
-  if (options.opened)
+  if options.opened
    - modifier = "expandable-checklist_open"
    
   .expandable-checklist(class = modifier)
