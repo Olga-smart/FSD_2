@@ -27,9 +27,6 @@
 
 @include media-breakpoint-down($xs) {
   .first-screen {
-    &__container {
-      
-    }
     &__card {
       align-self: center;
     }
