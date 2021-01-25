@@ -1,4 +1,10 @@
-//- На странице должно быть не больше 1 диaграммы, иначе градиенты ломаются (из-за того, что становится несколько одинаковых id на странице и применяются градиенты первой диаграммы ко всем, где атрибуты offset вычислены для первой диаграммы)
+//- 
+  options.great - кол-во голосов "великолепно" 
+  options.good - кол-во голосов "хорошо"
+  options.alright - кол-во голосов "удовлетворительно"
+  options.bad - кол-во голосов "разочарован"
+  
+  На странице должно быть не больше 1 диaграммы, иначе градиенты ломаются (из-за того, что становится несколько одинаковых id на странице и градиенты первой диаграммы, где атрибуты offset вычислены для её значений, применяются применяются ко всем)
 
 mixin diagram(options)
   - let badVotes = options.bad || 0
@@ -13,10 +19,10 @@ mixin diagram(options)
   - let goodPercent = goodVotes * 100 / sumVotes
   - let greatPercent = greatVotes * 100 / sumVotes
   
-  - let badPercentMinusIndent = badPercent ? badPercent - 0.5 : 0
-  - let alrightPercentMinusIndent = alrightPercent ? alrightPercent - 0.5 : 0
-  - let goodPercentMinusIndent = goodPercent ? goodPercent - 0.5 : 0
-  - let greatPercentMinusIndent = greatPercent ? greatPercent - 0.5 : 0
+  - let badLength = badPercent ? (badPercent == 100 ? badPercent : badPercent - 0.5) : 0
+  - let alrightLength = alrightPercent ? (alrightPercent == 100 ? alrightPercent : alrightPercent - 0.5) : 0
+  - let goodLength = goodPercent ? (goodPercent == 100 ? goodPercent : goodPercent - 0.5) : 0
+  - let greatLength = greatPercent ? (greatPercent == 100 ? greatPercent : greatPercent - 0.5) : 0
     
   - let badDashoffset = -75.5
   - let alrightDashoffset = badDashoffset - badPercent
@@ -56,62 +62,62 @@ mixin diagram(options)
           linearGradient#bad(x1="0" x2="0" y1="0" y2="1")
             stop(
               stop-color="#919191" 
-              offset= getPointsForGradient(badDashoffset, badPercentMinusIndent).point1 + "%"
+              offset= getPointsForGradient(badDashoffset, badLength).point1 + "%"
             )
             stop(
               stop-color="#3D4975" 
-              offset= getPointsForGradient(badDashoffset, badPercentMinusIndent).point2 + "%"
+              offset= getPointsForGradient(badDashoffset, badLength).point2 + "%"
             )
           linearGradient#alright(x1="0" x2="0" y1="0" y2="1")
             stop(
               stop-color="#BC9CFF" 
-              offset= getPointsForGradient(alrightDashoffset, alrightPercentMinusIndent).point1 + "%"
+              offset= getPointsForGradient(alrightDashoffset, alrightLength).point1 + "%"
             )
             stop(
               stop-color="#8BA4F9" 
-              offset= getPointsForGradient(alrightDashoffset, alrightPercentMinusIndent).point2 + "%"
+              offset= getPointsForGradient(alrightDashoffset, alrightLength).point2 + "%"
             ) 
           linearGradient#good(x1="0" x2="0" y1="0" y2="1")
             stop(
               stop-color="#6FCF97"
-              offset= getPointsForGradient(goodDashoffset, goodPercentMinusIndent).point1 + "%"
+              offset= getPointsForGradient(goodDashoffset, goodLength).point1 + "%"
             )
             stop(
               stop-color="#66D2EA" 
-              offset= getPointsForGradient(goodDashoffset, goodPercentMinusIndent).point2 + "%"
+              offset= getPointsForGradient(goodDashoffset, goodLength).point2 + "%"
             ) 
           linearGradient#great(x1="0" x2="0" y1="0" y2="1")
             stop(
               stop-color="#FFE39C"
-              offset= getPointsForGradient(greatDashoffset, greatPercentMinusIndent).point1 + "%"
+              offset= getPointsForGradient(greatDashoffset, greatLength).point1 + "%"
             )
             stop(
               stop-color="#FFBA9C" 
-              offset= offset= getPointsForGradient(greatDashoffset, greatPercentMinusIndent).point2 + "%"
+              offset= offset= getPointsForGradient(greatDashoffset, greatLength).point2 + "%"
             )
         
         circle.diagram__segment.diagram__segment_bad(
           r="15.9" cx="50%" cy="50%" 
           stroke="url(#bad)"
-          stroke-dasharray= badPercentMinusIndent + " " + (100 - badPercentMinusIndent) 
+          stroke-dasharray= badLength + " " + (100 - badLength) 
           stroke-dashoffset= badDashoffset
         )
         circle.diagram__segment.diagram__segment_alright(
           r="15.9" cx="50%" cy="50%"
           stroke="url(#alright)"
-          stroke-dasharray= alrightPercentMinusIndent + " " + (100 - alrightPercentMinusIndent)
+          stroke-dasharray= alrightLength + " " + (100 - alrightLength)
           stroke-dashoffset= alrightDashoffset
         )
         circle.diagram__segment.diagram__segment_good(
           r="15.9" cx="50%" cy="50%" 
           stroke="url(#good)"
-          stroke-dasharray= goodPercentMinusIndent + " " + (100 - goodPercentMinusIndent)
+          stroke-dasharray= goodLength + " " + (100 - goodLength)
           stroke-dashoffset= goodDashoffset
         )
         circle.diagram__segment.diagram__segment_great(
           r="15.9" cx="50%" cy="50%" 
           stroke="url(#great)"
-          stroke-dasharray= greatPercentMinusIndent + " " + (100 - greatPercentMinusIndent)
+          stroke-dasharray= greatLength + " " + (100 - greatLength)
           stroke-dashoffset= greatDashoffset
         )
         
