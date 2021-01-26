@@ -1,15 +1,7 @@
-mixin logo(options)
-  if !options
-    - options = {}
-  
-  - let tag = 'div';
-    
-  - if (options.href)
-    - tag = 'a'
-    
-  #{tag}(
+mixin logo  
+  a(
     class = "logo"
-    href = options.href || "../../index.pug"    
+    href = "../../index.pug"    
   )  
     img.logo__img(
       src = "../../../src/components/logo/img/logo.svg"
