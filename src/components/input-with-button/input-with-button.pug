@@ -1,3 +1,16 @@
+//-
+  Все параметры опциональны (разве что label и type желательно задать для семантики):
+  options.label - подпись
+  options.placeholder - плейсхолдер
+  options.type - тип ('text', 'email' и т. д.)
+  options.name - уникальное имя
+  options.value - значение по умолчанию
+  options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию true)
+  options.tadindex - порядок получения фокуса при переходе между элементами с помощью клавиши Tab
+  options.required - является ли поле обязательным для заполнения
+  options.attributes - любые атрибуты, которые хотим передать инпуту
+  options.pattern - регулярное выражение, согласно которому требуется вводить и проверять данные в поле
+
 include ../../components/input/input
 
 mixin input-with-button(options)
@@ -12,7 +25,12 @@ mixin input-with-button(options)
       type: options.type,
       name: options.name,
       inputClass: "input-with-button__input",
-      readonly: options.readonly
+      readonly: options.readonly,
+      value: options.value,
+      tabindex: options.tabindex,
+      required: options.required,
+      attributes: options.attributes,
+      pattern: options.pattern
     })
     button.input-with-button__button(
       type = "submit"
