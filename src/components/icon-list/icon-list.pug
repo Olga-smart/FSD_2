@@ -1,3 +1,9 @@
+//-
+  options.items - массив объектов пунктов списка
+  options.items[0].icon - иконка
+  options.items[0].label - заголовок
+  options.items[0].sublabel - подзаголовок (опционально, но тогда в остальных пунктах тоже не нужно указывать, иначе иконки будут разного размера)
+
 mixin icon-list(options)
     
   ul.icon-list
@@ -5,4 +11,5 @@ mixin icon-list(options)
       li.icon-list__item
         .icon-list__icon(style = "background-image: url(" + item.icon + ")")
         p.icon-list__label= item.label
-        p.icon-list__sublabel= item.sublabel
+        if item.sublabel
+          p.icon-list__sublabel= item.sublabel
