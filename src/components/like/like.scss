@@ -34,7 +34,8 @@
     width: 10px;
     height: 8px;
     position: absolute;
-    top: calc(50% - 4px);
+    top: 50%;
+    transform: translateY(-50%);
     left: 5px;
     background-image: url(./img/like_border.svg);
     transition: all 0.2s ease-in-out;
