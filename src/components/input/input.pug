@@ -1,61 +1,73 @@
+//-
+  Все параметры опциональны (разве что label и type желательно задать для семантики):
+  class - класс, который хотим примиксовать к обертке .input (не рекомендуется) 
+  inputClass - класс, который хотим примиксовать к инпуту (не рекомендуется)
+  inputId - id для инпута
+  label - подпись
+  placeholder - плейсхолдер
+  type - тип ('text', 'checkbox', 'radio', 'toggle' и пр.)
+  value - значение по умолчанию (опционально)
+  name - уникальное имя
+  checked - состояние переключателя (true/false, по умолчанию false, актуально для checkbox, radio, toggle)
+  options.tadindex - порядок получения фокуса при переходе между элементами с помощью клавиши Tab
+  options.required - является ли поле обязательным для заполнения
+  options.attributes - любые атрибуты, которые хотим передать инпуту
+  options.pattern - регулярное выражение, согласно которому требуется вводить и проверять данные в поле
+  options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию true)
+  
 mixin input(options)
+
   if !options
     - options = {}
+    
   .input.js-input(class = options.class)
+  
+    //- передаем через переменную чтобы можно было обеспечить вставку тегов внутри label (в частности тег br)
     - let label = options.label
-    - if (options.type === 'checkbox')
-      input.input__input.input__input_checkbox(
-        class = options.inputClass
-        id = options.inputId
-        type = options.type
-        name = options.name
-        tadindex = options.tabindex
-        required = options.required
-        value = options.value
-        checked = options.checked
-      )&attributes(options.attributes)
-      label.input__label(
-        for = options.inputId
-      ) !{label}
-    - else if (options.type === 'radio')
-      input.input__input.input__input_radio(
-        class = options.inputClass
-        id = options.inputId
-        type = options.type
-        name = options.name
-        tadindex = options.tabindex
-        required = options.required
-        value = options.value
-        checked = options.checked
-      )&attributes(options.attributes)
-      label.input__label(
-        for = options.inputId
-      ) !{label}
-    - else if (options.type === 'toggle')
-      input.input__input.input__input_toggle(
-        class = options.inputClass
-        id = options.inputId
-        type = 'checkbox'
-        name = options.name
-        tadindex = options.tabindex
-        required = options.required
-        value = options.value
-        checked = options.checked
-      )&attributes(options.attributes)
-      label.input__label(
-        for = options.inputId
-      ) !{label}
-    - else
-      label.input__label.h3 !{label}
-        input.input__input.js-input__input(
-          class = options.inputClass
+    
+    - let inputClass = options.inputClass
+    case options.type
+      when 'checkbox'
+        - inputClass = inputClass + ' input__input_checkbox'
+      when 'radio'
+        - inputClass = inputClass + ' input__input_radio'
+      when 'toggle'
+        - inputClass = inputClass + ' input__input_toggle'
+      default
+        - inputClass = inputClass + ' js-input__input'
+        
+    - let type = options.type
+    if options.type == 'toggle'
+      - type = 'checkbox'
+        
+    case options.type
+      when 'checkbox'
+      when 'radio'
+      when 'toggle'
+        input.input__input(
+          class = inputClass
           id = options.inputId
-          type = options.type
+          type = type
           name = options.name
-          placeholder = options.placeholder
-          pattern = options.pattern
           tadindex = options.tabindex
           required = options.required
           value = options.value
-          readonly = options.readonly
+          checked = options.checked
         )&attributes(options.attributes)
+        label.input__label(
+          for = options.inputId
+        ) !{label}
+      default
+        label.input__label.h3 !{label}
+          input.input__input(
+            class = inputClass
+            id = options.inputId
+            type = type
+            name = options.name
+            placeholder = options.placeholder
+            pattern = options.pattern
+            tadindex = options.tabindex
+            required = options.required
+            value = options.value
+            readonly = options.readonly
+          )&attributes(options.attributes)
