@@ -1,9 +1,22 @@
+//-
+  Все параметры опциональны: 
+  options.label - подпись
+  options.min - минимально допустимое значение
+  options.max - максимально допустимое значение
+  options.from - значение 'от' по умолчанию
+  options.to - значение 'до' по умолчанию
+  options.step - шаг
+  options.note - подпись внизу
+  options.attributes - любые атрибуты, которые хотим передать инпуту
+
 mixin range(options)
+
   if !options
     - options = {}
     
   .range
-    .h3.range__title= options.label
+    if options.label
+      .h3.range__title= options.label
     .range__output.js-range__output
     input.js-range-slider(type="text"
       data-min= options.min
@@ -12,6 +25,6 @@ mixin range(options)
       data-to= options.to
       data-step= options.step
       )&attributes(options.attributes)
-    if (options.note)  
+    if options.note  
       .range__note= options.note   
     

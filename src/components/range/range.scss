@@ -5,6 +5,7 @@
   grid-template-columns: 1fr 1fr;
   align-items: baseline;
   &__output {
+    grid-column: 2/3;
     font-size: 0.86rem;
     line-height: 1.22;
     text-align: right;
