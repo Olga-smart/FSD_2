@@ -1,8 +1,16 @@
+//-
+  options.title - заголовок (опционально)
+  options.uniqueName - уникальное имя для генерации id инпутов
+  options.items: массив объектов пунктов
+  options.items[0].label - заголовок пункта
+  options.items[0].sublabel - подзаголовок пункта
+  options.items[0].checked - состояние соответствующего чекбокса (true/false, по умолчанию false)
+
 include ../../components/input/input
 
 mixin rich-checklist(options)    
   .rich-checklist
-    if (options.title)
+    if options.title
       .rich-checklist__title.h3= options.title
     .rich-checklist__list
       - for (let i = 0; i < options.items.length; i++)
