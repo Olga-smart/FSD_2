@@ -14,6 +14,7 @@ html(lang="ru")
     include ../../components/rich-checklist/rich-checklist
     include ../../components/expandable-checklist/expandable-checklist
     include ../../components/card-room/card-room
+    include ../../components/pagination/pagination
 
     +header
     
@@ -130,7 +131,7 @@ html(lang="ru")
             .search-room__cards-list.pagination__data-container
             
             .search-room__pagination
-              .pagination.js-pagination
+              +pagination
     
     +footer
     

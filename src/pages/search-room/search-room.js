@@ -22,6 +22,7 @@ filtersToggle.addEventListener('click', function() {
 
 let roomsArr = JSON.parse(roomCards);
 
+// Переопределяем инициализацию Pagination, т. к. данные будем брать из JSON
 $('.js-pagination').pagination({
   dataSource: roomsArr,
   showNavigator: true,
