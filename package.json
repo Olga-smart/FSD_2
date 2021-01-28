@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "start": "parcel run src/index.pug --open --no-hmr"
+    "start": "parcel run src/index.pug --open --no-hmr",
+    "build": "parcel build src/index.pug"
   },
   "staticFiles": {
     "staticPath": [
@@ -19,6 +20,7 @@
   "author": "Olga Tarasova",
   "license": "ISC",
   "devDependencies": {
+    "cssnano": "^4.1.10",
     "parcel-plugin-static-files-copy": "^2.5.0",
     "pug": "^3.0.0",
     "sass": "^1.30.0"
