@@ -2,7 +2,7 @@
   "name": "FSD_2",
   "version": "1.0.0",
   "description": "",
-  "main": "src/main.js",
+  "main": "src/index.html",
   "scripts": {
     "start": "parcel run src/index.pug --open --no-hmr",
     "build": "parcel build src/index.pug"
@@ -21,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "cssnano": "^4.1.10",
+    "parcel-bundler": "^1.12.4",
     "parcel-plugin-static-files-copy": "^2.5.0",
     "pug": "^3.0.0",
     "sass": "^1.30.0"
