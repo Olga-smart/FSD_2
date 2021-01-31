@@ -1,15 +1,21 @@
 @import '../../theme/variables.scss';
 
 .sign-in-screen {
-  background-image: url(img/sign-in-bg.jpg);
-  background-position: center;
-  background-size: cover;
+  background: {
+    image: url(img/sign-in-bg.jpg);
+    position: center;
+    size: cover; 
+  }
   min-height: calc(100vh - 70px);
   display: flex;
-  align-items: center;
-  align-content: center;
-  padding-top: 1.43rem;
-  padding-bottom: 1.43rem;
+  align: {
+    items: center;
+    content: center;
+  }
+  padding: {
+    top: 1.43rem;
+    bottom: 1.43rem; 
+  }
   &__card {
     width: 380px;
   }

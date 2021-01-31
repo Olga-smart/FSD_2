@@ -4,15 +4,18 @@ body {
   background-color: #e5e5e5;
 }
 .ui-kit-page {
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding: {
+    top: 150px;
+    bottom: 150px; 
+  }
 }
 .cards-wrapper {
   display: grid;
-  grid-template-columns: 380px 380px 320px;
-  grid-gap: 40px;
+  grid: {
+    template-columns: 380px 380px 320px;
+    gap: 40px; 
+  }
   align-items: start;
-  
   .col {
     display: grid;
     grid-gap: 40px;

@@ -1,8 +1,10 @@
 @import '../../theme/variables.scss';
 .form-elements-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 320px);
-  grid-gap: 100px;
+  grid: {
+    template-columns: repeat(3, 320px);
+    gap: 100px; 
+  }
   .default-text-field,
   .hover-focus-text-field,
   .default-dropdown,
@@ -71,9 +73,11 @@
   
   .radio-container {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 1.43rem;
-    grid-row-gap: 1.14rem;
+    grid: {
+      template-columns: auto auto;
+      column-gap: 1.43rem;
+      row-gap: 1.14rem; 
+    }
     justify-content: flex-start;
     .h3 {
       grid-column: 1/-1;
@@ -85,9 +89,11 @@
   }
   .like-container {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 0.71rem;
-    grid-row-gap: 1.14rem;
+    grid: {
+      template-columns: auto auto;
+      column-gap: 0.71rem;
+      row-gap: 1.14rem; 
+    }
     justify-content: flex-start;
     .h3 {
       grid-column: 1/-1;
@@ -95,9 +101,11 @@
   }
   .rate-container {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 1.79rem;
-    grid-row-gap: 1.14rem;
+    grid: {
+      template-columns: auto auto;
+      column-gap: 1.79rem;
+      row-gap: 1.14rem; 
+    }
     justify-content: flex-start;
     .h3 {
       grid-column: 1/-1;
@@ -105,13 +113,14 @@
   }
   .buttons-container {
     display: grid;
-    
     grid-row-gap: 1.14rem;
   }
   .buttons-row {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 1.43rem;
+    grid: {
+      template-columns: auto auto;
+      column-gap: 1.43rem; 
+    }
     justify-content: flex-start;
     margin-bottom: 1.1rem;
   }
@@ -122,10 +131,12 @@
   }
   
   .dropdown-row {
-    grid-column: 1/-1;
     display: grid;
-    grid-template-columns: repeat(3, 320px);
-    grid-column-gap: 100px;
+    grid: {
+      column: 1/-1;
+      template-columns: repeat(3, 320px);
+      column-gap: 100px; 
+    }
     padding-bottom: 72px;
   }
 }

@@ -10,8 +10,10 @@
   line-height: 18px;
   color: $primary-light;
   text-align: center;
-  padding-left: 16px;
-  padding-right: 6px;
+  padding: {
+    left: 16px;
+    right: 6px;
+  }
   position: relative;
   transition: all 0.2s ease-in-out;
   background-color: #fff;

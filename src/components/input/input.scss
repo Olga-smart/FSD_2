@@ -4,12 +4,15 @@
   &__input {
     display: block;
     height: 3.14rem;
-    padding-left: 1.1rem;
-    padding-right: 1.1rem;
+    padding: {
+      left: 1.1rem;
+      right: 1.1rem;
+    }    
     width: 100%;
     color: $primary-dark;
-    border: 1px solid $primary-light;
-    border-radius: 4px;
+    border: 1px solid $primary-light {
+      radius: 4px; 
+    }
     font-size: 1rem;
     &:hover, &_hovered,
     &:focus, &_focused {
@@ -30,8 +33,10 @@
       opacity: 0;
       & + label {
         display: grid;
-        grid-template-columns: auto 1fr;
-        grid-column-gap: 10px;
+        grid: {
+          template-columns: auto 1fr;
+          column-gap: 10px;
+        }        
         line-height: 1.29;
         cursor: pointer;
         &::before {
@@ -55,9 +60,11 @@
         border-radius: 4px;
       }
       &:checked + label::before {
-        background-image: url(./img/check_mark.svg);
-        background-repeat: no-repeat;
-        background-position: center;
+        background: {
+          image: url(./img/check_mark.svg);
+          repeat: no-repeat;
+          position: center; 
+        }
         border-color: $accent-main;
       }
       
@@ -84,8 +91,10 @@
       & + label::before {
         width: 40px;
         border-radius: 10px;
-        grid-row: 1/2;
-        grid-column: 1/2;
+        grid: {
+          row: 1/2;
+          column: 1/2; 
+        }
       }
       & + label::after {
         content: '';
@@ -94,8 +103,10 @@
         height: 12px;
         border-radius: 50%;
         background-color: $primary-light;
-        grid-row: 1/2;
-        grid-column: 1/2;
+        grid: {
+          row: 1/2;
+          column: 1/2;
+        }
         position: absolute;
         top: calc(50% - 6px);
         left: 4px;
@@ -109,8 +120,12 @@
       }
     }
     &_dropdown_open {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+      border: {
+        bottom: {
+          left-radius: 0;
+          right-radius: 0;
+        }
+      }
     }
     &_cursor_pointer {
       cursor: pointer;
@@ -124,8 +139,10 @@
       position: absolute;
       width: 0.57rem;
       height: 0.57rem;
-      border-left: 2px solid $primary-medium;
-      border-bottom: 2px solid $primary-medium;
+      border: {
+        left: 2px solid $primary-medium;
+        bottom: 2px solid $primary-medium;
+      }
       transform: rotate(-45deg);
       bottom: 1.3rem;
       right: 1.24rem;

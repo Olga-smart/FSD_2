@@ -39,9 +39,11 @@
     width: 2.86rem;
     height: 2.86rem;
     border-radius: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 45%, 100%;
+    background: {
+      repeat: no-repeat;
+      position: center;
+      size: 45%, 100%; 
+    }
     cursor: pointer;
   }
   &-prev {

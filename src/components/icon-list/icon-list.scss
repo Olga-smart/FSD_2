@@ -7,8 +7,10 @@
   padding-right: 0.7rem;
   &__item {
     display: grid;
-    grid-template-columns: 3.43rem 1fr;
-    grid-column-gap: 0.7rem;
+    grid: {
+      template-columns: 3.43rem 1fr;
+      column-gap: 0.7rem;
+    }
     padding-bottom: 1.45rem;
     border-bottom: 1px solid rgba($primary-very-dark, 0.1);
     &:last-child {
@@ -17,9 +19,11 @@
     }
   }
   &__icon {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background: {
+      repeat: no-repeat;
+      position: center;
+      size: contain;
+    }
     grid-row: 1/3;
   }
   &__label {

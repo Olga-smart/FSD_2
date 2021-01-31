@@ -7,8 +7,10 @@
   box-shadow: 0 10px 20px rgba($primary-very-dark, .05);
   &__nav {
     min-height: 5rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: {
+      top: 1rem;
+      bottom: 1rem;
+    }
     display: flex;
     align-items: center;
   }
@@ -16,8 +18,10 @@
     width: 19px;
     height: 19px;
     border: none;
-    background-color: transparent;
-    background-image: linear-gradient(to top, transparent 8px, $primary-dark 8px, $primary-dark 11px, transparent 11px);
+    background: {
+      color: transparent;
+      image: linear-gradient(to top, transparent 8px, $primary-dark 8px, $primary-dark 11px, transparent 11px);
+    }    
     position: relative;
     flex-shrink: 0;
     cursor: pointer;
@@ -77,8 +81,10 @@
             display: block;
             width: 0.57rem;
             height: 0.57rem;
-            border-left: 2px solid $primary-medium;
-            border-bottom: 2px solid $primary-medium;
+            border: {
+              left: 2px solid $primary-medium;
+              bottom: 2px solid $primary-medium;
+            }
             transform: rotate(-45deg);
             pointer-events: none;
           }
@@ -143,8 +149,10 @@
     &-nav {
     list-style-type: none;
     display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 1.43rem;
+    grid: {
+      template-columns: auto auto;
+      column-gap: 1.43rem;
+    }
     margin-left: 0.71rem;
   }
     &-profile {
@@ -234,11 +242,14 @@
       left: 0;
       right: 0;   
       justify-content: center;
-      transform-origin: top;
-      transform: perspective(1000px) rotateX(-90deg);
+      transform: perspective(1000px) rotateX(-90deg) {
+        origin: top;
+      }
       transition: all 0.3s ease-in-out;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding: {
+        top: 1rem;
+        bottom: 1rem;
+      }
       box-shadow: 0 10px 20px rgba($primary-very-dark, .05);
       z-index: 5;
       &_open {

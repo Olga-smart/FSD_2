@@ -3,8 +3,10 @@
 .expandable-checklist {
   &__title {
     cursor: pointer;
-    padding-bottom: 1.23rem;
-    padding-right: 25px;
+    padding: {
+      bottom: 1.23rem;
+      right: 25px;
+    }
     position: relative;
     &::after {
       content: '';
@@ -12,8 +14,10 @@
       position: absolute;
       width: 8px;
       height: 8px;
-      border-bottom: 2px solid $primary-medium; 
-      border-right: 2px solid $primary-medium; 
+      border: {
+        bottom: 2px solid $primary-medium; 
+        right: 2px solid $primary-medium; 
+      }
       right: 17px;
       top: 2px;
       transform: rotate(45deg);
@@ -25,9 +29,10 @@
   &_open {
     .expandable-checklist__title {
       &::after {
-        border: none;
-        border-top: 2px solid $primary-medium;
-        border-left: 2px solid $primary-medium;
+        border: none {
+          top: 2px solid $primary-medium;
+          left: 2px solid $primary-medium;
+        }
         top: 6px;
       }
     }

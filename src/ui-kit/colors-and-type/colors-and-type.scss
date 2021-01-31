@@ -3,23 +3,29 @@
 
 .colors-and-type-wrapper {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  grid-column-gap: 10px;
+  grid: {
+    template-columns: 3fr 2fr;
+    column-gap: 10px; 
+  }
   @include media-breakpoint-down($lg) {
     grid-template-columns: 2fr 3fr;
   }
   @include media-breakpoint-down($sm) {
-    grid-template-columns: 1fr;
-    grid-row-gap: 30px;
+    grid: {
+      template-columns: 1fr;
+      row-gap: 30px;
+    }
   }
 }
 
 .type-samples {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: repeat(5, auto);
-  grid-column-gap: 30px;
-  grid-row-gap: 50px;
+  grid: {
+    template-columns: auto 1fr;
+    template-rows: repeat(5, auto);
+    column-gap: 30px;
+    row-gap: 50px; 
+  }
   align-content: flex-start;
   padding: 6px;
   dt {

@@ -7,8 +7,10 @@
   box-shadow: 0 10px 20px rgba($primary-very-dark, 0.05);
   &__container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-column-gap: 2.857rem;
+    grid: {
+      template-columns: repeat(12, 1fr);
+      column-gap: 2.857rem;
+    }
     padding-bottom: 7.14rem;
   }
   &__logo {
@@ -19,11 +21,13 @@
     }
   }
   &__menu {
-    grid-column: 4/10;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 2.86rem;
-    grid-row-gap: 1.6rem;
+    grid: {
+      column: 4/10;
+      template-columns: 1fr 1fr 1fr;
+      column-gap: 2.86rem;
+      row-gap: 1.6rem;
+    }
     line-height: 1.22;
     padding-top: 0.29rem;
     &-list {
@@ -39,15 +43,19 @@
   &__heading {
     grid-row: 1/2;
     text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.86rem;
+    font: {
+      weight: 700;
+      size: 0.86rem; 
+    }
     line-height: 1.22;
   }
   &__subscription {
     &-column {
-      grid-column: 10/-1;
       display: grid;
-      grid-row-gap: 1.5rem;
+      grid: {
+        column: 10/-1;
+        row-gap: 1.5rem;
+      }
       align-content: start;
       padding-top: 0.29rem;
     }
@@ -61,8 +69,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
+      padding: {
+        top: 1.5rem;
+        bottom: 1.5rem;
+      }
     }
   }
   &__socials {
@@ -92,8 +102,10 @@
       grid-row-gap: 2.857rem;
     }
     &__logo-column {
-      grid-column: 1/6;
-      grid-row: 2/3;
+      grid: {
+        column: 1/6;
+        row: 2/3;
+      }
     }
     &__menu {
       grid-column: 1/-1;
@@ -121,8 +133,10 @@
       text-align: center;
       margin-bottom: 0;
       &-column {
-        grid-column: 1/-1;
-        grid-row: 1/2;
+        grid: {
+          column: 1/-1;
+          row: 1/2;
+        }
       }
     }
     &__bottom {
