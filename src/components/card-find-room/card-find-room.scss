@@ -1,11 +1,9 @@
 .card-find-room {
   &__form {
     display: grid;
-    grid: {
-      template-columns: 1fr 1fr;
-      column-gap: 1.43rem;
-      row-gap: 1.3rem;
-    }    
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.43rem;
+    grid-row-gap: 1.3rem;
   }
   &__dropdown, &__button-submit {
     grid-column: 1/-1;
