@@ -3,14 +3,18 @@
 .button {
   border: none;
   background-color: transparent;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.86rem;
+  font: {
+    weight: 700;
+    size: 0.86rem;
+  }
+  text: {
+    align: center;
+    decoration: none;
+    transform: uppercase;
+  }
   color: $accent-main;
   display: inline-block;
-  text-align: center;
   line-height: normal;
-  text-decoration: none;
   cursor: pointer;
   &:hover, &_hovered {
     color: $primary-medium;
@@ -65,13 +69,17 @@
     }
   }
   &_height_small {
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
+    padding: {
+      top: 0.7rem;
+      bottom: 0.7rem; 
+    }
     &.button_outline {
       padding: 2px;
       .button__text {
-        padding-top: calc(0.7rem - 2px);
-        padding-bottom: calc(0.7rem - 2px);
+        padding: {
+          top: calc(0.7rem - 2px);
+          bottom: calc(0.7rem - 2px);
+        }
       }
     }
   }
