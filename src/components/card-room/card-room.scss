@@ -1,6 +1,8 @@
 @import '../../theme/variables.scss';
+@import '../../theme/mixins-and-templates.scss';
 
 .card-room {
+  @extend %card;
   display: grid;
   grid-template-rows: 10.81rem auto;
   padding: 0;

@@ -16,7 +16,7 @@ mixin card-room(options)
 
   - let commentsNumber = options.comments || 0 
 
-  .card-room.js-card-room.card
+  .card-room.js-card-room
     .card-room__slider.js-card-room__slider
       each img in options.images
         img.card-room__img(src = img)

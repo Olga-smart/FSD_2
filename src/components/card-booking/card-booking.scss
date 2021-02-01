@@ -1,6 +1,8 @@
 @import '../../theme/variables.scss';
+@import '../../theme/mixins-and-templates.scss';
 
 .card-booking {
+  @extend %card; 
   &__form {
     display: grid;
     grid-row-gap: 1.15rem;

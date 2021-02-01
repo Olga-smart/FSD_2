@@ -1,4 +1,7 @@
+@import '../../theme/mixins-and-templates.scss';
+
 .card-sign-up {
+  @extend %card;
   &__title {
     margin-bottom: 1.3rem;
   }
@@ -8,8 +11,10 @@
   }
   &__radio-container {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 1.43rem;
+    grid: {
+      template-columns: auto auto;
+      column-gap: 1.43rem; 
+    }
     justify-content: flex-start;
     margin-bottom: 1rem;
   }
@@ -21,8 +26,10 @@
   }
   &__footer {
     display: grid;
-    grid-template-columns: 1fr 7.07rem;
-    grid-column-gap: 0.7rem;
+    grid: {
+      template-columns: 1fr 7.07rem;
+      column-gap: 0.7rem; 
+    }
     align-items: baseline;
     margin-top: 2.14rem;
   }

@@ -1,6 +1,5 @@
 import './card-booking.scss';
 
-import '../card/card.js'
 import '../input/input.js'
 import '../button/button.js'
 import '../datepicker/datepicker.js'
