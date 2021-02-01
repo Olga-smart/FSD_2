@@ -9,39 +9,54 @@
   border: none;
   box-shadow: 0 10px 20px $primary-very-light;
   &__slider {
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
+    border: {
+      top: {
+        left-radius: inherit;
+        right-radius: inherit;
+      }
+    }
     overflow: hidden;
   }
   &__info {
-    padding: 1.43rem;
-    padding-bottom: 1.6rem;   
+    padding: 1.43rem {
+      bottom: 1.6rem; 
+    }   
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 0.55rem;
-    grid-gap: 0.7rem;
-    align-items: baseline;
-    align-content: start;
+    grid: {
+      template-columns: 1fr 1fr;
+      row-gap: 0.55rem;
+      gap: 0.7rem;
+    }
+    align: {
+      items: baseline;
+      content: start; 
+    }
   }
   &__number {
     font-size: 1.29rem;
     line-height: 1.22;
     &-container {
-      font-family: 'Open Sans', 'Arial', sans-serif;
-      font-weight: 700;
+      font: {
+        family: 'Open Sans', 'Arial', sans-serif;
+        weight: 700; 
+      }
       color: $primary-very-dark;
     }
   }
   &__lux {
     text-transform: uppercase;
-    font-size: 0.86rem;
+    font: {
+      size: 0.86rem; 
+      family: 'Montserrat', 'Arial', sans-serif;
+    }
     line-height: 1.22;
-    font-family: 'Montserrat', 'Arial', sans-serif;
     color: $accent-main;
   }
   &__price {
-    font-size: 1rem;
-    font-weight: 700;
+    font: {
+      size: 1rem;
+      weight: 700; 
+    }
     line-height: 1.29rem;
     &-container {
       text-align: right;
@@ -98,8 +113,10 @@
         width: 0.64rem;
         height: 0.64rem;
         top: calc(50% - 0.32rem);
-        border-top: 2px solid #fff;
-        border-left: 2px solid #fff;
+        border: {
+          top: 2px solid #fff;
+          left: 2px solid #fff; 
+        }
       }
     }
     &-prev {
@@ -141,8 +158,9 @@
           width: 0.54rem;
           height: 0.54rem;
           background-color: transparent;
-          border: 1px solid #fff;
-          border-radius: 50%;
+          border: 1px solid #fff {
+            radius: 50%;
+          }
           font-size: 0;
           box-shadow: 0 5px 5px rgba($primary-very-dark, 0.3);
           cursor: pointer;

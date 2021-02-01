@@ -16,9 +16,11 @@
     min-height: auto;
     margin-bottom: 3rem;
     &-title {
-      font-family: 'Open Sans';
-      font-weight: 700;
-      font-size: 1.36rem;
+      font: {
+        family: 'Open Sans', 'Arial', sans-serif;
+        weight: 700;
+        size: 1.36rem;
+      }      
       line-height: 1.25;
       color: $primary-very-dark;
       & i {
@@ -29,8 +31,10 @@
       }
     }
     &-action {
-      background-repeat: no-repeat;
-      background-position: center;      
+      background: {
+        repeat: no-repeat;
+        position: center;  
+      }     
       & svg {
         display: none;
       }
@@ -41,9 +45,11 @@
         background-image: url(./img/arrow_forward.svg);
       }
       &:hover {
-        background-repeat: no-repeat;
-        background-position: center;
-        background-color: transparent;
+        background: {
+          repeat: no-repeat;
+          position: center;
+          color: transparent; 
+        }
       }
     } 
   }
@@ -56,8 +62,10 @@
   &--day-name {
     text-transform: capitalize;
     color: $accent-main;
-    font-weight: 700;
-    font-size: 0.86rem;
+    font: {
+      weight: 700;
+      size: 0.86rem;
+    }    
   }
   &--cell {
     font-size: 0.86rem;
@@ -184,12 +192,13 @@
 
 .double-datepicker-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 1.43rem;
+  grid: {
+    template-columns: 1fr 1fr;
+    column-gap: 1.43rem;
+  }  
 }
 
 .datepicker-here {
   cursor: pointer;
-  caret-color: transparent;
 }
 

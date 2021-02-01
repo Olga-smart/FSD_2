@@ -2,9 +2,11 @@
 
 .comment {
   display: grid;
-  grid-template-columns: auto 1fr; 
-  grid-column-gap: 0.7rem;
-  grid-row-gap: 0.55rem;
+  grid: {
+    template-columns: auto 1fr; 
+    column-gap: 0.7rem;
+    row-gap: 0.55rem; 
+  }
   &__avatar {
     width: 3.43rem;
     height: 3.43rem;
