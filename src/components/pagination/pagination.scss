@@ -1,4 +1,5 @@
 @import '../../theme/variables.scss';
+@import '../../theme/mixins-and-templates.scss';
 
 .paginationjs {
   display: flex;
@@ -28,7 +29,7 @@
       background-color: $primary-very-light;
     }
     &.active {
-      background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
+      @include gradient;
         a {
           color: #fff;
           font-weight: 700;

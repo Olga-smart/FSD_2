@@ -8,3 +8,13 @@
   }
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
 }
+
+@mixin gradient($type: main, $direction: to bottom, $opacity: 1) {
+  @if $type == main {
+    background: linear-gradient($direction, rgba($accent-main, $opacity), rgba($accent-main-additional, $opacity));
+  }
+  @if $type == secondary {
+    background: linear-gradient($direction, rgba($accent-secondary, $opacity), rgba($accent-secondary-additional, $opacity));
+  }
+  
+}

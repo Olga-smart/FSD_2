@@ -1,4 +1,5 @@
 @import '../../theme/variables.scss';
+@import '../../theme/mixins-and-templates.scss';
 
 .button {
   border: none;
@@ -28,7 +29,7 @@
   &_fill {
     border-radius: 1.57rem;
     color: #fff;
-    background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
+    @include gradient;
     padding: 1rem 1.36rem;
     &:hover, &_hovered {
       color: #fff;
@@ -38,7 +39,7 @@
   &_outline {
     border-radius: 1.57rem;
     padding: 2px;
-    background-image: linear-gradient(to bottom, $accent-main, $accent-main-additional);
+    @include gradient;
     .button__text {
       display: block;
       background-color: #fff;
@@ -47,7 +48,7 @@
     }
     &:hover, &_hovered {
       color: $accent-main;
-      background-image: linear-gradient(to bottom, rgba($accent-main, 0.5), rgba($accent-main-additional, 0.5));      
+      @include gradient($opacity: 0.5);
     }
   }
   &_width_full {

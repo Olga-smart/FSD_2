@@ -1,4 +1,5 @@
 @import '../../theme/variables.scss';
+@import '../../theme/mixins-and-templates.scss';
 
 .datepicker {
   width: 320px;
@@ -96,8 +97,8 @@
       }
     } 
     &.-current- {      
-      &::before {
-        background: linear-gradient(to bottom, $accent-secondary, $accent-secondary-additional);  
+      &::before {  
+        @include gradient($type: secondary);
       }
       &.-in-range- {
         color: #fff;
@@ -126,18 +127,18 @@
         background-color: transparent;
       }
       &::before {
-        background: linear-gradient(to bottom, $accent-main, $accent-main-additional); 
+        @include gradient; 
       }
     }
     &.-in-range- {
-      background: linear-gradient(to bottom, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
+      @include gradient($opacity: 0.25);
       &.-focus- {
         background-color: transparent;
       }
     }
     &.-range-from-, &.-range-to- {
       &::before {        
-        background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
+        @include gradient;
       } 
     }
     &.-range-from- {

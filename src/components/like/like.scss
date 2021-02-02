@@ -1,4 +1,5 @@
 @import '../../theme/variables.scss';
+@import '../../theme/mixins-and-templates.scss';
 
 .like {
   display: inline-block;
@@ -46,7 +47,7 @@
     border-color: $accent-main;
     color: $accent-main;
     &::before {
-      background: linear-gradient(to bottom, $accent-main, $accent-main-additional);
+      @include gradient;
     }
     &::after {
       background-image: url(./img/like_checked.svg);
