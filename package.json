@@ -5,7 +5,7 @@
   "main": "src/index.html",
   "scripts": {
     "start": "parcel run src/index.pug --open --no-hmr",
-    "build": "parcel build src/index.pug -d prod"
+    "build": "parcel build src/index.pug -d docs"
   },
   "staticFiles": {
     "staticPath": [
