@@ -12,6 +12,9 @@
       {
         "staticPath": "src/pages/search-room/img",
         "staticOutDir": "pages/search-room/img"
+      },
+      {
+        "staticPath": "src/theme/favicon"
       }
     ],
     "watcherGlob": "**"
@@ -55,6 +58,10 @@
       {
         "match": "{Montserrat-Bold*.svg,Montserrat-Regular*.svg,OpenSans-Bold*.svg,OpenSans-Regular*.svg}",
         "folder": "fonts"
+      },
+      {
+        "match": "{android-chrome-192x192*.png,android-chrome-512x512*.png,apple-touch-icon*.png,favicon*.ico,favicon-16x16*.png,favicon-32x32*.png,mstile-150x150*.png,safari-pinned-tab*.svg",
+        "folder": "."
       },
       {
         "match": "*.{jpg,png,gif,svg}",
