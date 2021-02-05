@@ -5,7 +5,7 @@
   "main": "src/index.html",
   "scripts": {
     "start": "parcel run src/index.pug --open --no-hmr",
-    "build": "parcel build src/index.pug -d docs"
+    "build": "parcel build src/index.pug -d docs --public-url ."
   },
   "staticFiles": {
     "staticPath": [
@@ -14,7 +14,8 @@
         "staticOutDir": "pages/search-room/img"
       },
       {
-        "staticPath": "src/theme/favicon"
+        "staticPath": "src/theme/favicon",
+        "staticOutDir": "."
       }
     ],
     "watcherGlob": "**"
@@ -42,31 +43,6 @@
     "theme": "^0.1.0"
   },
   "parcel-plugin-structurize": {
-    "rules": [
-      {
-        "match": "*.js",
-        "folder": "js"
-      },
-      {
-        "match": "*.css",
-        "folder": "css"
-      },
-      {
-        "match": "*.{ttf,woff}",
-        "folder": "fonts"
-      },
-      {
-        "match": "{Montserrat-Bold*.svg,Montserrat-Regular*.svg,OpenSans-Bold*.svg,OpenSans-Regular*.svg}",
-        "folder": "fonts"
-      },
-      {
-        "match": "{android-chrome-192x192*.png,android-chrome-512x512*.png,apple-touch-icon*.png,favicon*.ico,favicon-16x16*.png,favicon-32x32*.png,mstile-150x150*.png,safari-pinned-tab*.svg",
-        "folder": "."
-      },
-      {
-        "match": "*.{jpg,png,gif,svg}",
-        "folder": "img"
-      }
-    ]
+    "rules": false
   }
 }
