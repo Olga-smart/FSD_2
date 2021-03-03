@@ -12,7 +12,8 @@ import '../../components/card-room/card-room.js';
 import '../../components/pagination/pagination.js';
 
 import './search-room.scss';
-import './search-room-data.json';
+
+import roomCards from './search-room-data.json';
 
 let filtersToggle = document.querySelector('.js-search-room__filters-toggle');
 let filters = document.querySelector('.js-search-room__filters');
@@ -20,11 +21,9 @@ filtersToggle.addEventListener('click', function() {
   filters.classList.toggle('search-room__filters_open')
 })
 
-let roomsArr = JSON.parse(roomCards);
-
 // Переопределяем инициализацию Pagination, т. к. данные будем брать из JSON
 $('.js-pagination').pagination({
-  dataSource: roomsArr,
+  dataSource: roomCards,
   showNavigator: true,
   pageSize: 12,
   autoHidePrevious: true,
@@ -113,27 +112,27 @@ function template(data) {
     
     let star1 = document.createElement('img');
     star1.className = 'rate__star';
-    star1.src = item.rate > 0 ? 'img/star.svg' : 'img/star_border.svg';
+    star1.src = item.rate > 0 ? require('../../img/star.svg') : require('../../img/star_border.svg');
     rate.append(star1);
     
     let star2 = document.createElement('img');
     star2.className = 'rate__star';
-    star2.src = item.rate > 1 ? 'img/star.svg' : 'img/star_border.svg';
+    star2.src = item.rate > 1 ? require('../../img/star.svg') : require('../../img/star_border.svg');
     rate.append(star2);
     
     let star3 = document.createElement('img');
     star3.className = 'rate__star';
-    star3.src = item.rate > 2 ? 'img/star.svg' : 'img/star_border.svg';
+    star3.src = item.rate > 2 ? require('../../img/star.svg') : require('../../img/star_border.svg');
     rate.append(star3);
     
     let star4 = document.createElement('img');
     star4.className = 'rate__star';
-    star4.src = item.rate > 3 ? 'img/star.svg' : 'img/star_border.svg';
+    star4.src = item.rate > 3 ? require('../../img/star.svg') : require('../../img/star_border.svg');
     rate.append(star4);
     
     let star5 = document.createElement('img');
     star5.className = 'rate__star';
-    star5.src = item.rate > 4 ? 'img/star.svg' : 'img/star_border.svg';
+    star5.src = item.rate > 4 ? require('../../img/star.svg') : require('../../img/star_border.svg');
     rate.append(star5);
     
     let commentsContainer = document.createElement('div');

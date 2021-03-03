@@ -1,6 +1,3 @@
-import '../../connect-jquery.js';
-import jquery from "jquery";
-
 require('air-datepicker');
 require('air-datepicker/dist/css/datepicker.min.css');
 

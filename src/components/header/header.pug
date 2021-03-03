@@ -85,7 +85,7 @@ mixin header(options)
               })
           button.header__icon-sign-in
             img.header__icon-sign-in-img(
-              src = "../../components/header/img/login.svg"
+              src = require("../../components/header/img/login.svg")
               alt = "Войти"
             )
         if options.loggedIn == true
@@ -93,7 +93,7 @@ mixin header(options)
             button.header__user-name= options.userName
             button.header__user-icon
               img.header__user-icon-img(
-                src = "../../components/header/img/user.svg"
+                src = require("../../components/header/img/user.svg")
                 alt = "Меню пользователя"
               )
             ul.header__user-menu

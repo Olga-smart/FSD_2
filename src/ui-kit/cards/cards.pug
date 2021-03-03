@@ -38,10 +38,10 @@ html(lang="ru")
           .col-270
             +card-room({
               images: [
-                "img/room1.jpg",
-                "img/room2.jpg",
-                "img/room3.jpg",
-                "img/room4.jpg",
+                require("../../img/room1.jpg"),
+                require("../../img/room2.jpg"),
+                require("../../img/room3.jpg"),
+                require("../../img/room4.jpg"),
               ],
               number: 888,
               lux: true,
@@ -52,16 +52,14 @@ html(lang="ru")
             
             +card-room({
               images: [
-                "img/room2.jpg",
-                "img/room1.jpg",
-                "img/room3.jpg",
-                "img/room4.jpg",
+                require("../../img/room2.jpg"),
+                require("../../img/room1.jpg"),
+                require("../../img/room3.jpg"),
+                require("../../img/room4.jpg"),
               ],
               number: 840,
               price: 9900,
               rate: 4,
               comments: 65
             })
-          
-    script(src="cards.js")
     

@@ -1,10 +1,10 @@
-roomCards = `[
+[
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -14,10 +14,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg",
-      "img/room1.jpg"
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg",
+      "../../img/room1.jpg"
     ],
     "number": 840,
     "lux": false,
@@ -27,10 +27,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room3.jpg",
-      "img/room4.jpg",
-      "img/room5.jpg",
-      "img/room6.jpg"
+      "../../img/room3.jpg",
+      "../../img/room4.jpg",
+      "../../img/room5.jpg",
+      "../../img/room6.jpg"
     ],
     "number": 980,
     "lux": true,
@@ -40,10 +40,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room4.jpg",
-      "img/room5.jpg",
-      "img/room6.jpg",
-      "img/room7.jpg"
+      "../../img/room4.jpg",
+      "../../img/room5.jpg",
+      "../../img/room6.jpg",
+      "../../img/room7.jpg"
     ],
     "number": 856,
     "lux": false,
@@ -53,10 +53,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room5.jpg",
-      "img/room6.jpg",
-      "img/room7.jpg",
-      "img/room8.jpg"
+      "../../img/room5.jpg",
+      "../../img/room6.jpg",
+      "../../img/room7.jpg",
+      "../../img/room8.jpg"
     ],
     "number": 740,
     "lux": false,
@@ -66,10 +66,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room6.jpg",
-      "img/room7.jpg",
-      "img/room8.jpg",
-      "img/room9.jpg"
+      "../../img/room6.jpg",
+      "../../img/room7.jpg",
+      "../../img/room8.jpg",
+      "../../img/room9.jpg"
     ],
     "number": 982,
     "lux": false,
@@ -79,10 +79,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room7.jpg",
-      "img/room8.jpg",
-      "img/room9.jpg",
-      "img/room10.jpg"
+      "../../img/room7.jpg",
+      "../../img/room8.jpg",
+      "../../img/room9.jpg",
+      "../../img/room10.jpg"
     ],
     "number": 978,
     "lux": false,
@@ -92,10 +92,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room8.jpg",
-      "img/room9.jpg",
-      "img/room10.jpg",
-      "img/room11.jpg"
+      "../../img/room8.jpg",
+      "../../img/room9.jpg",
+      "../../img/room10.jpg",
+      "../../img/room11.jpg"
     ],
     "number": 450,
     "lux": false,
@@ -105,10 +105,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room9.jpg",
-      "img/room10.jpg",
-      "img/room11.jpg",
-      "img/room12.jpg"
+      "../../img/room9.jpg",
+      "../../img/room10.jpg",
+      "../../img/room11.jpg",
+      "../../img/room12.jpg"
     ],
     "number": 350,
     "lux": false,
@@ -118,10 +118,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room10.jpg",
-      "img/room11.jpg",
-      "img/room12.jpg",
-      "img/room1.jpg"
+      "../../img/room10.jpg",
+      "../../img/room11.jpg",
+      "../../img/room12.jpg",
+      "../../img/room1.jpg"
     ],
     "number": 666,
     "lux": false,
@@ -131,10 +131,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room11.jpg",
-      "img/room12.jpg",
-      "img/room1.jpg",
-      "img/room2.jpg"
+      "../../img/room11.jpg",
+      "../../img/room12.jpg",
+      "../../img/room1.jpg",
+      "../../img/room2.jpg"
     ],
     "number": 444,
     "lux": false,
@@ -144,10 +144,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room12.jpg",
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg"
+      "../../img/room12.jpg",
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg"
     ],
     "number": 352,
     "lux": false,
@@ -158,10 +158,10 @@ roomCards = `[
 
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -171,10 +171,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -184,10 +184,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -197,10 +197,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -210,10 +210,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -223,10 +223,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -236,10 +236,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -249,10 +249,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -262,10 +262,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -275,10 +275,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -288,10 +288,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -301,10 +301,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -314,10 +314,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -327,10 +327,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -340,10 +340,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -353,10 +353,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -366,10 +366,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -379,10 +379,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -392,10 +392,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -405,10 +405,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -418,10 +418,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -431,10 +431,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -444,10 +444,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -457,10 +457,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -470,10 +470,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -483,10 +483,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -496,10 +496,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -509,10 +509,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -522,10 +522,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -535,10 +535,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -548,10 +548,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -561,10 +561,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -574,10 +574,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -587,10 +587,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -600,10 +600,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -613,10 +613,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -626,10 +626,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -639,10 +639,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -652,10 +652,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -665,10 +665,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -678,10 +678,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -691,10 +691,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -704,10 +704,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -717,10 +717,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -730,10 +730,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -743,10 +743,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -756,10 +756,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -769,10 +769,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -782,10 +782,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -795,10 +795,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -808,10 +808,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -821,10 +821,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -834,10 +834,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -847,10 +847,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -860,10 +860,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -873,10 +873,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -886,10 +886,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -899,10 +899,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -912,10 +912,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -925,10 +925,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -938,10 +938,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -951,10 +951,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -964,10 +964,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -977,10 +977,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -990,10 +990,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1003,10 +1003,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1016,10 +1016,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1029,10 +1029,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1042,10 +1042,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1055,10 +1055,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1068,10 +1068,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1081,10 +1081,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1094,10 +1094,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1107,10 +1107,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1120,10 +1120,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1133,10 +1133,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1146,10 +1146,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1159,10 +1159,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1172,10 +1172,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1185,10 +1185,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1198,10 +1198,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1211,10 +1211,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1224,10 +1224,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1237,10 +1237,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1250,10 +1250,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1263,10 +1263,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1276,10 +1276,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1289,10 +1289,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1302,10 +1302,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1315,10 +1315,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1328,10 +1328,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1341,10 +1341,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1354,10 +1354,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1367,10 +1367,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1380,10 +1380,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1393,10 +1393,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1406,10 +1406,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1419,10 +1419,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1432,10 +1432,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1445,10 +1445,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1458,10 +1458,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1471,10 +1471,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1484,10 +1484,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1497,10 +1497,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1510,10 +1510,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1523,10 +1523,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1536,10 +1536,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1549,10 +1549,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1562,10 +1562,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1575,10 +1575,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1588,10 +1588,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1601,10 +1601,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1614,10 +1614,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1627,10 +1627,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1640,10 +1640,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1653,10 +1653,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1666,10 +1666,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1679,10 +1679,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1692,10 +1692,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1705,10 +1705,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1718,10 +1718,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1731,10 +1731,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1744,10 +1744,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1757,10 +1757,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1770,10 +1770,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1783,10 +1783,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1796,10 +1796,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1809,10 +1809,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1822,10 +1822,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1835,10 +1835,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1848,10 +1848,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1861,10 +1861,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1874,10 +1874,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1887,10 +1887,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1900,10 +1900,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1913,10 +1913,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1926,10 +1926,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1939,10 +1939,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1952,10 +1952,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1965,10 +1965,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1978,10 +1978,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -1991,10 +1991,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2004,10 +2004,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2017,10 +2017,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2030,10 +2030,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2043,10 +2043,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2056,10 +2056,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2069,10 +2069,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2082,10 +2082,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2095,10 +2095,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2108,10 +2108,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2121,10 +2121,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2134,10 +2134,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2147,10 +2147,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2160,10 +2160,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2173,10 +2173,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2186,10 +2186,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2199,10 +2199,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2212,10 +2212,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2225,10 +2225,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2238,10 +2238,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2251,10 +2251,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2264,10 +2264,10 @@ roomCards = `[
   },
   {
     "images": [
-      "img/room1.jpg",
-      "img/room2.jpg",
-      "img/room3.jpg",
-      "img/room4.jpg"
+      "../../img/room1.jpg",
+      "../../img/room2.jpg",
+      "../../img/room3.jpg",
+      "../../img/room4.jpg"
     ],
     "number": 888,
     "lux": true,
@@ -2275,7 +2275,7 @@ roomCards = `[
     "rate": 5,
     "comments": 145
   }
-]`
+]
 
 
 

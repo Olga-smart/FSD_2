@@ -1,10 +1,10 @@
 mixin logo  
   a(
     class = "logo"
-    href = "../../index.pug"    
+    href = "../../index.html"    
   )  
     img.logo__img(
-      src = "../../../src/components/logo/img/logo.svg"
+      src = require("../../components/logo/img/logo.svg")
       alt = "Логотип"
     )
     span.visually-hidden На главную

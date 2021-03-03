@@ -345,12 +345,12 @@ html(lang="ru")
             +icon-list({
               items: [
                 {
-                  icon: "img/emoticon.svg",
+                  icon: require("../../img/emoticon.svg"),
                   label: "Комфорт",
                   sublabel: "Шумопоглощающие стены"
                 },
                 {
-                  icon: "img/city.svg",
+                  icon: require("../../img/city.svg"),
                   label: "Удобство",
                   sublabel: "Окно в каждой из спален"
                 }
@@ -359,7 +359,7 @@ html(lang="ru")
           
         .col-2.pt-10px  
           +comment({
-            avatar: "img/avatar.jpg",
+            avatar: require("../../img/avatar1.jpg"),
             name: "Мурад Сарафанов",
             date: "2020-11-21",
             like: {
@@ -372,7 +372,5 @@ html(lang="ru")
       - let n = 0;
       while n++ < 176
         .js-pagination__item
-            
-            
-    script(src="form-elements.js")
+
     
