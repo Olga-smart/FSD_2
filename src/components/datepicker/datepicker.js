@@ -32,18 +32,10 @@ function addApplyBtn(calendar) {
   let applyBtn = document.createElement('button');
   applyBtn.textContent = 'Применить';
   applyBtn.className = 'datepicker--button button';
+  applyBtn.dataset.action = 'hide';
   
   let btnsContainer = calendar.querySelector('.datepicker--buttons');
   btnsContainer.append(applyBtn);
-  addLogicForApplyBtn(applyBtn);
-}
-
-function addLogicForApplyBtn(btn) {
-  btn.addEventListener('click', function() {
-    let thisCalendar = btn.closest('.datepicker');
-    thisCalendar.classList.remove('active');
-    $('.datepicker-here').blur();
-  });
 }
 
 let calendarInputs = document.querySelectorAll('.datepicker-here');
