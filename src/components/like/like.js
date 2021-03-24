@@ -1,14 +1,26 @@
 import './like.scss';
 
+class Like {
+  
+  constructor(component) {
+    this._component = component;
+    this._attachEventHandlers();
+  }
+  
+  _attachEventHandlers() {
+    this._component.addEventListener('click', function() {
+      this.classList.toggle('like_checked');
+      let value = +this.textContent;
+      if ( this.classList.contains('like_checked') ) {
+        this.textContent = ++value;
+      } else {
+        this.textContent = --value;
+      }
+    })
+  }
+}
+
 let likes = document.querySelectorAll('.js-like');
 for (let like of likes) {
-  like.addEventListener('click', function() {
-    like.classList.toggle('like_checked');
-    let value = +like.textContent;
-    if ( like.classList.contains('like_checked') ) {
-      like.textContent = ++value;
-    } else {
-      like.textContent = --value;
-    }
-  })
+  new Like(like);
 }
