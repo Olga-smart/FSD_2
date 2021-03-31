@@ -1,31 +1,24 @@
 import './diagram.scss';
+import {wordToPlural} from '../word-to-plural/word-to-plural.js'
 
-function lastDigit(num) {
- return +num.toString().slice(-1); 
-}
-
-function last2Digits(num) {
- return +num.toString().slice(-2); 
-}
-
-function wordToPlural(number, wordWith1, wordWith2, wordWith5) {
-  let result = wordWith5;
-  if ([1, 21, 31, 41, 51, 61, 71, 81, 91].includes(last2Digits(number))) {
-    result = wordWith1;
+class Diagram {
+  
+  constructor(component) {
+    this._component = component;
+    
+    this._votesWordElement = component.querySelector('.js-diagram__votes-word');
+    this._votesNumber = component.querySelector('.js-diagram__votes-number').textContent;
+    
+    this._updateVotesWord();
   }
-  if ([2, 3, 4].includes(lastDigit(number)) && ![12, 13, 14].includes(last2Digits(number))) {
-    result = wordWith2;
+  
+  _updateVotesWord() {
+    this._votesWordElement.textContent = wordToPlural(this._votesNumber, 'голос', 'голоса', 'голосов');
   }
-  return result;
+  
 }
 
 let diagrams = document.querySelectorAll('.diagram');
 for (let diagram of diagrams) {
-  updateVotesWord(diagram);
-}
-
-function updateVotesWord(diagram) {
-  let votesWord = diagram.querySelector('.js-diagram__votes-word');
-  let votesNumber = diagram.querySelector('.js-diagram__votes-number').textContent;
-  votesWord.textContent = wordToPlural(votesNumber, 'голос', 'голоса', 'голосов'); 
+  new Diagram(diagram);
 }
