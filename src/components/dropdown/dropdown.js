@@ -1,212 +1,233 @@
 import './dropdown.scss';
 
 import '../button/button.js'
+import {wordToPlural} from '../word-to-plural/word-to-plural.js'
+
+class Dropdown {
+  
+  constructor(component) {
+    
+    this._component = component;
+    this._type = component.dataset.type;
+    this._outputElement = component.querySelector('.js-dropdown__output .js-input .js-input__input');
+    
+    this._items = component.querySelectorAll('.js-dropdown__item');
+    for (let item of this._items) {
+      item._input = item.querySelector('.js-dropdown__item-input');
+      item._minus = item.querySelector('.js-dropdown__button-minus');
+      item._plus = item.querySelector('.js-dropdown__button-plus');
+      
+      if ( this._counterValueIsMinimal(item) ) {
+        item._minus.disabled = true;
+      }
+      if ( this._counterValueIsMaximal(item) ) {
+        item._plus.disabled = true;
+      }
+    }
+    
+    this._applyButton = component.querySelector('.js-dropdown__button-apply');
+    this._resetButton = component.querySelector('.js-dropdown__button-reset');
+    
+    if (this._type == 'guests') {
+      this._zeroValue = 'Сколько гостей';
+    }
+    
+    if (this._type == 'facilities') {
+      this._zeroValue = 'Выберите удобства';
+    }
+    
+    this._setPropertiesForThisType();
+        
+    this._updateDropdownOutput();
+    
+    if ( this._buttonResetIsNecessary() ) {
+      this._resetButton.style.display = 'inline-block';
+    }
+    
+    this._attachEventHandlers();
+  
+  }
+  
+  _setPropertiesForThisType() {
+    if (this._type == 'guests') {
+      this._setGuestsProperties();
+    }
+    
+    if (this._type == 'facilities') {
+      this._setFacilitiesProperties();
+    }    
+  }
+  
+  _setGuestsProperties() {
+    this._guestsCount = +this._items[0]._input.value + +this._items[1]._input.value;
+    this._guestsWord = wordToPlural(this._guestsCount, 'гость', 'гостя', 'гостей');
+
+    this._babiesCount = +this._items[2]._input.value;
+    this._babiesWord = wordToPlural(this._babiesCount, 'младенец', 'младенца', 'младенцев');
+  }
+  
+  _setFacilitiesProperties() {
+    this._bedroomsCount = +this._items[0]._input.value;
+    this._bedroomsWord = wordToPlural(this._bedroomsCount, 'спальня', 'спальни', 'спален');
+
+    this._bedsCount = +this._items[1]._input.value;
+    this._bedsWord = wordToPlural(this._bedsCount, 'кровать', 'кровати', 'кроватей');
+
+    this._bathroomsCount = +this._items[2]._input.value;
+    this._bathroomsWord = wordToPlural(this._bathroomsCount, 'ванная', 'ванные', 'ванных');
+  }
+  
+  _updateDropdownOutput() {
+    if ( this._sumDropdownValues() == 0 ) {
+      this._outputElement.value = this._zeroValue;
+    } else {
+      if (this._type == 'guests') {
+        if (this._babiesCount == 0) {
+          this._outputElement.value = this._guestsCount + ' ' + this._guestsWord;
+        } else {
+          this._outputElement.value = this._guestsCount + ' ' + this._guestsWord + ', ' + this._babiesCount + ' ' + this._babiesWord;
+        }
+      }
+      
+      if (this._type == 'facilities') {
+        let result = '';
+      
+        if (this._bedroomsCount > 0) {
+          result += this._bedroomsCount + ' ' + this._bedroomsWord;
+        }
+
+        if (this._bedsCount > 0) {
+          if (result.length > 0) {
+            result += ', ';
+          }
+          result += this._bedsCount + ' ' + this._bedsWord;
+        }
+
+        if (this._bathroomsCount > 0) {
+          if (result.length > 0) {
+            result += ', ';
+          } 
+          result += this._bathroomsCount + ' ' + this._bathroomsWord;
+        }
+
+        this._outputElement.value = result;
+      } 
+    }  
+  }
+  
+  _sumDropdownValues() {
+    let sum = 0;
+    for (let item of this._items) {
+      sum += +item._input.value;
+    }
+    return sum;
+  }
+  
+  _toggleDropdown() {
+    this._component.classList.toggle('dropdown_menu_open');
+    this._outputElement.classList.toggle('input__input_dropdown_open');
+    this._outputElement.classList.toggle('input__input_focused');
+  } 
+  
+  _counterCanBeDecreased(item) {
+    if (item.dataset.minCount) {
+      return item._input.value > item.dataset.minCount;
+    } else {
+      return item._input.value > 0;
+    }
+  }
+  
+  _counterCanBeIncreased(item) {
+    if (item.dataset.maxCount) {
+      return item._input.value < item.dataset.maxCount;
+    }
+    return true;
+  }
+  
+  _counterValueIsMinimal(item) {
+    return item._input.value == item.dataset.minCount || item._input.value == 0;
+  }
+
+  _counterValueIsMaximal(item) {
+    return item._input.value == item.dataset.maxCount;
+  }
+  
+  _buttonResetIsNecessary() {
+    for (let item of this._items) {   
+      if (item._input.value == 0 || item._input.value == item.dataset.minCount) {
+        continue;
+      } else {
+        return true;
+      }
+      return false;
+    }
+  }
+  
+  _resetDropdown() {
+    for (let item of this._items) {
+      item._input.value = item.dataset.minCount || 0;
+      item._minus.disabled = true;
+    }
+    this._updateDropdownOutput();
+  }
+  
+  _attachEventHandlers() {  
+      
+    this._outputElement.addEventListener('click', event => {
+      this._toggleDropdown();    
+    });
+    
+    for (let item of this._items) {
+      item._minus.addEventListener('click', event => {
+        if ( this._counterCanBeDecreased(item) ) {
+          item._input.value--;
+          if ( this._counterValueIsMinimal(item) ) {
+            item._minus.disabled = true;
+          }
+          item._plus.disabled = false;
+        }
+        this._setPropertiesForThisType();
+        this._updateDropdownOutput();
+        this._applyButton.style.display = 'inline-block';
+        if ( this._buttonResetIsNecessary() ) {
+          this._resetButton.style.display = 'inline-block';
+        } else {
+          this._resetButton.style.display = 'none';
+        }
+      });
+
+      item._plus.addEventListener('click', event => {
+        if ( this._counterCanBeIncreased(item) ) {
+          item._input.value++;
+          if ( this._counterValueIsMaximal(item) ) {
+            item._plus.disabled = true;
+          }
+          item._minus.disabled = false;
+        }
+        this._setPropertiesForThisType();
+        this._updateDropdownOutput();
+        this._applyButton.style.display = 'inline-block';
+        this._resetButton.style.display = 'inline-block';
+      });
+    }
+    
+    this._resetButton.addEventListener('click', event => {
+      this._resetDropdown();
+      this._resetButton.style.display = 'none';
+    });
+    
+    this._applyButton.addEventListener('click', event => {
+      this._toggleDropdown();
+      this._applyButton.style.display = 'none';
+    });
+    
+  }
+  
+}
 
 let dropdowns = document.querySelectorAll('.js-dropdown');
 for (let dropdown of dropdowns) {
-  updateDropdownOutput(dropdown);
-  
-  let output = dropdown.querySelector('.js-dropdown__output .js-input .js-input__input');
-  output.addEventListener('click', function() {
-    toggleDropdown(dropdown, output);
-  });
-  
-  let items = dropdown.querySelectorAll('.js-dropdown__item');
-  for (let item of items) {
-    let input = item.querySelector('.js-dropdown__item-input');
-    let minus = item.querySelector('.js-dropdown__button-minus');
-    let plus = item.querySelector('.js-dropdown__button-plus');
-    minus.addEventListener('click', function() {
-      if ( counterCanBeDecreased(item, input) ) {
-        input.value--;
-        if ( counterValueIsMinimal(item, input) ) {
-          minus.disabled = true;
-        }
-        plus.disabled = false;
-      }
-      updateDropdownOutput(dropdown);
-      apply.style.display = 'inline-block';
-      if ( buttonResetIsNecessary(dropdown) ) {
-        reset.style.display = 'inline-block';
-      }
-    })
-    plus.addEventListener('click', function() {
-      if ( counterCanBeIncreased(item, input) ) {
-        input.value++;
-        if ( counterValueIsMaximal(item, input) ) {
-          plus.disabled = true;
-        }
-        minus.disabled = false;
-      }
-      updateDropdownOutput(dropdown);
-      apply.style.display = 'inline-block';
-      reset.style.display = 'inline-block';
-    })
-    if ( counterValueIsMinimal(item, input) ) {
-      minus.disabled = true;
-    }
-    if ( counterValueIsMaximal(item, input) ) {
-      plus.disabled = true;
-    }
-  }
-  
-  let reset = dropdown.querySelector('.js-dropdown__button-reset');
-  if ( buttonResetIsNecessary(dropdown) ) {
-    reset.style.display = 'inline-block';
-  }
-  reset.addEventListener('click', function() {
-    resetDropdown(dropdown);
-    reset.style.display = 'none';
-  })
-  
-  let apply = dropdown.querySelector('.js-dropdown__button-apply');
-  apply.addEventListener('click', function() {
-    toggleDropdown(dropdown, output);
-    apply.style.display = 'none';
-  })
-
-}
-
-function toggleDropdown(dropdown, output) {
-  dropdown.classList.toggle('dropdown_menu_open');
-  output.classList.toggle('input__input_dropdown_open');
-  output.classList.toggle('input__input_focused');
-} 
-
-function counterCanBeDecreased(item, input) {
-  if (item.dataset.minCount) {
-    return input.value > item.dataset.minCount;
-  } else {
-    return input.value > 0;
-  }  
-}
-
-function counterCanBeIncreased(item, input) {
-  if (item.dataset.maxCount) {
-    return input.value < item.dataset.maxCount;
-  }
-  return true;
-}
-
-function updateDropdownOutput(dropdown) {
-  let output = dropdown.querySelector('.js-dropdown__output .js-input .js-input__input');
-  let inputs = dropdown.querySelectorAll('.js-dropdown__item-input');
-  
-  if (dropdown.dataset.type == 'guests') {
-    if ( sumDropdownValues(dropdown) == 0 ) {
-      output.value = 'Сколько гостей';
-    } else {
-      let guestsCount = +inputs[0].value + +inputs[1].value;
-      let guestsWord = wordToPlural(guestsCount, 'гость', 'гостя', 'гостей');
-
-      let babiesCount = +inputs[2].value;
-      let babiesWord = wordToPlural(babiesCount, 'младенец', 'младенца', 'младенцев');
-
-      if (babiesCount == 0) {
-        output.value = guestsCount + ' ' + guestsWord;
-      } else {
-        output.value = guestsCount + ' ' + guestsWord + ', ' + babiesCount + ' ' + babiesWord;
-      }
-    }
-  }
-   
-  if (dropdown.dataset.type == 'facilities') {
-    if ( sumDropdownValues(dropdown) == 0 ) {
-      output.value = 'Выберите удобства';
-    } else {
-      let result = '';
-      
-      let bedroomsCount = +inputs[0].value;
-      if (bedroomsCount > 0) {
-        let bedroomsWord = wordToPlural(bedroomsCount, 'спальня', 'спальни', 'спален');
-        result += bedroomsCount + ' ' + bedroomsWord;
-      }
-
-      let bedsCount = +inputs[1].value;
-      if (bedsCount > 0) {
-        let bedsWord = wordToPlural(bedsCount, 'кровать', 'кровати', 'кроватей');
-        if (result.length > 0) {
-          result += ', ';
-        }
-        result += bedsCount + ' ' + bedsWord;
-      }
-
-      let bathroomsCount = +inputs[2].value;
-      if (bathroomsCount > 0) {
-        let bathroomsWord = wordToPlural(bathroomsCount, 'ванная', 'ванные', 'ванных');
-        if (result.length > 0) {
-          result += ', ';
-        } 
-        result += bathroomsCount + ' ' + bathroomsWord;
-      }
-
-      output.value = result;
-    }
-  }
-     
-}
-
-function sumDropdownValues(dropdown) {
-  let sum = 0;
-  let counters = dropdown.querySelectorAll('.js-dropdown__item-input');
-  for (let counter of counters) {
-    sum += +counter.value;
-  }
-  return sum;
-}
-
-function lastDigit(num) {
- return +num.toString().slice(-1); 
-}
-
-function last2Digits(num) {
- return +num.toString().slice(-2); 
-}
-
-function wordToPlural(number, wordWith1, wordWith2, wordWith5) {
-  let result = wordWith5;
-  if ([1, 21, 31, 41, 51, 61, 71, 81, 91].includes(last2Digits(number))) {
-    result = wordWith1;
-  }
-  if ([2, 3, 4].includes(lastDigit(number)) && ![12, 13, 14].includes(last2Digits(number))) {
-    result = wordWith2;
-  }
-  return result;
-}
-
-function buttonResetIsNecessary(dropdown) {
-  let inputs = dropdown.querySelectorAll('.js-dropdown__item-input');
-  for (let input of inputs) {   
-    if (input.value == 0 || input.value == input.closest('.js-dropdown__item').dataset.minCount) {
-      continue;
-    } else {
-      return true;
-    }
-    return false;
-  }
-}
-
-function buttonApplyIsNecessary(dropdown) {
-  return true;
-}
-
-function resetDropdown(dropdown) {
-  let items = dropdown.querySelectorAll('.js-dropdown__item')
-  for (let item of items) {
-    let input = item.querySelector('.js-dropdown__item-input');
-    input.value = input.closest('.js-dropdown__item').dataset.minCount || 0;
-    let minus = item.querySelector('.js-dropdown__button-minus');
-    minus.disabled = true;
-  }
-  updateDropdownOutput(dropdown);
-}
-
-function counterValueIsMinimal(item, input) {
-  return input.value == item.dataset.minCount || input.value == 0;
-}
-
-function counterValueIsMaximal(item, input) {
-  return input.value == item.dataset.maxCount;
+  new Dropdown(dropdown);
 }
 
 
