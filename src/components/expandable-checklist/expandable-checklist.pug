@@ -13,7 +13,7 @@ mixin expandable-checklist(options)
   if options.opened
    - modifier = "expandable-checklist_open"
    
-  .expandable-checklist(class = modifier)
+  .expandable-checklist.js-expandable-checklist(class = modifier)
     .expandable-checklist__title.js-expandable-checklist__title.h3= options.title
     .expandable-checklist__list
       +checklist({
