@@ -1,4 +1,3 @@
 import './card-sign-up.scss';
-
-import '../input/input.js'
-import '../button/button.js'
+import '../input/input';
+import '../button/button';

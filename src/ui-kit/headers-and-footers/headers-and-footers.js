@@ -1,7 +1,5 @@
 import '../../theme/global.scss';
-
-import '../../components/footer/footer.js';
-import '../../components/header/header.js';
-
+import '../../components/footer/footer';
+import '../../components/header/header';
 import '../ui-kit.scss';
 import './headers-and-footers.scss';

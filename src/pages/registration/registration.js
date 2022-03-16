@@ -1,7 +1,5 @@
 import '../../theme/global.scss';
-
-import '../../components/footer/footer.js';
-import '../../components/header/header.js';
-import '../../components/registration-screen/registration-screen.js';
-
+import '../../components/footer/footer';
+import '../../components/header/header';
+import '../../components/registration-screen/registration-screen';
 import './registration.scss';

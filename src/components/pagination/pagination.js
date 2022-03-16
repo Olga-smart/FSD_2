@@ -1,10 +1,22 @@
-require('paginationjs');
+/* eslint-disable no-param-reassign */
+/* eslint-disable fsd/jq-use-js-prefix-in-selector */
+/* Because this is third party plugin */
 
-import '../card-room/card-room.js'
+import '../card-room/card-room';
 import './pagination.scss';
 
-let paginationCards = document.querySelectorAll('.js-pagination__item');
-let paginationArr = Array.from(paginationCards);
+require('paginationjs');
+
+const paginationCards = document.querySelectorAll('.js-pagination__item');
+const paginationArr = Array.from(paginationCards);
+
+function template(data) {
+  let html = '';
+  $.each(data, (index, item) => {
+    html += item.outerHTML;
+  });
+  return html;
+}
 
 $('.js-pagination').pagination({
   dataSource: paginationArr,
@@ -16,32 +28,24 @@ $('.js-pagination').pagination({
   nextText: '',
   pageRange: 1,
   ulClassName: 'paginationjs-list',
-  formatNavigator: function(currentPage, totalPage, totalNumber) {
-    let firstNum = (currentPage - 1) * 12 + 1;
+  formatNavigator(currentPage, totalPage, totalNumber) {
+    const firstNum = (currentPage - 1) * 12 + 1;
     let lastNum = firstNum + 11;
     if (lastNum > totalNumber) {
       lastNum = totalNumber;
     }
     if (totalNumber > 100) {
-      totalNumber = '100+'
+      totalNumber = '100+';
     }
-    return firstNum + ' - ' + lastNum + ' из ' + totalNumber + '  вариантов аренды';
+    return `${firstNum} - ${lastNum} из ${totalNumber}  вариантов аренды`;
   },
-  callback: function(data, pagination) {
-    let html = template(data);
+  callback(data) {
+    const html = template(data);
     $('.pagination__data-container').html(html);
   },
-  afterPaging: function() {
+  afterPaging() {
     $('.js-card-room__slider').slick({
-      dots: true
+      dots: true,
     });
-  }
-})
-
-function template(data) {
-  let html = '';
-  $.each(data, function(index, item) {
-    html += item.outerHTML;
-  });
-  return html;  
-}
+  },
+});

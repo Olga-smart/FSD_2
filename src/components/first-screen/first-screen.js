@@ -1,3 +1,2 @@
 import './first-screen.scss';
-
-import '../card-find-room/card-find-room.js'
+import '../card-find-room/card-find-room';

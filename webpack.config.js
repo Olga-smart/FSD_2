@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -98,9 +99,11 @@ module.exports = {
       ]
     }),
     new MiniCssExtractPlugin({
-      filename: 'pages/[name]/[name].[contenthash].css'
+      filename: 'pages/[name]/[name].[contenthash].css',
+      ignoreOrder: true,
     }),
     new FaviconsWebpackPlugin('theme/favicon.svg'),
+    new ESLintPlugin(),
   ],
   module: {
     rules: [
@@ -117,7 +120,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../../'
+              publicPath: '../../',
             }
           },
           'css-loader', 'resolve-url-loader', 'sass-loader'
@@ -132,13 +135,13 @@ module.exports = {
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
-       cacheGroups: {
-         vendor: {
-           test: /[\\/]node_modules[\\/]/,
-           name: 'vendors',
-           chunks: 'all',
-         },
-       },
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        }
+      },
      },
    },
 };

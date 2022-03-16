@@ -1,24 +1,35 @@
 import './expandable-checklist.scss';
-
-import '../checklist/checklist.js'
+import '../checklist/checklist';
 
 class ExpandableChecklist {
-  
   constructor(component) {
-    this._component = component;
-    this._title = component.querySelector('.js-expandable-checklist__title');
+    this._initFields(component);
     this._attachEventHandlers();
   }
-  
-  _attachEventHandlers() {
-    this._title.addEventListener('click', (event) => {
-      this._component.classList.toggle('expandable-checklist_open')
+
+  static init(elements) {
+    const arr = [];
+
+    Array.from(elements).forEach((element) => {
+      arr.push(new ExpandableChecklist(element));
     });
+
+    return arr;
   }
-  
+
+  _initFields(component) {
+    this._component = component;
+    this._title = component.querySelector('.js-expandable-checklist__title');
+  }
+
+  _handleTitleClick() {
+    this._component.classList.toggle('expandable-checklist_open');
+  }
+
+  _attachEventHandlers() {
+    this._title.addEventListener('click', this._handleTitleClick.bind(this));
+  }
 }
 
-let expandableChecklists = document.querySelectorAll('.js-expandable-checklist');
-for (let list of expandableChecklists) {
-  new ExpandableChecklist(list);
-}
+const lists = document.querySelectorAll('.js-expandable-checklist');
+ExpandableChecklist.init(lists);

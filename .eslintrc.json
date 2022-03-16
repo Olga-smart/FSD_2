@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jquery": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:fsd/all"
+  ],
+  "plugins": [
+    "fsd",
+    "simple-import-sort", 
+    "import"
+  ],
+  "rules": {
+    "no-underscore-dangle": 0, // Airbnb rule is overridden by MetaLamp rule
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error"
+  },
+  "ignorePatterns": ["webpack.config.js"],
+  "globals": {
+    "jQuery": true
+  }
+}

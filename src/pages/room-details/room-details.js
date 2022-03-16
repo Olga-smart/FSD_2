@@ -1,21 +1,19 @@
 import '../../theme/global.scss';
-
-import '../../components/footer/footer.js';
-import '../../components/header/header.js';
-import '../../components/icon-list/icon-list.js';
-import '../../components/card-booking/card-booking.js';
-import '../../components/comment/comment.js';
-import '../../components/bullet-list/bullet-list.js';
-import '../../components/diagram/diagram.js';
-
+import '../../components/footer/footer';
+import '../../components/header/header';
+import '../../components/icon-list/icon-list';
+import '../../components/card-booking/card-booking';
+import '../../components/comment/comment';
+import '../../components/bullet-list/bullet-list';
+import '../../components/diagram/diagram';
 import './room-details.scss';
 
 function lastDigit(num) {
- return +num.toString().slice(-1); 
+  return +num.toString().slice(-1);
 }
 
 function last2Digits(num) {
- return +num.toString().slice(-2); 
+  return +num.toString().slice(-2);
 }
 
 function wordToPlural(number, wordWith1, wordWith2, wordWith5) {
@@ -29,6 +27,6 @@ function wordToPlural(number, wordWith1, wordWith2, wordWith5) {
   return result;
 }
 
-let commentsNumber = document.querySelector('.js-room-details__comments-number');
-let commentsCollection = document.querySelectorAll('.js-room-details__comment');
-commentsNumber.textContent = commentsCollection.length + ' ' + wordToPlural(commentsCollection.length, 'отзыв', 'отзыва', 'отзывов');
+const commentsNumber = document.querySelector('.js-room-details__comments-number');
+const commentsCollection = document.querySelectorAll('.js-room-details__comment');
+commentsNumber.textContent = `${commentsCollection.length} ${wordToPlural(commentsCollection.length, 'отзыв', 'отзыва', 'отзывов')}`;

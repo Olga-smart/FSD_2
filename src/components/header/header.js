@@ -1,26 +1,38 @@
 import './header.scss';
-
-import '../logo/logo.js'
-import '../button/button.js'
+import '../logo/logo';
+import '../button/button';
 
 class Header {
-  
   constructor(component) {
+    this._initFields(component);
+    this._attachEventHandlers();
+  }
+
+  static init(elements) {
+    const arr = [];
+
+    Array.from(elements).forEach((element) => {
+      arr.push(new Header(element));
+    });
+
+    return arr;
+  }
+
+  _initFields(component) {
     this._component = component;
     this._burger = component.querySelector('.js-header__burger');
     this._menu = component.querySelector('.js-header__menu');
-    this._attachEventHandlers();
   }
-  
+
+  _handleBurgerClick() {
+    this._burger.classList.toggle('header__burger_menu_open');
+    this._menu.classList.toggle('header__menu_open');
+  }
+
   _attachEventHandlers() {
-    this._burger.addEventListener('click', (event) => {
-      this._burger.classList.toggle('header__burger_menu_open');
-      this._menu.classList.toggle('header__menu_open');
-    });
+    this._burger.addEventListener('click', this._handleBurgerClick.bind(this));
   }
 }
 
-let headers = document.querySelectorAll('.header');
-for (let header of headers) {
-  new Header(header);
-} 
+const headers = document.querySelectorAll('.header');
+Header.init(headers);
