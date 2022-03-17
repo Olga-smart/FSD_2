@@ -15,7 +15,7 @@ mixin rich-checklist(options)
     .rich-checklist__list
       - for (let i = 0; i < options.items.length; i++)
         +input({
-          label: "<div><div class='rich-checklist__label'>" + options.items[i].label + "</div>" + "<div class='rich-checklist__sublabel'>" + options.items[i].sublabel + "</div></div>",
+          label: "<span class='rich-checklist__label'>" + options.items[i].label + "</span><br>" + "<span class='rich-checklist__sublabel'>" + options.items[i].sublabel + "</span>",
           type: "checkbox",
           checked: options.items[i].checked,
           inputId: options.uniqueName + "-" + i

@@ -14,6 +14,7 @@ mixin comment(options)
     if options.avatar
       img.comment__avatar(
         src = options.avatar
+        alt = "Аватарка автора"
       )
     else
       - let avatarLetter = options.name[0]

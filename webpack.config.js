@@ -27,7 +27,7 @@ module.exports = {
   output: {
     filename: 'pages/[name]/[name].[contenthash].js',
     path: path.resolve(__dirname + '/docs'),
-    assetModuleFilename: 'assets/[name].[contenthash][ext]'
+    assetModuleFilename: 'assets/[name].[contenthash][ext]',
   },
   devServer: {
     port: 4200,
