@@ -2,8 +2,8 @@
   options.number - номер комнаты
   options.lux - является ли комната люксом (true/false, можно не указывать, если false)
   options.price - цена за сутки
-  options.arrival - дата прибытия ('гггг-мм-дд')
-  options.departure - дата выезда ('гггг-мм-дд')
+  options.arrival - дата прибытия ("гггг-мм-дд")
+  options.departure - дата выезда ("гггг-мм-дд")
   options.adults - дефолтное кол-во взрослых (опционально)
   options.children - дефолтное кол-во детей (опционально)
   options.babies - дефолтное кол-во младенцев (опционально)
@@ -18,14 +18,14 @@ include ../../components/dropdown/dropdown
 
 - function prettifyPrice(num)
   - let n = num.toString()
-  - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ')
+  - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
 
 mixin card-booking(options)
   .card-booking.js-card-booking
     form.card-booking__form
       .card-booking__title
         span №
-        span.card-booking__number= ' ' + options.number + ' '
+        span.card-booking__number= " " + options.number + " "
         if (options.lux)
           span.card-booking__lux люкс
       .card-booking__price-container   

@@ -5,7 +5,7 @@
   inputId - id для инпута
   label - подпись
   placeholder - плейсхолдер
-  type - тип ('text', 'checkbox', 'radio', 'toggle' и пр.)
+  type - тип ("text", "checkbox", "radio", "toggle" и пр.)
   value - значение по умолчанию
   name - уникальное имя
   checked - состояние переключателя (true/false, по умолчанию false, актуально для checkbox, radio, toggle)
@@ -27,23 +27,23 @@ mixin input(options)
     
     - let inputClass = options.inputClass
     case options.type
-      when 'checkbox'
-        - inputClass = inputClass + ' input__input_checkbox'
-      when 'radio'
-        - inputClass = inputClass + ' input__input_radio'
-      when 'toggle'
-        - inputClass = inputClass + ' input__input_toggle'
+      when "checkbox"
+        - inputClass = inputClass + " input__input_checkbox"
+      when "radio"
+        - inputClass = inputClass + " input__input_radio"
+      when "toggle"
+        - inputClass = inputClass + " input__input_toggle"
       default
-        - inputClass = inputClass + ' js-input__input'
+        - inputClass = inputClass + " js-input__input"
         
     - let type = options.type
-    if options.type == 'toggle'
-      - type = 'checkbox'
+    if options.type == "toggle"
+      - type = "checkbox"
         
     case options.type
-      when 'checkbox'
-      when 'radio'
-      when 'toggle'
+      when "checkbox"
+      when "radio"
+      when "toggle"
         input.input__input(
           class = inputClass
           id = options.inputId
