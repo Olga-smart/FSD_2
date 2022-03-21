@@ -114,6 +114,7 @@
       display: block;
       padding: 0.71rem;
       transition: all 0.3s ease-in-out;
+      cursor: pointer;
       &:hover, &_hovered {
         color: $primary-dark;
         text-shadow: 0 0 1px $primary-dark, 0 0 1px $primary-dark;
