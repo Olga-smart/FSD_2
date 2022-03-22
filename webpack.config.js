@@ -145,19 +145,19 @@ module.exports = {
         }
       },
     },
-    minimizer: [
-      new ImageMinimizerPlugin({
-        minimizer: {
-          implementation: ImageMinimizerPlugin.imageminMinify,
-          options: {
-            plugins: [
-              ["jpegtran", { progressive: true }],
-              ["optipng", { optimizationLevel: 5 }],
-              "svgo",
-            ],
-          },
-        },
-      }),
-    ],
+    // minimizer: [
+    //   new ImageMinimizerPlugin({
+    //     minimizer: {
+    //       implementation: ImageMinimizerPlugin.imageminMinify,
+    //       options: {
+    //         plugins: [
+    //           ["jpegtran", { progressive: true }],
+    //           ["optipng", { optimizationLevel: 5 }],
+    //           "svgo",
+    //         ],
+    //       },
+    //     },
+    //   }),
+    // ],
   },
 };

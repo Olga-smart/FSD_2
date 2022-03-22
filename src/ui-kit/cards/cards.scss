@@ -1,14 +1,7 @@
-@import '../../theme/variables.scss';
-
-body {
+.cards-page {
   background-color: #e5e5e5;
 }
-.ui-kit-page {
-  padding: {
-    top: 150px;
-    bottom: 150px; 
-  }
-}
+
 .cards-wrapper {
   display: grid;
   grid: {

@@ -1,4 +1,5 @@
 @import '../../theme/variables.scss';
+
 .form-elements-wrapper {
   display: grid;
   grid: {
@@ -20,21 +21,21 @@
     }
   }
   .default-text-field::before {
-    content: "default";
+    content: 'default';
   }
   .hover-focus-text-field {
     &::before {
-      content: "hover / focus";
+      content: 'hover / focus';
     }
     input {
       border-color: $primary-medium;
     }
   }
   .default-dropdown::before {
-    content: "default";
+    content: 'default';
   }
   .expanded-dropdown::before {
-    content: "expanded"
+    content: 'expanded'
   }
   
   .col {
@@ -64,7 +65,7 @@
   .pt-10px {
     padding-top: 10px;
   }
-  .mt--5px {
+  .mt-5px {
     margin-top: -5px;
   }
   .col-2 {
