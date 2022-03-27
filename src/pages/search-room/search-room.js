@@ -1,7 +1,7 @@
 /* eslint-disable fsd/jq-use-js-prefix-in-selector */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-undef */
-/* Because this is third party plugin */
+// Because this is third party plugin
 
 import '../../theme/global.scss';
 import '../../components/footer/footer';
@@ -15,7 +15,6 @@ import '../../components/expandable-checklist/expandable-checklist';
 import '../../components/card-room/card-room';
 import '../../components/pagination/pagination';
 import './search-room.scss';
-
 import roomCards from './search-room-data.json';
 
 const filledStar = require('../../img/star.svg');

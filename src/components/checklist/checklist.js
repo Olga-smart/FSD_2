@@ -1,2 +1,2 @@
-import './checklist.scss';
 import '../input/input';
+import './checklist.scss';

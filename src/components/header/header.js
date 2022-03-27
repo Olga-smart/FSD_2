@@ -1,6 +1,6 @@
-import './header.scss';
 import '../logo/logo';
 import '../button/button';
+import './header.scss';
 
 class Header {
   constructor(component) {
@@ -11,7 +11,7 @@ class Header {
   static init(elements) {
     const arr = [];
 
-    Array.from(elements).forEach((element) => {
+    [...elements].forEach((element) => {
       arr.push(new Header(element));
     });
 

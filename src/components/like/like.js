@@ -9,7 +9,7 @@ class Like {
   static init(elements) {
     const arr = [];
 
-    Array.from(elements).forEach((element) => {
+    [...elements].forEach((element) => {
       arr.push(new Like(element));
     });
 
@@ -20,7 +20,8 @@ class Like {
     const component = event.currentTarget;
 
     component.classList.toggle('like_checked');
-    let value = +component.textContent;
+    let value = Number(component.textContent);
+
     if (component.classList.contains('like_checked')) {
       value += 1;
       component.textContent = value;

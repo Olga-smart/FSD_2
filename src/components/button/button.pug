@@ -5,10 +5,7 @@
   options.view - вид ("fill", "outline", "width_full", "arrow_right", "height_small", опционально, может быть массивом)
   options.class - дополнительный класс, который хотим примиксовать (не рекомендуется)
 
-mixin button(options)
-  if !options
-    - options = {}
-
+mixin button(options = {})
   - let classArray = ["button"]
   
   if (options.view)

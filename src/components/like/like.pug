@@ -3,11 +3,7 @@
   options.value - кол-во лайков (по умолчанию 0)
   options.checked - состояние чекбокса (true/false, по умолчанию false)
 
-mixin like(options)
-
-  if !options
-    - options = {}
-    
+mixin like(options = {})    
   - let classList = options.class || ""
   if options.checked == true && options.value > 0
     - classList = classList + " like_checked"

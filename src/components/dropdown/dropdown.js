@@ -1,13 +1,12 @@
-import './dropdown.scss';
-import '../button/button';
-
 import wordToPlural from '../../helpers/word-to-plural/word-to-plural';
+import '../button/button';
+import './dropdown.scss';
 
 class Dropdown {
   constructor(component) {
     this._initFields(component);
-    this._setPropertiesForThisType();
-    this._updateDropdownOutput();
+    this._setProperties();
+    this._updateOutput();
 
     if (this._buttonResetIsNecessary()) {
       this._resetButton.style.display = 'inline-block';
@@ -19,7 +18,7 @@ class Dropdown {
   static init(elements) {
     const arr = [];
 
-    Array.from(elements).forEach((element) => {
+    [...elements].forEach((element) => {
       arr.push(new Dropdown(element));
     });
 
@@ -32,7 +31,7 @@ class Dropdown {
     this._outputElement = component.querySelector('.js-dropdown__output .js-input .js-input__input');
 
     this._items = component.querySelectorAll('.js-dropdown__item');
-    Array.from(this._items).forEach((item) => {
+    [...this._items].forEach((item) => {
       const currentItem = item;
 
       currentItem._input = item.querySelector('.js-dropdown__item-input');
@@ -59,7 +58,7 @@ class Dropdown {
     }
   }
 
-  _setPropertiesForThisType() {
+  _setProperties() {
     if (this._type === 'guests') {
       this._setGuestsProperties();
     }
@@ -70,26 +69,26 @@ class Dropdown {
   }
 
   _setGuestsProperties() {
-    this._guestsCount = +this._items[0]._input.value + +this._items[1]._input.value;
+    this._guestsCount = Number(this._items[0]._input.value) + Number(this._items[1]._input.value);
     this._guestsWord = wordToPlural(this._guestsCount, 'гость', 'гостя', 'гостей');
 
-    this._babiesCount = +this._items[2]._input.value;
+    this._babiesCount = Number(this._items[2]._input.value);
     this._babiesWord = wordToPlural(this._babiesCount, 'младенец', 'младенца', 'младенцев');
   }
 
   _setFacilitiesProperties() {
-    this._bedroomsCount = +this._items[0]._input.value;
+    this._bedroomsCount = Number(this._items[0]._input.value);
     this._bedroomsWord = wordToPlural(this._bedroomsCount, 'спальня', 'спальни', 'спален');
 
-    this._bedsCount = +this._items[1]._input.value;
+    this._bedsCount = Number(this._items[1]._input.value);
     this._bedsWord = wordToPlural(this._bedsCount, 'кровать', 'кровати', 'кроватей');
 
-    this._bathroomsCount = +this._items[2]._input.value;
+    this._bathroomsCount = Number(this._items[2]._input.value);
     this._bathroomsWord = wordToPlural(this._bathroomsCount, 'ванная', 'ванные', 'ванных');
   }
 
-  _updateDropdownOutput() {
-    if (this._sumDropdownValues() === 0) {
+  _updateOutput() {
+    if (this._sumValues() === 0) {
       this._outputElement.value = this._zeroValue;
     } else {
       if (this._type === 'guests') {
@@ -126,15 +125,15 @@ class Dropdown {
     }
   }
 
-  _sumDropdownValues() {
+  _sumValues() {
     let sum = 0;
-    Array.from(this._items).forEach((item) => {
-      sum += +item._input.value;
+    [...this._items].forEach((item) => {
+      sum += Number(item._input.value);
     });
     return sum;
   }
 
-  _toggleDropdown() {
+  _toggle() {
     this._component.classList.toggle('dropdown_menu_open');
     this._outputElement.classList.toggle('input__input_dropdown_open');
     this._outputElement.classList.toggle('input__input_focused');
@@ -163,29 +162,30 @@ class Dropdown {
   }
 
   _buttonResetIsNecessary() {
-    function mayBeReset(item) {
+    const mayBeReset = (item) => {
       if (item._input.value === '0' || item._input.value === item.dataset.minCount) {
         return false;
       }
       return true;
-    }
+    };
 
-    const result = Array.from(this._items).find((item) => mayBeReset(item));
+    const result = [...this._items].find((item) => mayBeReset(item));
 
     return Boolean(result);
   }
 
-  _resetDropdown() {
-    Array.from(this._items).forEach((item) => {
+  _reset() {
+    [...this._items].forEach((item) => {
       const currentItem = item;
       currentItem._input.value = item.dataset.minCount || 0;
       currentItem._minus.disabled = true;
     });
-    this._updateDropdownOutput();
+
+    this._updateOutput();
   }
 
   _handleOutputClick() {
-    this._toggleDropdown();
+    this._toggle();
   }
 
   _handleMinusClick(event) {
@@ -193,14 +193,16 @@ class Dropdown {
 
     if (Dropdown._counterCanBeDecreased(item)) {
       item._input.value -= 1;
+
       if (Dropdown._counterValueIsMinimal(item)) {
         item._minus.disabled = true;
       }
+
       item._plus.disabled = false;
     }
 
-    this._setPropertiesForThisType();
-    this._updateDropdownOutput();
+    this._setProperties();
+    this._updateOutput();
     this._applyButton.style.display = 'inline-block';
 
     if (this._buttonResetIsNecessary()) {
@@ -215,39 +217,39 @@ class Dropdown {
 
     if (Dropdown._counterCanBeIncreased(item)) {
       item._input.value = Number(item._input.value) + 1;
+
       if (Dropdown._counterValueIsMaximal(item)) {
         item._plus.disabled = true;
       }
+
       item._minus.disabled = false;
     }
 
-    this._setPropertiesForThisType();
-    this._updateDropdownOutput();
+    this._setProperties();
+    this._updateOutput();
     this._applyButton.style.display = 'inline-block';
     this._resetButton.style.display = 'inline-block';
   }
 
   _handleResetButtonClick() {
-    this._resetDropdown();
+    this._reset();
     this._resetButton.style.display = 'none';
   }
 
   _handleApplyButtonClick() {
-    this._toggleDropdown();
+    this._toggle();
     this._applyButton.style.display = 'none';
   }
 
   _attachEventHandlers() {
     this._outputElement.addEventListener('click', this._handleOutputClick.bind(this));
 
-    Array.from(this._items).forEach((item) => {
+    [...this._items].forEach((item) => {
       item._minus.addEventListener('click', this._handleMinusClick.bind(this));
-
       item._plus.addEventListener('click', this._handlePlusClick.bind(this));
     });
 
     this._resetButton.addEventListener('click', this._handleResetButtonClick.bind(this));
-
     this._applyButton.addEventListener('click', this._handleApplyButtonClick.bind(this));
   }
 }

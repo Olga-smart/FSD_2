@@ -15,11 +15,7 @@
   options.pattern - регулярное выражение, согласно которому требуется вводить и проверять данные в поле
   options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию true)
   
-mixin input(options)
-
-  if !options
-    - options = {}
-    
+mixin input(options = {}) 
   .input.js-input(class = options.class)
   
     //- передаем через переменную чтобы можно было обеспечить вставку тегов внутри label (в частности тег br)

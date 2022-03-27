@@ -9,11 +9,7 @@
   options.note - подпись внизу
   options.attributes - любые атрибуты, которые хотим передать инпуту
 
-mixin range(options)
-
-  if !options
-    - options = {}
-    
+mixin range(options = {})    
   .range
     if options.label
       .h3.range__title= options.label

@@ -13,9 +13,7 @@
 
 include ../../components/input/input
 
-mixin input-with-button(options)
-  if !options
-    - options = {}
+mixin input-with-button(options = {})
   form.input-with-button(
     method = "post"
   )

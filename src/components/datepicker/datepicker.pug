@@ -9,9 +9,7 @@
 
 include ../../components/input/input
 
-mixin datepicker(options)
-  if !options
-    - options = {}
+mixin datepicker(options = {})
     
   - let classList = "input_arrow_down"
   if options.class

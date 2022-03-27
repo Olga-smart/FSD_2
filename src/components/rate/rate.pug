@@ -12,11 +12,7 @@ svg(xmlns:xlink="http://www.w3.org/1999/xlink" class="visually-hidden")
         stop(offset="1" stop-color="#8BA4F9")
       
 
-mixin rate(options)
-
-  if !options
-    - options = {}    
-  
+mixin rate(options = {})
   - let value = options.value
   
   .rate

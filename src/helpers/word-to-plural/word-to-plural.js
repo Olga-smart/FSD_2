@@ -1,13 +1,9 @@
-function wordToPlural(number, wordWith1, wordWith2, wordWith5) {
+const wordToPlural = (number, wordWith1, wordWith2, wordWith5) => {
   let result = wordWith5;
 
-  function lastDigit(num) {
-    return +num.toString().slice(-1);
-  }
+  const lastDigit = (num) => +num.toString().slice(-1);
 
-  function last2Digits(num) {
-    return +num.toString().slice(-2);
-  }
+  const last2Digits = (num) => +num.toString().slice(-2);
 
   if ([1, 21, 31, 41, 51, 61, 71, 81, 91].includes(last2Digits(number))) {
     result = wordWith1;
@@ -18,6 +14,6 @@ function wordToPlural(number, wordWith1, wordWith2, wordWith5) {
   }
 
   return result;
-}
+};
 
 export default wordToPlural;

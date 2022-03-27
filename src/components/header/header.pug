@@ -5,10 +5,7 @@
 include ../../components/logo/logo
 include ../../components/button/button
 
-mixin header(options)
-  if !options
-    - options = {}
-  
+mixin header(options = {})  
   header.header
     .container
       nav.header__nav

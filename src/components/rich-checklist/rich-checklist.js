@@ -1,2 +1,2 @@
-import './rich-checklist.scss';
 import '../input/input';
+import './rich-checklist.scss';

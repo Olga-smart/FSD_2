@@ -1,8 +1,8 @@
-import './card-booking.scss';
 import '../input/input';
 import '../button/button';
 import '../datepicker/datepicker';
 import '../dropdown/dropdown';
+import './card-booking.scss';
 
 class CardBooking {
   constructor(component) {
@@ -13,7 +13,7 @@ class CardBooking {
   static init(elements) {
     const arr = [];
 
-    Array.from(elements).forEach((element) => {
+    [...elements].forEach((element) => {
       arr.push(new CardBooking(element));
     });
 
@@ -30,21 +30,21 @@ class CardBooking {
 
     this._daysNumElement = component.querySelector('.js-card-booking__days');
     this._daysWordElement = component.querySelector('.js-card-booking__days-word');
-    this._days = +this._daysNumElement.textContent;
+    this._days = Number(this._daysNumElement.textContent);
 
     this._priceElement = component.querySelector('.js-card-booking__price');
-    this._price = +CardBooking._extractNumbers(this._priceElement.textContent);
+    this._price = Number(CardBooking._extractNumbers(this._priceElement.textContent));
     this._priceForXDays = component.querySelector('.js-card-booking__price-for-x-days');
 
     this._serviceFeeElement = component.querySelector('.js-card-booking__discount');
-    this._serviceFee = +CardBooking._extractNumbers(this._serviceFeeElement.textContent);
+    this._serviceFee = Number(CardBooking._extractNumbers(this._serviceFeeElement.textContent));
 
     this._discountElement = component.querySelector('.js-card-booking__discount');
-    this._discount = +CardBooking._extractNumbers(this._discountElement.textContent);
+    this._discount = Number(CardBooking._extractNumbers(this._discountElement.textContent));
 
     this._additionalServiceFeeElement = component.querySelector('.js-card-booking__additional-service-fee');
-    this._additionalServiceFee = +CardBooking
-      ._extractNumbers(this._additionalServiceFeeElement.textContent);
+    this._additionalServiceFee = Number(CardBooking
+      ._extractNumbers(this._additionalServiceFeeElement.textContent));
 
     this._totalElement = component.querySelector('.js-card-booking__total');
 
@@ -90,17 +90,17 @@ class CardBooking {
     tooltip.style.left = `${coords.left - tooltip.offsetWidth - 5}px`;
     tooltip.style.top = `${coords.top}px`;
 
-    function handleInfoIconMouseout() {
+    const handleInfoIconMouseout = () => {
       if (tooltip) {
         tooltip.remove();
       }
-    }
+    };
 
     target.addEventListener('mouseout', handleInfoIconMouseout);
   }
 
   _attachEventHandlers() {
-    Array.from(this._infoIcons).forEach((icon) => {
+    [...this._infoIcons].forEach((icon) => {
       icon.addEventListener('mouseover', CardBooking._handleInfoIconMouseover);
     });
   }
@@ -121,7 +121,7 @@ class CardBooking {
   }
 
   _updatePriceForXDays() {
-    this._priceForXDays.textContent = `${this._prettifyPrice(this._price * this._days)}₽`;
+    this._priceForXDays.textContent = `${CardBooking._prettifyPrice(this._price * this._days)}₽`;
     this._updateTotal();
   }
 
@@ -129,7 +129,7 @@ class CardBooking {
     if (this._days === 0) {
       this._totalElement.textContent = '0₽';
     } else {
-      this._totalElement.textContent = `${this._prettifyPrice(this._price * this._days + this._serviceFee - this._discount + this._additionalServiceFee)}₽`;
+      this._totalElement.textContent = `${CardBooking._prettifyPrice(this._price * this._days + this._serviceFee - this._discount + this._additionalServiceFee)}₽`;
     }
   }
 }

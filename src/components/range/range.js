@@ -1,7 +1,7 @@
-import './range.scss';
+import 'ion-rangeslider';
+import 'ion-rangeslider/css/ion.rangeSlider.min.css';
 
-require('ion-rangeslider');
-require('ion-rangeslider/css/ion.rangeSlider.min.css');
+import './range.scss';
 
 const output = document.querySelector('.js-range__output');
 

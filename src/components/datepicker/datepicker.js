@@ -1,8 +1,8 @@
-import './datepicker.scss';
-import '../input/input';
+import 'air-datepicker';
+import 'air-datepicker/dist/css/datepicker.min.css';
 
-require('air-datepicker');
-require('air-datepicker/dist/css/datepicker.min.css');
+import '../input/input';
+import './datepicker.scss';
 
 class Datepicker {
   constructor(component) {
@@ -20,7 +20,7 @@ class Datepicker {
   static init(elements) {
     const arr = [];
 
-    Array.from(elements).forEach((element) => {
+    [...elements].forEach((element) => {
       arr.push(new Datepicker(element));
     });
 
@@ -79,7 +79,7 @@ class Datepicker {
 
   _addStyleForBtns() {
     const btns = this._calendarElement.querySelectorAll('.datepicker--button');
-    Array.from(btns).forEach((btn) => {
+    [...btns].forEach((btn) => {
       btn.classList.add('button');
     });
   }

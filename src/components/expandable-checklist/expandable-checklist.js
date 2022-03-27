@@ -1,5 +1,5 @@
-import './expandable-checklist.scss';
 import '../checklist/checklist';
+import './expandable-checklist.scss';
 
 class ExpandableChecklist {
   constructor(component) {
@@ -10,7 +10,7 @@ class ExpandableChecklist {
   static init(elements) {
     const arr = [];
 
-    Array.from(elements).forEach((element) => {
+    [...elements].forEach((element) => {
       arr.push(new ExpandableChecklist(element));
     });
 

@@ -1,6 +1,5 @@
-import './diagram.scss';
-
 import wordToPlural from '../../helpers/word-to-plural/word-to-plural';
+import './diagram.scss';
 
 class Diagram {
   constructor(component) {
@@ -11,7 +10,7 @@ class Diagram {
   static init(elements) {
     const arr = [];
 
-    Array.from(elements).forEach((element) => {
+    [...elements].forEach((element) => {
       arr.push(new Diagram(element));
     });
 

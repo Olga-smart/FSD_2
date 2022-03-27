@@ -9,17 +9,10 @@
     "plugin:fsd/all"
   ],
   "plugins": [
-    "fsd",
-    "simple-import-sort", 
-    "import"
+    "fsd"
   ],
   "rules": {
-    "no-underscore-dangle": 0, // Airbnb rule is overridden by MetaLamp rule
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "import/first": "error",
-    "import/newline-after-import": "error",
-    "import/no-duplicates": "error"
+    "no-underscore-dangle": 0 // Airbnb rule is overridden by MetaLamp rule
   },
   "ignorePatterns": ["webpack.config.js"],
   "globals": {

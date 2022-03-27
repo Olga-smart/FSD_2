@@ -1,25 +1,24 @@
-import './comment.scss';
-import '../like/like';
-
 import wordToPlural from '../../helpers/word-to-plural/word-to-plural';
+import '../like/like';
+import './comment.scss';
 
 class Comment {
   constructor(component) {
     this._initFields(component);
-    this._dateToText(this._dateElement);
+    this._convertDateToText(this._dateElement);
   }
 
   static init(elements) {
     const arr = [];
 
-    Array.from(elements).forEach((element) => {
+    [...elements].forEach((element) => {
       arr.push(new Comment(element));
     });
 
     return arr;
   }
 
-  static _daysPassed(date) {
+  static _getDaysPassed(date) {
     const today = new Date();
     return Math.floor((today - date) / (60 * 60 * 24 * 1000));
   }
@@ -29,9 +28,9 @@ class Comment {
     this._dateElement = component.querySelector('.js-comment__date');
   }
 
-  _dateToText() {
+  _convertDateToText() {
     const commentDate = new Date(Date.parse(this._dateElement.textContent));
-    const days = Comment._daysPassed(commentDate);
+    const days = Comment._getDaysPassed(commentDate);
     if (days >= 365) {
       const years = Math.floor(days / 365);
       this._dateElement.textContent = `${years} ${wordToPlural(years, 'год', 'года', 'лет')} назад`;
