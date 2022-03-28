@@ -1,4 +1,4 @@
-import wordToPlural from '../../helpers/word-to-plural/word-to-plural';
+import wordToPlural from '../../helpers/wordToPlural/wordToPlural';
 import './diagram.scss';
 
 class Diagram {
