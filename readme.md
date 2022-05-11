@@ -1,8 +1,15 @@
 # TOXIN
 
-[Демо](https://olga-smart.github.io/FSD_2/build)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Folga-smart.github.io%2FFSD_2%2Fbuild%2F)
+![GitHub top language](https://img.shields.io/github/languages/top/Olga-smart/FSD_2)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/Olga-smart/FSD_2)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Olga-smart/FSD_2)
+![GitHub issues](https://img.shields.io/github/issues/Olga-smart/FSD_2)
+![GitHub last commit](https://img.shields.io/github/last-commit/Olga-smart/FSD_2)
 
-[Макет](https://www.figma.com/file/spaWyhHczRFRMJQonqhjOE/FSD-frontend-education-program.-The-2nd-task-(Copy)) (возможны небольшие расхождения с текущей официальной версией макета, т. к. в нем как минимум менялись шрифты)
+[Demo](https://olga-smart.github.io/FSD_2/build)
+
+[Layout](https://www.figma.com/file/spaWyhHczRFRMJQonqhjOE/FSD-frontend-education-program.-The-2nd-task-(Copy)) (there may be slight discrepancies with the current official version of the layout, because at least the fonts changed in it)
  
 ## Dependencies:
 * "air-datepicker": "^2.2.3"
@@ -36,3 +43,24 @@
 * "webpack": "^5.70.0"
 * "webpack-cli": "^4.9.2"
 * "webpack-dev-server": "^4.7.4"
+
+## Installing Dependencies
+
+To install dependencies, run the command:
+``` bash
+npm i
+```
+
+## Starting the Development Server
+
+To start the development server, run the command:
+``` bash
+npm start
+```
+
+## Making the Build
+
+To run a production build, run the command:
+``` bash
+npm run build
+```
