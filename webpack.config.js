@@ -94,7 +94,7 @@ module.exports = {
       patterns: [
         {
           from: './img/room*.jpg',
-          to: path.resolve(__dirname + '/docs')
+          to: path.resolve(__dirname + '/build')
         }
       ]
     }),
