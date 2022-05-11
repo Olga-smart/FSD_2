@@ -1,6 +1,6 @@
 # TOXIN
 
-[Демо](https://olga-smart.github.io/FSD_2/)
+[Демо](https://olga-smart.github.io/FSD_2/build)
 
 [Макет](https://www.figma.com/file/spaWyhHczRFRMJQonqhjOE/FSD-frontend-education-program.-The-2nd-task-(Copy)) (возможны небольшие расхождения с текущей официальной версией макета, т. к. в нем как минимум менялись шрифты)
  
