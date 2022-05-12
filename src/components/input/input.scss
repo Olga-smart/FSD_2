@@ -109,7 +109,7 @@
           column: 1/2;
         }
         position: absolute;
-        top: calc(50% - 6px);
+        top: 4px;
         left: 4px;
       }
       &:checked + label::before {
