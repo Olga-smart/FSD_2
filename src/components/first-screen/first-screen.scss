@@ -22,7 +22,7 @@
     align-items: flex-start;
   }
   &__card {
-    width: 380px;
+    max-width: 380px;
   }
   &__phrase {
     text-align: right;
