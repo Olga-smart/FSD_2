@@ -42,9 +42,6 @@
     &::after {
       bottom: 0;
     }
-    &:focus {
-      outline: none;
-    }
     &_menu_open {
       background-image: none;
       &::before, &::after {
@@ -172,9 +169,6 @@
       color: inherit;
       cursor: pointer;
       font-size: inherit;
-      &:focus {
-        outline: none;
-      }
     }
     &-icon {
       display: none;
@@ -184,9 +178,6 @@
       cursor: pointer;
       &-img {
         width: 100%;
-      }
-      &:focus {
-        outline: none;
       }
     }
     &-menu {
@@ -221,9 +212,6 @@
     cursor: pointer;
     &-img {
       width: 100%;
-    }
-    &:focus {
-      outline: none;
     }
   }
 }

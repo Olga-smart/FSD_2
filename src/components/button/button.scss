@@ -20,9 +20,6 @@
   &:hover, &_hovered {
     color: $primary-medium;
   }
-  &:focus {
-    outline: none;
-  }
   &[hidden] {
     display: none;
   }

@@ -103,9 +103,6 @@
       opacity: 0;
       transition: all 0.3s ease-in-out;
       cursor: pointer;
-      &:focus {
-        outline: none;
-      }
       &::before {
         content: '';
         display: block;
@@ -146,9 +143,6 @@
         display: block;
         margin-left: 0.27rem;
         font-size: 0;
-        &:focus {
-          outline: none;
-        }
         &.slick-active {
           button {
             background-color: #fff;
@@ -164,9 +158,6 @@
           font-size: 0;
           box-shadow: 0 5px 5px rgba($primary-very-dark, 0.3);
           cursor: pointer;
-          &:focus {
-            outline: none;
-          }
           &::before {
             display: none !important;
           }

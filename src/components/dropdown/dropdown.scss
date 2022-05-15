@@ -49,9 +49,6 @@
         weight: 700; 
       }
       border: none;
-      &:focus {
-        outline: none;
-      }
     }
   }
   &__button-minus, &__button-plus {
@@ -67,9 +64,6 @@
     &:disabled {
       opacity: 0.38;
       pointer-events: none;
-    }
-    &:focus {
-      outline: none;
     }
   }
   &__button {
