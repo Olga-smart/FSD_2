@@ -21,7 +21,9 @@ mixin comment(options)
       .comment__avatar !{avatarLetter} 
     div
       p.comment__name= options.name
-      p.comment__date.js-comment__date= options.date
+      time.comment__date.js-comment__date(
+        datetime = options.date
+      )= options.date
     .comment__like-container
       if !options.like
         - options.like = {}
