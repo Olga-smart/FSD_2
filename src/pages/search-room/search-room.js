@@ -125,26 +125,31 @@ function template(data) {
     const star1 = document.createElement('img');
     star1.className = 'rate__star';
     star1.src = item.rate > 0 ? filledStar : emptyStar;
+    star1.alt = '';
     rate.append(star1);
 
     const star2 = document.createElement('img');
     star2.className = 'rate__star';
     star2.src = item.rate > 1 ? filledStar : emptyStar;
+    star2.alt = '';
     rate.append(star2);
 
     const star3 = document.createElement('img');
     star3.className = 'rate__star';
     star3.src = item.rate > 2 ? filledStar : emptyStar;
+    star3.alt = '';
     rate.append(star3);
 
     const star4 = document.createElement('img');
     star4.className = 'rate__star';
     star4.src = item.rate > 3 ? filledStar : emptyStar;
+    star4.alt = '';
     rate.append(star4);
 
     const star5 = document.createElement('img');
     star5.className = 'rate__star';
     star5.src = item.rate > 4 ? filledStar : emptyStar;
+    star5.alt = '';
     rate.append(star5);
 
     const commentsContainer = document.createElement('div');
