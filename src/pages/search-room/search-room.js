@@ -78,6 +78,7 @@ function template(data) {
       const pic = document.createElement('img');
       pic.className = 'card-room__img';
       pic.src = img;
+      pic.alt = 'Фото номера';
       slider.append(pic);
     });
 
