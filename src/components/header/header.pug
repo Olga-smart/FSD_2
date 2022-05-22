@@ -84,6 +84,8 @@ mixin header(options = {})
             img.header__icon-sign-in-img(
               src = require("../../components/header/img/login.svg")
               alt = "Войти"
+              width = 20
+              height = 20
             )
         if options.loggedIn == true
           .header__user-profile
@@ -92,6 +94,8 @@ mixin header(options = {})
               img.header__user-icon-img(
                 src = require("../../components/header/img/user.svg")
                 alt = "Меню пользователя"
+                width = 20
+                height = 20
               )
             ul.header__user-menu
               li.header__user-menu-item
