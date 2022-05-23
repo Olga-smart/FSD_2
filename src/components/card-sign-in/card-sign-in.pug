@@ -1,8 +1,14 @@
 include ../../components/input/input
 include ../../components/button/button
 
-mixin card-sign-in
-  .card-sign-in
+//-
+  options.class - дополнительный класс
+
+mixin card-sign-in(options = {})
+  .card-sign-in(
+    if (options.class)
+      class = options.class
+  )
     .card-sign-in__title.h1 Войти
     form.card-sign-in__form
       +input({

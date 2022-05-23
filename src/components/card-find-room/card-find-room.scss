@@ -2,6 +2,9 @@
 
 .card-find-room {
   @extend %card;
+  &_over-image {
+    @extend %card-over-image;
+  }
   &__form {
     display: grid;
     grid: {

@@ -7,7 +7,9 @@ mixin first-screen
       .container
         .first-screen__container
           .first-screen__card
-            +card-find-room
+            +card-find-room({
+              class: "card-find-room_over-image"
+            })
     .first-screen__outer-container        
       .container      
         p.first-screen__phrase Лучшие номера для вашей работы, <br> отдыха и просто вдохновения

@@ -2,6 +2,9 @@
 
 .card-sign-up {
   @extend %card;
+  &_over-image {
+    @extend %card-over-image;
+  }
   &__title {
     margin-bottom: 1.3rem;
   }
