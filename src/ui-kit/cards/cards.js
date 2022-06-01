@@ -1,4 +1,4 @@
-import '../../theme/global.scss';
+import '../../styles/global.scss';
 import '../../components/card-booking/card-booking';
 import '../../components/card-find-room/card-find-room';
 import '../../components/card-room/card-room';

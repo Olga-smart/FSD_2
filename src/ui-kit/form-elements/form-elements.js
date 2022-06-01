@@ -1,4 +1,4 @@
-import '../../theme/global.scss';
+import '../../styles/global.scss';
 import '../../components/bullet-list/bullet-list';
 import '../../components/button/button';
 import '../../components/checklist/checklist';

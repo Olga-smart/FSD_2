@@ -3,7 +3,7 @@
 /* eslint-disable no-undef */
 // Because this is third party plugin
 
-import '../../theme/global.scss';
+import '../../styles/global.scss';
 import '../../components/footer/footer';
 import '../../components/header/header';
 import '../../components/datepicker/datepicker';
