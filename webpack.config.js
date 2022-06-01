@@ -93,8 +93,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: './img/room*.jpg',
-          to: path.resolve(__dirname + '/build')
+          from: path.resolve(__dirname + '/public/img/copy-webpack-plugin'),
+          to: path.resolve(__dirname + '/build/assets')
         }
       ]
     }),
@@ -102,7 +102,7 @@ module.exports = {
       filename: 'pages/[name]/[name].[contenthash].css',
       ignoreOrder: true,
     }),
-    new FaviconsWebpackPlugin('theme/favicon.svg'),
+    new FaviconsWebpackPlugin('../public/favicon.svg'),
     new ESLintPlugin(),
   ],
   module: {

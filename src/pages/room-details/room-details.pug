@@ -26,11 +26,11 @@ html(lang="ru")
     main
       .room-details__gallery
         .room-details__gallery-item.room-details__gallery-item1 
-          img(class="room-details__gallery-img" src=require("../../img/photo1.jpg") alt="Фото номера" width="1024" height="683")
+          img(class="room-details__gallery-img" src=require("../../../public/img/photo1.jpg") alt="Фото номера" width="1024" height="683")
         .room-details__gallery-item.room-details__gallery-item2 
-          img(class="room-details__gallery-img" src=require("../../img/photo2.jpg") alt="Фото номера" width="1000" height="667")
+          img(class="room-details__gallery-img" src=require("../../../public/img/photo2.jpg") alt="Фото номера" width="1000" height="667")
         .room-details__gallery-item.room-details__gallery-item3 
-          img(class="room-details__gallery-img" src=require("../../img/photo3.jpg") alt="Фото номера" width="720" height="355")
+          img(class="room-details__gallery-img" src=require("../../../public/img/photo3.jpg") alt="Фото номера" width="720" height="355")
       .container
         .room-details__container
           .room-details__icon-list
@@ -38,17 +38,17 @@ html(lang="ru")
             +icon-list({
               items: [
                 {
-                  icon: require("../../img/emoticon.svg"),
+                  icon: require("../../../public/img/emoticon.svg"),
                   label: "Комфорт",
                   sublabel: "Шумопоглощающие стены"
                 },
                 {
-                  icon: require("../../img/city.svg"),
+                  icon: require("../../../public/img/city.svg"),
                   label: "Удобство",
                   sublabel: "Окно в каждой из спален"
                 },
                 {
-                  icon: require("../../img/whatshot.svg"),
+                  icon: require("../../../public/img/whatshot.svg"),
                   label: "Уют",
                   sublabel: "Номер оснащён камином"
                 }
@@ -82,7 +82,7 @@ html(lang="ru")
             span.room-details__comments-number.js-room-details__comments-number 2 отзыва
             .room-details__comment.js-room-details__comment
               +comment({
-                avatar: require("../../img/avatar1.jpg"),
+                avatar: require("../../../public/img/avatar1.jpg"),
                 name: "Мурад Сарафанов",
                 date: "2021-01-11",
                 like: {
@@ -93,7 +93,7 @@ html(lang="ru")
               })
             .room-details__comment.js-room-details__comment 
               +comment({
-                avatar: require("../../img/avatar2.jpg"),
+                avatar: require("../../../public/img/avatar2.jpg"),
                 name: "Патрисия Стёклышкова",
                 date: "2020-01-06",
                 like: {

@@ -17,8 +17,8 @@ import '../../components/pagination/pagination';
 import './search-room.scss';
 import roomCards from './search-room-data.json';
 
-const filledStar = require('../../img/star.svg');
-const emptyStar = require('../../img/star_border.svg');
+const filledStar = require('../../../public/img/star.svg');
+const emptyStar = require('../../../public/img/star_border.svg');
 
 const filtersToggle = document.querySelector('.js-search-room__filters-toggle');
 const filters = document.querySelector('.js-search-room__filters');
