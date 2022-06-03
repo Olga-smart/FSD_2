@@ -7,7 +7,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/Olga-smart/FSD_2)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Olga-smart/FSD_2)
 
-[Demo](https://olga-smart.github.io/FSD_2/build)
+[Demo](https://olga-smart.github.io/FSD_2/)
 
 [Layout](https://www.figma.com/file/spaWyhHczRFRMJQonqhjOE/FSD-frontend-education-program.-The-2nd-task-(Copy)) (there may be slight discrepancies with the current official version of the layout, because at least the fonts changed in it)
  
