@@ -127,7 +127,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|svg|ttf|woff)$/,
+        test: /\.(png|jpe?g|svg|ttf|woff2?)$/,
         type: 'asset/resource'
       },
     ] 
