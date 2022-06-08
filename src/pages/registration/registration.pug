@@ -1,24 +1,11 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="initial-scale=1.0, width=device-width")
-    title Registration
-    meta(
-      name="description",
-      content="Регистрация аккаунта для поиска и бронирования номеров."
-    )
-    meta(
-      name="keywords",
-      content="регистрация аккаунта"
-    )
-  body
-    include ../../components/header/header
-    include ../../components/footer/footer
-    include ../../components/registration-screen/registration-screen
+extends ../../layouts/base
+include ../../components/registration-screen/registration-screen
 
-    +header
-    
-    +registration-screen
-    
-    +footer
+block variables
+  -
+    const title = "Registration"
+    const description = "Регистрация аккаунта для поиска и бронирования номеров."
+    const keywords = "регистрация аккаунта"
+
+block content
+  +registration-screen

@@ -1,24 +1,12 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="initial-scale=1.0, width=device-width")
-    title Landing page
-    meta(
-      name="description",
-      content="Лучшие номера для вашей работы, отдыха и просто вдохновения."
-    )
-    meta(
-      name="keywords",
-      content="забронировать номер, подбор номера"
-    )
-  body.landing-page
-    include ../../components/header/header
-    include ../../components/footer/footer
-    include ../../components/first-screen/first-screen
+extends ../../layouts/base
+include ../../components/first-screen/first-screen
 
-    +header
-    
-    +first-screen
-    
-    +footer
+block variables
+  -
+    const title = "Landing page"
+    const description = "Лучшие номера для вашей работы, отдыха и просто вдохновения."
+    const keywords = "забронировать номер, подбор номера"
+    const bodyClass = "landing-page"
+
+block content
+  +first-screen

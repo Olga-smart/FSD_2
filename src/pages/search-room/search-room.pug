@@ -1,144 +1,135 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="initial-scale=1.0, width=device-width")
-    title Search room
-    meta(
-      name="description",
-      content="Подбор идеального номера под ваши критерии."
-    )
-    meta(
-      name="keywords",
-      content="подбор номера"
-    )
-  body.search-room
-    include ../../components/header/header
-    include ../../components/footer/footer
-    include ../../components/datepicker/datepicker   
-    include ../../components/dropdown/dropdown
-    include ../../components/range/range
-    include ../../components/checklist/checklist
-    include ../../components/rich-checklist/rich-checklist
-    include ../../components/expandable-checklist/expandable-checklist
-    include ../../components/card-room/card-room
-    include ../../components/pagination/pagination
+extends ../../layouts/base
 
-    +header
-    
-    main
-      .container
-        .search-room__main-container
-          .search-room__filters-toggle.js-search-room__filters-toggle Фильтры
-          .search-room__filters.js-search-room__filters
+block variables
+  -
+    const title = "Search room"
+    const description = "Подбор идеального номера под ваши критерии."
+    const keywords = "подбор номера"
+    const bodyClass = "search-room"
 
-            .search-room__datepicker
-              +datepicker({
-                label: "Даты пребывания в отеле",
-                value: "2021-08-19 - 2021-08-23",
-                attributes: {
-                  "data-date-format": "d M"
+block content
+
+  include ../../components/datepicker/datepicker   
+  include ../../components/dropdown/dropdown
+  include ../../components/range/range
+  include ../../components/checklist/checklist
+  include ../../components/rich-checklist/rich-checklist
+  include ../../components/expandable-checklist/expandable-checklist
+  include ../../components/card-room/card-room
+  include ../../components/pagination/pagination
+
+  main
+    .container
+      .search-room__main-container
+        .search-room__filters-toggle.js-search-room__filters-toggle Фильтры
+        .search-room__filters.js-search-room__filters
+
+          .search-room__datepicker
+            +datepicker({
+              label: "Даты пребывания в отеле",
+              value: "2021-08-19 - 2021-08-23",
+              attributes: {
+                "data-date-format": "d M"
+              }
+            })
+
+          .search-room__guests
+            +dropdown({
+              type: "guests",
+              label: "Гости",
+              adultsDefaultCount: 2,
+              childrenDefaultCount: 1,
+              babiesDefaultCount: 1
+            })
+          
+          .search-room__range
+            +range({
+              label: "Диапазон цены",
+              min: 700,
+              max: 15200,
+              from: 5000,
+              to: 10000,
+              step: 10,
+              note: "Стоимость за сутки пребывания в номере"
+            })
+          
+          .search-room__rules
+            +checklist({
+              title: "Правила дома",
+              uniqueName: "houseRules",
+              items:[
+                {
+                  label: "Можно курить"
+                },
+                {
+                  label: "Можно с питомцами",
+                  checked: true
+                },
+                {
+                  label: "Можно пригласить гостей <br> (до 10 человек)",
+                  checked: true
                 }
-              })
-            .search-room__guests
-              +dropdown({
-                type: "guests",
-                label: "Гости",
-                adultsDefaultCount: 2,
-                childrenDefaultCount: 1,
-                babiesDefaultCount: 1
-              })
+              ] 
+            })
+          
+          .search-room__accessibility
+            +rich-checklist({
+              title: "Доступность",
+              uniqueName: "accessibilityСhecklist",
+              items: [
+                {
+                  label: "Широкий коридор",
+                  sublabel: "Ширина коридоров в номере <br>не менее 91 см."
+                },
+                {
+                  label: "Помощник для инвалидов",
+                  sublabel: "На 1 этаже вас встретит специалист <br>и проводит до номера."
+                }                
+              ]
+            })
+          
+          .search-room__facilities
+            +dropdown({
+              type: "facilities",
+              label: "Удобства номера",
+              bedroomsDefaultCount: 2,
+              bedroomsMinCount: 1,
+              bedsDefaultCount: 2,
+              bedsMinCount: 1
+            })
+          
+          .search-room__additional
+            +expandable-checklist({
+              title: "Дополнительные удобства",
+              uniqueName: "expandable-checklist-example1",
+              items: [
+                {
+                  label: "Завтрак"
+                },
+                {
+                  label: "Письменный стол",
+                  checked: true
+                },
+                {
+                  label: "Стул для кормления",
+                  checked: true
+                },
+                {
+                  label: "Кроватка",
+                  checked: true
+                },
+                {
+                  label: "Телевизор"
+                },
+                {
+                  label: "Шампунь"
+                }
+              ]
+            })
             
-            .search-room__range
-              +range({
-                label: "Диапазон цены",
-                min: 700,
-                max: 15200,
-                from: 5000,
-                to: 10000,
-                step: 10,
-                note: "Стоимость за сутки пребывания в номере"
-              })
-            
-            .search-room__rules
-              +checklist({
-                title: "Правила дома",
-                uniqueName: "houseRules",
-                items:[
-                  {
-                    label: "Можно курить"
-                  },
-                  {
-                    label: "Можно с питомцами",
-                    checked: true
-                  },
-                  {
-                    label: "Можно пригласить гостей <br> (до 10 человек)",
-                    checked: true
-                  }
-                ] 
-              })
-            
-            .search-room__accessibility
-              +rich-checklist({
-                title: "Доступность",
-                uniqueName: "accessibilityСhecklist",
-                items: [
-                  {
-                    label: "Широкий коридор",
-                    sublabel: "Ширина коридоров в номере <br>не менее 91 см."
-                  },
-                  {
-                    label: "Помощник для инвалидов",
-                    sublabel: "На 1 этаже вас встретит специалист <br>и проводит до номера."
-                  }                
-                ]
-              })
-            
-            .search-room__facilities
-              +dropdown({
-                type: "facilities",
-                label: "Удобства номера",
-                bedroomsDefaultCount: 2,
-                bedroomsMinCount: 1,
-                bedsDefaultCount: 2,
-                bedsMinCount: 1
-              })
-            
-            .search-room__additional
-              +expandable-checklist({
-                title: "Дополнительные удобства",
-                uniqueName: "expandable-checklist-example1",
-                items: [
-                  {
-                    label: "Завтрак"
-                  },
-                  {
-                    label: "Письменный стол",
-                    checked: true
-                  },
-                  {
-                    label: "Стул для кормления",
-                    checked: true
-                  },
-                  {
-                    label: "Кроватка",
-                    checked: true
-                  },
-                  {
-                    label: "Телевизор"
-                  },
-                  {
-                    label: "Шампунь"
-                  }
-                ]
-              })
-              
-          .search-room__cards
-            h1.search-room__h1 Номера, которые мы для вас подобрали
-            .search-room__cards-list.pagination__data-container
-            
-            .search-room__pagination
-              +pagination
-    
-    +footer
+        .search-room__cards
+          h1.search-room__h1 Номера, которые мы для вас подобрали
+          .search-room__cards-list.pagination__data-container
+          
+          .search-room__pagination
+            +pagination

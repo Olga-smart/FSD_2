@@ -1,24 +1,11 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="initial-scale=1.0, width=device-width")
-    title Sign in
-    meta(
-      name="description",
-      content="Войти в аккаунт TOXIN."
-    )
-    meta(
-      name="keywords",
-      content="вход в аккаунт, залогиниться"
-    )
-  body
-    include ../../components/header/header
-    include ../../components/footer/footer
-    include ../../components/sign-in-screen/sign-in-screen
+extends ../../layouts/base
+include ../../components/sign-in-screen/sign-in-screen
 
-    +header
-    
-    +sign-in-screen
-    
-    +footer
+block variables
+  -
+    const title = "Sign in"
+    const description = "Войти в аккаунт TOXIN."
+    const keywords = "вход в аккаунт, залогиниться"
+
+block content
+  +sign-in-screen
