@@ -1,26 +1,21 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="initial-scale=1.0, width=device-width")
-    title Headers & Footers
-    meta(
-      name="description",
-      content="UI Kit TOXIN: шапка и подвал"
-    )
-    meta(
-      name="keywords",
-      content="UI Kit, шапка, подвал"
-    )
-  body.ui-kit-page.headers-and-footers-page
-    include ../../components/header/header
-    include ../../components/footer/footer
+extends ../../layouts/empty
 
-    +header
-    
-    +header({
-      loggedIn: true,
-      userName: 'Юлий Цезарь'
-    })
-    
-    +footer
+block variables
+  -
+    const title = "Headers & Footers"
+    const description = "UI Kit TOXIN: шапка и подвал"
+    const keywords = "UI Kit, шапка, подвал"
+    const bodyClass = "ui-kit-page headers-and-footers-page"
+
+block content
+  include ../../components/header/header
+  include ../../components/footer/footer
+
+  +header
+  
+  +header({
+    loggedIn: true,
+    userName: 'Юлий Цезарь'
+  })
+  
+  +footer

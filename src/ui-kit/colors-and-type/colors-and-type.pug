@@ -1,43 +1,38 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="initial-scale=1.0, width=device-width")
-    title Colors & Type
-    meta(
-      name="description",
-      content="UI Kit TOXIN: цвета и шрифты"
-    )
-    meta(
-      name="keywords",
-      content="UI Kit, цвета, шрифты"
-    )
-  body.ui-kit-page
-    .ui-kit-container
-      .colors-and-type-wrapper
-        include ../../components/palette/palette
-        +palette([
-          ["Dark Shade 100%", "#1F2041", 1], 
-          ["Dark Shade 75%", "#1F2041", 0.75], 
-          ["Dark Shade 50%", "#1F2041", 0.50],
-          ["Dark Shade 25%", "#1F2041", 0.25],
-          ["Dark Shade 5%", "#1F2041", 0.05],
-          ["Purple", "#BC9CFF", 1],
-          ["Green", "#6FCF97", 1]
-        ])
-        dl.type-samples
-          dt.h1 H1
-          dd 
-            h1 This one is the sub-section or widget title
-          dt.h2 H2
-          dd
-            h2 Next one is the item title inside widgets
-          dt.h3 H3 
-          dd
-            h3 This is a label or CTA text
-          dt Body
-          dd
-            p  This is the body text which is used for most of the design, like paragraphs, lists, etc.       
+extends ../../layouts/empty
+
+block variables
+  -
+    const title = "Colors & Type"
+    const description = "UI Kit TOXIN: цвета и шрифты"
+    const keywords = "UI Kit, цвета, шрифты"
+    const bodyClass = "ui-kit-page"
+
+block content
+  .ui-kit-container
+    .colors-and-type-wrapper
+      include ../../components/palette/palette
+      +palette([
+        ["Dark Shade 100%", "#1F2041", 1], 
+        ["Dark Shade 75%", "#1F2041", 0.75], 
+        ["Dark Shade 50%", "#1F2041", 0.50],
+        ["Dark Shade 25%", "#1F2041", 0.25],
+        ["Dark Shade 5%", "#1F2041", 0.05],
+        ["Purple", "#BC9CFF", 1],
+        ["Green", "#6FCF97", 1]
+      ])
+      dl.type-samples
+        dt.h1 H1
+        dd 
+          h1 This one is the sub-section or widget title
+        dt.h2 H2
+        dd
+          h2 Next one is the item title inside widgets
+        dt.h3 H3 
+        dd
+          h3 This is a label or CTA text
+        dt Body
+        dd
+          p  This is the body text which is used for most of the design, like paragraphs, lists, etc.   
             
             
 

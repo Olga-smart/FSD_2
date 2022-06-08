@@ -1,0 +1,22 @@
+block variables
+  -
+    const title = "TOXIN"
+    const description = "Лучшие номера для вашей работы, отдыха и просто вдохновения."
+    const keywords = "забронировать номер, подбор номера"
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="initial-scale=1.0, width=device-width")
+    title #{title}
+    meta(
+      name="description",
+      content=description
+    )
+    meta(
+      name="keywords",
+      content=keywords
+    )
+  body(class=bodyClass)    
+    block content

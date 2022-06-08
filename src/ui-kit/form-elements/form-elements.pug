@@ -1,383 +1,378 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="initial-scale=1.0, width=device-width")
-    title Form Elements
-    meta(
-      name="description",
-      content="UI Kit TOXIN: элементы форм"
-    )
-    meta(
-      name="keywords",
-      content="UI Kit, элементы форм"
-    )
-  body.ui-kit-page
-    .ui-kit-container
-      .form-elements-wrapper
-        include ../../components/input/input
-        include ../../components/dropdown/dropdown
-        include ../../components/button/button
-        include ../../components/datepicker/datepicker
-        include ../../components/input-with-button/input-with-button
-        include ../../components/checklist/checklist
-        include ../../components/like/like
-        include ../../components/rate/rate
-        include ../../components/range/range
-        include ../../components/expandable-checklist/expandable-checklist
-        include ../../components/rich-checklist/rich-checklist
-        include ../../components/bullet-list/bullet-list
-        include ../../components/icon-list/icon-list
-        include ../../components/comment/comment
-        include ../../components/pagination/pagination
+extends ../../layouts/empty
+
+block variables
+  -
+    const title = "Form Elements"
+    const description = "UI Kit TOXIN: элементы форм"
+    const keywords = "UI Kit, элементы форм"
+    const bodyClass = "ui-kit-page"
+
+block content
+  .ui-kit-container
+    .form-elements-wrapper
+      include ../../components/input/input
+      include ../../components/dropdown/dropdown
+      include ../../components/button/button
+      include ../../components/datepicker/datepicker
+      include ../../components/input-with-button/input-with-button
+      include ../../components/checklist/checklist
+      include ../../components/like/like
+      include ../../components/rate/rate
+      include ../../components/range/range
+      include ../../components/expandable-checklist/expandable-checklist
+      include ../../components/rich-checklist/rich-checklist
+      include ../../components/bullet-list/bullet-list
+      include ../../components/icon-list/icon-list
+      include ../../components/comment/comment
+      include ../../components/pagination/pagination
+      
+      .col
+        +input({
+          class: "default-text-field",
+          label: "text field",
+          placeholder: "Email",
+          type: "email"
+        })
         
-        .col
+        +input({
+          class: "hover-focus-text-field",
+          label: "text field",
+          value: "This is pretty awesome",
+          type: "text"
+        })
+        
+        +dropdown({
+          type: "guests",
+          label: "Dropdown"
+        })
+        
+        .gap-37px.pt-3px
           +input({
-            class: "default-text-field",
-            label: "text field",
-            placeholder: "Email",
-            type: "email"
+            inputClass: "js-input_birthday",
+            label: "masked text field",
+            placeholder: "ДД.ММ.ГГГГ"
           })
-          
-          +input({
-            class: "hover-focus-text-field",
-            label: "text field",
-            value: "This is pretty awesome",
-            type: "text"
-          })
-          
-          +dropdown({
-            type: "guests",
-            label: "Dropdown"
-          })
-          
-          .gap-37px.pt-3px
-            +input({
-              inputClass: "js-input_birthday",
-              label: "masked text field",
-              placeholder: "ДД.ММ.ГГГГ"
+
+          .double-datepicker-wrap
+            +datepicker({
+              label: "date dropdown",
+              inputClass: "date-start"
             })
 
-            .double-datepicker-wrap
-              +datepicker({
-                label: "date dropdown",
-                inputClass: "date-start"
-              })
+            +datepicker({
+              label: "date dropdown",
+              inputClass: "date-end",
+              value: "2021-08-18"
+            })
+        
+          .col-266.gap-40px
+            +datepicker({
+              label: "filter date dropdown",
+              value: "2021-08-19 - 2021-08-23",
+              attributes: {
+                "data-date-format": "d M"
+              }
+            })
 
-              +datepicker({
-                label: "date dropdown",
-                inputClass: "date-end",
-                value: "2021-08-18"
-              })
+            +input-with-button({
+              label: "Subscription text field",
+              placeholder: "Email",
+              type: "email",
+              name: "email"
+            })
+        
+      .col.gap-40px          
+        +checklist({
+          title: "Checkbox buttons",
+          uniqueName: "checklist-example",
+          items:[
+            {
+              label: "Можно курить"
+            },
+            {
+              label: "Можно с питомцами",
+              checked: true
+            },
+            {
+              label: "Можно пригласить гостей <br> (до 10 человек)",
+              checked: true
+            }
+          ] 
+        })
+        
+        .radio-container
+          .h3 Radio buttons
+          +input({
+            label: "Мужчина",
+            type: "radio",
+            name: "checkbox",
+            checked: true,
+            inputId: "radio-1"
+          })
+          +input({
+            label: "Женщина",
+            type: "radio",
+            name: "checkbox",
+            inputId: "radio-2"
+          })
+        
+        .toggle-container
+          .h3 Toggle
+          +input({
+            label: "Получать спецпредложения",
+            type: "toggle",
+            checked: true,
+            inputId: "toggle-1"
+          })
+          +input({
+            label: "Получать спецпредложения",
+            type: "toggle",
+            inputId: "toggle-2"
+          })
+        
+        .like-container
+          .h3 Like button
+          +like({
+            value: 2
+          })
+          +like({
+            value: 12,
+            checked: true
+          })
           
-            .col-266.gap-40px
-              +datepicker({
-                label: "filter date dropdown",
-                value: "2021-08-19 - 2021-08-23",
-                attributes: {
-                  "data-date-format": "d M"
-                }
-              })
+        .rate-container  
+          .h3 Rate button
+          +rate({
+            value: 4
+          })
+          +rate({
+            value: 5
+          })
+        
+      .col.gap-40px
+        .col-266
+          +range({
+            label: "Range slider",
+            min: 700,
+            max: 15200,
+            from: 5000,
+            to: 10000,
+            step: 10
+          })
+    
+        .buttons-container
+          .h3 Buttons
+          .buttons-row
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              view: "fill"
+            })
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              view: "fill",
+              class: "button_fill_hovered"
+            })
 
-              +input-with-button({
-                label: "Subscription text field",
-                placeholder: "Email",
-                type: "email",
-                name: "email"
-              })
+          .buttons-row  
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              view: "outline"
+            })
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              view: "outline",
+              class: "button_outline_hovered"
+            }) 
+
+          .buttons-row
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button"
+            })
+            +button({
+              tag: "button",
+              text: "Click me",
+              type: "button",
+              class: "button_hovered"
+            })
+
+          +button({
+            text: "Перейти к оплате",
+            type: "button",
+            view: ["fill", "width_full", "arrow_right"]
+          })
           
-        .col.gap-40px          
-          +checklist({
-            title: "Checkbox buttons",
-            uniqueName: "checklist-example",
-            items:[
+        .pagination-container
+          .h3 Pagination
+          +pagination
+          
+          
+      .dropdown-row.mt-5px    
+        .col
+          .col-266.gap-20px
+            +dropdown({
+              type: "facilities",
+              label: "Dropdown",
+              bedroomsDefaultCount: 2,
+              bedroomsMinCount: 1,
+              bedsDefaultCount: 2,
+              bedsMinCount: 1,
+              attributes: {
+                class: "default-dropdown"
+              }
+            })
+
+            +dropdown({
+              type: "facilities",
+              label: "Dropdown",
+              open: true,
+              bedroomsDefaultCount: 2,
+              bedroomsMinCount: 1,
+              bedsDefaultCount: 2,
+              bedsMinCount: 1,
+              attributes: {
+                class: "expanded-dropdown"
+              }
+            })
+
+        .col
+          +dropdown({
+            type: "guests",
+            label: "Dropdown",
+            open: true
+          })
+
+        .col
+          +dropdown({
+            type: "guests",
+            label: "Dropdown",
+            open: true,
+            adultsDefaultCount: 2,
+            childrenDefaultCount: 1
+          })
+        
+      .col
+        .col-266.gap-37px
+          +expandable-checklist({
+            title: "Expandable checkbox list",
+            uniqueName: "expandable-checklist-example1",
+            items: [
               {
-                label: "Можно курить"
+                label: "Завтрак"
               },
               {
-                label: "Можно с питомцами",
+                label: "Письменный стол"
+              },
+              {
+                label: "Стул для кормления"
+              },
+              {
+                label: "Кроватка"
+              },
+              {
+                label: "Телевизор"
+              },
+              {
+                label: "Шампунь"
+              }
+            ]
+          })
+        
+          +expandable-checklist({
+            title: "Expandable checkbox list",
+            uniqueName: "expandable-checklist-example2",
+            opened: true,
+            items: [
+              {
+                label: "Завтрак"
+              },
+              {
+                label: "Письменный стол",
                 checked: true
               },
               {
-                label: "Можно пригласить гостей <br> (до 10 человек)",
+                label: "Стул для кормления",
                 checked: true
+              },
+              {
+                label: "Кроватка",
+                checked: true
+              },
+              {
+                label: "Телевизор"
+              },
+              {
+                label: "Шампунь"
               }
             ] 
           })
-          
-          .radio-container
-            .h3 Radio buttons
-            +input({
-              label: "Мужчина",
-              type: "radio",
-              name: "checkbox",
-              checked: true,
-              inputId: "radio-1"
-            })
-            +input({
-              label: "Женщина",
-              type: "radio",
-              name: "checkbox",
-              inputId: "radio-2"
-            })
-          
-          .toggle-container
-            .h3 Toggle
-            +input({
-              label: "Получать спецпредложения",
-              type: "toggle",
-              checked: true,
-              inputId: "toggle-1"
-            })
-            +input({
-              label: "Получать спецпредложения",
-              type: "toggle",
-              inputId: "toggle-2"
-            })
-          
-          .like-container
-            .h3 Like button
-            +like({
-              value: 2
-            })
-            +like({
-              value: 12,
-              checked: true
-            })
-            
-          .rate-container  
-            .h3 Rate button
-            +rate({
-              value: 4
-            })
-            +rate({
-              value: 5
-            })
-          
-        .col.gap-40px
-          .col-266
-            +range({
-              label: "Range slider",
-              min: 700,
-              max: 15200,
-              from: 5000,
-              to: 10000,
-              step: 10
-            })
-      
-          .buttons-container
-            .h3 Buttons
-            .buttons-row
-              +button({
-                tag: "button",
-                text: "Click me",
-                type: "button",
-                view: "fill"
-              })
-              +button({
-                tag: "button",
-                text: "Click me",
-                type: "button",
-                view: "fill",
-                class: "button_fill_hovered"
-              })
-
-            .buttons-row  
-              +button({
-                tag: "button",
-                text: "Click me",
-                type: "button",
-                view: "outline"
-              })
-              +button({
-                tag: "button",
-                text: "Click me",
-                type: "button",
-                view: "outline",
-                class: "button_outline_hovered"
-              }) 
-
-            .buttons-row
-              +button({
-                tag: "button",
-                text: "Click me",
-                type: "button"
-              })
-              +button({
-                tag: "button",
-                text: "Click me",
-                type: "button",
-                class: "button_hovered"
-              })
- 
-            +button({
-              text: "Перейти к оплате",
-              type: "button",
-              view: ["fill", "width_full", "arrow_right"]
-            })
-            
-          .pagination-container
-            .h3 Pagination
-            +pagination
-            
-            
-        .dropdown-row.mt-5px    
-          .col
-            .col-266.gap-20px
-              +dropdown({
-                type: "facilities",
-                label: "Dropdown",
-                bedroomsDefaultCount: 2,
-                bedroomsMinCount: 1,
-                bedsDefaultCount: 2,
-                bedsMinCount: 1,
-                attributes: {
-                  class: "default-dropdown"
-                }
-              })
-
-              +dropdown({
-                type: "facilities",
-                label: "Dropdown",
-                open: true,
-                bedroomsDefaultCount: 2,
-                bedroomsMinCount: 1,
-                bedsDefaultCount: 2,
-                bedsMinCount: 1,
-                attributes: {
-                  class: "expanded-dropdown"
-                }
-              })
-
-          .col
-            +dropdown({
-              type: "guests",
-              label: "Dropdown",
-              open: true
-            })
-
-          .col
-            +dropdown({
-              type: "guests",
-              label: "Dropdown",
-              open: true,
-              adultsDefaultCount: 2,
-              childrenDefaultCount: 1
-            })
-          
-        .col
-          .col-266.gap-37px
-            +expandable-checklist({
-              title: "Expandable checkbox list",
-              uniqueName: "expandable-checklist-example1",
-              items: [
-                {
-                  label: "Завтрак"
-                },
-                {
-                  label: "Письменный стол"
-                },
-                {
-                  label: "Стул для кормления"
-                },
-                {
-                  label: "Кроватка"
-                },
-                {
-                  label: "Телевизор"
-                },
-                {
-                  label: "Шампунь"
-                }
-              ]
-            })
-          
-            +expandable-checklist({
-              title: "Expandable checkbox list",
-              uniqueName: "expandable-checklist-example2",
-              opened: true,
-              items: [
-                {
-                  label: "Завтрак"
-                },
-                {
-                  label: "Письменный стол",
-                  checked: true
-                },
-                {
-                  label: "Стул для кормления",
-                  checked: true
-                },
-                {
-                  label: "Кроватка",
-                  checked: true
-                },
-                {
-                  label: "Телевизор"
-                },
-                {
-                  label: "Шампунь"
-                }
-              ] 
-            })
-          
-        .col
-          +rich-checklist({
-            title: "Rich checkbox buttons",
-            uniqueName: "rich-checklist-example",
+        
+      .col
+        +rich-checklist({
+          title: "Rich checkbox buttons",
+          uniqueName: "rich-checklist-example",
+          items: [
+            {
+              label: "Широкий коридор",
+              sublabel: "Ширина коридоров в номере <br>не менее 91 см."
+            },
+            {
+              label: "Помощник для инвалидов",
+              sublabel: "На 1 этаже вас встретит специалист <br>и проводит до номера."
+            }                
+          ]
+        })
+        
+      .col
+        +bullet-list({
+          title: "Bullet list",
+          items: [
+            "Нельзя с питомцами",
+            "Без вечеринок и мероприятий",
+            "Время прибытия — после 13:00, <br>а выезд до 12:00"
+          ]
+        })
+        
+      .col
+        .col-266
+          +icon-list({
             items: [
               {
-                label: "Широкий коридор",
-                sublabel: "Ширина коридоров в номере <br>не менее 91 см."
+                icon: require("../../../public/img/emoticon.svg"),
+                label: "Комфорт",
+                sublabel: "Шумопоглощающие стены"
               },
               {
-                label: "Помощник для инвалидов",
-                sublabel: "На 1 этаже вас встретит специалист <br>и проводит до номера."
-              }                
+                icon: require("../../../public/img/city.svg"),
+                label: "Удобство",
+                sublabel: "Окно в каждой из спален"
+              }
             ]
           })
-          
-        .col
-          +bullet-list({
-            title: "Bullet list",
-            items: [
-              "Нельзя с питомцами",
-              "Без вечеринок и мероприятий",
-              "Время прибытия — после 13:00, <br>а выезд до 12:00"
-            ]
-          })
-          
-        .col
-          .col-266
-            +icon-list({
-              items: [
-                {
-                  icon: require("../../../public/img/emoticon.svg"),
-                  label: "Комфорт",
-                  sublabel: "Шумопоглощающие стены"
-                },
-                {
-                  icon: require("../../../public/img/city.svg"),
-                  label: "Удобство",
-                  sublabel: "Окно в каждой из спален"
-                }
-              ]
-            })
-          
-        .col-2.pt-10px  
-          +comment({
-            avatar: require("../../../public/img/avatar1.jpg"),
-            name: "Мурад Сарафанов",
-            date: "2020-02-10",
-            like: {
-              value: 12,
-              checked: true              
-            },
-            text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
-          })
-          
-      - let n = 0;
-      while n++ < 176
-        .js-pagination__item
+        
+      .col-2.pt-10px  
+        +comment({
+          avatar: require("../../../public/img/avatar1.jpg"),
+          name: "Мурад Сарафанов",
+          date: "2020-02-10",
+          like: {
+            value: 12,
+            checked: true              
+          },
+          text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+        })
+        
+    - let n = 0;
+    while n++ < 176
+      .js-pagination__item
 
     
