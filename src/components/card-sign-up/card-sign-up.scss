@@ -6,6 +6,7 @@
     @extend %card-over-image;
   }
   &__title {
+    @extend %h1;
     margin-bottom: 1.3rem;
   }
   &__form {

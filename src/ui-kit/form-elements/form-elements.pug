@@ -9,7 +9,7 @@ block variables
 
 block body
   .ui-kit-container
-    .form-elements-wrapper
+    .form-elements
       include ../../components/input/input
       include ../../components/dropdown/dropdown
       include ../../components/button/button
@@ -48,7 +48,7 @@ block body
         
         .gap-37px.pt-3px
           +input({
-            inputClass: "js-input_birthday",
+            inputClass: "js-input_date",
             label: "masked text field",
             placeholder: "ДД.ММ.ГГГГ"
           })
@@ -101,7 +101,7 @@ block body
         })
         
         .radio-container
-          .h3 Radio buttons
+          .form-elements__heading Radio buttons
           +input({
             label: "Мужчина",
             type: "radio",
@@ -117,7 +117,7 @@ block body
           })
         
         .toggle-container
-          .h3 Toggle
+          .form-elements__heading Toggle
           +input({
             label: "Получать спецпредложения",
             type: "toggle",
@@ -131,7 +131,7 @@ block body
           })
         
         .like-container
-          .h3 Like button
+          .form-elements__heading Like button
           +like({
             value: 2
           })
@@ -141,7 +141,7 @@ block body
           })
           
         .rate-container  
-          .h3 Rate button
+          .form-elements__heading Rate button
           +rate({
             value: 4
           })
@@ -161,7 +161,7 @@ block body
           })
     
         .buttons-container
-          .h3 Buttons
+          .form-elements__heading Buttons
           .buttons-row
             +button({
               tag: "button",
@@ -212,7 +212,7 @@ block body
           })
           
         .pagination-container
-          .h3 Pagination
+          .form-elements__heading Pagination
           +pagination
           
           

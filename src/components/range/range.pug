@@ -12,7 +12,7 @@
 mixin range(options = {})    
   .range
     if options.label
-      .h3.range__title= options.label
+      .range__title= options.label
     .range__output.js-range__output
     input.js-range-slider(type="text"
       data-min= options.min

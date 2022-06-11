@@ -7,6 +7,7 @@
     template-columns: 35% 57%;
     column-gap: 8%;
   }
+  margin: 0;
   align-items: end;
   &__chart {
     display: grid;
@@ -47,6 +48,8 @@
   &__legend {
     &-list {
       list-style: none;
+      margin: 0;
+      padding: 0;
     }
     &-item {
       display: grid;

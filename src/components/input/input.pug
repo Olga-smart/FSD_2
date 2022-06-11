@@ -15,24 +15,32 @@
   options.pattern - регулярное выражение, согласно которому требуется вводить и проверять данные в поле
   options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию true)
   
-mixin input(options = {}) 
-  .input.js-input(class = options.class)
+mixin input(options = {})
+  - let blockClass
+
+  case options.type
+    when "checkbox"
+      - blockClass = "input_checkbox"
+    when "radio"
+      - blockClass = "input_radio"
+    when "toggle"
+      - blockClass = "input_toggle"
+    default
+      - blockClass = ""
+
+  if (options.class)
+    if(blockClass) 
+      - blockClass += ` ${options.class}`
+    else   
+      - blockClass = options.class
+
+  .input.js-input(class = blockClass)
   
     //- передаем через переменную чтобы можно было обеспечить вставку тегов внутри label (в частности тег br)
     - let label = options.label
-    
-    - let inputClass = options.inputClass
-    case options.type
-      when "checkbox"
-        - inputClass = inputClass + " input__input_checkbox"
-      when "radio"
-        - inputClass = inputClass + " input__input_radio"
-      when "toggle"
-        - inputClass = inputClass + " input__input_toggle"
-      default
-        - inputClass = inputClass + " js-input__input"
         
     - let type = options.type
+
     if options.type == "toggle"
       - type = "checkbox"
         
@@ -41,7 +49,7 @@ mixin input(options = {})
       when "radio"
       when "toggle"
         input.input__input(
-          class = inputClass
+          class = options.inputClass
           id = options.inputId
           type = type
           name = options.name
@@ -54,9 +62,9 @@ mixin input(options = {})
           for = options.inputId
         ) !{label}
       default
-        label.input__label.h3 !{label}
-          input.input__input(
-            class = inputClass
+        label.input__label !{label}
+          input.input__input.js-input__input(
+            class = options.inputClass
             id = options.inputId
             type = type
             name = options.name

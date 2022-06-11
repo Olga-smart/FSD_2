@@ -20,6 +20,59 @@
   }
 }
 
+%h1 {
+  color: $primary-very-dark;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+%h2 {
+  color: $primary-very-dark;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  font-size: 1.36rem;
+  margin: 0;
+}
+
+%h3 {
+  color: $primary-very-dark;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 0.86rem;
+  line-height: 1.22rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+%container {
+  min-width: 300px;
+  max-width: 1920px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  @include media-breakpoint-down($sm) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  @include media-breakpoint-up($xl){
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+}
+
+%visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
 // Все параметры опциональны:
 // $type - цвет градиента (main, secondary)
 // $direction - направление

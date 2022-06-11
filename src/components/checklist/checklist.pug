@@ -11,7 +11,7 @@ include ../../components/input/input
 mixin checklist(options)
   .checklist
     if (options.title)
-      .checklist__title.h3= options.title
+      .checklist__title= options.title
     .checklist__list(class = options.listClass)
       - for (let i = 0; i < options.items.length; i++)
         +input({

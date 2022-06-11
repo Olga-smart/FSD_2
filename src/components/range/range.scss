@@ -5,6 +5,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: baseline;
+  &__title {
+    @extend %h3;
+  }
   &__output {
     grid-column: 2/3;
     font-size: 0.86rem;

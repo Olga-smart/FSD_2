@@ -9,7 +9,7 @@ mixin card-sign-up(options = {})
     if (options.class)
       class = options.class
   )
-    .card-sign-up__title.h1 Регистрация аккаунта
+    .card-sign-up__title Регистрация аккаунта
     form.card-sign-up__form
       +input({
         placeholder: "Имя",
@@ -39,7 +39,7 @@ mixin card-sign-up(options = {})
         })
       .card-sign-up__birthday-input  
         +input({
-          inputClass: "js-input_birthday",
+          inputClass: "js-input_date",
           label: "Дата рождения",
           placeholder: "ДД.ММ.ГГГГ",
           name: "birthday"

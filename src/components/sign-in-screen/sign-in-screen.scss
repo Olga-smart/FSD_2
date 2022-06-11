@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
 
 .sign-in-screen {
   background: {
@@ -16,7 +17,13 @@
     top: 1.43rem;
     bottom: 1.43rem; 
   }
+  &__container {
+    @extend %container;
+  }
   &__card {
-    max-width: 380px;
+    width: 380px;
+    @include media-breakpoint-down($xs) {
+      width: auto;
+    }
   }
 }

@@ -33,6 +33,10 @@
   }
   &__color-name {
     font-weight: bold;
+    margin: 0;
+  }
+  &__color-code {
+    margin: 0;
   }
   @include media-breakpoint-between($xs, $sm) {
     display: grid;

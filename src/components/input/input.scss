@@ -14,110 +14,16 @@
     border: 1px solid $primary-light {
       radius: 4px; 
     }
-    font-size: 1rem;
+    font: {
+      size: 1rem;
+      family: inherit;
+    }
     &:hover, &_hovered,
     &:focus, &_focused {
       border-color: $primary-medium;
     }
-    &[type='date'] {
-      text-transform: uppercase;
-    }
     &::placeholder {
       color: $primary-light;
-    }
-    &_checkbox, &_radio, &_toggle {
-      width: auto;
-      height: auto;
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-      & + label {
-        display: grid;
-        grid: {
-          template-columns: auto 1fr;
-          column-gap: 10px;
-        }        
-        line-height: 1.29;
-        cursor: pointer;
-        &::before {
-          content: '';
-          display: block;
-          width: 20px;
-          height: 20px;
-          border: 1px solid $primary-light;
-          transition: all 0.2s ease-in-out;
-        }
-        &::after {
-          transition: all 0.2s ease-in-out;
-        }
-      }
-    }
-    &_checkbox {
-      & + label {
-        color: $primary-medium;
-      }      
-      & + label::before {  
-        border-radius: 4px;
-      }
-      &:checked + label::before {
-        background: {
-          image: url(./img/check_mark.svg);
-          repeat: no-repeat;
-          position: center; 
-        }
-        border-color: $accent-main;
-      }
-      
-    }
-    &_radio {
-      & + label {
-        color: $primary-medium;
-      }
-      & + label::before {
-        border-radius: 50%;
-      }
-      &:checked + label {
-        color: $primary-dark;
-      }
-      &:checked + label::before {
-        @include gradient;
-        box-shadow: inset 0 0 0 3px #fff;
-      }
-    }
-    &_toggle {
-      & + label {
-        position: relative;
-      }
-      & + label::before {
-        width: 40px;
-        border-radius: 10px;
-        grid: {
-          row: 1/2;
-          column: 1/2; 
-        }
-      }
-      & + label::after {
-        content: '';
-        display:  block;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: $primary-light;
-        grid: {
-          row: 1/2;
-          column: 1/2;
-        }
-        position: absolute;
-        top: 4px;
-        left: 4px;
-      }
-      &:checked + label::before {
-        border-color: $accent-main;
-      }
-      &:checked + label::after {
-        @include gradient;
-        left: 24px;
-      }
     }
     &_dropdown_open {
       border: {
@@ -130,7 +36,107 @@
     &_cursor_pointer {
       cursor: pointer;
     }
-  }  
+  }
+  &_checkbox, &_radio, &_toggle {
+    .input__input {
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+    .input__label {
+      display: grid;
+      grid: {
+        template-columns: auto 1fr;
+        column-gap: 10px;
+      }        
+      line-height: 1.29;
+      cursor: pointer;
+      &::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid $primary-light;
+        transition: all 0.2s ease-in-out;
+      }
+      &::after {
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+  &_checkbox {
+    .input__label {
+      color: $primary-medium;
+      &::before {
+        border-radius: 4px;
+      }
+    }
+    .input__input:checked + .input__label::before {
+      background: {
+        image: url(./img/check_mark.svg);
+        repeat: no-repeat;
+        position: center; 
+      }
+      border-color: $accent-main;
+    }
+  }
+  &_radio {
+    .input__label {
+      color: $primary-medium;
+      &::before {
+        border-radius: 50%;
+      }
+    }
+    .input__input:checked + .input__label {
+      color: $primary-dark;
+      &::before {
+        @include gradient;
+        box-shadow: inset 0 0 0 3px #fff;
+      }
+    }
+  }
+  &_toggle {
+    .input__label {
+      position: relative;
+    }
+    .input__label::before {
+      width: 40px;
+      border-radius: 10px;
+      grid: {
+        row: 1/2;
+        column: 1/2; 
+      }
+    }
+    .input__label::after {
+      content: '';
+      display:  block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: $primary-light;
+      grid: {
+        row: 1/2;
+        column: 1/2;
+      }
+      position: absolute;
+      top: 4px;
+      left: 4px;
+    }
+    .input__input:checked + .input__label::before {
+      border-color: $accent-main;
+    }
+    .input__input:checked + .input__label::after {
+      @include gradient;
+      left: 24px;
+    }
+  }
+  &:not(&_checkbox):not(&_radio):not(&_toggle) {
+    label {
+      @extend %h3;
+    }
+  }
   &_arrow_down {
    position: relative;
     &::after {

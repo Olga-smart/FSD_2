@@ -4,9 +4,11 @@
 .button {
   border: none;
   background-color: transparent;
+  padding: 0;
   font: {
     weight: 700;
     size: 0.86rem;
+    family: inherit;
   }
   text: {
     align: center;

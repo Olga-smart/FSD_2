@@ -7,10 +7,10 @@ include ../../components/button/button
 
 mixin header(options = {})  
   header.header
-    .container
+    .header__container
       nav.header__nav
         button.header__burger.js-header__burger
-          span.visually-hidden Меню
+          span.header__burger-label Меню
         .header__logo
           +logo
         ul.header__menu.js-header__menu

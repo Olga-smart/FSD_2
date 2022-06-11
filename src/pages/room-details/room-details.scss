@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
 
 .room-details {
   main {
@@ -37,6 +38,7 @@
     }
   }
   &__container {
+    @extend %container;
     display: grid;
     grid: {
       template-columns: 24% 30% 33%;
@@ -50,6 +52,7 @@
     }
   }
   &__h2 {
+    @extend %h2;
     margin-bottom: 1.43rem; 
   }
   &__card-booking {

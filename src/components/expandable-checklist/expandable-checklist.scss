@@ -1,7 +1,9 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
 
 .expandable-checklist {
   &__title {
+    @extend %h3;
     cursor: pointer;
     padding: {
       bottom: 1.23rem;

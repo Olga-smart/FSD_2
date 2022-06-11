@@ -5,8 +5,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -21,73 +19,8 @@ body {
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
-}
-
-h1, h2, h3, .h1, .h2, .h3 {
-  color: $primary-very-dark;
-} 
-
-h1, h2, .h1, .h2 {
-  font-family: 'Open Sans', 'Arial', sans-serif;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-h1, .h1 {
-  font-size: 1.7rem;  
-}
-
-h2, .h2 {
-  font-size: 1.36rem;  
-}
-
-h3, .h3 {
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 0.86rem;
-  line-height: 1.22rem;
-  text-transform: uppercase;
-}
-
-.container-fluid {
-  min-width: 320px;
-  max-width: 1920px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.container {
-  min-width: 300px;
-  max-width: 1920px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  @include media-breakpoint-down($sm) {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  @include media-breakpoint-up($xl){
-    padding-left: 140px;
-    padding-right: 140px;
-  }
-}
-
-input,
-button,
-textarea,
-select {
-  font-family: inherit;
-}
-
-.visually-hidden {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  margin: 0;
+  padding: 0;
 }
 
 

@@ -1,7 +1,9 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
 
 .rich-checklist {
   &__title {
+    @extend %h3;
     margin-bottom: 1.14rem;
   }
   &__list {

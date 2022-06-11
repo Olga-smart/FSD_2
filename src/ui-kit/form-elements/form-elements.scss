@@ -1,10 +1,14 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
 
-.form-elements-wrapper {
+.form-elements {
   display: grid;
   grid: {
     template-columns: repeat(3, 320px);
     gap: 100px; 
+  }
+  &__heading {
+    @extend %h3;
   }
   .default-text-field,
   .hover-focus-text-field,
@@ -80,7 +84,7 @@
       row-gap: 1.14rem; 
     }
     justify-content: flex-start;
-    .h3 {
+    .form-elements__heading {
       grid-column: 1/-1;
     }
   }
@@ -96,7 +100,7 @@
       row-gap: 1.14rem; 
     }
     justify-content: flex-start;
-    .h3 {
+    .form-elements__heading {
       grid-column: 1/-1;
     }
   }
@@ -108,7 +112,7 @@
       row-gap: 1.14rem; 
     }
     justify-content: flex-start;
-    .h3 {
+    .form-elements__heading {
       grid-column: 1/-1;
     }
   }

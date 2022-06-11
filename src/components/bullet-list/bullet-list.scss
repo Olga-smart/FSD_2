@@ -1,13 +1,17 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
 
 .bullet-list {
   &__title {
+    @extend %h3;
     margin-bottom: 0.95rem;
   }
   &__list {
     list-style-type: none;
     display: grid;
     grid-row-gap: 0.7rem;
+    margin: 0;
+    padding: 0;
   }
   &__item {
     display: grid;

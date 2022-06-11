@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
 
 .registration-screen {
   background: {
@@ -17,7 +18,13 @@
     bottom: 1.43rem; 
   }
   position: relative;
+  &__container {
+    @extend %container;
+  }
   &__card {
-    max-width: 380px;
+    width: 380px;
+    @include media-breakpoint-down($xs) {
+      width: auto;
+    }
   }
 }

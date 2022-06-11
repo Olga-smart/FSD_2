@@ -5,6 +5,10 @@
   &_over-image {
     @extend %card-over-image;
   }
+  &__title {
+    @extend %h1;
+    margin-bottom: 1.3rem;
+  }
   &__form {
     display: grid;
     grid: {
@@ -15,10 +19,7 @@
   }
   &__dropdown, &__button-submit {
     grid-column: 1/-1;
-  }
-  &__title {
-    margin-bottom: 1.3rem;
-  }
+  }  
   &__button-submit {
     margin-top: 0.9rem;
   }

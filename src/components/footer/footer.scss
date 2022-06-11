@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
 
 .footer {
   background-color: #fff;
@@ -6,6 +7,7 @@
   line-height: 1.22;
   box-shadow: 0 10px 20px rgba($primary-very-dark, 0.05);
   &__container {
+    @extend %container;
     display: grid;
     grid: {
       template-columns: repeat(12, 1fr);
@@ -20,6 +22,9 @@
       line-height: 1.7;
     }
   }
+  &__text-under-logo {
+    margin: 0;
+  }
   &__menu {
     display: grid;
     grid: {
@@ -30,10 +35,13 @@
     }
     line-height: 1.22;
     padding-top: 0.29rem;
+    margin: 0;
     &-list {
       list-style-type: none;
       display: grid;
       grid-row-gap: 1.5rem;
+      margin: 0;
+      padding: 0;
     }
     &-link {
       text-decoration: none;
@@ -49,6 +57,9 @@
     }
     line-height: 1.22;
   }
+  &__menu-list-container {
+    margin: 0;
+  }
   &__subscription {
     &-column {
       display: grid;
@@ -61,11 +72,13 @@
     }
     &-text {
       line-height: 1.7;
+      margin: 0;
     }
   }
   &__bottom {
     border-top: 1px solid rgba($primary-very-dark, 0.1);
     &-container {
+      @extend %container;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -75,9 +88,14 @@
       }
     }
   }
+  &__copyright {
+    margin: 0;
+  }
   &__socials {
     list-style-type: none;
     display: flex;
+    margin: 0;
+    padding: 0;
     &-item + &-item {
       margin-left: 1.43rem;
     }

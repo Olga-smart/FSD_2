@@ -9,7 +9,7 @@ mixin card-sign-in(options = {})
     if (options.class)
       class = options.class
   )
-    .card-sign-in__title.h1 Войти
+    .card-sign-in__title Войти
     form.card-sign-in__form
       +input({
         placeholder: "Email",
@@ -30,7 +30,7 @@ mixin card-sign-in(options = {})
           view: ["fill", "width_full", "arrow_right"]
         })
     .card-sign-in__footer
-      p Нет аккаунта на Toxin?
+      p.card-sign-in__footer-text Нет аккаунта на Toxin?
       +button({
         text: "Создать",
         type: "button",

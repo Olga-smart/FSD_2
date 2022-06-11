@@ -139,6 +139,8 @@
       display: flex;
       list-style-type: none;
       z-index: 2;
+      margin: 0;
+      padding: 0;
       li {
         display: block;
         margin-left: 0.27rem;
@@ -151,6 +153,7 @@
         button {
           width: 0.54rem;
           height: 0.54rem;
+          padding: 0;
           background-color: transparent;
           border: 1px solid #fff {
             radius: 50%;
