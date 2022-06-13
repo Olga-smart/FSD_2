@@ -12,7 +12,7 @@
     }
     align-items: baseline;
   }
-  &__dropdown, &__table, &__submit-btn {
+  &__dropdown, &__table, &__submit-button {
     grid-column: 1/-1;
   }
   &__title {

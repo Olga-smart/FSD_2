@@ -4,6 +4,9 @@
   options.type - тип ("button", "reset", "submit", по умолчанию "button")
   options.view - вид ("fill", "outline", "width_full", "arrow_right", "height_small", опционально, может быть массивом)
   options.class - дополнительный класс, который хотим примиксовать (не рекомендуется)
+  options.disabled - будет ли кнопка активна (true/false, по умолчанию false)
+  options.href - адрес для кнопки-ссылки
+  options.hidden - будет ли кнопка скрыта (true/false, по умолчанию false)
 
 mixin button(options = {})
   - let classArray = ["button"]

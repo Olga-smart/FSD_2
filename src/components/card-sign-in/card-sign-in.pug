@@ -6,8 +6,7 @@ include ../../components/button/button
 
 mixin card-sign-in(options = {})
   .card-sign-in(
-    if (options.class)
-      class = options.class
+    class = options.class
   )
     .card-sign-in__title Войти
     form.card-sign-in__form
@@ -23,7 +22,7 @@ mixin card-sign-in(options = {})
         name: "password",
         required: true
       })
-      .card-sign-in__submit-btn
+      .card-sign-in__submit-button
         +button({
           text: "Войти",
           type: "submit",

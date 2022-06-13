@@ -6,8 +6,7 @@ include ../../components/button/button
 
 mixin card-sign-up(options = {})
   .card-sign-up(
-    if (options.class)
-      class = options.class
+    class = options.class
   )
     .card-sign-up__title Регистрация аккаунта
     form.card-sign-up__form
@@ -63,14 +62,14 @@ mixin card-sign-up(options = {})
         inputId: "toggle",
         name: "offers"
       })
-      .card-sign-up__submit-btn
+      .card-sign-up__submit-button
         +button({
           text: "Перейти к оплате",
           type: "submit",
           view: ["fill", "width_full", "arrow_right"]
         })
     .card-sign-up__footer
-      p Уже есть аккаунт на Toxin
+      p.card-sign-up__footer-text Уже есть аккаунт на Toxin
       +button({
         text: "Войти",
         type: "button",

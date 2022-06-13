@@ -25,7 +25,7 @@
   &__birthday-input {
     margin-bottom: 0.5rem;
   }
-  &__submit-btn {
+  &__submit-button {
     margin-top: 1rem;
   }
   &__footer {
@@ -36,5 +36,8 @@
     }
     align-items: baseline;
     margin-top: 2.14rem;
+  }
+  &__footer-text {
+    margin: 0;
   }
 }

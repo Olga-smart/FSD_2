@@ -82,9 +82,9 @@ mixin card-booking(options)
               span Итого
             td.card-booking__total.js-card-booking__total !{prettifyPrice( options.price * days + options.serviceFee - options.discount + options.additionalServiceFee )}₽
 
-      +button({
-        class: "card-booking__submit-btn",
-        text: "Забронировать",
-        type: "submit",
-        view: ["fill", "width_full", "arrow_right"]
-      })   
+      .card-booking__submit-button
+        +button({
+          text: "Забронировать",
+          type: "submit",
+          view: ["fill", "width_full", "arrow_right"]
+        })   
