@@ -158,4 +158,13 @@
       padding-right: 2.5rem;
     }
   }
+  &__main-label {
+    font-weight: 700;
+    margin-bottom: 0.38rem;
+    color: $primary-dark;
+  }
+  &__sublabel {
+    font-size: 0.86rem;
+    line-height: 1.17;
+  }
 }

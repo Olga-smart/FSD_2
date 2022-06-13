@@ -10,13 +10,4 @@
     display: grid;
     grid-gap: 0.7rem;
   }
-  &__label {
-    font-weight: 700;
-    margin-bottom: 0.38rem;
-    color: $primary-dark;
-  }
-  &__sublabel {
-    font-size: 0.86rem;
-    line-height: 1.17;
-  }
 }

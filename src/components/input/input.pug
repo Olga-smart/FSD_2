@@ -4,6 +4,7 @@
   options.inputClass - класс, который хотим примиксовать к инпуту (не рекомендуется)
   options.inputId - id для инпута
   options.label - подпись
+  options.sublabel - второстепенная подпись (опционально)
   options.placeholder - плейсхолдер
   options.type - тип ("text", "checkbox", "radio", "toggle" и пр.)
   options.value - значение по умолчанию
@@ -38,6 +39,9 @@ mixin input(options = {})
   
     //- передаем через переменную чтобы можно было обеспечить вставку тегов внутри label (в частности тег br)
     - let label = options.label
+
+    if (options.sublabel)
+      - label = "<span class='input__main-label'>" + options.label + "</span><br>" + "<span class='input__sublabel'>" + options.sublabel + "</span>"
         
     - let type = options.type
 
