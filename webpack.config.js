@@ -14,15 +14,15 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    'colors-and-type': './ui-kit/colors-and-type/colors-and-type.js',
-    'form-elements': './ui-kit/form-elements/form-elements.js',
-    'cards': './ui-kit/cards/cards.js',
-    'headers-and-footers': './ui-kit/headers-and-footers/headers-and-footers.js',
-    'landing-page': './pages/landing-page/landing-page.js',
-    'search-room': './pages/search-room/search-room.js',
-    'room-details': './pages/room-details/room-details.js',
-    'registration': './pages/registration/registration.js',
-    'sign-in': './pages/sign-in/sign-in.js',
+    'colors-and-type': './pages/ui-kit/colors-and-type/colors-and-type.js',
+    'form-elements': './pages/ui-kit/form-elements/form-elements.js',
+    'cards': './pages/ui-kit/cards/cards.js',
+    'headers-and-footers': './pages/ui-kit/headers-and-footers/headers-and-footers.js',
+    'landing-page': './pages/site/landing-page/landing-page.js',
+    'search-room': './pages/site/search-room/search-room.js',
+    'room-details': './pages/site/room-details/room-details.js',
+    'registration': './pages/site/registration/registration.js',
+    'sign-in': './pages/site/sign-in/sign-in.js',
   },
   output: {
     filename: 'pages/[name]/[name].[contenthash].js',
@@ -41,52 +41,52 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       filename: 'index.html',
-      template: './index.pug',
+      template: './pages/index.pug',
       inject: false
     }),
     new HTMLWebpackPlugin({
       filename: 'pages/colors-and-type/colors-and-type.html',
-      template: './ui-kit/colors-and-type/colors-and-type.pug',
+      template: './pages/ui-kit/colors-and-type/colors-and-type.pug',
       chunks: ['colors-and-type']
     }),
     new HTMLWebpackPlugin({
       filename: 'pages/form-elements/form-elements.html',
-      template: './ui-kit/form-elements/form-elements.pug',
+      template: './pages/ui-kit/form-elements/form-elements.pug',
       chunks: ['form-elements']
     }),
     new HTMLWebpackPlugin({
       filename: 'pages/cards/cards.html',
-      template: './ui-kit/cards/cards.pug',
+      template: './pages/ui-kit/cards/cards.pug',
       chunks: ['cards']
     }),
     new HTMLWebpackPlugin({
       filename: 'pages/headers-and-footers/headers-and-footers.html',
-      template: './ui-kit/headers-and-footers/headers-and-footers.pug',
+      template: './pages/ui-kit/headers-and-footers/headers-and-footers.pug',
       chunks: ['headers-and-footers']
     }),
     new HTMLWebpackPlugin({
       filename: 'pages/landing-page/landing-page.html',
-      template: './pages/landing-page/landing-page.pug',
+      template: './pages/site/landing-page/landing-page.pug',
       chunks: ['landing-page']
     }),
     new HTMLWebpackPlugin({
       filename: 'pages/search-room/search-room.html',
-      template: './pages/search-room/search-room.pug',
+      template: './pages/site/search-room/search-room.pug',
       chunks: ['search-room']
     }),
     new HTMLWebpackPlugin({
       filename: 'pages/room-details/room-details.html',
-      template: './pages/room-details/room-details.pug',
+      template: './pages/site/room-details/room-details.pug',
       chunks: ['room-details']
     }),
     new HTMLWebpackPlugin({
       filename: 'pages/registration/registration.html',
-      template: './pages/registration/registration.pug',
+      template: './pages/site/registration/registration.pug',
       chunks: ['registration']
     }),
     new HTMLWebpackPlugin({
       filename: 'pages/sign-in/sign-in.html',
-      template: './pages/sign-in/sign-in.pug',
+      template: './pages/site/sign-in/sign-in.pug',
       chunks: ['sign-in']
     }),
     new CleanWebpackPlugin(),

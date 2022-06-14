@@ -1,0 +1,12 @@
+extends ../../../layouts/base
+include ../../../components/first-screen/first-screen
+
+block variables
+  -
+    const title = "Landing page"
+    const description = "Лучшие номера для вашей работы, отдыха и просто вдохновения."
+    const keywords = "забронировать номер, подбор номера"
+    const bodyClass = "landing-page"
+
+block content
+  +first-screen
