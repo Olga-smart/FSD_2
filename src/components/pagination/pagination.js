@@ -3,7 +3,7 @@
 // Because this is third party plugin
 import 'paginationjs';
 
-import '../card-room/card-room';
+import '../card-room/RoomCard';
 import './pagination.scss';
 
 const paginationCards = document.querySelectorAll('.js-pagination__item');

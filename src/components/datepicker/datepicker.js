@@ -1,9 +1,6 @@
 import 'air-datepicker';
 import 'air-datepicker/dist/css/datepicker.min.css';
 
-import '../input/input';
-import './datepicker.scss';
-
 class Datepicker {
   constructor(component) {
     this._initFields(component);
@@ -104,5 +101,4 @@ class Datepicker {
   }
 }
 
-const datepickers = document.querySelectorAll('.datepicker-here');
-Datepicker.init(datepickers);
+export default Datepicker;

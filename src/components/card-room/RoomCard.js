@@ -1,6 +1,4 @@
 import wordToPlural from '../../helpers/wordToPlural/wordToPlural';
-import '../rate/rate';
-import './card-room.scss';
 
 require('slick-carousel/slick/slick.min');
 require('slick-carousel/slick/slick.css');
@@ -33,5 +31,4 @@ class RoomCard {
   }
 }
 
-const cards = document.querySelectorAll('.js-card-room');
-RoomCard.init(cards);
+export default RoomCard;

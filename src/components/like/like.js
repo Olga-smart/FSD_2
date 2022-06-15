@@ -1,5 +1,3 @@
-import './like.scss';
-
 class Like {
   constructor(component) {
     this._component = component;
@@ -36,5 +34,4 @@ class Like {
   }
 }
 
-const likes = document.querySelectorAll('.js-like');
-Like.init(likes);
+export default Like;

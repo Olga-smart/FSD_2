@@ -1,9 +1,3 @@
-import '../input/input';
-import '../button/button';
-import '../datepicker/datepicker';
-import '../dropdown/dropdown';
-import './card-booking.scss';
-
 class CardBooking {
   constructor(component) {
     this._initFields(component);
@@ -134,5 +128,4 @@ class CardBooking {
   }
 }
 
-const cards = document.querySelectorAll('.js-card-booking');
-CardBooking.init(cards);
+export default CardBooking;

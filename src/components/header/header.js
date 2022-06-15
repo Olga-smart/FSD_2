@@ -1,7 +1,3 @@
-import '../logo/logo';
-import '../button/button';
-import './header.scss';
-
 class Header {
   constructor(component) {
     this._initFields(component);
@@ -34,5 +30,4 @@ class Header {
   }
 }
 
-const headers = document.querySelectorAll('.header');
-Header.init(headers);
+export default Header;

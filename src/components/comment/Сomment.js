@@ -1,6 +1,4 @@
 import wordToPlural from '../../helpers/wordToPlural/wordToPlural';
-import '../like/like';
-import './comment.scss';
 
 class Comment {
   constructor(component) {
@@ -50,5 +48,4 @@ class Comment {
   }
 }
 
-const comments = document.querySelectorAll('.js-comment');
-Comment.init(comments);
+export default Comment;

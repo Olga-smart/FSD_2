@@ -5,14 +5,14 @@
 
 import '../../../styles/global.scss';
 import '../../../components/footer/footer';
-import '../../../components/header/header';
-import '../../../components/datepicker/datepicker';
-import '../../../components/dropdown/dropdown';
+import '../../../components/header/init';
+import '../../../components/datepicker/init';
+import '../../../components/dropdown/init';
 import '../../../components/range/range';
 import '../../../components/checklist/checklist';
 import '../../../components/rich-checklist/rich-checklist';
-import '../../../components/expandable-checklist/expandable-checklist';
-import '../../../components/card-room/card-room';
+import '../../../components/expandable-checklist/init';
+import '../../../components/card-room/init';
 import '../../../components/pagination/pagination';
 import './search-room.scss';
 import roomCards from './search-room-data.json';

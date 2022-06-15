@@ -1,11 +1,11 @@
 import '../../../styles/global.scss';
 import '../../../components/footer/footer';
-import '../../../components/header/header';
+import '../../../components/header/init';
 import '../../../components/icon-list/icon-list';
-import '../../../components/card-booking/card-booking';
-import '../../../components/comment/comment';
+import '../../../components/card-booking/init';
+import '../../../components/comment/init';
 import '../../../components/bullet-list/bullet-list';
-import '../../../components/diagram/diagram';
+import '../../../components/diagram/init';
 import wordToPlural from '../../../helpers/wordToPlural/wordToPlural';
 import './room-details.scss';
 

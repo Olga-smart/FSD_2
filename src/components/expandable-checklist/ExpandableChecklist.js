@@ -1,6 +1,3 @@
-import '../checklist/checklist';
-import './expandable-checklist.scss';
-
 class ExpandableChecklist {
   constructor(component) {
     this._initFields(component);
@@ -31,5 +28,4 @@ class ExpandableChecklist {
   }
 }
 
-const lists = document.querySelectorAll('.js-expandable-checklist');
-ExpandableChecklist.init(lists);
+export default ExpandableChecklist;

@@ -1,6 +1,4 @@
 import wordToPlural from '../../helpers/wordToPlural/wordToPlural';
-import '../button/button';
-import './dropdown.scss';
 
 class Dropdown {
   constructor(component) {
@@ -254,5 +252,4 @@ class Dropdown {
   }
 }
 
-const dropdowns = document.querySelectorAll('.js-dropdown');
-Dropdown.init(dropdowns);
+export default Dropdown;

@@ -1,5 +1,4 @@
 import wordToPlural from '../../helpers/wordToPlural/wordToPlural';
-import './diagram.scss';
 
 class Diagram {
   constructor(component) {
@@ -28,5 +27,4 @@ class Diagram {
   }
 }
 
-const diagrams = document.querySelectorAll('.diagram');
-Diagram.init(diagrams);
+export default Diagram;
