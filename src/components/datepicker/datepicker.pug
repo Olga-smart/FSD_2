@@ -12,10 +12,6 @@ include ../../components/input/input
 
 mixin datepicker(options = {})
     
-  - let classList = "input_arrow_down"
-  if options.class
-    - classList = classList + " " + options.class
-    
   - let inputClassList = "datepicker-here" 
   if options.inputClass
     - inputClassList += ` ${options.inputClass}`
@@ -23,8 +19,9 @@ mixin datepicker(options = {})
     - inputClassList += ` date-${options.type}` 
   
   +input({
-    class: classList,
+    class: options.class,
     inputClass: inputClassList,
+    view: "arrow-down",
     inputId: options.id,
     label: options.label,
     placeholder: options.placeholder || "ДД.ММ.ГГГГ",

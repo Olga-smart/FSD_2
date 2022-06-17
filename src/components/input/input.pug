@@ -15,6 +15,7 @@
   options.attributes - любые атрибуты, которые хотим передать инпуту
   options.pattern - регулярное выражение, согласно которому требуется вводить и проверять данные в поле
   options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию true)
+  options.view - декоративная опция (пока доступно 1 значение - "arrow-down")
   
 mixin input(options = {})
   - let blockClass
@@ -35,6 +36,13 @@ mixin input(options = {})
     else   
       - blockClass = options.class
 
+  case options.view
+    when "arrow-down"
+      if (blockClass)
+        - blockClass += ` input_arrow_down`
+      else
+        - blockClass = 'input_arrow_down' 
+
   .input.js-input(class = blockClass)
   
     //- передаем через переменную чтобы можно было обеспечить вставку тегов внутри label (в частности тег br)
@@ -44,7 +52,7 @@ mixin input(options = {})
       - label = "<span class='input__main-label'>" + options.label + "</span><br>" + "<span class='input__sublabel'>" + options.sublabel + "</span>"
 
     //- передаем через переменную чтобы можно было ниже при необходимости добавить еще классы
-    - let inputClass = options.inputClass || ""
+    - let inputClass = options.inputClass || ""        
 
     - let type = options.type
 
