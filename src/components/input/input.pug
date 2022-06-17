@@ -6,7 +6,7 @@
   options.label - подпись
   options.sublabel - второстепенная подпись (опционально)
   options.placeholder - плейсхолдер
-  options.type - тип ("text", "checkbox", "radio", "toggle" и пр.)
+  options.type - тип ("text", "checkbox", "radio", "toggle" и пр.; если задан тип "date" инициализируется плагин Cleave.js, а тип инпута устанавливается "text")
   options.value - значение по умолчанию
   options.name - уникальное имя
   options.checked - состояние переключателя (true/false, по умолчанию false, актуально для checkbox, radio, toggle)
@@ -42,18 +42,28 @@ mixin input(options = {})
 
     if (options.sublabel)
       - label = "<span class='input__main-label'>" + options.label + "</span><br>" + "<span class='input__sublabel'>" + options.sublabel + "</span>"
-        
+
+    //- передаем через переменную чтобы можно было ниже при необходимости добавить еще классы
+    - let inputClass = options.inputClass || ""
+
     - let type = options.type
 
     if options.type == "toggle"
       - type = "checkbox"
+
+    if options.type == "date"
+      - type = "text"
+      if (inputClass)
+        - inputClass += ` js-input_date`
+      else
+        - inputClass = 'js-input_date'  
         
     case options.type
       when "checkbox"
       when "radio"
       when "toggle"
         input.input__input(
-          class = options.inputClass
+          class = inputClass
           id = options.inputId
           type = type
           name = options.name
@@ -68,7 +78,7 @@ mixin input(options = {})
       default
         label.input__label !{label}
           input.input__input.js-input__input(
-            class = options.inputClass
+            class = inputClass
             id = options.inputId
             type = type
             name = options.name
