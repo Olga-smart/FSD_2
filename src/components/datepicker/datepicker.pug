@@ -6,6 +6,7 @@
   options.placeholder - плейсхолдер (по умолчанию "ДД.ММ.ГГГГ")
   options.value - дата или диапазон дат (опционально)
   options.attributes - объект с атрибутами, которые хотим передать инпуту (например, "data-date-format": "d M")
+  optons.type - если хотим связать 2 инпута, ставим одному тип "start", а второму - "end"
 
 include ../../components/input/input
 
@@ -17,7 +18,9 @@ mixin datepicker(options = {})
     
   - let inputClassList = "datepicker-here" 
   if options.inputClass
-    - inputClassList = inputClassList + " " + options.inputClass
+    - inputClassList += ` ${options.inputClass}`
+  if options.type
+    - inputClassList += ` date-${options.type}` 
   
   +input({
     class: classList,

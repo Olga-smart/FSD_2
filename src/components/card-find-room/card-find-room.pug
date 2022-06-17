@@ -12,12 +12,12 @@ mixin card-find-room(options = {})
     .card-find-room__title Найдём номера под ваши пожелания
     form.card-find-room__form
       +datepicker({
-        inputClass: "date-start",
+        type: "start",
         label: "прибытие"
       })
 
       +datepicker({
-        inputClass: "date-end",
+        type: "end",
         label: "выезд"
       })
 

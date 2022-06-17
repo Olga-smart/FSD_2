@@ -32,15 +32,17 @@ mixin card-booking(options)
         span.card-booking__price.js-card-booking__price !{prettifyPrice(options.price)}₽ 
         span в сутки 
       +datepicker({
-        inputClass: "date-start card-booking__arrival js-card-booking__arrival",
+        inputClass: "card-booking__arrival js-card-booking__arrival",
         label: "прибытие",
-        value: options.arrival
+        value: options.arrival,
+        type: "start"
       })
 
       +datepicker({
-        inputClass: "date-end card-booking__departure js-card-booking__departure",
+        inputClass: "card-booking__departure js-card-booking__departure",
         label: "выезд",
-        value: options.departure
+        value: options.departure,
+        type: "end"
       })
 
       .card-booking__dropdown
