@@ -15,33 +15,17 @@
   options.attributes - любые атрибуты, которые хотим передать инпуту
   options.pattern - регулярное выражение, согласно которому требуется вводить и проверять данные в поле
   options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию true)
-  options.view - декоративная опция (пока доступно 1 значение - "arrow-down")
+  options.view - декоративная опция (пока доступно 1 значение - "arrow_down")
+  options.cursor - вид курсора (пока доступно 1 значение - "pointer")
   
 mixin input(options = {})
-  - let blockClass
+  - let blockClass = options.class || ""
 
-  case options.type
-    when "checkbox"
-      - blockClass = "input_checkbox"
-    when "radio"
-      - blockClass = "input_radio"
-    when "toggle"
-      - blockClass = "input_toggle"
-    default
-      - blockClass = ""
+  if options.type
+    - blockClass += blockClass ? ` input_${options.type}` : `input_${options.type}`
 
-  if (options.class)
-    if(blockClass) 
-      - blockClass += ` ${options.class}`
-    else   
-      - blockClass = options.class
-
-  case options.view
-    when "arrow-down"
-      if (blockClass)
-        - blockClass += ` input_arrow_down`
-      else
-        - blockClass = 'input_arrow_down' 
+  if options.view
+    - blockClass += blockClass ? ` input_${options.view}` : `input_${options.view}`
 
   .input.js-input(class = blockClass)
   
@@ -61,11 +45,11 @@ mixin input(options = {})
 
     if options.type == "date"
       - type = "text"
-      if (inputClass)
-        - inputClass += ` js-input_date`
-      else
-        - inputClass = 'js-input_date'  
+      - inputClass += inputClass ? ` js-input_date` : 'js-input_date' 
         
+    if options.cursor
+      - inputClass += inputClass ? ` input__input_cursor_${options.cursor}` : `input__input_cursor_${options.cursor}`          
+    
     case options.type
       when "checkbox"
       when "radio"

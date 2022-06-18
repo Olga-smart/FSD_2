@@ -40,7 +40,7 @@ include ../../components/button/button
 
 mixin dropdown(options)
   - let classList = options.class
-  - let outputClass = "input__input_cursor_pointer"
+
   if options.open
     - classList = classList + " dropdown_menu_open" 
     - outputClass = outputClass + " input__input_dropdown_open input__input_focused"
@@ -97,10 +97,10 @@ mixin dropdown(options)
   )&attributes(options.attributes)
     .dropdown__output.js-dropdown__output
       +input({
-        class: "input_arrow_down",
+        view: "arrow_down",
         type: "text",
         label: options.label,
-        inputClass: outputClass,
+        cursor: "pointer",
         readonly: true
       })
     .dropdown__menu
