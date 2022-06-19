@@ -3,12 +3,16 @@ include ../../components/dropdown/dropdown
 include ../../components/button/button
 
 //-
-  options.class - дополнительный класс
+  options.class - дополнительный класс (не рекомендуется)
+  options.view - декоративная опция (пока доступно 1 значение - "over-image")
 
 mixin card-find-room(options = {})
-  .card-find-room(
-    class = options.class
-  )
+  - blockClass = options.class || ""
+
+  if options.view
+    - blockClass += blockClass ? ` card-find-room_${options.view}` : `card-find-room_${options.view}`
+
+  .card-find-room(class = blockClass)
     .card-find-room__title Найдём номера под ваши пожелания
     form.card-find-room__form
       +datepicker({
