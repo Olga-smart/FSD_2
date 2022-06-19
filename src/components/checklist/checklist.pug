@@ -5,6 +5,7 @@
   options.items[0].label - текст пункта
   options.items[0].checked - состояние соответствующего чекбокса (true/false, по умолчанию false)
   options.listClass - дополнительный класс, который хотим примиксовать к контейнеру списка (не рекомендуется)
+  options.rowGap - расстояние между пунктами списка (пока доступно 1 значение - "small")
 
 include ../../components/input/input
 
@@ -12,7 +13,13 @@ mixin checklist(options)
   .checklist
     if (options.title)
       .checklist__title= options.title
-    .checklist__list(class = options.listClass)
+
+    - listClass = options.listClass || ""
+
+    if options.rowGap
+      - listClass += listClass ? ` checklist__list_row-gap_${options.rowGap}` : `checklist__list_row-gap_${options.rowGap}`
+
+    .checklist__list(class = listClass)
       - for (let i = 0; i < options.items.length; i++)
         +input({
           label: options.items[i].label,
