@@ -2,12 +2,16 @@ include ../../components/input/input
 include ../../components/button/button
 
 //-
-  options.class - дополнительный класс
+  options.class - дополнительный класс (не рекомендуется)
+  options.view - декоративная опция (пока доступно 1 значение - "over-image")
 
 mixin card-sign-in(options = {})
-  .card-sign-in(
-    class = options.class
-  )
+  - blockClass = options.class || ""
+
+  if options.view
+    - blockClass += blockClass ? ` card-sign-in_${options.view}` : `card-sign-in_${options.view}`
+
+  .card-sign-in(class = blockClass)
     .card-sign-in__title Войти
     form.card-sign-in__form
       +input({
