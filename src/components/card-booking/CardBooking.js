@@ -43,24 +43,6 @@ class CardBooking {
     this._totalElement = component.querySelector('.js-card-booking__total');
 
     this._infoIcons = component.querySelectorAll('.js-card-booking__info-icon');
-
-    $(this._inputArrival).datepicker({
-      onSelect: (fd, d) => {
-        $(this._inputArrival).val(fd.split(' - ')[0]);
-        $(this._inputDeparture).val(fd.split(' - ')[1]);
-        [this._dateArrival, this._dateDeparture] = d;
-        this._updateDaysNum();
-      },
-    });
-
-    $(this._inputDeparture).datepicker({
-      onSelect: (fd, d) => {
-        $(this._inputArrival).val(fd.split(' - ')[0]);
-        $(this._inputDeparture).val(fd.split(' - ')[1]);
-        [this._dateArrival, this._dateDeparture] = d;
-        this._updateDaysNum();
-      },
-    });
   }
 
   static _prettifyPrice(num) {
@@ -93,10 +75,23 @@ class CardBooking {
     target.addEventListener('mouseout', handleInfoIconMouseout);
   }
 
+  _handleDateChange() {
+    let [day, month, year] = this._inputArrival.value.split('.');
+    this._dateArrival = Date.parse(`${year}-${month}-${day}`);
+
+    [day, month, year] = this._inputDeparture.value.split('.');
+    this._dateDeparture = Date.parse(`${year}-${month}-${day}`);
+
+    this._updateDaysNum();
+  }
+
   _attachEventHandlers() {
     [...this._infoIcons].forEach((icon) => {
       icon.addEventListener('mouseover', CardBooking._handleInfoIconMouseover);
     });
+
+    this._inputArrival.addEventListener('input', this._handleDateChange.bind(this));
+    this._inputDeparture.addEventListener('input', this._handleDateChange.bind(this));
   }
 
   _updateDaysNum() {

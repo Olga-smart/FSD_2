@@ -46,6 +46,8 @@ class Datepicker {
         $(component).val(fd.split(' - ')[0]);
         const dateEnd = component.parentElement.parentElement.nextElementSibling.querySelector('.date-end');
         $(dateEnd).val(fd.split(' - ')[1]);
+
+        this._component.dispatchEvent(new Event('input'));
       };
     }
 
@@ -54,6 +56,8 @@ class Datepicker {
         const dateStart = component.parentElement.parentElement.previousElementSibling.querySelector('.date-start');
         $(dateStart).val(fd.split(' - ')[0]);
         $(component).val(fd.split(' - ')[1]);
+
+        this._component.dispatchEvent(new Event('input'));
       };
       options.position = 'bottom right';
     }
