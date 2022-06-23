@@ -39,25 +39,41 @@ class Datepicker {
       },
       range: true,
       multipleDatesSeparator: ' - ',
+      onSelect(fd, d) {
+        component.dispatchEvent(new CustomEvent('input', {
+          detail: {
+            date: d,
+            formattedDate: fd,
+          },
+        }));
+      },
     };
 
     if (component.classList.contains('date-start')) {
-      options.onSelect = (fd) => {
+      options.onSelect = (fd, d) => {
         $(component).val(fd.split(' - ')[0]);
+
         const dateEnd = component.parentElement.parentElement.nextElementSibling.querySelector('.date-end');
         $(dateEnd).val(fd.split(' - ')[1]);
 
-        this._component.dispatchEvent(new Event('input'));
+        if (d[0] && d[1]) {
+          this._component.dispatchEvent(new Event('input'));
+          dateEnd.dispatchEvent(new Event('input'));
+        }
       };
     }
 
     if (component.classList.contains('date-end')) {
-      options.onSelect = (fd) => {
+      options.onSelect = (fd, d) => {
         const dateStart = component.parentElement.parentElement.previousElementSibling.querySelector('.date-start');
         $(dateStart).val(fd.split(' - ')[0]);
+
         $(component).val(fd.split(' - ')[1]);
 
-        this._component.dispatchEvent(new Event('input'));
+        if (d[0] && d[1]) {
+          dateStart.dispatchEvent(new Event('input'));
+          this._component.dispatchEvent(new Event('input'));
+        }
       };
       options.position = 'bottom right';
     }
@@ -96,12 +112,36 @@ class Datepicker {
     }
   }
 
+  _handleInput(event) {
+    if (this._component.classList.contains('date-start') || this._component.classList.contains('date-end')) {
+      const [day, month, year] = $(this._component).val().split('.');
+      $(this._component).attr('value', `${year}-${month}-${day}`);
+    } else if (Array.isArray(event.detail.date)) {
+      const startDate = Datepicker._formatDateForValueAttribute(event.detail.date[0]);
+      const endDate = Datepicker._formatDateForValueAttribute(event.detail.date[1]);
+      $(this._component).attr('value', `${startDate} - ${endDate}`);
+    } else {
+      const date = Datepicker._formatDateForValueAttribute(event.detail.date);
+      $(this._component).attr('value', date);
+    }
+  }
+
+  static _formatDateForValueAttribute(date) {
+    let formattedDate = new Date(date);
+    formattedDate = new Date(formattedDate.getTime()
+                  - (formattedDate.getTimezoneOffset() * 60 * 1000));
+    [formattedDate] = formattedDate.toISOString().split('T');
+
+    return formattedDate;
+  }
+
   static _handleKeyDown(event) {
     event.preventDefault();
   }
 
   _attachEventHandlers() {
     this._component.addEventListener('keydown', Datepicker._handleKeyDown);
+    this._component.addEventListener('input', this._handleInput.bind(this));
   }
 }
 
