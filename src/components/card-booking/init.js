@@ -1,4 +1,4 @@
-import '../input/input';
+import '../input/init';
 import '../button/button';
 import '../datepicker/init';
 import '../dropdown/init';

@@ -1,4 +1,5 @@
 import wordToPlural from '../../helpers/wordToPlural/wordToPlural';
+import Input from '../input/Input';
 
 class Dropdown {
   constructor(component) {
@@ -26,7 +27,7 @@ class Dropdown {
   _initFields(component) {
     this._component = component;
     this._type = component.dataset.type;
-    this._outputElement = component.querySelector('.js-dropdown__output .js-input .js-input__input');
+    this._outputElement = component.querySelector('.js-dropdown__output input');
 
     this._items = component.querySelectorAll('.js-dropdown__item');
     [...this._items].forEach((item) => {
@@ -133,8 +134,7 @@ class Dropdown {
 
   _toggle() {
     this._component.classList.toggle('dropdown_menu_open');
-    this._outputElement.classList.toggle('input__input_dropdown_open');
-    this._outputElement.classList.toggle('input__input_focused');
+    Input.handleDropdownToggle(this._outputElement);
   }
 
   static _counterCanBeDecreased(item) {

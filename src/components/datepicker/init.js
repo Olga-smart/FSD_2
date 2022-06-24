@@ -1,4 +1,4 @@
-import '../input/input';
+import '../input/init';
 import Datepicker from './Datepicker';
 import './datepicker.scss';
 

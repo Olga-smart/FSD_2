@@ -10,22 +10,29 @@
   options.value - значение по умолчанию
   options.name - уникальное имя
   options.checked - состояние переключателя (true/false, по умолчанию false, актуально для checkbox, radio, toggle)
-  options.tadindex - порядок получения фокуса при переходе между элементами с помощью клавиши Tab
+  options.tabIndex - порядок получения фокуса при переходе между элементами с помощью клавиши Tab
   options.required - является ли поле обязательным для заполнения
   options.attributes - любые атрибуты, которые хотим передать инпуту
   options.pattern - регулярное выражение, согласно которому требуется вводить и проверять данные в поле
-  options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию true)
-  options.view - декоративная опция (пока доступно 1 значение - "arrow_down")
+  options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию false)
+  options.views - массив декоративных опций (доступны значения: "arrow_down", "dropdown_open", "focused")
   options.cursor - вид курсора (пока доступно 1 значение - "pointer")
   
 mixin input(options = {})
   - let blockClass = options.class || ""
+  - let inputClass = options.inputClass || ""
 
   if options.type
     - blockClass += blockClass ? ` input_${options.type}` : `input_${options.type}`
 
-  if options.view
-    - blockClass += blockClass ? ` input_${options.view}` : `input_${options.view}`
+  if options.views
+    - const viewsForBlockClass = ["arrow_down"]
+    - const viewsForInputClass = ["dropdown_open", "focused"]
+    each view in options.views
+      if (viewsForBlockClass.includes(view))
+        - blockClass += blockClass ? ` input_${view}` : `input_${view}`
+      if (viewsForInputClass.includes(view))
+        - inputClass += inputClass ? ` input__input_${view}` : `input__input_${view}`
 
   .input.js-input(class = blockClass)
   
@@ -33,10 +40,7 @@ mixin input(options = {})
     - let label = options.label
 
     if (options.sublabel)
-      - label = "<span class='input__main-label'>" + options.label + "</span><br>" + "<span class='input__sublabel'>" + options.sublabel + "</span>"
-
-    //- передаем через переменную чтобы можно было ниже при необходимости добавить еще классы
-    - let inputClass = options.inputClass || ""        
+      - label = "<span class='input__main-label'>" + options.label + "</span><br>" + "<span class='input__sublabel'>" + options.sublabel + "</span>"       
 
     - let type = options.type
 
@@ -45,7 +49,7 @@ mixin input(options = {})
 
     if options.type == "date"
       - type = "text"
-      - inputClass += inputClass ? ` js-input_date` : 'js-input_date' 
+      - inputClass += inputClass ? ` js-input__input_date` : 'js-input__input_date' 
         
     if options.cursor
       - inputClass += inputClass ? ` input__input_cursor_${options.cursor}` : `input__input_cursor_${options.cursor}`          
@@ -59,7 +63,7 @@ mixin input(options = {})
           id = options.inputId
           type = type
           name = options.name
-          tadindex = options.tabindex
+          tabIndex = options.tabindex
           required = options.required
           value = options.value
           checked = options.checked
@@ -76,7 +80,7 @@ mixin input(options = {})
             name = options.name
             placeholder = options.placeholder
             pattern = options.pattern
-            tadindex = options.tabindex
+            tabIndex = options.tabindex
             required = options.required
             value = options.value
             readonly = options.readonly

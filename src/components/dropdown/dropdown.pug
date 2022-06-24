@@ -41,9 +41,11 @@ include ../../components/button/button
 mixin dropdown(options)
   - let classList = options.class
 
-  if options.open
+  - let views = ["arrow_down"]
+
+  if options.open 
     - classList = classList + " dropdown_menu_open" 
-    - outputClass = outputClass + " input__input_dropdown_open input__input_focused"
+    - views.push("dropdown_open", "focused")
     
   - let items = [];
   - 
@@ -97,7 +99,7 @@ mixin dropdown(options)
   )&attributes(options.attributes)
     .dropdown__output.js-dropdown__output
       +input({
-        view: "arrow_down",
+        views: views,
         type: "text",
         label: options.label,
         cursor: "pointer",
