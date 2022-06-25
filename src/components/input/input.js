@@ -24,14 +24,17 @@ class Input {
 
   _initFields(component) {
     this._component = component;
-    this._input = component.querySelector('.js-input__input');
 
-    if (this._input.classList.contains('js-input__input_date')) {
-      new Cleave(this._input, {
-        date: true,
-        delimiter: '.',
-        datePattern: ['d', 'm', 'Y'],
-      });
+    if (component.querySelector('.js-input__input')) {
+      this._input = component.querySelector('.js-input__input');
+
+      if (this._input.classList.contains('js-input__input_date')) {
+        new Cleave(this._input, {
+          date: true,
+          delimiter: '.',
+          datePattern: ['d', 'm', 'Y'],
+        });
+      }
     }
   }
 }
