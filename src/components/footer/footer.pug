@@ -1,5 +1,5 @@
 include ../../components/logo/logo
-include ../../components/input-with-button/input-with-button
+include ../../components/input/input
 
 mixin footer
 
@@ -44,10 +44,11 @@ mixin footer
         .footer__subscription-column
           .footer__heading Подписка
           p.footer__subscription-text Получайте специальные предложения и новости сервиса
-          +input-with-button({
+          +input({
             placeholder: "Email",
             type: "email",
-            name: "email"
+            name: "email",
+            button: true
           })
     .footer__bottom
       .footer__bottom-container

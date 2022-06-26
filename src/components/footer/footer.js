@@ -1,3 +1,3 @@
 import '../logo/logo';
-import '../input-with-button/input-with-button';
+import '../input/init';
 import './footer.scss';

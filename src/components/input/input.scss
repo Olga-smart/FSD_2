@@ -158,6 +158,32 @@
       padding-right: 2.5rem;
     }
   }
+  &_with_button {
+    position: relative;
+    & input {
+      padding-right: 3.14rem;
+    }
+    & button {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 3.14rem;
+      height: 3.14rem;
+      background: {
+        color: transparent;
+        image: url(./img/arrow_right.svg);
+        repeat: no-repeat;
+        position: center;
+        size: 1.2rem;
+      }
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
   &__main-label {
     font-weight: 700;
     margin-bottom: 0.38rem;

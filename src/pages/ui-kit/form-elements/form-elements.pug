@@ -14,7 +14,6 @@ block body
       include ../../../components/dropdown/dropdown
       include ../../../components/button/button
       include ../../../components/datepicker/datepicker
-      include ../../../components/input-with-button/input-with-button
       include ../../../components/checklist/checklist
       include ../../../components/like/like
       include ../../../components/rate/rate
@@ -74,11 +73,12 @@ block body
               }
             })
 
-            +input-with-button({
+            +input({
               label: "Subscription text field",
               placeholder: "Email",
               type: "email",
-              name: "email"
+              name: "email",
+              button: true
             })
         
       .col.gap-40px          

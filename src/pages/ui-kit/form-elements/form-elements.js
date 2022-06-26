@@ -8,7 +8,6 @@ import '../../../components/dropdown/init';
 import '../../../components/expandable-checklist/init';
 import '../../../components/icon-list/icon-list';
 import '../../../components/input/init';
-import '../../../components/input-with-button/input-with-button';
 import '../../../components/like/init';
 import '../../../components/pagination/pagination';
 import '../../../components/range/range';

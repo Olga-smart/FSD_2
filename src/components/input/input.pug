@@ -17,6 +17,7 @@
   options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию false)
   options.views - массив декоративных опций (доступны значения: "arrow_down", "dropdown_open", "focused")
   options.cursor - вид курсора (пока доступно 1 значение - "pointer")
+  options.button - нужна ли кнопка внутри инпута (true/false, по умолчанию false, неактуально для checkbox, radio, toggle)
   
 mixin input(options = {})
   - let blockClass = options.class || ""
@@ -24,6 +25,9 @@ mixin input(options = {})
 
   if options.type
     - blockClass += blockClass ? ` input_${options.type}` : `input_${options.type}`
+
+  if options.button
+    - blockClass += blockClass ? " input_with_button" : "input_with_button"  
 
   if options.views
     - const viewsForBlockClass = ["arrow_down"]
@@ -34,7 +38,10 @@ mixin input(options = {})
       if (viewsForInputClass.includes(view))
         - inputClass += inputClass ? ` input__input_${view}` : `input__input_${view}`
 
-  .input.js-input(class = blockClass)
+  - let tag = options.button ? "form" : "div"
+  - let blockAttributes = options.button ? {method: "post"} : "";
+
+  #{tag}.input.js-input(class = blockClass)&attributes(blockAttributes)
   
     //- передаем через переменную чтобы можно было обеспечить вставку тегов внутри label (в частности тег br)
     - let label = options.label
@@ -85,3 +92,5 @@ mixin input(options = {})
             value = options.value
             readonly = options.readonly
           )&attributes(options.attributes)
+        if options.button
+          button(type = "submit")
