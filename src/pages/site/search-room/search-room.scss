@@ -71,7 +71,7 @@
 
 @include media-breakpoint-between($md, 1210px) {
   .search-room {
-    &__main-container {
+    &__container {
       grid-column-gap: 2rem;
     }
   }
@@ -79,7 +79,7 @@
 
 @include media-breakpoint-down($md) {
   .search-room {
-    &__main-container {
+    &__container {
       grid-template-columns: 1fr;
     }
     &__filters {
