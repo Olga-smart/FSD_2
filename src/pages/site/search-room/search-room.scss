@@ -4,7 +4,7 @@
 .search-room {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  main {
+  &__page {
    border-bottom: 1px solid $primary-light; 
   }  
   &__container {
@@ -97,7 +97,7 @@
         column-gap: 0.86rem;
       }
     }
-    &__datepicker {
+    &__dates {
       grid: {
         row: 1/2;
         column: 1/2;
@@ -127,7 +127,7 @@
         column: 2/3; 
       }
     }
-    &__range {
+    &__price {
       grid: {
         row: 2/3;
         column: 3/4; 
@@ -144,7 +144,7 @@
         column-gap: 0.86rem;
       }
     }
-    &__datepicker {
+    &__dates {
       grid-column: 2/3;
     }
     &__guests {
@@ -177,7 +177,7 @@
         row: 3/5; 
       }
     }
-    &__range {
+    &__price {
       grid-column: 1/3;
     }
   }

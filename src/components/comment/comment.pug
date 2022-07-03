@@ -26,7 +26,7 @@ mixin comment(options)
       time.comment__date.js-comment__date(
         datetime = options.date
       )= options.date
-    .comment__like-container
+    .comment__like
       if !options.like
         - options.like = {}
       +like({

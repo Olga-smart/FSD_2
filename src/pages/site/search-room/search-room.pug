@@ -18,12 +18,12 @@ block content
   include ../../../components/card-room/card-room
   include ../../../components/pagination/pagination
 
-  main
+  main.search-room__page
     .search-room__container
       .search-room__filters-toggle.js-search-room__filters-toggle Фильтры
       .search-room__filters.js-search-room__filters
 
-        .search-room__datepicker
+        .search-room__dates
           +datepicker({
             label: "Даты пребывания в отеле",
             value: "2021-08-19 - 2021-08-23",
@@ -41,7 +41,7 @@ block content
             babiesDefaultCount: 1
           })
         
-        .search-room__range
+        .search-room__price
           +range({
             label: "Диапазон цены",
             min: 700,

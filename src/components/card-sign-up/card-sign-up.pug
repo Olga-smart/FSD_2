@@ -10,68 +10,67 @@ mixin card-sign-up(options = {})
 
   if options.view
     - blockClass += blockClass ? ` card-sign-up_${options.view}` : `card-sign-up_${options.view}`
-
-  .card-sign-up(class = blockClass)
+    
+  form.card-sign-up(class = blockClass)
     .card-sign-up__title Регистрация аккаунта
-    form.card-sign-up__form
+    +input({
+      placeholder: "Имя",
+      type: "text",
+      name: "name",
+      required: true
+    }) 
+    +input({
+      placeholder: "Фамилия",
+      type: "text",
+      name: "surname",
+      required: true
+    }) 
+    .card-sign-up__gender
       +input({
-        placeholder: "Имя",
-        type: "text",
-        name: "name",
-        required: true
-      }) 
-      +input({
-        placeholder: "Фамилия",
-        type: "text",
-        name: "surname",
-        required: true
-      }) 
-      .card-sign-up__radio-container
-        +input({
-          label: "Мужчина",
-          type: "radio",
-          name: "checkbox",
-          checked: true,
-          inputId: "radio-1"
-        })
-        +input({
-          label: "Женщина",
-          type: "radio",
-          name: "checkbox",
-          inputId: "radio-2"
-        })
-      .card-sign-up__birthday-input  
-        +input({
-          type: "date",
-          label: "Дата рождения",
-          placeholder: "ДД.ММ.ГГГГ",
-          name: "birthday"
-        }) 
-      +input({
-        label: "Данные для входа в сервис",
-        placeholder: "Email",
-        type: "email",
-        name: "email",
-        required: true
-      }) 
-      +input({
-        placeholder: "Пароль",
-        type: "password",
-        name: "password",
-        required: true
-      }) 
-      +input({
-        label: "Получать спецпредложения",
-        type: "toggle",
-        inputId: "toggle",
-        name: "offers"
+        label: "Мужчина",
+        type: "radio",
+        name: "checkbox",
+        checked: true,
+        inputId: "radio-1"
       })
-      .card-sign-up__submit-button
-        +button({
-          text: "Перейти к оплате",
-          type: "submit",
-          view: ["fill", "width_full", "arrow_right"]
-        })
+      +input({
+        label: "Женщина",
+        type: "radio",
+        name: "checkbox",
+        inputId: "radio-2"
+      })
+    .card-sign-up__birthday  
+      +input({
+        type: "date",
+        label: "Дата рождения",
+        placeholder: "ДД.ММ.ГГГГ",
+        name: "birthday"
+      }) 
+    +input({
+      label: "Данные для входа в сервис",
+      placeholder: "Email",
+      type: "email",
+      name: "email",
+      required: true
+    }) 
+    +input({
+      placeholder: "Пароль",
+      type: "password",
+      name: "password",
+      required: true
+    }) 
+    +input({
+      label: "Получать спецпредложения",
+      type: "toggle",
+      inputId: "toggle",
+      name: "offers"
+    })
+    .card-sign-up__submit
+      +button({
+        text: "Перейти к оплате",
+        type: "submit",
+        view: ["fill", "width_full", "arrow_right"]
+      })
     .card-sign-up__footer
       p.card-sign-up__footer-text Уже есть аккаунт на Toxin
       +button({

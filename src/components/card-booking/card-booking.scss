@@ -3,16 +3,14 @@
 
 .card-booking {
   @extend %card; 
-  &__form {
-    display: grid;
-    grid: {
-      row-gap: 1.15rem;
-      column-gap: 1.43rem;
-      template-columns: 1fr 1fr; 
-    }
-    align-items: baseline;
+  display: grid;
+  grid: {
+    row-gap: 1.15rem;
+    column-gap: 1.43rem;
+    template-columns: 1fr 1fr; 
   }
-  &__dropdown, &__table, &__submit-button {
+  align-items: baseline;
+  &__guests, &__calculation, &__submit {
     grid-column: 1/-1;
   }
   &__title {
@@ -46,7 +44,7 @@
       weight: 700;
     }
   }
-  &__table {
+  &__calculation {
     border-spacing: 0;
     td {
       padding: {

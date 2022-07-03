@@ -12,28 +12,24 @@ mixin card-find-room(options = {})
   if options.view
     - blockClass += blockClass ? ` card-find-room_${options.view}` : `card-find-room_${options.view}`
 
-  .card-find-room(class = blockClass)
-    .card-find-room__title Найдём номера под ваши пожелания
-    form.card-find-room__form
-      +datepicker({
-        type: "start",
-        label: "прибытие"
+  form.card-find-room(class = blockClass)
+    .card-find-room__title Найдём номера под ваши пожелания    
+    +datepicker({
+      type: "start",
+      label: "прибытие"
+    })
+    +datepicker({
+      type: "end",
+      label: "выезд"
+    })
+    .card-find-room__guests
+      +dropdown({
+        label: "гости",
+        type: "guests"
+      })    
+    .card-find-room__submit
+      +button({
+        text: "Подобрать номер",
+        type: "submit",
+        view: ["fill", "width_full", "arrow_right"]
       })
-
-      +datepicker({
-        type: "end",
-        label: "выезд"
-      })
-
-      .card-find-room__dropdown
-        +dropdown({
-          label: "гости",
-          type: "guests"
-        })
-      
-      .card-find-room__button-submit
-        +button({
-          text: "Подобрать номер",
-          type: "submit",
-          view: ["fill", "width_full", "arrow_right"]
-        })

@@ -15,17 +15,17 @@ block content
   include ../../../components/bullet-list/bullet-list
   include ../../../components/diagram/diagram
   
-  main
+  main.room-details__page
     .room-details__gallery
-      .room-details__gallery-item.room-details__gallery-item1 
+      .room-details__gallery-item.room-details__gallery-item-1 
         img(class="room-details__gallery-img" src=require("../../../../public/img/photo1.jpg") alt="Фото номера" width="1024" height="683")
-      .room-details__gallery-item.room-details__gallery-item2 
+      .room-details__gallery-item.room-details__gallery-item-2 
         img(class="room-details__gallery-img" src=require("../../../../public/img/photo2.jpg") alt="Фото номера" width="1000" height="667")
-      .room-details__gallery-item.room-details__gallery-item3 
+      .room-details__gallery-item.room-details__gallery-item-3 
         img(class="room-details__gallery-img" src=require("../../../../public/img/photo3.jpg") alt="Фото номера" width="720" height="355")
     .room-details__container
-      .room-details__icon-list
-        h2.room-details__h2.room-details__icon-list-h2 Сведения о номере
+      .room-details__info
+        h2.room-details__h2.room-details__info-h2 Сведения о номере
         +icon-list({
           items: [
             {
@@ -46,16 +46,15 @@ block content
           ]
         })
         
-      .room-details__diagram  
-        h2.room-details__h2.room-details__diagram-h2 Впечатления от номера
-        
+      .room-details__votes  
+        h2.room-details__h2.room-details__votes-h2 Впечатления от номера
         +diagram({
           great: 130,
           good: 65,
           alright: 65
         })
         
-      .room-details__card-booking
+      .room-details__booking
         +card-booking({
           number: 888,
           lux: true,
@@ -93,7 +92,7 @@ block content
             text: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент"
           })
 
-      .room-details__bullet-list
+      .room-details__rules
         h2.room-details__h2 Правила
         +bullet-list({
           items: [

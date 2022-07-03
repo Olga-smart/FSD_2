@@ -21,7 +21,7 @@
   &__container {
     @extend %container;
   }
-  &__card {
+  &__form {
     width: 380px;
     @include media-breakpoint-down($xs) {
       width: auto;

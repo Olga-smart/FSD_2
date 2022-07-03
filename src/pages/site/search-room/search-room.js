@@ -118,7 +118,7 @@ function template(data) {
     priceContainer.append(perDay);
 
     const hr = document.createElement('div');
-    hr.className = 'card-room__hr';
+    hr.className = 'card-room__line';
 
     const rate = document.createElement('div');
     rate.className = 'rate';

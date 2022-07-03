@@ -2,7 +2,7 @@
 @import '../../styles/mixins-and-templates.scss';
 
 .input {
-  &__input {
+  &__field {
     display: block;
     height: 3.14rem;
     padding: {
@@ -33,12 +33,12 @@
         }
       }
     }
-    &_cursor_pointer {
+    &_clickable {
       cursor: pointer;
     }
   }
   &_checkbox, &_radio, &_toggle {
-    .input__input {
+    .input__field {
       width: auto;
       height: auto;
       position: absolute;
@@ -73,7 +73,7 @@
         border-radius: 4px;
       }
     }
-    .input__input:checked + .input__label::before {
+    .input__field:checked + .input__label::before {
       background: {
         image: url(./img/check_mark.svg);
         repeat: no-repeat;
@@ -89,7 +89,7 @@
         border-radius: 50%;
       }
     }
-    .input__input:checked + .input__label {
+    .input__field:checked + .input__label {
       color: $primary-dark;
       &::before {
         @include gradient;
@@ -124,10 +124,10 @@
       top: 4px;
       left: 4px;
     }
-    .input__input:checked + .input__label::before {
+    .input__field:checked + .input__label::before {
       border-color: $accent-main;
     }
-    .input__input:checked + .input__label::after {
+    .input__field:checked + .input__label::after {
       @include gradient;
       left: 24px;
     }
@@ -158,29 +158,31 @@
       padding-right: 2.5rem;
     }
   }
-  &_with_button {
+  &_with-button {
     position: relative;
-    & input {
-      padding-right: 3.14rem;
-    }
-    & button {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 3.14rem;
-      height: 3.14rem;
-      background: {
-        color: transparent;
-        image: url(./img/arrow_right.svg);
-        repeat: no-repeat;
-        position: center;
-        size: 1.2rem;
+    .input {
+      &__field {
+        padding-right: 3.14rem;
       }
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      &:hover {
-        opacity: 0.6;
+      &__submit-button {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 3.14rem;
+        height: 3.14rem;
+        background: {
+          color: transparent;
+          image: url(./img/arrow_right.svg);
+          repeat: no-repeat;
+          position: center;
+          size: 1.2rem;
+        }
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          opacity: 0.6;
+        }
       }
     }
   }

@@ -15,8 +15,7 @@
   options.attributes - любые атрибуты, которые хотим передать инпуту
   options.pattern - регулярное выражение, согласно которому требуется вводить и проверять данные в поле
   options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию false)
-  options.views - массив декоративных опций (доступны значения: "arrow_down", "dropdown_open", "focused")
-  options.cursor - вид курсора (пока доступно 1 значение - "pointer")
+  options.views - массив декоративных опций (доступны значения: "arrow_down", "dropdown_open", "focused", "clickable")
   options.button - нужна ли кнопка внутри инпута (true/false, по умолчанию false, неактуально для checkbox, radio, toggle)
   
 mixin input(options = {})
@@ -27,16 +26,16 @@ mixin input(options = {})
     - blockClass += blockClass ? ` input_${options.type}` : `input_${options.type}`
 
   if options.button
-    - blockClass += blockClass ? " input_with_button" : "input_with_button"  
+    - blockClass += blockClass ? " input_with-button" : "input_with-button"  
 
   if options.views
     - const viewsForBlockClass = ["arrow_down"]
-    - const viewsForInputClass = ["dropdown_open", "focused"]
+    - const viewsForInputClass = ["dropdown_open", "focused", "clickable"]
     each view in options.views
       if (viewsForBlockClass.includes(view))
         - blockClass += blockClass ? ` input_${view}` : `input_${view}`
       if (viewsForInputClass.includes(view))
-        - inputClass += inputClass ? ` input__input_${view}` : `input__input_${view}`
+        - inputClass += inputClass ? ` input__field_${view}` : `input__field_${view}`
 
   - let tag = options.button ? "form" : "div"
   - let blockAttributes = options.button ? {method: "post"} : "";
@@ -56,16 +55,13 @@ mixin input(options = {})
 
     if options.type == "date"
       - type = "text"
-      - inputClass += inputClass ? ` js-input__input_date` : 'js-input__input_date' 
-        
-    if options.cursor
-      - inputClass += inputClass ? ` input__input_cursor_${options.cursor}` : `input__input_cursor_${options.cursor}`          
+      - inputClass += inputClass ? ` js-input__field_date` : 'js-input__field_date'          
     
     case options.type
       when "checkbox"
       when "radio"
       when "toggle"
-        input.input__input(
+        input.input__field(
           class = inputClass
           id = options.inputId
           type = type
@@ -80,7 +76,7 @@ mixin input(options = {})
         ) !{label}
       default
         label.input__label !{label}
-          input.input__input.js-input__input(
+          input.input__field.js-input__field(
             class = inputClass
             id = options.inputId
             type = type
@@ -93,4 +89,4 @@ mixin input(options = {})
             readonly = options.readonly
           )&attributes(options.attributes)
         if options.button
-          button(type = "submit")
+          button.input__submit-button(type = "submit")
