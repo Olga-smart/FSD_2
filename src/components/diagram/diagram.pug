@@ -96,25 +96,25 @@ mixin diagram(options)
               offset= offset= getPointsForGradient(greatDashoffset, greatLength).point2 + "%"
             )
         
-        circle.diagram__segment.diagram__segment_bad(
+        circle.diagram__segment.diagram__segment_vote_bad(
           r="15.9" cx="50%" cy="50%" 
           stroke="url(#bad)"
           stroke-dasharray= badLength + " " + (100 - badLength) 
           stroke-dashoffset= badDashoffset
         )
-        circle.diagram__segment.diagram__segment_alright(
+        circle.diagram__segment.diagram__segment_vote_alright(
           r="15.9" cx="50%" cy="50%"
           stroke="url(#alright)"
           stroke-dasharray= alrightLength + " " + (100 - alrightLength)
           stroke-dashoffset= alrightDashoffset
         )
-        circle.diagram__segment.diagram__segment_good(
+        circle.diagram__segment.diagram__segment_vote_good(
           r="15.9" cx="50%" cy="50%" 
           stroke="url(#good)"
           stroke-dasharray= goodLength + " " + (100 - goodLength)
           stroke-dashoffset= goodDashoffset
         )
-        circle.diagram__segment.diagram__segment_great(
+        circle.diagram__segment.diagram__segment_vote_great(
           r="15.9" cx="50%" cy="50%" 
           stroke="url(#great)"
           stroke-dasharray= greatLength + " " + (100 - greatLength)
@@ -128,8 +128,8 @@ mixin diagram(options)
         
     figcaption.diagram__legend
       ul.diagram__legend-list
-        li.diagram__legend-item.diagram__legend-item_great Великолепно
-        li.diagram__legend-item.diagram__legend-item_good Хорошо
-        li.diagram__legend-item.diagram__legend-item_alright Удовлетворительно
-        li.diagram__legend-item.diagram__legend-item_bad Разочарован
+        li.diagram__legend-item.diagram__legend-item_vote_great Великолепно
+        li.diagram__legend-item.diagram__legend-item_vote_good Хорошо
+        li.diagram__legend-item.diagram__legend-item_vote_alright Удовлетворительно
+        li.diagram__legend-item.diagram__legend-item_vote_bad Разочарован
       

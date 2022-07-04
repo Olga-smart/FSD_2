@@ -65,17 +65,19 @@
         height: 10px;
         border-radius: 50%; 
       }
-      &_great::before {
-        background: linear-gradient(#FFE39C, #FFBA9C);
-      }
-      &_good::before {
-        @include gradient($type: secondary);
-      }
-      &_alright::before {
-        @include gradient;
-      }
-      &_bad::before {
-        background: linear-gradient(#919191, #3D4975);
+      &_vote {
+        &_great::before {
+          background: linear-gradient(#FFE39C, #FFBA9C);
+        }
+        &_good::before {
+          @include gradient($type: secondary);
+        }
+        &_alright::before {
+          @include gradient;
+        }
+        &_bad::before {
+          background: linear-gradient(#919191, #3D4975);
+        }
       }
     }
   }
