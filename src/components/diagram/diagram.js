@@ -18,12 +18,12 @@ class Diagram {
 
   _initFields(component) {
     this._component = component;
-    this._votesWordElement = component.querySelector('.js-diagram__votes-word');
-    this._votesNumber = component.querySelector('.js-diagram__votes-number').textContent;
+    this._votesElement = component.querySelector('.js-diagram__votes');
+    this._votesNumber = this._votesElement.textContent;
   }
 
   _updateVotesWord() {
-    this._votesWordElement.textContent = wordToPlural(this._votesNumber, 'голос', 'голоса', 'голосов');
+    this._votesElement.dataset.word = wordToPlural(this._votesNumber, 'голос', 'голоса', 'голосов');
   }
 }
 

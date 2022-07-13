@@ -34,23 +34,23 @@
       template-columns: 1fr 2.14rem 2.29rem 2.14rem;
     }
     align-items: center;
-    &-label {
-      text-transform: uppercase;
-      font: {
-        weight: 700;
-        size: 0.86rem;
-      }
-      color: $primary-very-dark;
+  }
+  &__item-label {
+    text-transform: uppercase;
+    font: {
+      weight: 700;
+      size: 0.86rem;
     }
-    &-input {
-      text-align: center;
-      font: {
-        size: 0.86rem;
-        weight: 700;
-        family: inherit;
-      }
-      border: none;
+    color: $primary-very-dark;
+  }
+  &__item-input {
+    text-align: center;
+    font: {
+      size: 0.86rem;
+      weight: 700;
+      family: inherit;
     }
+    border: none;
   }
   &__button-minus, &__button-plus {
     width: 2.14rem;
@@ -67,23 +67,21 @@
       pointer-events: none;
     }
   }
-  &__button {
-    &-reset, &-apply {
-      padding: {
-        top: 0.7rem;
-        bottom: 0.08rem;
-      }
-      display: none;
-      &:disabled {
-        opacity: 0.38;
-      }
+  &__button-reset, &__button-apply {
+    padding: {
+      top: 0.7rem;
+      bottom: 0.08rem;
     }
-    &-reset {
-      grid-column: 1/2;
+    display: none;
+    &:disabled {
+      opacity: 0.38;
     }
-    &-apply {
-      grid-column: 2/3;
-      text-align: right;
-    }
+  }
+  &__button-reset {
+    grid-column: 1/2;
+  }
+  &__button-apply {
+    grid-column: 2/3;
+    text-align: right;
   }
 }

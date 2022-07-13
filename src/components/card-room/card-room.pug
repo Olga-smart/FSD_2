@@ -14,6 +14,10 @@ include ../../components/rate/rate
 
 mixin card-room(options)
 
+  - let numberClass = 'card-room__number'
+  if (options.lux)
+    - numberClass += ' card-room__number_lux'
+
   - let commentsNumber = options.comments || 0 
 
   .card-room.js-card-room
@@ -26,20 +30,16 @@ mixin card-room(options)
           height = 152
         )
     .card-room__info
-      .card-room__number-container
-        span.card-room__number-sign= "№ "
-        span.card-room__number= options.number + " "
-          if (options.lux)
-            span.card-room__lux люкс
-      .card-room__price-container   
-        span.card-room__price !{prettifyPrice(options.price)}₽ 
-        span в сутки
+      span(
+        class = numberClass
+      )= options.number
+      span.card-room__price !{prettifyPrice(options.price)}₽ 
       .card-room__line
       +rate({
         value: options.rate
       })
-      .card-room__comments-container
-        span.card-room__comments-number.js-card-room__comments-number= commentsNumber + " "
-        span.card-room__comments-word.js-card-room__comments-word Отзывов
+      span.card-room__comments.js-card-room__comments(
+        data-word = ' Отзывов'
+      )= commentsNumber
         
         

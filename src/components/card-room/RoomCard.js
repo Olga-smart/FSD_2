@@ -20,9 +20,10 @@ class RoomCard {
 
   _initFields(component) {
     this._component = component;
-    this._commentsNumber = Number(component.querySelector('.js-card-room__comments-number').textContent);
-    this._commentsWordElement = component.querySelector('.js-card-room__comments-word');
-    this._commentsWordElement.textContent = wordToPlural(this._commentsNumber, 'Отзыв', 'Отзыва', 'Отзывов');
+
+    this._commentsElement = component.querySelector('.js-card-room__comments');
+    this._commentsNumber = Number(this._commentsElement.textContent);
+    this._commentsElement.dataset.word = wordToPlural(this._commentsNumber, ' Отзыв', ' Отзыва', ' Отзывов');
 
     this._slider = component.querySelector('.js-card-room__slider');
     $(this._slider).slick({

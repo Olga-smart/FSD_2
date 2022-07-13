@@ -69,67 +69,69 @@
     width: 7.57rem;
   }
   &__menu {
-    margin: 0;
+    margin: 0 {
+      left: auto;
+    };
     padding: 0;
-    margin-left: auto;
     display: flex;
     flex-wrap: wrap;      
-    list-style-type: none;   
-    &-item {
-      &_dropdown {
-        position: relative;
-        .header__menu-link {
-          display: grid;
-          grid-template-columns: auto 1.88rem;
-          justify-items: center;
-          align-items: center;
-          &::after {
-            content: '';
-            display: block;
-            width: 0.57rem;
-            height: 0.57rem;
-            border: {
-              left: 2px solid $primary-medium;
-              bottom: 2px solid $primary-medium;
-            }
-            transform: rotate(-45deg);
-            pointer-events: none;
+    list-style-type: none;
+  }
+  &__menu-item {
+    &_dropdown {
+      position: relative;
+      .header__menu-link {
+        display: grid;
+        grid-template-columns: auto 1.88rem;
+        justify-items: center;
+        align-items: center;
+        &::after {
+          content: '';
+          display: block;
+          width: 0.57rem;
+          height: 0.57rem;
+          border: {
+            left: 2px solid $primary-medium;
+            bottom: 2px solid $primary-medium;
           }
-        }        
-        &:focus-within .header__sub-menu {
-          opacity: 1;
-          pointer-events: auto;
+          transform: rotate(-45deg);
+          pointer-events: none;
         }
-      }
-      &:last-child {
-        .header__sub-menu {
-          right: 0;
-          left: auto;
-          transform: none;
-        }
-      }
-      &:first-child {
-        .header__sub-menu {
-          left: 0;
-          transform: none;
-        }
+      }        
+      &:focus-within .header__sub-menu {
+        opacity: 1;
+        pointer-events: auto;
       }
     }
-    &-link {
-      color: inherit;
-      text-decoration: none;
-      display: block;
-      padding: 0.71rem;
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-      &:hover, &_hovered {
-        color: $primary-dark;
-        text-shadow: 0 0 1px $primary-dark, 0 0 1px $primary-dark;
+    &:last-child {
+      .header__sub-menu {
+        right: 0;
+        left: auto;
+        transform: none;
       }
+    }
+    &:first-child {
+      .header__sub-menu {
+        left: 0;
+        transform: none;
+      }
+    }
+  }
+  &__menu-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 0.71rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover, &_hovered {
+      color: $primary-dark;
+      text-shadow: 0 0 1px $primary-dark, 0 0 1px $primary-dark;
     }
   }
   &__sub-menu {
     list-style-type: none;
+    padding: 0;
     position: absolute;
     background-color: #fff;
     transition: all 0.3s ease-in-out;
@@ -141,84 +143,83 @@
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
     text-align: center;
     pointer-events: none;
-    &-link {
-      color: $primary-medium;
-      text-decoration: none;
-      display: block;
-      padding: 0.7rem;
-      transition: all 0.3s ease-in-out;
-      &:hover {
-        color: $primary-dark;
-        font-weight: 700;
-      }
+  }
+  &__sub-menu-link {
+    color: $primary-medium;
+    text-decoration: none;
+    display: block;
+    padding: 0.7rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: $primary-dark;
+      font-weight: 700;
     }
   }
-  &__user {
-    &-nav {
+  &__user-nav {
     list-style-type: none;
     display: grid;
     grid: {
       template-columns: auto auto;
       column-gap: 1.43rem;
     }
-    margin: 0;
+    margin: 0 {
+      left: 0.71rem;
+    }
     padding: 0;
-    margin-left: 0.71rem;
   }
-    &-profile {
-      padding-left: 1.43rem;
-      margin-left: 0.71rem;
-      border-left: 1px solid rgba($primary-very-dark, 0.1);
-      position: relative;
-      &:focus-within .header__user-menu {
-        opacity: 1;
-        pointer-events: auto;
-      }
+  &__user-profile {
+    padding-left: 1.43rem;
+    margin-left: 0.71rem;
+    border-left: 1px solid rgba($primary-very-dark, 0.1);
+    position: relative;
+    &:focus-within .header__user-menu {
+      opacity: 1;
+      pointer-events: auto;
     }
-    &-name {
-      border: none;
-      padding: 0;
-      background-color: transparent;
-      color: inherit;
-      cursor: pointer;
-      font: {
-        size: inherit;
-        family: inherit;
-      }
+  }
+  &__user-name {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: {
+      size: inherit;
+      family: inherit;
     }
-    &-icon {
-      display: none;
-      width: 20px;
-      border: none;
-      padding: 0;
-      background-color: transparent;
-      cursor: pointer;
-      &-img {
-        width: 100%;
-      }
-    }
-    &-menu {
-      list-style-type: none;
-      position: absolute;
-      background-color: #fff;
-      transition: all 0.3s ease-in-out;
-      right: 0;
-      opacity: 0;
-      z-index: 10;
-      min-width: 15rem;
-      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
-      pointer-events: none;
-      &-link {
-        color: $primary-medium;
-        text-decoration: none;
-        display: block;
-        padding: 0.7rem;
-        transition: all 0.3s ease-in-out;
-        &:hover {
-          color: $primary-dark;
-          font-weight: 700;
-        }
-      }
+  }
+  &__user-icon {
+    display: none;
+    width: 20px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  &__user-icon-img {
+    width: 100%;
+  }
+  &__user-menu {
+    list-style-type: none;
+    position: absolute;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    right: 0;
+    opacity: 0;
+    z-index: 10;
+    min-width: 15rem;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+  }
+  &__user-menu-link {
+    color: $primary-medium;
+    text-decoration: none;
+    display: block;
+    padding: 0.7rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: $primary-dark;
+      font-weight: 700;
     }
   }
   &__icon-sign-in {
@@ -228,9 +229,9 @@
     padding: 0;
     background-color: transparent;
     cursor: pointer;
-    &-img {
-      width: 100%;
-    }
+  }
+  &__icon-sign-in-img {
+    width: 100%;
   }
 }
 
@@ -263,21 +264,19 @@
         transform: perspective(1000px) rotateX(0deg);
       }
     }
-    &__user {
-      &-nav {
-        display: none;
-      }
-      &-profile {
-        padding-left: 0;
-        margin-left: 0;
-        border: none;
-      }
-      &-name {
-        display: none;
-      }
-      &-icon {
-        display: block;
-      }
+    &__user-nav {
+      display: none;
+    }
+    &__user-profile {
+      padding-left: 0;
+      margin-left: 0;
+      border: none;
+    }
+    &__user-name {
+      display: none;
+    }
+    &__user-icon {
+      display: block;
     }
     &__icon-sign-in {
       display: block;

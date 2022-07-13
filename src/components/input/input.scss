@@ -133,7 +133,7 @@
     }
   }
   &:not(&_checkbox):not(&_radio):not(&_toggle) {
-    label {
+    .input__label {
       @extend %h3;
     }
   }
@@ -160,29 +160,27 @@
   }
   &_with-button {
     position: relative;
-    .input {
-      &__field {
-        padding-right: 3.14rem;
+    .input__field {
+      padding-right: 3.14rem;
+    }
+    .input__submit-button {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 3.14rem;
+      height: 3.14rem;
+      background: {
+        color: transparent;
+        image: url(./img/arrow_right.svg);
+        repeat: no-repeat;
+        position: center;
+        size: 1.2rem;
       }
-      &__submit-button {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 3.14rem;
-        height: 3.14rem;
-        background: {
-          color: transparent;
-          image: url(./img/arrow_right.svg);
-          repeat: no-repeat;
-          position: center;
-          size: 1.2rem;
-        }
-        border: none;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-        &:hover {
-          opacity: 0.6;
-        }
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.6;
       }
     }
   }

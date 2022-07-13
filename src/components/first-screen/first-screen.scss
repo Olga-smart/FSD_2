@@ -26,17 +26,12 @@
   }
   &__form {
     max-width: 380px;
+    @include media-breakpoint-down($xs) {
+      align-self: center;
+    }
   }
   &__phrase {
     text-align: right;
     margin-left: auto;
-  }
-}
-
-@include media-breakpoint-down($xs) {
-  .first-screen {
-    &__card {
-      align-self: center;
-    }
   }
 }

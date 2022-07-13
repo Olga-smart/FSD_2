@@ -120,11 +120,10 @@ mixin diagram(options)
           stroke-dasharray= greatLength + " " + (100 - greatLength)
           stroke-dashoffset= greatDashoffset
         )
-        
             
-      .diagram__votes
-        span.diagram__votes-number.js-diagram__votes-number #{sumVotes}
-        span.diagram__votes-word.js-diagram__votes-word голосов
+      span.diagram__votes.js-diagram__votes(
+        data-word = 'голосов'
+      ) #{sumVotes}
         
     figcaption.diagram__legend
       ul.diagram__legend-list

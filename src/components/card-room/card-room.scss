@@ -35,22 +35,27 @@
   &__number {
     font-size: 1.29rem;
     line-height: 1.22;
-    &-container {
-      font: {
-        family: 'Open Sans', 'Arial', sans-serif;
-        weight: 700; 
-      }
-      color: $primary-very-dark;
-    }
-  }
-  &__lux {
-    text-transform: uppercase;
     font: {
-      size: 0.86rem; 
-      family: 'Montserrat', 'Arial', sans-serif;
+      family: 'Open Sans', 'Arial', sans-serif;
+      weight: 700; 
     }
-    line-height: 1.22;
-    color: $accent-main;
+    color: $primary-very-dark;
+    &::before {
+      content: '№ ';
+      font-size: 1rem;
+    }
+    &_lux {
+      &::after {
+        content: ' люкс';
+        text-transform: uppercase;
+        font: {
+          size: 0.86rem; 
+          family: 'Montserrat', 'Arial', sans-serif;
+        }
+        line-height: 1.22;
+        color: $accent-main;
+      }
+    }
   }
   &__price {
     font: {
@@ -58,11 +63,15 @@
       weight: 700; 
     }
     line-height: 1.29rem;
-    &-container {
-      text-align: right;
-      font-size: 0.86rem; 
-      color: $primary-medium;
-      line-height: 1.5;
+    text-align: right;
+    color: $primary-medium;
+    line-height: 1.5;
+    &::after {
+      content: ' в сутки';
+      font: {
+        size: 0.86rem;
+        weight: 400;
+      }
     }
   }
   &__line {
@@ -71,14 +80,14 @@
     height: 1px;
   }
   &__comments {
-    &-container {
-      text-align: right;
-      color: $primary-medium;
-      line-height: 1.29;
-      align-self: center;
-    }
-    &-number {
-      font-weight: 700;
+    font-weight: 700;
+    text-align: right;
+    color: $primary-medium;
+    line-height: 1.29;
+    align-self: center;
+    &::after {
+      content: attr(data-word);
+      font-weight: 400;
     }
   }
   
