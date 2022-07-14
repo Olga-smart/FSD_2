@@ -30,9 +30,7 @@ mixin card-room(options)
           height = 152
         )
     .card-room__info
-      span(
-        class = numberClass
-      )= options.number
+      span(class = numberClass)= options.number
       span.card-room__price !{prettifyPrice(options.price)}₽ 
       .card-room__line
       +rate({

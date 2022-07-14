@@ -21,15 +21,15 @@ include ../../components/dropdown/dropdown
   - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
 
 mixin card-booking(options)
+
+  - let numberClass = 'card-booking__number'
+  if (options.lux)
+    - numberClass += ' card-booking__number_lux'
+
   form.card-booking.js-card-booking
-    .card-booking__title
-      span №
-      span.card-booking__number= " " + options.number + " "
-      if (options.lux)
-        span.card-booking__lux люкс
-    .card-booking__price-container   
-      span.card-booking__price.js-card-booking__price !{prettifyPrice(options.price)}₽ 
-      span в сутки 
+    span(class = numberClass)= options.number   
+    span.card-booking__price.js-card-booking__price !{prettifyPrice(options.price)}₽
+
     +datepicker({
       inputClass: "card-booking__arrival js-card-booking__arrival",
       label: "прибытие",
