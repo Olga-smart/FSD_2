@@ -152,7 +152,7 @@ class Dropdown {
   }
 
   static _counterValueIsMinimal(item) {
-    return item._input.value === item.dataset.minCount || item._input.value === 0;
+    return item._input.value === item.dataset.minCount || item._input.value === '0';
   }
 
   static _counterValueIsMaximal(item) {
