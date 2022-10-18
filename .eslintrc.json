@@ -17,5 +17,8 @@
   "ignorePatterns": ["webpack.config.js"],
   "globals": {
     "jQuery": true
+  },
+  "parserOptions": {
+    "ecmaVersion":"latest"
   }
 }

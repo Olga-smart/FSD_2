@@ -1,4 +1,7 @@
 @import '../../styles/mixins-and-templates.scss';
+@import '../button/button.scss';
+@import '../datepicker/datepicker.scss';
+@import '../dropdown/dropdown.scss';
 
 .card-find-room {
   @extend %card;

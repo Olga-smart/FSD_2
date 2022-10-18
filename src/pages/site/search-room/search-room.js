@@ -4,18 +4,11 @@
 // Because this is third party plugin
 
 import '../../../styles/global.scss';
-import '../../../components/footer/footer';
-import '../../../components/header/init';
-import '../../../components/datepicker/init';
-import '../../../components/dropdown/init';
-import '../../../components/range/range';
-import '../../../components/checklist/checklist';
-import '../../../components/rich-checklist/rich-checklist';
-import '../../../components/expandable-checklist/init';
-import '../../../components/card-room/init';
-import '../../../components/pagination/pagination';
+// This is necessary because we render cards with js
+import RoomCard from '../../../components/card-room/RoomCard';
 import './search-room.scss';
 import roomCards from './search-room-data.json';
+import './autoimport';
 
 const filledStar = require('../../../../public/img/star.svg');
 const emptyStar = require('../../../../public/img/star_border.svg');
@@ -53,11 +46,15 @@ $('.js-pagination').pagination({
     // eslint-disable-next-line no-use-before-define
     const html = template(data);
     $('.pagination__data-container').html(html);
+
+    RoomCard.init($('.js-card-room'));
   },
   afterPaging() {
     $('.js-card-room__slider').slick({
       dots: true,
     });
+
+    RoomCard.init($('.js-card-room'));
   },
 });
 
@@ -70,7 +67,7 @@ function template(data) {
   const html = new DocumentFragment();
   $.each(data, (index, item) => {
     const card = document.createElement('div');
-    card.className = 'card-room js-card-room.card';
+    card.className = 'card-room js-card-room';
 
     const slider = document.createElement('div');
     slider.className = 'card-room__slider js-card-room__slider';
@@ -85,37 +82,17 @@ function template(data) {
     const info = document.createElement('div');
     info.className = 'card-room__info';
 
-    const numberContainer = document.createElement('div');
-    numberContainer.className = 'card-room__number-container';
-
-    const numberSign = document.createElement('span');
-    numberSign.className = 'card-room__number-sign';
-    numberSign.textContent = '№ ';
-    numberContainer.append(numberSign);
-
     const number = document.createElement('span');
     number.className = 'card-room__number';
     number.textContent = item.number;
-    numberContainer.append(number);
 
     if (item.lux) {
-      const lux = document.createElement('span');
-      lux.className = 'card-room__lux';
-      lux.textContent = ' люкс';
-      numberContainer.append(lux);
+      number.classList.add('card-room__number_lux');
     }
-
-    const priceContainer = document.createElement('div');
-    priceContainer.className = 'card-room__price-container';
 
     const price = document.createElement('span');
     price.className = 'card-room__price';
     price.textContent = `${prettifyPrice(item.price)}₽`;
-    priceContainer.append(price);
-
-    const perDay = document.createElement('span');
-    perDay.textContent = ' в сутки';
-    priceContainer.append(perDay);
 
     const hr = document.createElement('div');
     hr.className = 'card-room__line';
@@ -153,24 +130,16 @@ function template(data) {
     star5.alt = '';
     rate.append(star5);
 
-    const commentsContainer = document.createElement('div');
-    commentsContainer.className = 'card-room__comments-container';
+    const comments = document.createElement('span');
+    comments.className = 'card-room__comments js-card-room__comments';
+    comments.textContent = `${item.comments} `;
+    comments.dataset.word = ' Отзывов';
 
-    const commentsNumber = document.createElement('span');
-    commentsNumber.className = 'card-room__comments-number js-card-room__comments-number';
-    commentsNumber.textContent = `${item.comments} `;
-    commentsContainer.append(commentsNumber);
-
-    const commentsWord = document.createElement('span');
-    commentsWord.className = 'card-room__comments-word js-card-room__comments-word';
-    commentsWord.textContent = 'Отзывов';
-    commentsContainer.append(commentsWord);
-
-    info.append(numberContainer);
-    info.append(priceContainer);
+    info.append(number);
+    info.append(price);
     info.append(hr);
     info.append(rate);
-    info.append(commentsContainer);
+    info.append(comments);
 
     card.append(slider);
     card.append(info);

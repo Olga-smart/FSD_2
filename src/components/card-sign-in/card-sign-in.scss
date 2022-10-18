@@ -1,4 +1,6 @@
 @import '../../styles/mixins-and-templates.scss';
+@import '../button/button.scss';
+@import '../input/input.scss';
 
 .card-sign-in {
   @extend %card;

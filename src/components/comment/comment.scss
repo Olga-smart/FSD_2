@@ -1,5 +1,6 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins-and-templates.scss';
+@import '../like/like.scss';
 
 .comment {
   display: grid;

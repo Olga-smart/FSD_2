@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const AutoImportPlugin = require('./src/helpers/autoImportPlugin/AutoImportPlugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -104,6 +105,14 @@ module.exports = {
     }),
     new FaviconsWebpackPlugin('../public/favicon.svg'),
     new ESLintPlugin(),
+    new AutoImportPlugin({
+      pages: path.resolve(__dirname + '/src/pages/ui-kit'),
+      components: path.resolve(__dirname + '/src/components')
+    }),
+    new AutoImportPlugin({
+      pages: path.resolve(__dirname + '/src/pages/site'),
+      components: path.resolve(__dirname + '/src/components')
+    }),
   ],
   module: {
     rules: [
@@ -123,7 +132,12 @@ module.exports = {
               publicPath: '../../',
             }
           },
-          'css-loader', 'resolve-url-loader', 'sass-loader'
+          'css-loader', 'resolve-url-loader', {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true, // <-- important for resolve-url-loader
+            }
+          }
         ]
       },
       {

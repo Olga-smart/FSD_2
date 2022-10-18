@@ -1,5 +1,9 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins-and-templates.scss';
+@import '../button/button.scss';
+@import '../input/input.scss';
+@import '../datepicker/datepicker.scss';
+@import '../dropdown/dropdown.scss';
 
 .card-booking {
   @extend %card; 

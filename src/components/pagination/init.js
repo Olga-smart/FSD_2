@@ -4,7 +4,6 @@
 import 'paginationjs';
 
 import '../card-room/RoomCard';
-import './pagination.scss';
 
 const paginationCards = document.querySelectorAll('.js-pagination__item');
 const paginationArr = [...paginationCards];

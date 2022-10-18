@@ -1,5 +1,6 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins-and-templates.scss';
+@import '../rate/rate.scss';
 
 .card-room {
   @extend %card;

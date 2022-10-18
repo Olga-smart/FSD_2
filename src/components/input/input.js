@@ -25,10 +25,10 @@ class Input {
   _initFields(component) {
     this._component = component;
 
-    if (component.querySelector('.js-input__input')) {
-      this._input = component.querySelector('.js-input__input');
+    if (component.querySelector('.js-input__field')) {
+      this._input = component.querySelector('.js-input__field');
 
-      if (this._input.classList.contains('js-input__input_date')) {
+      if (this._input.classList.contains('js-input__field_date')) {
         new Cleave(this._input, {
           date: true,
           delimiter: '.',

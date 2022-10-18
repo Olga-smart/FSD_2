@@ -1,8 +1,6 @@
 import 'ion-rangeslider';
 import 'ion-rangeslider/css/ion.rangeSlider.min.css';
 
-import './range.scss';
-
 const output = document.querySelector('.js-range__output');
 
 $('.js-range-slider').ionRangeSlider({
