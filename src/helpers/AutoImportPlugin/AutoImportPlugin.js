@@ -1,28 +1,26 @@
+// unable to use import here
 const fs = require('fs');
 const path = require('path');
 
 class AutoImportPlugin {
   constructor(options) {
-    this.pages = options.pages;
-    this.components = options.components;
-    this.folders = fs.readdirSync(options.pages, { withFileTypes: true })
-      .filter((dirent) => dirent.isDirectory())
-      .filter((dirent) => fs.existsSync(path.resolve(options.pages, `${dirent.name}/${dirent.name}.pug`)))
-      .map((dirent) => dirent.name);
+    this.pagesDir = options.pages;
+    this.componentsDir = options.components;
+    this.dirNames = AutoImportPlugin.getSubdirNamesWithPugFiles(options.pages);
   }
 
   apply(compiler) {
     compiler.hooks.environment.tap('AutoImportPlugin', () => {
-      this.folders.forEach((folder) => {
-        this.main(path.resolve(this.pages, `${folder}/${folder}.pug`));
+      this.dirNames.forEach((dir) => {
+        this.main(path.resolve(this.pagesDir, `${dir}/${dir}.pug`));
       });
     });
 
     compiler.hooks.watchRun.tap('AutoImportPlugin', () => {
-      this.folders.forEach((folder) => {
-        const watcher = fs.watch(path.resolve(this.pages, `${folder}/${folder}.pug`), () => {
+      this.dirNames.forEach((dir) => {
+        const watcher = fs.watch(path.resolve(this.pagesDir, `${dir}/${dir}.pug`), () => {
           watcher.close();
-          this.main(path.resolve(this.pages, `${folder}/${folder}.pug`));
+          this.main(path.resolve(this.pagesDir, `${dir}/${dir}.pug`));
         });
       });
     });
@@ -39,58 +37,87 @@ class AutoImportPlugin {
   }
 
   main(pugFile) {
-    const fileContent = fs.readFileSync(pugFile, 'utf8');
-    const lines = fileContent.split('\n');
-    const trimedLines = [];
-    lines.forEach((line) => {
-      trimedLines.push(line.trim());
-    });
-    const includes = trimedLines.filter((line) => line.startsWith('include'));
+    const blockNames = AutoImportPlugin.collectBlocks(pugFile);
+    const filesToImport = this.collectFilesToImport(blockNames);
+    AutoImportPlugin.importFiles(pugFile, filesToImport);
+  }
 
+  clean() {
+    this.dirNames.forEach((dir) => {
+      const autoImportFile = path.resolve(path.resolve(this.pagesDir, dir), 'autoimport.js');
+
+      if (fs.existsSync(autoImportFile)) {
+        fs.unlinkSync(autoImportFile);
+      }
+    });
+  }
+
+  static getSubdirNamesWithPugFiles(dir) {
+    return fs.readdirSync(dir, { withFileTypes: true })
+      .filter((dirent) => dirent.isDirectory())
+      .filter((dirent) => fs.existsSync(path.resolve(dir, `${dirent.name}/${dirent.name}.pug`)))
+      .map((dirent) => dirent.name);
+  }
+
+  static collectBlocks(pugFile) {
     const blocks = [];
-    includes.forEach((include) => {
-      blocks.push(include.split('/').pop());
-    });
 
-    const extend = trimedLines.find((line) => line.startsWith('extends'));
+    const getLines = (file) => {
+      const fileContent = fs.readFileSync(file, 'utf8');
+      const lines = fileContent.split('\n');
+      const trimedLines = lines.map((line) => line.trim());
+      return trimedLines;
+    };
 
-    if (extend !== undefined) {
-      const extendPath = extend.split(' ').pop();
-      const templateFileContent = fs.readFileSync(path.resolve(pugFile, `../${extendPath}.pug`).replace(/\\/g, '/'), 'utf8');
-      const templateFileLines = templateFileContent.split('\n');
-      const templateFileTrimedLines = [];
-      templateFileLines.forEach((line) => {
-        templateFileTrimedLines.push(line.trim());
-      });
-      const templateFileIncludes = templateFileTrimedLines.filter((line) => line.startsWith('include'));
+    const getIncludeLines = (lines) => lines.filter((line) => line.startsWith('include'));
 
-      if (templateFileIncludes.length !== 0) {
-        templateFileIncludes.forEach((include) => {
-          blocks.push(include.split('/').pop());
-        });
+    const getBlockNames = (includeLines) => includeLines.map((line) => line.split('/').pop());
+
+    const lines = getLines(pugFile);
+
+    const includeLines = getIncludeLines(lines);
+    blocks.push(...getBlockNames(includeLines));
+
+    const extendLine = lines.find((line) => line.startsWith('extends'));
+    if (extendLine !== undefined) {
+      const templatePath = path.resolve(pugFile, `../${extendLine.split(' ').pop()}.pug`.replace(/\\/g, '/'));
+      const templateLines = getLines(templatePath);
+      const templateIncludeLines = getIncludeLines(templateLines);
+
+      if (templateIncludeLines.length !== 0) {
+        blocks.push(...getBlockNames(templateIncludeLines));
       }
     }
 
-    const scssFiles = [];
-    const jsFiles = [];
+    return blocks;
+  }
 
-    blocks.forEach((block) => {
-      const blockFolder = path.resolve(this.components, block);
-      if (fs.existsSync(blockFolder)) {
-        let scssFile = path.resolve(blockFolder, `${block}.scss`);
-        scssFile = scssFile.replace(/\\/g, '/');
-        if (fs.existsSync(scssFile)) {
-          scssFiles.push(scssFile);
-        }
+  collectFilesToImport(blockNames) {
+    const filesToImport = [];
 
-        let jsFile = path.resolve(blockFolder, 'init.js');
-        jsFile = jsFile.replace(/\\/g, '/');
-        if (fs.existsSync(jsFile)) {
-          jsFiles.push(jsFile);
-        }
+    const pushFile = (filePath) => {
+      const normalPath = filePath.replace(/\\/g, '/');
+      if (fs.existsSync(normalPath)) {
+        filesToImport.push(normalPath);
+      }
+    };
+
+    blockNames.forEach((block) => {
+      const blockdir = path.resolve(this.componentsDir, block);
+
+      if (fs.existsSync(blockdir)) {
+        const scssFile = path.resolve(blockdir, `${block}.scss`);
+        pushFile(scssFile);
+
+        const jsFile = path.resolve(blockdir, 'init.js');
+        pushFile(jsFile);
       }
     });
 
+    return filesToImport;
+  }
+
+  static importFiles(pugFile, filesToImport) {
     const eslintRules = [
       '/* eslint-disable no-multiple-empty-lines */',
       '/* eslint-disable import/no-duplicates */',
@@ -99,15 +126,9 @@ class AutoImportPlugin {
     ].join('\n');
 
     const autoImportFile = path.resolve(pugFile, '../autoimport.js');
-    fs.writeFile(autoImportFile, eslintRules, () => {
-      scssFiles.forEach((file) => {
-        const importString = `\nimport '${file}';`;
-        fs.appendFileSync(autoImportFile, importString, {
-          flag: 'a',
-        });
-      });
 
-      jsFiles.forEach((file) => {
+    fs.writeFile(autoImportFile, eslintRules, () => {
+      filesToImport.forEach((file) => {
         const importString = `\nimport '${file}';`;
         fs.appendFileSync(autoImportFile, importString, {
           flag: 'a',
@@ -117,16 +138,6 @@ class AutoImportPlugin {
       fs.appendFileSync(autoImportFile, '\n', {
         flag: 'a',
       });
-    });
-  }
-
-  clean() {
-    this.folders.forEach((folder) => {
-      const autoImportFile = path.resolve(path.resolve(this.pages, `${folder}/${folder}.pug`), '../autoimport.js');
-
-      if (fs.existsSync(autoImportFile)) {
-        fs.unlinkSync(autoImportFile);
-      }
     });
   }
 }
