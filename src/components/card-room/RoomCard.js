@@ -1,7 +1,7 @@
-import wordToPlural from '../../helpers/wordToPlural/wordToPlural';
+import 'slick-carousel/slick/slick.min';
+import 'slick-carousel/slick/slick.css';
 
-require('slick-carousel/slick/slick.min');
-require('slick-carousel/slick/slick.css');
+import wordToPlural from '../../helpers/wordToPlural/wordToPlural';
 
 class RoomCard {
   constructor(component) {

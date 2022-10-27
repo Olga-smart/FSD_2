@@ -10,8 +10,8 @@ import './search-room.scss';
 import roomCards from './search-room-data.json';
 import './autoimport';
 
-const filledStar = require('../../../../public/img/star.svg');
-const emptyStar = require('../../../../public/img/star_border.svg');
+import filledStar from '../../../../public/img/star.svg';
+import emptyStar from '../../../../public/img/star_border.svg';
 
 const filtersToggle = document.querySelector('.js-search-room__filters-toggle');
 const filters = document.querySelector('.js-search-room__filters');
