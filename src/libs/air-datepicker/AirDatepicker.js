@@ -1,7 +1,4 @@
-import 'air-datepicker';
-import 'air-datepicker/dist/css/datepicker.min.css';
-
-class Datepicker {
+class AirDatepicker {
   constructor(component) {
     this._initFields(component);
     this._addApplyBtn();
@@ -18,7 +15,7 @@ class Datepicker {
     const arr = [];
 
     [...elements].forEach((element) => {
-      arr.push(new Datepicker(element));
+      arr.push(new AirDatepicker(element));
     });
 
     return arr;
@@ -117,11 +114,11 @@ class Datepicker {
       const [day, month, year] = $(this._component).val().split('.');
       $(this._component).attr('value', `${year}-${month}-${day}`);
     } else if (Array.isArray(event.detail.date)) {
-      const startDate = Datepicker._formatDateForValueAttribute(event.detail.date[0]);
-      const endDate = Datepicker._formatDateForValueAttribute(event.detail.date[1]);
+      const startDate = AirDatepicker._formatDateForValueAttribute(event.detail.date[0]);
+      const endDate = AirDatepicker._formatDateForValueAttribute(event.detail.date[1]);
       $(this._component).attr('value', `${startDate} - ${endDate}`);
     } else {
-      const date = Datepicker._formatDateForValueAttribute(event.detail.date);
+      const date = AirDatepicker._formatDateForValueAttribute(event.detail.date);
       $(this._component).attr('value', date);
     }
   }
@@ -140,9 +137,9 @@ class Datepicker {
   }
 
   _attachEventHandlers() {
-    this._component.addEventListener('keydown', Datepicker._handleKeyDown);
+    this._component.addEventListener('keydown', AirDatepicker._handleKeyDown);
     this._component.addEventListener('input', this._handleInput.bind(this));
   }
 }
 
-export default Datepicker;
+export default AirDatepicker;
