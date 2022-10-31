@@ -10,11 +10,11 @@
   options.attributes - любые атрибуты, которые хотим передать инпуту
 
 mixin range(options = {})    
-  .range
+  .range.js-range
     if options.label
       .range__title= options.label
     .range__output.js-range__output
-    input.js-range-slider(type="text"
+    input.js-range__slider(type="text"
       data-min= options.min
       data-max= options.max
       data-from= options.from

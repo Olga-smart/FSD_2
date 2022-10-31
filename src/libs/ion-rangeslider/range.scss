@@ -1,0 +1,29 @@
+@import 'ion-rangeslider/css/ion.rangeSlider.min.css';
+
+.irs--round {
+  height: 31px;
+  grid-column: 1/3;
+  .irs-line {
+    height: 6px;
+    top: 22px;
+    background-color: #fff;
+    border: 1px solid $primary-light;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .irs-bar {
+    height: 6px;
+    top: 22px;
+    @include gradient($type: secondary);
+  }
+  .irs-handle {
+    @include gradient($type: secondary);
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    top: 17px;
+    box-shadow: none;
+    cursor: pointer;
+  }
+}

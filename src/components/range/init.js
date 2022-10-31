@@ -1,17 +1,8 @@
-import 'ion-rangeslider';
-import 'ion-rangeslider/css/ion.rangeSlider.min.css';
+import IonRangeSlider from '../../libs/ion-rangeslider/init';
 
-const output = document.querySelector('.js-range__output');
-
-$('.js-range-slider').ionRangeSlider({
-  skin: 'round',
-  type: 'double',
-  hide_min_max: true,
-  hide_from_to: true,
-  onStart(data) {
-    output.textContent = `${data.from_pretty}₽ - ${data.to_pretty}₽`;
-  },
-  onChange(data) {
-    output.textContent = `${data.from_pretty}₽ - ${data.to_pretty}₽`;
-  },
+const ranges = document.querySelectorAll('.js-range');
+ranges.forEach((range) => {
+  const input = range.querySelector('.js-range__slider');
+  const output = range.querySelector('.js-range__output');
+  IonRangeSlider.init(input, output);
 });
