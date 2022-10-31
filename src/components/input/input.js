@@ -1,6 +1,4 @@
-/* eslint-disable no-new */
-// Because this is third party plugin
-import Cleave from 'cleave.js';
+import initDateField from '../../libs/cleave/init';
 
 class Input {
   constructor(component) {
@@ -29,11 +27,7 @@ class Input {
       this._input = component.querySelector('.js-input__field');
 
       if (this._input.classList.contains('js-input__field_date')) {
-        new Cleave(this._input, {
-          date: true,
-          delimiter: '.',
-          datePattern: ['d', 'm', 'Y'],
-        });
+        initDateField(this._input);
       }
     }
   }
