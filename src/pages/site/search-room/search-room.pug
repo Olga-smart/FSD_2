@@ -128,7 +128,9 @@ block content
           
       .search-room__cards
         h1.search-room__h1 Номера, которые мы для вас подобрали
-        .search-room__cards-list.pagination__data-container
+        .search-room__cards-list#search-room__cards-list
         
         .search-room__pagination
-          +pagination
+          +pagination({
+            itemsContainer: "search-room__cards-list"
+          })

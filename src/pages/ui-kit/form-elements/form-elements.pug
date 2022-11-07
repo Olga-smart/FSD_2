@@ -213,7 +213,9 @@ block body
           
         .pagination-container
           .form-elements__heading Pagination
-          +pagination
+          +pagination({
+            itemsContainer: "pagination__items-container"
+          })
 
       .dropdown-row.mt-5px    
         .col
@@ -370,6 +372,7 @@ block body
           text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
         })
         
+    #pagination__items-container
     - let n = 0;
     while n++ < 176
       .js-pagination__item
