@@ -64,3 +64,14 @@ To run a production build, run the command:
 ``` bash
 npm run build
 ```
+
+## Deploy
+
+To update the [demo](https://olga-smart.github.io/FSD_2/), run the command:
+``` bash
+npm run deploy
+```
+
+## AutoImportPlugin
+
+The project uses a self-written webpack plugin to automatically import js and scss component files. Please read its [documentation](https://github.com/Olga-smart/FSD_2/blob/master/AutoImportPlugin/readme.md) if you plan to modify this project.
