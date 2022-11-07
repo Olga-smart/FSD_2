@@ -1,4 +1,4 @@
-import IonRangeSlider from '../../libs/ion-rangeslider/init';
+import IonRangeSlider from '../../libs/ion-rangeslider/IonRangeSlider';
 
 const ranges = document.querySelectorAll('.js-range');
 ranges.forEach((range) => {

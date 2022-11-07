@@ -2,7 +2,7 @@
 // Because this is third party plugin
 import Cleave from 'cleave.js';
 
-const initDateField = (element) => {
+const cleaveInit = (element) => {
   new Cleave(element, {
     date: true,
     delimiter: '.',
@@ -10,4 +10,4 @@ const initDateField = (element) => {
   });
 };
 
-export default initDateField;
+export default cleaveInit;

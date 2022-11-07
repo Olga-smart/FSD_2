@@ -1,4 +1,4 @@
-import PaginationJs from '../../libs/paginationjs/init';
+import PaginationJs from '../../libs/paginationjs/PaginationJs';
 
 class Pagination {
   constructor(pagination, items, options) {
