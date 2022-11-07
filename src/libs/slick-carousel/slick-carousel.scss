@@ -1,0 +1,87 @@
+.slick {
+  &-slider {
+    margin-bottom: 0;
+    position: relative;
+    &:hover {
+      .slick-arrow {
+        opacity: 1;
+      }
+    }
+  }
+  &-arrow {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    font-size: 0;
+    height: 100%;
+    width: 3rem;
+    border: none;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0.64rem;
+      height: 0.64rem;
+      top: calc(50% - 0.32rem);
+      border: {
+        top: 2px solid #fff;
+        left: 2px solid #fff; 
+      }
+    }
+  }
+  &-prev {
+    left: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);  
+    &::before {
+      left: 1.43rem;
+      transform: rotate(-45deg);
+    }
+  }
+  &-next {
+    right: 0;
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+    &::before {
+      right: 1.43rem;
+      transform: rotate(135deg);
+    }
+  }
+  &-dots {
+    position: absolute;
+    right: 1.07rem;
+    bottom: 1.07rem;
+    display: flex;
+    list-style-type: none;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    li {
+      display: block;
+      margin-left: 0.27rem;
+      font-size: 0;
+      &.slick-active {
+        button {
+          background-color: #fff;
+        }
+      }
+      button {
+        width: 0.54rem;
+        height: 0.54rem;
+        padding: 0;
+        background-color: transparent;
+        border: 1px solid #fff {
+          radius: 50%;
+        }
+        font-size: 0;
+        box-shadow: 0 5px 5px rgba($primary-very-dark, 0.3);
+        cursor: pointer;
+        &::before {
+          display: none !important;
+        }
+      }
+    }      
+  }
+}
+

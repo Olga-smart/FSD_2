@@ -1,11 +1,11 @@
-import 'slick-carousel/slick/slick.min';
-import 'slick-carousel/slick/slick.css';
+import SlickCarousel from '../../libs/slick-carousel/SlickCarousel';
 
 import wordToPlural from '../../helpers/wordToPlural/wordToPlural';
 
 class RoomCard {
   constructor(component) {
     this._initFields(component);
+    SlickCarousel.init('.js-card-room__slider');
   }
 
   static init(elements) {
@@ -24,11 +24,6 @@ class RoomCard {
     this._commentsElement = component.querySelector('.js-card-room__comments');
     this._commentsNumber = Number(this._commentsElement.textContent);
     this._commentsElement.dataset.word = wordToPlural(this._commentsNumber, ' Отзыв', ' Отзыва', ' Отзывов');
-
-    this._slider = component.querySelector('.js-card-room__slider');
-    $(this._slider).slick({
-      dots: true,
-    });
   }
 }
 
