@@ -72,6 +72,8 @@ To update the [demo](https://olga-smart.github.io/FSD_2/), run the command:
 npm run deploy
 ```
 
+> 📌 You need to have build folder with generated files to run this command. So if you don't have build folder [make a build](#making-the-build) before. 
+
 ## AutoImportPlugin
 
 The project uses a self-written webpack plugin to automatically import js and scss component files. Please read its [documentation](https://github.com/Olga-smart/FSD_2/blob/master/AutoImportPlugin/readme.md) if you plan to modify this project.
