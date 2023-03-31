@@ -1,16 +1,3 @@
-//-
-  options.number - номер комнаты
-  options.lux - является ли комната люксом (true/false, можно не указывать, если false)
-  options.price - цена за сутки
-  options.arrival - дата прибытия ("гггг-мм-дд")
-  options.departure - дата выезда ("гггг-мм-дд")
-  options.adults - дефолтное кол-во взрослых (опционально)
-  options.children - дефолтное кол-во детей (опционально)
-  options.babies - дефолтное кол-во младенцев (опционально)
-  options.serviceFee - сбор за услуги (в рублях)
-  options.discount - скидка (в рублях)
-  options.additionalServiceFee - сбор за доп. услуги
-  
 include ../../components/input/input
 include ../../components/button/button
 include ../../components/datepicker/datepicker
@@ -20,27 +7,41 @@ include ../../components/dropdown/dropdown
   - let n = num.toString()
   - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
 
-mixin card-booking(options)
+mixin card-booking(options = {})
+  - 
+    const {
+      number = 1,
+      lux = false,
+      price = 9990,
+      arrival = "2021-08-19",
+      departure = "2021-08-23",
+      adults = 1,
+      children = 0,
+      babies = 0,
+      serviceFee = 0,
+      discount = 0,
+      additionalServiceFee = 0
+    } = options
 
   - let numberClass = 'card-booking__number'
-  if (options.lux)
+  if (lux)
     - numberClass += ' card-booking__number_lux'
 
   form.card-booking.js-card-booking
-    span(class = numberClass)= options.number   
-    span.card-booking__price.js-card-booking__price !{prettifyPrice(options.price)}₽
+    span(class = numberClass)= number   
+    span.card-booking__price.js-card-booking__price !{prettifyPrice(price)}₽
 
     +datepicker({
       inputClass: "card-booking__arrival js-card-booking__arrival",
       label: "прибытие",
-      value: options.arrival,
+      value: arrival,
       type: "start"
     })
 
     +datepicker({
       inputClass: "card-booking__departure js-card-booking__departure",
       label: "выезд",
-      value: options.departure,
+      value: departure,
       type: "end"
     })
 
@@ -48,40 +49,40 @@ mixin card-booking(options)
       +dropdown({
         label: "гости",
         type: "guests",
-        adultsDefaultCount: options.adults,
-        childrenDefaultCount: options.children,
-        babiesDefaultCount: options.babies
+        adultsDefaultCount: adults,
+        childrenDefaultCount: children,
+        babiesDefaultCount: babies
       })  
   
     - let days = 0;
-    if (options.arrival && options.departure)
-      - days = ( Date.parse(options.departure) - Date.parse(options.arrival) ) / (1000 * 3600 * 24)
+    if (arrival && departure)
+      - days = ( Date.parse(departure) - Date.parse(arrival) ) / (1000 * 3600 * 24)
     
     table.card-booking__calculation
       tbody
         tr          
-          td !{prettifyPrice(options.price)}₽ х 
+          td !{prettifyPrice(price)}₽ х 
             span.card-booking__days.js-card-booking__days !{days}
             if ([1, 21, 31, 41, 51, 61, 71, 81, 91].includes(days))
               span.card-booking__days-word.js-card-booking__days-word  сутки
             else
               span.card-booking__days-word.js-card-booking__days-word  суток
-          td.card-booking__price-for-x-days.js-card-booking__price-for-x-days !{prettifyPrice(options.price * days)}₽
+          td.card-booking__price-for-x-days.js-card-booking__price-for-x-days !{prettifyPrice(price * days)}₽
         tr
           td.card-booking__service-fee-label Сбор за услуги: 
-            if (options.discount)
-              span.card-booking__discount.js-card-booking__discount скидка !{prettifyPrice(options.discount)}₽
+            if (discount)
+              span.card-booking__discount.js-card-booking__discount скидка !{prettifyPrice(discount)}₽
             .card-booking__info-icon.js-card-booking__info-icon(data-tooltip="Подсказка по сборам за услуги") i 
-          td.card-booking__service-fee.js-card-booking__service-fee !{prettifyPrice(options.serviceFee)}₽
+          td.card-booking__service-fee.js-card-booking__service-fee !{prettifyPrice(serviceFee)}₽
         tr   
           td.card-booking__additional-service-fee-label Сбор за дополнительные услуги
             .card-booking__info-icon.js-card-booking__info-icon(data-tooltip="Подсказка по сборам за доп. услуги") i
-          td.card-booking__additional-service-fee.js-card-booking__additional-service-fee !{prettifyPrice(options.additionalServiceFee)}₽
+          td.card-booking__additional-service-fee.js-card-booking__additional-service-fee !{prettifyPrice(additionalServiceFee)}₽
       tfoot
         tr
           td 
             span Итого
-          td.card-booking__total.js-card-booking__total !{prettifyPrice( options.price * days + options.serviceFee - options.discount + options.additionalServiceFee )}₽
+          td.card-booking__total.js-card-booking__total !{prettifyPrice( price * days + serviceFee - discount + additionalServiceFee )}₽
 
     .card-booking__submit
       +button({
