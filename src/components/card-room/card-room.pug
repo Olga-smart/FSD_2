@@ -1,28 +1,33 @@
-//-
-  options.images - массив путей к изображениям для слайдера
-  options.number - номер комнаты
-  options.lux - является ли комната люксом (true/false, можно не указывать, если false)
-  options.price - цена за сутки
-  options.rate - рейтинг (0 - 5, по умолчанию 0)
-  options.comments - количество отзывов (по умолчанию 0)
-
 include ../../components/rate/rate
 
 - function prettifyPrice(num)
   - let n = num.toString()
   - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
 
-mixin card-room(options)
+mixin card-room(options = {})
+  -
+    const {
+      images = [
+        "https://loremflickr.com/320/240/room,hotel?random=1",
+        "https://loremflickr.com/320/240/room,hotel?random=2",
+        "https://loremflickr.com/320/240/room,hotel?random=3"
+      ],
+      number = 1,
+      lux = false,
+      price = 9990,
+      rate = 0,
+      comments = 0
+    } = options
 
   - let numberClass = 'card-room__number'
-  if (options.lux)
+  if (lux)
     - numberClass += ' card-room__number_lux'
 
-  - let commentsNumber = options.comments || 0 
+  - let commentsNumber = comments || 0 
 
   .card-room.js-card-room
     .card-room__slider.js-card-room__slider
-      each img in options.images
+      each img in images
         img.card-room__img(
           src = img
           alt = "Фото номера"
@@ -30,11 +35,11 @@ mixin card-room(options)
           height = 152
         )
     .card-room__info
-      span(class = numberClass)= options.number
-      span.card-room__price !{prettifyPrice(options.price)}₽ 
+      span(class = numberClass)= number
+      span.card-room__price !{prettifyPrice(price)}₽ 
       .card-room__line
       +rate({
-        value: options.rate
+        value: rate
       })
       span.card-room__comments.js-card-room__comments(
         data-word = ' Отзывов'
