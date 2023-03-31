@@ -1,11 +1,12 @@
-//- 
-  options.title - заголовок списка (опционален)
-  options.items - массив пунктов списка
+mixin bullet-list(options = {})
+  - 
+    const {
+      title = "Заголовок списка",
+      items = ["пункт 1", "пункт 2", "пункт 3"]
+    } = options
 
-mixin bullet-list(options)    
   .bullet-list
-    if (options.title)
-      .bullet-list__title= options.title
+    .bullet-list__title= title
     ul.bullet-list__list
-      - for (let item of options.items)
+      - for (let item of items)
         li.bullet-list__item !{item}
