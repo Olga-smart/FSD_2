@@ -1,29 +1,34 @@
-//-
-  options.title - заголовок списка (опционален)
-  options.uniqueName - уникальное имя для генерации id инпутов
-  options.items - массив объектов пунктов
-  options.items[0].label - текст пункта
-  options.items[0].checked - состояние соответствующего чекбокса (true/false, по умолчанию false)
-  options.listClass - дополнительный класс, который хотим примиксовать к контейнеру списка (не рекомендуется)
-  options.rowGap - расстояние между пунктами списка (пока доступно 1 значение - "small")
-
 include ../../components/input/input
 
-mixin checklist(options)
+mixin checklist(options = {})
+  - 
+    const {
+      title = "",
+      uniqueName = "uniqueName",
+      items = [
+        {label: "пункт 1", checked: true},
+        {label: "пункт 2", checked: false},
+        {label: "пункт 3", checked: true}
+      ],
+      rowGap = undefined
+    } = options
+
   .checklist
-    if (options.title)
-      .checklist__title= options.title
+    if (title)
+      .checklist__title= title
 
-    - listClass = options.listClass || ""
+    - listClass = ""
 
-    if options.rowGap
-      - listClass += listClass ? ` checklist__list_row-gap_${options.rowGap}` : `checklist__list_row-gap_${options.rowGap}`
+    - const possibleRowGaps = ["small"]
+
+    if (rowGap && possibleRowGaps.includes(rowGap))
+      - listClass = `checklist__list_row-gap_${rowGap}`
 
     .checklist__list(class = listClass)
-      - for (let i = 0; i < options.items.length; i++)
+      - for (let i = 0; i < items.length; i++)
         +input({
-          label: options.items[i].label,
+          label: items[i].label,
           type: "checkbox",
-          checked: options.items[i].checked,
-          inputId: options.uniqueName + "-" + i
+          checked: items[i].checked,
+          inputId: `${uniqueName}-${i + 1}`
         })
