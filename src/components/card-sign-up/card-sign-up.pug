@@ -1,17 +1,26 @@
 include ../../components/input/input
 include ../../components/button/button
 
-//-
-  options.class - дополнительный класс (не рекомендуется)
-  options.view - декоративная опция (пока доступно 1 значение - "over-image")
-
 mixin card-sign-up(options = {})
-  - blockClass = options.class || ""
+  - 
+    const {
+      view = undefined
+    } = options
+  
+  - classArray = []
 
-  if options.view
-    - blockClass += blockClass ? ` card-sign-up_${options.view}` : `card-sign-up_${options.view}`
+  - const possibleViews = ["over-image"]
+
+  if (view)
+    if ( Array.isArray(view) )      
+      - for (let item of view)
+        if (possibleViews.includes(item))
+          - classArray.push("card-sign-up_" + item)
+    else
+      if (possibleViews.includes(view))
+        - classArray.push("card-sign-up_" + view)
     
-  form.card-sign-up(class = blockClass)
+  form.card-sign-up(class = classArray.join(" "))
     .card-sign-up__title Регистрация аккаунта
     +input({
       placeholder: "Имя",
