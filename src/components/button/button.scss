@@ -13,14 +13,19 @@
   text: {
     align: center;
     decoration: none;
-    transform: uppercase;
+    -webkit-transform: uppercase;
+        -ms-transform: uppercase;
+            transform: uppercase;
   }
   color: $accent-main;
   display: inline-block;
   line-height: normal;
   cursor: pointer;
-  &:hover, &_hovered {
+  &:hover, &:disabled {
     color: $primary-medium;
+  }
+  &:disabled {
+    cursor: default;
   }
   &[hidden] {
     display: none;
@@ -30,7 +35,7 @@
     color: #fff;
     @include gradient;
     padding: 1rem 1.36rem;
-    &:hover, &_hovered {
+    &:hover, &:disabled {
       color: #fff;
       opacity: 0.5;
     }
@@ -45,7 +50,7 @@
       padding: calc(1rem - 2px) calc(1.36rem - 2px);
       border-radius: inherit;
     }
-    &:hover, &_hovered {
+    &:hover, &:disabled {
       color: $accent-main;
       @include gradient($opacity: 0.5);
     }
@@ -65,7 +70,9 @@
       background-size: contain;
       right: 0.93rem;
       top: 50%;
-      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
     }
   }
   &_height_small {
