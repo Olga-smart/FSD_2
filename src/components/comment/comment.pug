@@ -1,39 +1,37 @@
-//-
-  options.avatar - аватарка автора (опционально)
-  options.name - имя автора
-  options.date - дата отзыва ("гггг-мм-дд")
-  options.like - объект с количеством лайков (опционально)
-  options.like.value - количество лайков (по умолчанию 0)
-  options.like.checked - состояние чекбокса (true/false, по умолчанию false)  
-  options.text - текст отзыва
-
 include ../../components/like/like
 
-mixin comment(options)
+mixin comment(options = {})
+  -
+    const {
+      avatar = undefined,
+      name = "Имя автора",
+      date = "2021-08-23",
+      like = {value: 0, checked: false},
+      text = "Текст отзыва"
+    } = options
+    
   .comment.js-comment
-    if options.avatar
+    if avatar
       img.comment__avatar(
-        src = options.avatar
+        src = avatar
         alt = "Аватарка автора"
         width = 50
         height = 50
       )
     else
-      - let avatarLetter = options.name[0]
+      - let avatarLetter = name[0]
       .comment__avatar !{avatarLetter} 
     div
-      p.comment__name= options.name
+      p.comment__name= name
       time.comment__date.js-comment__date(
-        datetime = options.date
-      )= options.date
+        datetime = date
+      )= date
     .comment__like
-      if !options.like
-        - options.like = {}
       +like({
-        value: options.like.value,
-        checked: options.like.checked
+        value: like.value,
+        checked: like.checked
       }) 
-    .comment__text= options.text 
+    .comment__text= text 
     
     
     
