@@ -14,7 +14,7 @@ block body
       include ../../../components/card-sign-up/card-sign-up
       include ../../../components/card-booking/card-booking
       include ../../../components/card-sign-in/card-sign-in
-      include ../../../components/datepicker/datepicker
+      include ../../../components/calendar/calendar
       include ../../../components/card-room/card-room
       
       .col
@@ -30,8 +30,10 @@ block body
           serviceFee: 0,
           discount: 2179,
           additionalServiceFee: 300,
-          arrival: "2021-08-19",
-          departure: "2021-08-23"
+          arrival: "2024-08-19",
+          departure: "2024-08-23",
+          idForInputStart: "cardBookingStart",
+          idForInputEnd: "cardBookingEnd"
         })
         +card-sign-in
       

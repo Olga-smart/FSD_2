@@ -1,6 +1,6 @@
 @import '../../styles/mixins-and-templates.scss';
 @import '../button/button.scss';
-@import '../datepicker/datepicker.scss';
+@import '../calendar/calendar.scss';
 @import '../dropdown/dropdown.scss';
 
 .card-find-room {
@@ -8,7 +8,9 @@
   display: grid;
   grid: {
     template-columns: 1fr 1fr;
-    column-gap: 1.43rem;
+    -webkit-column-gap: 1.43rem;
+       -moz-column-gap: 1.43rem;
+            column-gap: 1.43rem;
     row-gap: 1.3rem; 
   }
   &_over-image {

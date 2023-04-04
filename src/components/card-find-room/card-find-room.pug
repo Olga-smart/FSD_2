@@ -1,11 +1,14 @@
-include ../../components/datepicker/datepicker
+include ../../components/calendar/calendar
 include ../../components/dropdown/dropdown
 include ../../components/button/button
 
 mixin card-find-room(options = {})
   - 
     const {
-      view = undefined
+      view = undefined,
+      idForInputStart = undefined,
+      idForInputEnd = undefined,
+
     } = options
 
   - classArray = []
@@ -22,14 +25,18 @@ mixin card-find-room(options = {})
         - classArray.push("card-find-room_" + view)
 
   form.card-find-room(class = classArray.join(" "))
-    .card-find-room__title Найдём номера под ваши пожелания    
-    +datepicker({
+    .card-find-room__title Найдём номера под ваши пожелания
+    +calendar({
       type: "start",
-      label: "прибытие"
+      label: "прибытие",
+      id: idForInputStart || "calendarStart",
+      relatedInput: idForInputEnd || "calendarEnd"
     })
-    +datepicker({
+    +calendar({
       type: "end",
-      label: "выезд"
+      label: "выезд",
+      id: idForInputEnd || "calendarEnd",
+      relatedInput: idForInputStart || "calendarStart"
     })
     .card-find-room__guests
       +dropdown({

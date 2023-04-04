@@ -17,8 +17,8 @@ class CardBooking {
   _initFields(component) {
     this._component = component;
 
-    this._inputArrival = component.querySelector('.js-card-booking__arrival');
-    this._inputDeparture = component.querySelector('.js-card-booking__departure');
+    this._inputArrival = component.querySelector('.js-card-booking__arrival input');
+    this._inputDeparture = component.querySelector('.js-card-booking__departure input');
     this._dateArrival = undefined;
     this._dateDeparture = undefined;
 

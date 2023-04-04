@@ -1,5 +1,5 @@
 import '../input/init';
-import '../datepicker/init';
+import '../calendar/init';
 import '../dropdown/init';
 import CardBooking from './CardBooking';
 

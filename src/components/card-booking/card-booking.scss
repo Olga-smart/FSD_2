@@ -2,7 +2,7 @@
 @import '../../styles/mixins-and-templates.scss';
 @import '../button/button.scss';
 @import '../input/input.scss';
-@import '../datepicker/datepicker.scss';
+@import '../calendar/calendar.scss';
 @import '../dropdown/dropdown.scss';
 
 .card-booking {
@@ -10,10 +10,14 @@
   display: grid;
   grid: {
     row-gap: 1.15rem;
-    column-gap: 1.43rem;
+    -webkit-column-gap: 1.43rem;
+       -moz-column-gap: 1.43rem;
+            column-gap: 1.43rem;
     template-columns: 1fr 1fr; 
   }
-  align-items: baseline;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   &__guests, &__calculation, &__submit {
     grid-column: 1/-1;
   }

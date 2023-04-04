@@ -1,6 +1,6 @@
 include ../../components/input/input
 include ../../components/button/button
-include ../../components/datepicker/datepicker
+include ../../components/calendar/calendar
 include ../../components/dropdown/dropdown
 
 - function prettifyPrice(num)
@@ -20,7 +20,9 @@ mixin card-booking(options = {})
       babies = 0,
       serviceFee = 0,
       discount = 0,
-      additionalServiceFee = 0
+      additionalServiceFee = 0,
+      idForInputStart = undefined,
+      idForInputEnd = undefined,
     } = options
 
   - let numberClass = 'card-booking__number'
@@ -31,19 +33,23 @@ mixin card-booking(options = {})
     span(class = numberClass)= number   
     span.card-booking__price.js-card-booking__price !{prettifyPrice(price)}₽
 
-    +datepicker({
-      inputClass: "card-booking__arrival js-card-booking__arrival",
-      label: "прибытие",
-      value: arrival,
-      type: "start"
-    })
-
-    +datepicker({
-      inputClass: "card-booking__departure js-card-booking__departure",
-      label: "выезд",
-      value: departure,
-      type: "end"
-    })
+    .js-card-booking__arrival
+      +calendar({
+        label: "прибытие",
+        value: arrival,
+        type: "start",
+        id: idForInputStart || "calendarStart",
+        relatedInput: idForInputEnd || "calendarEnd"
+      })
+    
+    .js-card-booking__departure
+      +calendar({
+        label: "выезд",
+        value: departure,
+        type: "end",
+        id: idForInputEnd || "calendarEnd",
+        relatedInput: idForInputStart || "calendarStart"
+      })
 
     .card-booking__guests
       +dropdown({

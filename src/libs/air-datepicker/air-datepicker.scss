@@ -3,10 +3,12 @@
 .datepicker {
   width: 320px;
   border: 1px solid $primary-light;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: inherit;
   padding: 1.43rem;
-  box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
+  -webkit-box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
+          box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
   &--pointer {
     display: none;
   }
@@ -105,10 +107,22 @@
       &.-selected- {
         &.-range-from- {
           background: 
+            -o-linear-gradient(left, #fff 50%, transparent 50%),
+            -o-linear-gradient(top, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
+          background: 
+            -webkit-gradient(linear, left top, right top, color-stop(50%, #fff), color-stop(50%, transparent)),
+            -webkit-gradient(linear, left top, left bottom, from(transparentize($accent-main, 0.75)), to(transparentize($accent-main-additional, 0.75)));
+          background: 
             linear-gradient(to right, #fff 50%, transparent 50%),
             linear-gradient(to bottom, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
         }
         &.-range-to- {
+          background: 
+            -o-linear-gradient(right, #fff 50%, transparent 50%),
+            -o-linear-gradient(top, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
+          background: 
+            -webkit-gradient(linear, right top, left top, color-stop(50%, #fff), color-stop(50%, transparent)),
+            -webkit-gradient(linear, left top, left bottom, from(transparentize($accent-main, 0.75)), to(transparentize($accent-main-additional, 0.75)));
           background: 
             linear-gradient(to left, #fff 50%, transparent 50%),
             linear-gradient(to bottom, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
@@ -142,10 +156,22 @@
     }
     &.-range-from- {
       background: 
+        -o-linear-gradient(left, #fff 50%, transparent 50%),
+        -o-linear-gradient(top, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
+      background: 
+        -webkit-gradient(linear, left top, right top, color-stop(50%, #fff), color-stop(50%, transparent)),
+        -webkit-gradient(linear, left top, left bottom, from(transparentize($accent-main, 0.75)), to(transparentize($accent-main-additional, 0.75)));
+      background: 
         linear-gradient(to right, #fff 50%, transparent 50%),
         linear-gradient(to bottom, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
       border: none;
       &.-focus- {
+        background: 
+        -o-linear-gradient(left, #fff 50%, transparent 50%),
+        -o-linear-gradient(top, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
+        background: 
+        -webkit-gradient(linear, left top, right top, color-stop(50%, #fff), color-stop(50%, transparent)),
+        -webkit-gradient(linear, left top, left bottom, from(transparentize($accent-main, 0.75)), to(transparentize($accent-main-additional, 0.75)));
         background: 
         linear-gradient(to right, #fff 50%, transparent 50%),
         linear-gradient(to bottom, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
@@ -153,10 +179,22 @@
     }
     &.-range-to- {
       background: 
+        -o-linear-gradient(right, #fff 50%, transparent 50%),
+        -o-linear-gradient(top, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
+      background: 
+        -webkit-gradient(linear, right top, left top, color-stop(50%, #fff), color-stop(50%, transparent)),
+        -webkit-gradient(linear, left top, left bottom, from(transparentize($accent-main, 0.75)), to(transparentize($accent-main-additional, 0.75)));
+      background: 
         linear-gradient(to left, #fff 50%, transparent 50%),
         linear-gradient(to bottom, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
       border: none;
       &.-focus- {
+        background: 
+          -o-linear-gradient(right, #fff 50%, transparent 50%),
+          -o-linear-gradient(top, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
+        background: 
+          -webkit-gradient(linear, right top, left top, color-stop(50%, #fff), color-stop(50%, transparent)),
+          -webkit-gradient(linear, left top, left bottom, from(transparentize($accent-main, 0.75)), to(transparentize($accent-main-additional, 0.75)));
         background: 
           linear-gradient(to left, #fff 50%, transparent 50%),
           linear-gradient(to bottom, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
@@ -171,12 +209,16 @@
   }
   &--buttons {
     border-top: none;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 0;
     margin-top: 1.3rem;
   }
   &--button {
-    flex-grow: 0;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
     height: auto;
     color: $accent-main;
     &:hover {
@@ -187,18 +229,6 @@
 
 .datepicker-inline .datepicker {
   border: 1px solid $primary-light;
-  box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
+  -webkit-box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
+          box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
 }
-
-.double-datepicker-wrap {
-  display: grid;
-  grid: {
-    template-columns: 1fr 1fr;
-    column-gap: 1.43rem;
-  }  
-}
-
-.datepicker-here {
-  cursor: pointer;
-}
-

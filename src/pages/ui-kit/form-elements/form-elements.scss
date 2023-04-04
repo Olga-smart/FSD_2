@@ -41,11 +41,21 @@
   .expanded-dropdown::before {
     content: 'expanded'
   }
+  .double-datepicker-wrap {
+    display: grid;
+    grid: {
+      template-columns: 1fr 1fr;
+      -webkit-column-gap: 1.43rem;
+         -moz-column-gap: 1.43rem;
+              column-gap: 1.43rem;
+    }
+  }
   
   .col {
     display: grid;
     grid-gap: 1.21rem;
-    align-content: start;
+    -ms-flex-line-pack: start;
+        align-content: start;
   }
   .col-266 {
     width: 266px;
@@ -80,10 +90,14 @@
     display: grid;
     grid: {
       template-columns: auto auto;
-      column-gap: 1.43rem;
+      -webkit-column-gap: 1.43rem;
+         -moz-column-gap: 1.43rem;
+              column-gap: 1.43rem;
       row-gap: 1.14rem; 
     }
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     .form-elements__heading {
       grid-column: 1/-1;
     }
@@ -96,10 +110,14 @@
     display: grid;
     grid: {
       template-columns: auto auto;
-      column-gap: 0.71rem;
+      -webkit-column-gap: 0.71rem;
+         -moz-column-gap: 0.71rem;
+              column-gap: 0.71rem;
       row-gap: 1.14rem; 
     }
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     .form-elements__heading {
       grid-column: 1/-1;
     }
@@ -108,10 +126,14 @@
     display: grid;
     grid: {
       template-columns: auto auto;
-      column-gap: 1.79rem;
+      -webkit-column-gap: 1.79rem;
+         -moz-column-gap: 1.79rem;
+              column-gap: 1.79rem;
       row-gap: 1.14rem; 
     }
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     .form-elements__heading {
       grid-column: 1/-1;
     }
@@ -124,15 +146,21 @@
     display: grid;
     grid: {
       template-columns: auto auto;
-      column-gap: 1.43rem; 
+      -webkit-column-gap: 1.43rem;
+         -moz-column-gap: 1.43rem;
+              column-gap: 1.43rem; 
     }
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     margin-bottom: 1.1rem;
   }
   .pagination-container {
     display: grid;
     grid-row-gap: 1.07rem;
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
   
   .dropdown-row {
@@ -140,7 +168,9 @@
     grid: {
       column: 1/-1;
       template-columns: repeat(3, 320px);
-      column-gap: 100px; 
+      -webkit-column-gap: 100px;
+         -moz-column-gap: 100px;
+              column-gap: 100px; 
     }
     padding-bottom: 72px;
   }

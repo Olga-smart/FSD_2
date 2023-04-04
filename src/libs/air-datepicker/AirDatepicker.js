@@ -1,10 +1,11 @@
 class AirDatepicker {
   constructor(component) {
     this._initFields(component);
-    this._addApplyBtn();
-    this._addStyleForBtns();
+    this._addClassToInput();
+    this._addApplyButton();
+    this._addStyleForButtons();
 
-    if (this._component.defaultValue) {
+    if (this._input.defaultValue) {
       this._setDefaultDate();
     }
 
@@ -23,6 +24,7 @@ class AirDatepicker {
 
   _initFields(component) {
     this._component = component;
+    this._input = component.querySelector('input');
 
     const options = {
       clearButton: true,
@@ -36,8 +38,8 @@ class AirDatepicker {
       },
       range: true,
       multipleDatesSeparator: ' - ',
-      onSelect(fd, d) {
-        component.dispatchEvent(new CustomEvent('input', {
+      onSelect: (fd, d) => {
+        this._input.dispatchEvent(new CustomEvent('input', {
           detail: {
             date: d,
             formattedDate: fd,
@@ -46,42 +48,51 @@ class AirDatepicker {
       },
     };
 
-    if (component.classList.contains('date-start')) {
+    if (component.classList.contains('js-calendar_start')) {
       options.onSelect = (fd, d) => {
-        $(component).val(fd.split(' - ')[0]);
+        const dateEnd = document.getElementById(this._input.dataset.relatedInput);
 
-        const dateEnd = component.parentElement.parentElement.nextElementSibling.querySelector('.date-end');
-        $(dateEnd).val(fd.split(' - ')[1]);
+        if (dateEnd) {
+          $(this._input).val(fd.split(' - ')[0]);
+          $(dateEnd).val(fd.split(' - ')[1]);
 
-        if (d[0] && d[1]) {
-          this._component.dispatchEvent(new Event('input'));
-          dateEnd.dispatchEvent(new Event('input'));
+          if (d[0] && d[1]) {
+            this._input.dispatchEvent(new Event('input'));
+            dateEnd.dispatchEvent(new Event('input'));
+          }
         }
       };
     }
 
-    if (component.classList.contains('date-end')) {
+    if (component.classList.contains('js-calendar_end')) {
       options.onSelect = (fd, d) => {
-        const dateStart = component.parentElement.parentElement.previousElementSibling.querySelector('.date-start');
-        $(dateStart).val(fd.split(' - ')[0]);
+        const dateStart = document.getElementById(this._input.dataset.relatedInput);
 
-        $(component).val(fd.split(' - ')[1]);
+        if (dateStart) {
+          $(dateStart).val(fd.split(' - ')[0]);
+          $(this._input).val(fd.split(' - ')[1]);
 
-        if (d[0] && d[1]) {
-          dateStart.dispatchEvent(new Event('input'));
-          this._component.dispatchEvent(new Event('input'));
+          if (d[0] && d[1]) {
+            dateStart.dispatchEvent(new Event('input'));
+            this._input.dispatchEvent(new Event('input'));
+          }
         }
       };
       options.position = 'bottom right';
     }
 
-    $(component).datepicker(options);
+    $(this._input).datepicker(options);
 
-    this._calendar = $(component).data('datepicker');
+    this._calendar = $(this._input).data('datepicker');
     [this._calendarElement] = this._calendar.$datepicker;
   }
 
-  _addApplyBtn() {
+  _addClassToInput() {
+    // this class is required for calendar to work correctly with 2 inputs
+    this._input.classList.add('datepicker-here');
+  }
+
+  _addApplyButton() {
     const applyBtn = document.createElement('button');
     applyBtn.textContent = 'Применить';
     applyBtn.className = 'datepicker--button button';
@@ -91,35 +102,35 @@ class AirDatepicker {
     btnsContainer.append(applyBtn);
   }
 
-  _addStyleForBtns() {
-    const btns = this._calendarElement.querySelectorAll('.datepicker--button');
-    [...btns].forEach((btn) => {
-      btn.classList.add('button');
+  _addStyleForButtons() {
+    const buttons = this._calendarElement.querySelectorAll('.datepicker--button');
+    [...buttons].forEach((button) => {
+      button.classList.add('button');
     });
   }
 
   _setDefaultDate() {
-    if (this._component.defaultValue.includes(' - ')) {
+    if (this._input.defaultValue.includes(' - ')) {
       this._calendar.selectDate([
-        new Date(Date.parse(this._component.defaultValue.slice(0, 10))),
-        new Date(Date.parse(this._component.defaultValue.slice(13))),
+        new Date(Date.parse(this._input.defaultValue.slice(0, 10))),
+        new Date(Date.parse(this._input.defaultValue.slice(13))),
       ]);
     } else {
-      this._calendar.selectDate(new Date(Date.parse(this._component.defaultValue)));
+      this._calendar.selectDate(new Date(Date.parse(this._input.defaultValue)));
     }
   }
 
   _handleInput(event) {
-    if (this._component.classList.contains('date-start') || this._component.classList.contains('date-end')) {
-      const [day, month, year] = $(this._component).val().split('.');
-      $(this._component).attr('value', `${year}-${month}-${day}`);
+    if (this._component.classList.contains('js-calendar_start') || this._component.classList.contains('js-calendar_end')) {
+      const [day, month, year] = $(this._input).val().split('.');
+      $(this._input).attr('value', `${year}-${month}-${day}`);
     } else if (Array.isArray(event.detail.date)) {
       const startDate = AirDatepicker._formatDateForValueAttribute(event.detail.date[0]);
       const endDate = AirDatepicker._formatDateForValueAttribute(event.detail.date[1]);
-      $(this._component).attr('value', `${startDate} - ${endDate}`);
+      $(this._input).attr('value', `${startDate} - ${endDate}`);
     } else {
       const date = AirDatepicker._formatDateForValueAttribute(event.detail.date);
-      $(this._component).attr('value', date);
+      $(this._input).attr('value', date);
     }
   }
 
@@ -137,8 +148,8 @@ class AirDatepicker {
   }
 
   _attachEventHandlers() {
-    this._component.addEventListener('keydown', AirDatepicker._handleKeyDown);
-    this._component.addEventListener('input', this._handleInput.bind(this));
+    this._input.addEventListener('keydown', AirDatepicker._handleKeyDown);
+    this._input.addEventListener('input', this._handleInput.bind(this));
   }
 }
 

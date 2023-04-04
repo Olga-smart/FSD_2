@@ -13,7 +13,7 @@ block body
       include ../../../components/input/input
       include ../../../components/dropdown/dropdown
       include ../../../components/button/button
-      include ../../../components/datepicker/datepicker
+      include ../../../components/calendar/calendar
       include ../../../components/checklist/checklist
       include ../../../components/like/like
       include ../../../components/rate/rate
@@ -53,22 +53,26 @@ block body
           })
 
           .double-datepicker-wrap
-            +datepicker({
+            +calendar({
               label: "date dropdown",
-              type: "start"
+              type: "start",
+              id: "calendarStart",
+              relatedInput: "calendarEnd"
             })
 
-            +datepicker({
+            +calendar({
               label: "date dropdown",
               type: "end",
-              value: "2021-08-18"
+              value: "2024-08-19",
+              id: "calendarEnd",
+              relatedInput: "calendarStart"
             })
         
           .col-266.gap-40px
-            +datepicker({
+            +calendar({
               label: "filter date dropdown",
-              value: "2021-08-19 - 2021-08-23",
-              attributes: {
+              value: "2024-08-19 - 2024-08-23",
+              attributesObject: {
                 "data-date-format": "d M"
               }
             })

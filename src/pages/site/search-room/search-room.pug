@@ -9,7 +9,7 @@ block variables
 
 block content
 
-  include ../../../components/datepicker/datepicker   
+  include ../../../components/calendar/calendar   
   include ../../../components/dropdown/dropdown
   include ../../../components/range/range
   include ../../../components/checklist/checklist
@@ -24,10 +24,10 @@ block content
       .search-room__filters.js-search-room__filters
 
         .search-room__dates
-          +datepicker({
+          +calendar({
             label: "Даты пребывания в отеле",
             value: "2021-08-19 - 2021-08-23",
-            attributes: {
+            attributesObject: {
               "data-date-format": "d M"
             }
           })
