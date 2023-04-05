@@ -1,30 +1,30 @@
-//- 
-  options.great - кол-во голосов "великолепно" 
-  options.good - кол-во голосов "хорошо"
-  options.alright - кол-во голосов "удовлетворительно"
-  options.bad - кол-во голосов "разочарован"
-  
-  На странице должно быть не больше 1 диaграммы, иначе градиенты ломаются (из-за того, что становится несколько одинаковых id на странице и градиенты первой диаграммы, где атрибуты offset вычислены для её значений, применяются применяются ко всем)
+mixin diagram(options = {})
+  -
+    const {
+      great = 0,
+      good = 0,
+      alright = 0,
+      bad = 0
+    } = options
 
-mixin diagram(options)
-  - let badVotes = options.bad || 0
-  - let alrightVotes = options.alright || 0
-  - let goodVotes = options.good || 0
-  - let greatVotes = options.great || 0
+  - const badVotes = bad
+  - const alrightVotes = alright
+  - const goodVotes = good
+  - const greatVotes = great
   
-  - let sumVotes = greatVotes + goodVotes + alrightVotes + badVotes
+  - const sumVotes = greatVotes + goodVotes + alrightVotes + badVotes
   
-  - let badPercent = badVotes * 100 / sumVotes
-  - let alrightPercent = alrightVotes * 100 / sumVotes
-  - let goodPercent = goodVotes * 100 / sumVotes
-  - let greatPercent = greatVotes * 100 / sumVotes
+  - const badPercent = badVotes * 100 / sumVotes
+  - const alrightPercent = alrightVotes * 100 / sumVotes
+  - const goodPercent = goodVotes * 100 / sumVotes
+  - const greatPercent = greatVotes * 100 / sumVotes
   
-  - let badLength = badPercent ? (badPercent == 100 ? badPercent : badPercent - 0.5) : 0
-  - let alrightLength = alrightPercent ? (alrightPercent == 100 ? alrightPercent : alrightPercent - 0.5) : 0
-  - let goodLength = goodPercent ? (goodPercent == 100 ? goodPercent : goodPercent - 0.5) : 0
-  - let greatLength = greatPercent ? (greatPercent == 100 ? greatPercent : greatPercent - 0.5) : 0
+  - const badLength = badPercent ? (badPercent == 100 ? badPercent : badPercent - 0.5) : 0
+  - const alrightLength = alrightPercent ? (alrightPercent == 100 ? alrightPercent : alrightPercent - 0.5) : 0
+  - const goodLength = goodPercent ? (goodPercent == 100 ? goodPercent : goodPercent - 0.5) : 0
+  - const greatLength = greatPercent ? (greatPercent == 100 ? greatPercent : greatPercent - 0.5) : 0
     
-  - let badDashoffset = -75.5
+  - const badDashoffset = -75.5
   - let alrightDashoffset = badDashoffset - badPercent
   - let goodDashoffset = alrightDashoffset - alrightPercent
   - let greatDashoffset = goodDashoffset - goodPercent
@@ -58,6 +58,11 @@ mixin diagram(options)
     .diagram__chart
       svg.diagram__circle(width="100" height="100" viewBox="0 0 33.8 33.8")
       
+        //- There should be no more than 1 diagram on the page, otherwise the gradients break 
+        //- (due to the fact that there are several identical id on the page 
+        //- and the gradients of the first diagram, 
+        //- where the offset attributes are calculated for its values, are applied to all).
+        //- Nothing will break, but it will not be so beautiful.
         defs
           linearGradient#bad(x1="0" x2="0" y1="0" y2="1")
             stop(
