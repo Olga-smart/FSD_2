@@ -1,11 +1,13 @@
-//-
-  options.loggedIn - залогинен ли пользователь (true/false, по умолчанию false)
-  options.userName - имя пользователя (если залогинен)
-
 include ../../components/logo/logo
 include ../../components/button/button
 
 mixin header(options = {})  
+  -
+    const {
+      loggedIn = false,
+      userName = "Юлий Цезарь"
+    } = options
+
   header.header
     .header__container
       nav.header__nav
@@ -64,7 +66,7 @@ mixin header(options = {})
                 a.header__sub-menu-link(
                   href="/mock-address/change-me"
                 ) Соглашение 3
-        if options.loggedIn !== true        
+        if loggedIn !== true        
           ul.header__user-nav    
             li.header__button-sign-in  
               +button({
@@ -87,9 +89,9 @@ mixin header(options = {})
               width = 20
               height = 20
             )
-        if options.loggedIn == true
+        if loggedIn == true
           .header__user-profile
-            button.header__user-name= options.userName
+            button.header__user-name= userName
             button.header__user-icon
               img.header__user-icon-img(
                 src = require("../../../components/header/img/user.svg")
