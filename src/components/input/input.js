@@ -16,8 +16,8 @@ class Input {
   }
 
   static handleDropdownToggle(element) {
-    element.classList.toggle('input__input_dropdown_open');
-    element.classList.toggle('input__input_focused');
+    element.classList.toggle('input__field_dropdown_open');
+    element.classList.toggle('input__field_focused');
   }
 
   _initFields(component) {

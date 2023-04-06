@@ -1,107 +1,99 @@
-//-
-  options.type - тип дропдауна ("guests", "facilities")
-  options.label - заголовок (опционально)
-  options.open - будет ли дропдаун сразу развёрнут (true/false, по умолчанию false)
-  options.class - класс, который хотим примиксовать к .dropdown (не рекомендуется)
-  
-  options.adultsDefaultCount - кол-во взрослых по умолчанию
-  options.adultsMinCount - минимальное кол-во взрослых
-  options.adultsMaxCount - максимальное кол-во взрослых
-  
-  Аналогично для детей:
-  options.childrenDefaultCount
-  options.childrenMinCount
-  options.childrenMaxCount
-  
-  Аналогично для младенцев:
-  options.babiesDefaultCount
-  options.babiesMinCount
-  options.babiesMaxCount
-  
-  Аналогично для спален:
-  options.bedroomsDefaultCount
-  options.bedroomsMinCount
-  options.bedroomsMaxCount
-  
-  Аналогично для кроватей:
-  options.bedsDefaultCount
-  options.bedsMinCount
-  options.bedsMaxCount
-  
-  Аналогично для ванных комнат:
-  options.bathroomsDefaultCount
-  options.bathroomsMinCount
-  options.bathroomsMaxCount
-  
-  options.attributes - любые атрибуты, которые хотим передать обертке .dropdown
-
 include ../../components/input/input
 include ../../components/button/button
 
-mixin dropdown(options)
-  - let classList = options.class || ""
+mixin dropdown(options = {})
+  -
+    let {
+      type = "guests",
+      label = undefined,
+      open = false,
+      adultsDefaultCount = 0,
+      adultsMinCount = 0,
+      adultsMaxCount = 7,
+      childrenDefaultCount = 0,
+      childrenMinCount = 0,
+      childrenMaxCount = 7,
+      babiesDefaultCount = 0,
+      babiesMinCount = 0,
+      babiesMaxCount = 7,
+      bedroomsDefaultCount = 1,
+      bedroomsMinCount = 0,
+      bedroomsMaxCount = 3,
+      bedsDefaultCount = 1,
+      bedsMinCount = 0,
+      bedsMaxCount = 7,
+      bathroomsDefaultCount = 1,
+      bathroomsMinCount = 0,
+      bathroomsMaxCount = 3
+    } = options
+
+  - const possibleTypes = ["guests", "facilities"] 
+  if (!possibleTypes.includes(type))
+    - type = "guests"
+
+  - let blockModifier = ""
 
   - let views = ["arrow_down", "clickable"]
 
-  if options.open 
-    - classList += classList ? " dropdown_menu_open" : "dropdown_menu_open" 
+  if (open) 
+    - blockModifier = "dropdown_menu_open" 
     - views.push("dropdown_open", "focused")
     
   - let items = [];
   - 
-    if (options.type == "guests")
+    if (type === "guests")
       items = [
         {
           label: "взрослые",
-          defaultCount: options.adultsDefaultCount,
-          minCount: options.adultsMinCount,
-          maxCount: options.adultsMaxCount 
+          defaultCount: adultsDefaultCount,
+          minCount: adultsMinCount,
+          maxCount: adultsMaxCount 
         },
         {
           label: "дети",
-          defaultCount: options.childrenDefaultCount,
-          minCount: options.childrenMinCount,
-          maxCount: options.childrenMaxCount
+          defaultCount: childrenDefaultCount,
+          minCount: childrenMinCount,
+          maxCount: childrenMaxCount
         },
         {
           label: "младенцы",
-          defaultCount: options.babiesDefaultCount,
-          minCount: options.babiesMinCount,
-          maxCount: options.babiesMaxCount
+          defaultCount: babiesDefaultCount,
+          minCount: babiesMinCount,
+          maxCount: babiesMaxCount
         }
       ]
-    if (options.type == "facilities")
+    if (type === "facilities")
       items = [
         {
           label: "спальни",
-          defaultCount: options.bedroomsDefaultCount,
-          minCount: options.bedroomsMinCount,
-          maxCount: options.bedroomsMaxCount 
+          defaultCount: bedroomsDefaultCount,
+          minCount: bedroomsMinCount,
+          maxCount: bedroomsMaxCount 
         },
         {
           label: "кровати",
-          defaultCount: options.bedsDefaultCount,
-          minCount: options.bedsMinCount,
-          maxCount: options.bedsMaxCount
+          defaultCount: bedsDefaultCount,
+          minCount: bedsMinCount,
+          maxCount: bedsMaxCount
         },
         {
           label: "ванные комнаты",
-          defaultCount: options.bathroomsDefaultCount,
-          minCount: options.bathroomsMinCount,
-          maxCount: options.bathroomsMaxCount
+          defaultCount: bathroomsDefaultCount,
+          minCount: bathroomsMinCount,
+          maxCount: bathroomsMaxCount
         }
       ]
     
 
   .dropdown.js-dropdown(
-    class = classList
-    data-type = options.type
-  )&attributes(options.attributes)
+    class = blockModifier
+    data-type = type
+  )
     .dropdown__output.js-dropdown__output
       +input({
         views: views,
         type: "text",
-        label: options.label,
+        label: label,
         readonly: true
       })
     .dropdown__menu

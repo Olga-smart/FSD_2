@@ -224,30 +224,26 @@ block body
       .dropdown-row.mt-5px    
         .col
           .col-266.gap-20px
-            +dropdown({
-              type: "facilities",
-              label: "Dropdown",
-              bedroomsDefaultCount: 2,
-              bedroomsMinCount: 1,
-              bedsDefaultCount: 2,
-              bedsMinCount: 1,
-              attributes: {
-                class: "default-dropdown"
-              }
-            })
+            .default-dropdown
+              +dropdown({
+                type: "facilities",
+                label: "Dropdown",
+                bedroomsDefaultCount: 2,
+                bedroomsMinCount: 1,
+                bedsDefaultCount: 2,
+                bedsMinCount: 1
+              })
 
-            +dropdown({
-              type: "facilities",
-              label: "Dropdown",
-              open: true,
-              bedroomsDefaultCount: 2,
-              bedroomsMinCount: 1,
-              bedsDefaultCount: 2,
-              bedsMinCount: 1,
-              attributes: {
-                class: "expanded-dropdown"
-              }
-            })
+            .expanded-dropdown
+              +dropdown({
+                type: "facilities",
+                label: "Dropdown",
+                open: true,
+                bedroomsDefaultCount: 2,
+                bedroomsMinCount: 1,
+                bedsDefaultCount: 2,
+                bedsMinCount: 1
+              })
 
         .col
           +dropdown({
