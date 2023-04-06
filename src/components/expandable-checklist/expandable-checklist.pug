@@ -1,23 +1,27 @@
-//-
-  options.title - заголовок
-  options.uniqueName - уникальное имя для генерации id инпутов
-  options.opened - будет ли чеклист сразу развёрнут (true/false, по умолчанию false)
-  options.items - массив объектов пунктов
-  options.items[0].label - текст пункта
-  options.items[0].checked - состояние соответствующего чекбокса (true/false, по умолчанию false)
-
 include ../../components/checklist/checklist
 
-mixin expandable-checklist(options)    
+mixin expandable-checklist(options = {})
+  -
+    const {
+      title = "Expandable checkbox list",
+      uniqueName = "expandable-checklist",
+      opened = false,
+      items = [
+        {label: "пункт 1", checked: true},
+        {label: "пункт 2", checked: false},
+        {label: "пункт 3", checked: true}
+      ]
+    } = options
+
   - let modifier
-  if options.opened
+  if (opened)
    - modifier = "expandable-checklist_open"
    
   .expandable-checklist.js-expandable-checklist(class = modifier)
-    .expandable-checklist__title.js-expandable-checklist__title= options.title
+    .expandable-checklist__title.js-expandable-checklist__title= title
     .expandable-checklist__list
       +checklist({
-        items: options.items,
-        uniqueName: options.uniqueName,
+        items: items,
+        uniqueName: uniqueName,
         rowGap: "small"
       })
