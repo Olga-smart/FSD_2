@@ -1,13 +1,15 @@
-//-
-  options.items - массив объектов пунктов списка
-  options.items[0].icon - иконка
-  options.items[0].label - заголовок
-  options.items[0].sublabel - подзаголовок (опционально, но тогда в остальных пунктах тоже не нужно указывать, иначе иконки будут разного размера)
-
-mixin icon-list(options)
+mixin icon-list(options = {})
+  -
+    const {
+      items = [
+        {icon: require("../../../components/icon-list/img/default-icon.svg"), label: "пункт 1", sublabel: "подзаголовок 1"},
+        {icon: require("../../../components/icon-list/img/default-icon.svg"), label: "пункт 2", sublabel: "подзаголовок 2"},
+        {icon: require("../../../components/icon-list/img/default-icon.svg"), label: "пункт 3", sublabel: "подзаголовок 3"}
+      ]
+    } = options
     
   ul.icon-list
-    - for (let item of options.items)
+    - for (let item of items)
       li.icon-list__item
         .icon-list__icon(style = "background-image: url(" + item.icon + ")")
         p.icon-list__label= item.label
