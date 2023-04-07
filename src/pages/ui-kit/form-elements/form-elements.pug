@@ -26,19 +26,19 @@ block body
       include ../../../components/pagination/pagination
       
       .col
-        +input({
-          class: "default-text-field",
-          label: "text field",
-          placeholder: "Email",
-          type: "email"
-        })
+        .default-text-field
+          +input({
+            label: "text field",
+            placeholder: "Email",
+            type: "email"
+          })  
         
-        +input({
-          class: "hover-focus-text-field",
-          label: "text field",
-          value: "This is pretty awesome",
-          type: "text"
-        })
+        .hover-focus-text-field
+          +input({
+            label: "text field",
+            value: "This is pretty awesome",
+            type: "text"
+          })
         
         +dropdown({
           type: "guests",

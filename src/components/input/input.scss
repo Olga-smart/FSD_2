@@ -22,6 +22,18 @@
     &:focus, &_focused {
       border-color: $primary-medium;
     }
+    &::-webkit-input-placeholder {
+      color: $primary-light;
+    }
+    &::-moz-placeholder {
+      color: $primary-light;
+    }
+    &:-ms-input-placeholder {
+      color: $primary-light;
+    }
+    &::-ms-input-placeholder {
+      color: $primary-light;
+    }
     &::placeholder {
       color: $primary-light;
     }
@@ -42,14 +54,15 @@
       width: auto;
       height: auto;
       position: absolute;
-      z-index: -1;
       opacity: 0;
     }
     .input__label {
       display: grid;
       grid: {
         template-columns: auto 1fr;
-        column-gap: 10px;
+        -webkit-column-gap: 10px;
+           -moz-column-gap: 10px;
+                column-gap: 10px;
       }        
       line-height: 1.29;
       cursor: pointer;
@@ -59,9 +72,13 @@
         width: 20px;
         height: 20px;
         border: 1px solid $primary-light;
+        -webkit-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
       }
       &::after {
+        -webkit-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
       }
     }
@@ -93,7 +110,8 @@
       color: $primary-dark;
       &::before {
         @include gradient;
-        box-shadow: inset 0 0 0 3px #fff;
+        -webkit-box-shadow: inset 0 0 0 3px #fff;
+                box-shadow: inset 0 0 0 3px #fff;
       }
     }
   }
@@ -149,7 +167,9 @@
         left: 2px solid $primary-medium;
         bottom: 2px solid $primary-medium;
       }
-      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+              transform: rotate(-45deg);
       bottom: 1.3rem;
       right: 1.24rem;
       pointer-events: none;
@@ -178,6 +198,8 @@
       }
       border: none;
       cursor: pointer;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       &:hover {
         opacity: 0.6;

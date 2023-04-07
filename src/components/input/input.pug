@@ -1,92 +1,92 @@
-//-
-  Все параметры опциональны (разве что label и type желательно задать для семантики):
-  options.class - класс, который хотим примиксовать к обертке .input (не рекомендуется) 
-  options.inputClass - класс, который хотим примиксовать к инпуту (не рекомендуется)
-  options.inputId - id для инпута
-  options.label - подпись
-  options.sublabel - второстепенная подпись (опционально)
-  options.placeholder - плейсхолдер
-  options.type - тип ("text", "checkbox", "radio", "toggle" и пр.; если задан тип "date" инициализируется плагин Cleave.js, а тип инпута устанавливается "text")
-  options.value - значение по умолчанию
-  options.name - уникальное имя
-  options.checked - состояние переключателя (true/false, по умолчанию false, актуально для checkbox, radio, toggle)
-  options.tabIndex - порядок получения фокуса при переходе между элементами с помощью клавиши Tab
-  options.required - является ли поле обязательным для заполнения
-  options.attributes - любые атрибуты, которые хотим передать инпуту
-  options.pattern - регулярное выражение, согласно которому требуется вводить и проверять данные в поле
-  options.readonly - может ли текстовое поле изменяться пользователем (true/false, по умолчанию false)
-  options.views - массив декоративных опций (доступны значения: "arrow_down", "dropdown_open", "focused", "clickable")
-  options.button - нужна ли кнопка внутри инпута (true/false, по умолчанию false, неактуально для checkbox, radio, toggle)
-  
+
 mixin input(options = {})
-  - let blockClass = options.class || ""
-  - let inputClass = options.inputClass || ""
+  -
+    let {
+      inputId = undefined,
+      label = undefined,
+      sublabel = undefined,
+      placeholder = undefined,
+      type = "text",
+      value = undefined,
+      name = undefined,
+      checked = false,
+      tabIndex = undefined,
+      required = false,
+      attributesObject = {},
+      pattern = undefined,
+      readonly = false,
+      views = undefined,
+      button = false
+    } = options
 
-  if options.type
-    - blockClass += blockClass ? ` input_${options.type}` : `input_${options.type}`
+  - let blockClass = ""
+  - let inputClass = ""
 
-  if options.button
+  if (type)
+    - blockClass = `input_${type}`
+
+  if (button)
     - blockClass += blockClass ? " input_with-button" : "input_with-button"  
 
-  if options.views
+  if (views)
     - const viewsForBlockClass = ["arrow_down"]
     - const viewsForInputClass = ["dropdown_open", "focused", "clickable"]
-    each view in options.views
+    each view in views
       if (viewsForBlockClass.includes(view))
         - blockClass += blockClass ? ` input_${view}` : `input_${view}`
       if (viewsForInputClass.includes(view))
         - inputClass += inputClass ? ` input__field_${view}` : `input__field_${view}`
 
-  - let tag = options.button ? "form" : "div"
-  - let blockAttributes = options.button ? {method: "post"} : "";
+  - let tag = button ? "form" : "div"
+  - let blockAttributes = button ? {method: "post"} : "";
 
   #{tag}.input.js-input(class = blockClass)&attributes(blockAttributes)
   
     //- передаем через переменную чтобы можно было обеспечить вставку тегов внутри label (в частности тег br)
-    - let label = options.label
+    //- - let label = options.label
 
-    if (options.sublabel)
-      - label = "<span class='input__main-label'>" + options.label + "</span><br>" + "<span class='input__sublabel'>" + options.sublabel + "</span>"       
+    if (sublabel)
+      - label = "<span class='input__main-label'>" + label + "</span><br>" + "<span class='input__sublabel'>" + sublabel + "</span>"       
 
-    - let type = options.type
+    - let inputType = type
 
-    if options.type == "toggle"
-      - type = "checkbox"
+    if (type == "toggle")
+      - inputType = "checkbox"
 
-    if options.type == "date"
-      - type = "text"
+    if (type == "date")
+      - inputType = "text"
       - inputClass += inputClass ? ` js-input__field_date` : 'js-input__field_date'          
     
-    case options.type
+    case type
       when "checkbox"
       when "radio"
       when "toggle"
         input.input__field(
           class = inputClass
-          id = options.inputId
-          type = type
-          name = options.name
-          tabIndex = options.tabindex
-          required = options.required
-          value = options.value
-          checked = options.checked
-        )&attributes(options.attributes)
+          id = inputId
+          type = inputType
+          name = name
+          tabIndex = tabindex
+          required = required
+          value = value
+          checked = checked
+        )&attributes(attributesObject)
         label.input__label(
-          for = options.inputId
+          for = inputId
         ) !{label}
       default
         label.input__label !{label}
           input.input__field.js-input__field(
             class = inputClass
-            id = options.inputId
-            type = type
-            name = options.name
-            placeholder = options.placeholder
-            pattern = options.pattern
-            tabIndex = options.tabindex
-            required = options.required
-            value = options.value
-            readonly = options.readonly
-          )&attributes(options.attributes)
-        if options.button
+            id = inputId
+            type = InputType
+            name = name
+            placeholder = placeholder
+            pattern = pattern
+            tabIndex = tabindex
+            required = required
+            value = value
+            readonly = readonly
+          )&attributes(attributesObject)
+        if (button)
           button.input__submit-button(type = "submit")
