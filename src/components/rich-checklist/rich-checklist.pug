@@ -1,23 +1,26 @@
-//-
-  options.title - заголовок (опционально)
-  options.uniqueName - уникальное имя для генерации id инпутов
-  options.items: массив объектов пунктов
-  options.items[0].label - заголовок пункта
-  options.items[0].sublabel - подзаголовок пункта
-  options.items[0].checked - состояние соответствующего чекбокса (true/false, по умолчанию false)
-
 include ../../components/input/input
 
-mixin rich-checklist(options)    
+mixin rich-checklist(options = {})
+  -
+    const {
+      title = "",
+      uniqueName = "uniqueName",
+      items = [
+        {label: "пункт 1", sublabel: "подзаголовок пункта 1", checked: true},
+        {label: "пункт 2", sublabel: "подзаголовок пункта 2", checked: false},
+        {label: "пункт 3", sublabel: "подзаголовок пункта 3", checked: true}
+      ] 
+    } = options
+
   .rich-checklist
-    if options.title
-      .rich-checklist__title= options.title
+    if (title)
+      .rich-checklist__title= title
     .rich-checklist__list
-      - for (let i = 0; i < options.items.length; i++)
+      - for (let i = 0; i < items.length; i++)
         +input({
-          label: options.items[i].label,
-          sublabel: options.items[i].sublabel,
+          label: items[i].label,
+          sublabel: items[i].sublabel,
           type: "checkbox",
-          checked: options.items[i].checked,
-          inputId: options.uniqueName + "-" + i
+          checked: items[i].checked,
+          inputId: uniqueName + "-" + i
         })
