@@ -41,9 +41,6 @@ mixin input(options = {})
   - let blockAttributes = button ? {method: "post"} : "";
 
   #{tag}.input.js-input(class = blockClass)&attributes(blockAttributes)
-  
-    //- передаем через переменную чтобы можно было обеспечить вставку тегов внутри label (в частности тег br)
-    //- - let label = options.label
 
     if (sublabel)
       - label = "<span class='input__main-label'>" + label + "</span><br>" + "<span class='input__sublabel'>" + sublabel + "</span>"       

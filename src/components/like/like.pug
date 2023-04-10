@@ -1,15 +1,15 @@
-//-
-  Все параметры опциональны:
-  options.class - класс, который хотим примиксовать к .like (не рекомендуется)
-  options.value - кол-во лайков (по умолчанию 0)
-  options.checked - состояние чекбокса (true/false, по умолчанию false)
+mixin like(options = {})
+  -
+    const {
+      value = 0,
+      checked = false
+    } = options
 
-mixin like(options = {})    
-  - let classList = options.class || ""
-  if options.checked && options.value > 0
-    - classList += classList ? " like_checked" : "like_checked"
+  - let blockModifier = ""
+  if (checked && value > 0)
+    - blockModifier = "like_checked"
     
   .like.js-like(
-    class = classList
+    class = blockModifier
   )= options.value || 0
   
