@@ -38,9 +38,7 @@ mixin card-room(options = {})
       span(class = numberClass)= number
       span.card-room__price !{prettifyPrice(price)}₽ 
       .card-room__line
-      +rate({
-        value: rate
-      })
+      +rate(rate)
       span.card-room__comments.js-card-room__comments(
         data-word = ' Отзывов'
       )= commentsNumber
