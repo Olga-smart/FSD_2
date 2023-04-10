@@ -9,18 +9,29 @@
   options.note - подпись внизу
   options.attributes - любые атрибуты, которые хотим передать инпуту
 
-mixin range(options = {})    
+mixin range(options = {})
+  -
+    const {
+      label = undefined,
+      min = 0,
+      max = 100,
+      from = 25,
+      to = 75,
+      step = 1,
+      note = undefined
+    } = options
+
   .range.js-range
-    if options.label
-      .range__title= options.label
+    if (label)
+      .range__title= label
     .range__output.js-range__output
     input.js-range__slider(type="text"
-      data-min= options.min
-      data-max= options.max
-      data-from= options.from
-      data-to= options.to
-      data-step= options.step
-      )&attributes(options.attributes)
-    if options.note  
-      .range__note= options.note   
+      data-min= min
+      data-max= max
+      data-from= from
+      data-to= to
+      data-step= step
+      )
+    if (note)  
+      .range__note= note   
     
