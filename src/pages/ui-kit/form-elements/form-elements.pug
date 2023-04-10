@@ -218,7 +218,7 @@ block body
         .pagination-container
           .form-elements__heading Pagination
           +pagination({
-            itemsContainer: "pagination__items-container"
+            itemsContainerId: "pagination__items-container"
           })
 
       .dropdown-row.mt-5px    
@@ -373,8 +373,8 @@ block body
         })
         
     #pagination__items-container
-    - let n = 0;
-    while n++ < 176
-      .js-pagination__item
+      - let n = 0;
+      while (n++ < 176)
+        .js-pagination__item  
 
     

@@ -1,7 +1,9 @@
-//-
-  options.itemsContainer - id контейнера, в котором будут располагаться элементы
+mixin pagination(options = {})
+  -
+    const {
+      itemsContainerId = undefined
+    } = options
 
-mixin pagination(options)
   .pagination.js-pagination(
-    data-items-container = options.itemsContainer
+    data-items-container = itemsContainerId
   )
