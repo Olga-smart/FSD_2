@@ -9,22 +9,40 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const AutoImportPlugin = require('./autoImportPlugin/AutoImportPlugin');
 
 const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
+
+const uiKitPages = [
+  'colors-and-type',
+  'form-elements',
+  'cards',
+  'headers-and-footers'
+];
+
+const websitePages = [
+  'landing-page',
+  'search-room',
+  'room-details',
+  'registration',
+  'sign-in'
+];
+
+const getEntryPoints = () => {
+  const entryPoints = {};
+
+  uiKitPages.forEach((page) => {
+    entryPoints[page] = `./pages/ui-kit/${page}/${page}.js`
+  });
+
+  websitePages.forEach((page) => {
+    entryPoints[page] = `./pages/site/${page}/${page}.js`
+  });
+
+  return entryPoints;
+}
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: {
-    'colors-and-type': './pages/ui-kit/colors-and-type/colors-and-type.js',
-    'form-elements': './pages/ui-kit/form-elements/form-elements.js',
-    'cards': './pages/ui-kit/cards/cards.js',
-    'headers-and-footers': './pages/ui-kit/headers-and-footers/headers-and-footers.js',
-    'landing-page': './pages/site/landing-page/landing-page.js',
-    'search-room': './pages/site/search-room/search-room.js',
-    'room-details': './pages/site/room-details/room-details.js',
-    'registration': './pages/site/registration/registration.js',
-    'sign-in': './pages/site/sign-in/sign-in.js',
-  },
+  entry: getEntryPoints(),
   output: {
     filename: 'pages/[name]/[name].[contenthash].js',
     path: path.resolve(__dirname + '/build'),
@@ -45,51 +63,20 @@ module.exports = {
       template: './pages/index.pug',
       inject: false
     }),
-    new HTMLWebpackPlugin({
-      filename: 'pages/colors-and-type/colors-and-type.html',
-      template: './pages/ui-kit/colors-and-type/colors-and-type.pug',
-      chunks: ['colors-and-type']
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'pages/form-elements/form-elements.html',
-      template: './pages/ui-kit/form-elements/form-elements.pug',
-      chunks: ['form-elements']
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'pages/cards/cards.html',
-      template: './pages/ui-kit/cards/cards.pug',
-      chunks: ['cards']
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'pages/headers-and-footers/headers-and-footers.html',
-      template: './pages/ui-kit/headers-and-footers/headers-and-footers.pug',
-      chunks: ['headers-and-footers']
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'pages/landing-page/landing-page.html',
-      template: './pages/site/landing-page/landing-page.pug',
-      chunks: ['landing-page']
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'pages/search-room/search-room.html',
-      template: './pages/site/search-room/search-room.pug',
-      chunks: ['search-room']
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'pages/room-details/room-details.html',
-      template: './pages/site/room-details/room-details.pug',
-      chunks: ['room-details']
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'pages/registration/registration.html',
-      template: './pages/site/registration/registration.pug',
-      chunks: ['registration']
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'pages/sign-in/sign-in.html',
-      template: './pages/site/sign-in/sign-in.pug',
-      chunks: ['sign-in']
-    }),
+    ...uiKitPages.map((page) => 
+      new HTMLWebpackPlugin({
+        filename: `pages/${page}/${page}.html`,
+        template: `./pages/ui-kit/${page}/${page}.pug`,
+        chunks: [page]
+      })
+    ),
+    ...websitePages.map((page) => 
+      new HTMLWebpackPlugin({
+        filename: `pages/${page}/${page}.html`,
+        template: `./pages/site/${page}/${page}.pug`,
+        chunks: [page]
+      })
+    ),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
@@ -105,14 +92,12 @@ module.exports = {
     }),
     new FaviconsWebpackPlugin('../public/favicon.svg'),
     new ESLintPlugin(),
-    new AutoImportPlugin({
-      pages: path.resolve(__dirname + '/src/pages/ui-kit'),
-      components: path.resolve(__dirname + '/src/components')
-    }),
-    new AutoImportPlugin({
-      pages: path.resolve(__dirname + '/src/pages/site'),
-      components: path.resolve(__dirname + '/src/components')
-    }),
+    ...['ui-kit', 'site'].map((dir) => 
+      new AutoImportPlugin({
+        pages: path.resolve(__dirname + `/src/pages/${dir}`),
+        components: path.resolve(__dirname + '/src/components')
+      })
+    ),
   ],
   module: {
     rules: [
