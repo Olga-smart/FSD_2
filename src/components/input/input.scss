@@ -19,7 +19,8 @@
       family: inherit;
     }
     &:hover, &_hovered,
-    &:focus, &_focused {
+    &:focus-visible, &_focused {
+      outline: none;
       border-color: $primary-medium;
     }
     &::-webkit-input-placeholder {
