@@ -9,6 +9,10 @@
   padding: 1.43rem;
   -webkit-box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
           box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;        
   &--pointer {
     display: none;
   }

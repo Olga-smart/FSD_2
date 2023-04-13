@@ -2,9 +2,15 @@
 
 .rate {
   display: grid;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   grid: {
     template-columns: repeat(5, 20px);
-    column-gap: 4px; 
+    -webkit-column-gap: 4px;
+       -moz-column-gap: 4px;
+            column-gap: 4px; 
   }
   &__star-factory {
     @extend %visually-hidden;

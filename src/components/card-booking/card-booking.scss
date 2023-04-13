@@ -130,6 +130,10 @@
     right: 0.5rem;
     top: 0.5rem;
     cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
   &__tooltip {
     background-color: $primary-very-dark;

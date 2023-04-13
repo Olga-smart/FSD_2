@@ -1,20 +1,39 @@
 .paginationjs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   &-list {
     list-style-type: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 0;
     padding: 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
   &-page, &-ellipsis {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 2.86rem;
     height: 2.86rem;
     border-radius: 50%;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     font-size: 0.86rem;
     cursor: pointer;
     a {
@@ -23,6 +42,8 @@
     }
   }
   &-page {
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     &:hover {
       background-color: $primary-very-light;
@@ -49,9 +70,21 @@
   &-prev {
     background-image:
       url(./img/arrow_backward.svg),
+      -o-linear-gradient(top, $accent-secondary, $accent-secondary-additional);
+    background-image:
+      url(./img/arrow_backward.svg),
+      -webkit-gradient(linear, left top, left bottom, from($accent-secondary), to($accent-secondary-additional));
+    background-image:
+      url(./img/arrow_backward.svg),
       linear-gradient(to bottom, $accent-secondary, $accent-secondary-additional);
   }
   &-next {
+    background-image:
+      url(./img/arrow_forward.svg),
+      -o-linear-gradient(top, $accent-secondary, $accent-secondary-additional);
+    background-image:
+      url(./img/arrow_forward.svg),
+      -webkit-gradient(linear, left top, left bottom, from($accent-secondary), to($accent-secondary-additional));
     background-image:
       url(./img/arrow_forward.svg),
       linear-gradient(to bottom, $accent-secondary, $accent-secondary-additional);

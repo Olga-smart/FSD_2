@@ -7,13 +7,16 @@
   background-color: #fff;
   padding-top: 7.14rem;
   line-height: 1.22;
-  box-shadow: 0 10px 20px rgba($primary-very-dark, 0.05);
+  -webkit-box-shadow: 0 10px 20px rgba($primary-very-dark, 0.05);
+          box-shadow: 0 10px 20px rgba($primary-very-dark, 0.05);
   &__container {
     @extend %container;
     display: grid;
     grid: {
       template-columns: repeat(12, 1fr);
-      column-gap: 2.857rem;
+      -webkit-column-gap: 2.857rem;
+         -moz-column-gap: 2.857rem;
+              column-gap: 2.857rem;
     }
     padding-bottom: 7.14rem;
   }
@@ -32,7 +35,9 @@
     grid: {
       column: 4/10;
       template-columns: 1fr 1fr 1fr;
-      column-gap: 2.86rem;
+      -webkit-column-gap: 2.86rem;
+         -moz-column-gap: 2.86rem;
+              column-gap: 2.86rem;
       row-gap: 1.6rem;
     }
     line-height: 1.22;
@@ -68,7 +73,8 @@
       column: 10/-1;
       row-gap: 1.5rem;
     }
-    align-content: start;
+    -ms-flex-line-pack: start;
+        align-content: start;
     padding-top: 0.29rem;
   }
   &__subscription-text {
@@ -80,9 +86,15 @@
   }
   &__bottom-container {
     @extend %container;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: {
       top: 1.5rem;
       bottom: 1.5rem;
@@ -93,9 +105,15 @@
   }
   &__socials {
     list-style-type: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 0;
     padding: 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
   &__socials-item + &__socials-item {
     margin-left: 1.43rem;
@@ -103,6 +121,8 @@
   &__socials-link {
     display: block;
     width: 24px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     &:hover {
       opacity: 0.6;
@@ -139,8 +159,12 @@
     padding-top: 8.57rem;
     &__container {
       padding-bottom: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
     }
     &__text-under-logo,
     &__menu,
@@ -161,8 +185,13 @@
       border-top: none; 
     }
     &__bottom-container {
-      flex-direction: column;
-      justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
       text-align: center;
       padding-bottom: 8.57rem;
     }
