@@ -2,7 +2,7 @@ include ../../components/input/input
 
 mixin calendar(options = {})
   -
-    const {
+    let {
       id = undefined,
       label = undefined,
       placeholder = "ДД.ММ.ГГГГ",
@@ -19,6 +19,31 @@ mixin calendar(options = {})
 
   if (relatedInput)
     - attributesObject["data-related-input"] = relatedInput
+
+  - function isDateCorrect(date)
+
+    - if (!date) return false;
+    
+    - const [year, month, day] = date.split('-').map((item) => Number(item));
+    - const today = new Date();
+    - const [todayYear, todayMonth, todayDay] = [today.getFullYear(), today.getMonth() + 1, today.getDate()];
+
+    - if (year < todayYear) return false;
+    - if (year > todayYear) return true;
+
+    - if (month < todayMonth) return false;
+    - if (month > todayMonth) return true;
+
+    - if (day < todayDay) return false;
+    - return true;
+
+  if (value)
+    - if (value.includes(' - '))
+      - const [firstDate, secondDate] = value.split(' - ')
+      - if (!isDateCorrect(firstDate) || !isDateCorrect(secondDate))
+        - value = undefined
+    - if (!isDateCorrect(value))
+        - value = undefined  
   
   .js-calendar(
     class = blockModifier
