@@ -110,14 +110,52 @@ class AirDatepicker {
   }
 
   _setDefaultDate() {
+    if (!this._input.defaultValue) return;
+
     if (this._input.defaultValue.includes(' - ')) {
       this._calendar.selectDate([
         new Date(Date.parse(this._input.defaultValue.slice(0, 10))),
         new Date(Date.parse(this._input.defaultValue.slice(13))),
       ]);
-    } else {
-      this._calendar.selectDate(new Date(Date.parse(this._input.defaultValue)));
+
+      return;
     }
+
+    if (this._component.classList.contains('js-calendar_start')) {
+      const dateEnd = document.getElementById(this._input.dataset.relatedInput);
+
+      if (dateEnd && dateEnd.defaultValue) {
+        setTimeout(() => {
+          this._calendar.selectDate([
+            new Date(Date.parse(this._input.defaultValue)),
+            new Date(Date.parse(dateEnd.defaultValue)),
+          ]);
+        }, 100);
+      } else {
+        this._calendar.selectDate(new Date(Date.parse(this._input.defaultValue)));
+      }
+
+      return;
+    }
+
+    if (this._component.classList.contains('js-calendar_end')) {
+      const dateStart = document.getElementById(this._input.dataset.relatedInput);
+
+      if (dateStart && dateStart.defaultValue) {
+        setTimeout(() => {
+          this._calendar.selectDate([
+            new Date(Date.parse(dateStart.defaultValue)),
+            new Date(Date.parse(this._input.defaultValue)),
+          ]);
+        }, 100);
+      } else {
+        this._calendar.selectDate(new Date(Date.parse(this._input.defaultValue)));
+      }
+
+      return;
+    }
+
+    this._calendar.selectDate(new Date(Date.parse(this._input.defaultValue)));
   }
 
   _handleInput(event) {
