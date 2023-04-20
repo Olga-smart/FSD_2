@@ -181,11 +181,11 @@
       }
       &.-other-month-.-range-to- {
         background: 
-          -webkit-gradient(linear, right top, left top, color-stop(50%, #fff), color-stop(50%, transparent)),
-          -webkit-gradient(linear, left top, left bottom, from(transparentize($accent-main, 0.75)), to(transparentize($accent-main-additional, 0.75)));
-        background: 
           -o-linear-gradient(right, #fff 50%, transparent 50%),
           -o-linear-gradient(top, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
+        background: 
+          -webkit-gradient(linear, right top, left top, color-stop(50%, #fff), color-stop(50%, transparent)),
+          -webkit-gradient(linear, left top, left bottom, from(transparentize($accent-main, 0.75)), to(transparentize($accent-main-additional, 0.75)));
         background: 
           linear-gradient(to left, #fff 50%, transparent 50%),
           linear-gradient(to bottom, transparentize($accent-main, 0.75), transparentize($accent-main-additional, 0.75));
@@ -281,8 +281,26 @@
   }
 }
 
+@include media-breakpoint-down(450px) {
+  .datepicker {
+    position: fixed;
+    left: 50vw !important;
+    top: 50vh !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+        -ms-transform: translate(-50%, -50%) !important;
+            transform: translate(-50%, -50%) !important;
+    pointer-events: none;        
+    &.active {
+      pointer-events: all;
+    }
+  }
+}
+
 .datepicker-inline .datepicker {
   border: 1px solid $primary-light;
   -webkit-box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
           box-shadow: 0 10px 20px 0 rgba($primary-very-dark, 0.05);
+  -webkit-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;       
 }

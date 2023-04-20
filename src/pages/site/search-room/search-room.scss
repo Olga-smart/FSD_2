@@ -12,7 +12,9 @@
     display: grid;
     grid: {
       template-columns: 19rem auto;
-      column-gap: 4.23rem;
+      -webkit-column-gap: 4.23rem;
+         -moz-column-gap: 4.23rem;
+              column-gap: 4.23rem;
     }
     padding: {
       top: 1.8rem;
@@ -41,9 +43,6 @@
       }
     }
   }
-  .datepicker {
-    width: 19rem;
-  }
   &__h1 {
     @extend %h1;
     margin-top: 0.34rem;
@@ -57,10 +56,13 @@
       display: grid;
       grid: {
         template-columns: repeat(auto-fill, minmax(19rem, 1fr));
-        column-gap: 0.86rem;
+        -webkit-column-gap: 0.86rem;
+           -moz-column-gap: 0.86rem;
+                column-gap: 0.86rem;
         row-gap: 1.43rem;
       } 
-      align-content: start;
+      -ms-flex-line-pack: start; 
+          align-content: start;
     }
   }
   &__pagination {
@@ -84,7 +86,9 @@
     }
     &__filters {
       padding-bottom: 2rem;
-      align-items: baseline;
+      -webkit-box-align: baseline;
+          -ms-flex-align: baseline;
+              align-items: baseline;
     }
   }
 } 
@@ -94,7 +98,9 @@
     &__filters {
       grid:  {
         template-columns: 1fr 1fr 1fr;
-        column-gap: 0.86rem;
+        -webkit-column-gap: 0.86rem;
+           -moz-column-gap: 0.86rem;
+                column-gap: 0.86rem;
       }
     }
     &__dates {
@@ -141,7 +147,9 @@
     &__filters {
       grid: {
         template-columns: 1fr 1fr;
-        column-gap: 0.86rem;
+        -webkit-column-gap: 0.86rem;
+           -moz-column-gap: 0.86rem;
+                column-gap: 0.86rem;
       }
     }
     &__dates {
