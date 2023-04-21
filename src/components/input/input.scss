@@ -134,7 +134,9 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: $primary-light;
+      background: -webkit-gradient(linear, left top, left bottom, from($primary-light), to($primary-light));
+      background: -o-linear-gradient($primary-light, $primary-light);
+      background: linear-gradient($primary-light, $primary-light);
       grid: {
         row: 1/2;
         column: 1/2;
