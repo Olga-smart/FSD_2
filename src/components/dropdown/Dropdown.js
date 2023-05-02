@@ -11,6 +11,7 @@ class Dropdown {
       this._resetButton.style.display = 'inline-block';
     }
 
+    this._handleOutsideClick = this._handleOutsideClick.bind(this);
     this._attachEventHandlers();
   }
 
@@ -135,6 +136,10 @@ class Dropdown {
   _toggle() {
     this._component.classList.toggle('dropdown_menu_open');
     Input.handleDropdownToggle(this._outputElement);
+
+    if (this._component.classList.contains('dropdown_menu_open')) {
+      window.addEventListener('click', this._handleOutsideClick);
+    }
   }
 
   static _counterCanBeDecreased(item) {
@@ -236,7 +241,18 @@ class Dropdown {
 
   _handleApplyButtonClick() {
     this._toggle();
+    window.removeEventListener('click', this._handleOutsideClick);
     this._applyButton.style.display = 'none';
+  }
+
+  _handleOutsideClick(event) {
+    const { target } = event;
+    const clickOnDropdown = this._component.contains(target);
+
+    if (!clickOnDropdown) {
+      this._toggle();
+      window.removeEventListener('click', this._handleOutsideClick);
+    }
   }
 
   _attachEventHandlers() {
