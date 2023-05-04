@@ -5,7 +5,9 @@
   display: grid;
   grid: {
     template-columns: 3fr 2fr;
-    column-gap: 10px; 
+    -webkit-column-gap: 10px;
+       -moz-column-gap: 10px;
+            column-gap: 10px; 
   }
   @include media-breakpoint-down($lg) {
     grid-template-columns: 2fr 3fr;
@@ -23,11 +25,15 @@
   grid: {
     template-columns: auto 1fr;
     template-rows: repeat(5, auto);
-    column-gap: 30px;
+    -webkit-column-gap: 30px;
+       -moz-column-gap: 30px;
+            column-gap: 30px;
     row-gap: 50px; 
   }
-  align-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
   padding: 6px;
+  margin: 0;
   &__h1-text,
   &__h1-label {
     @extend %h1;
@@ -53,9 +59,6 @@
   }
   &__text {
     margin: 0;
-  }
-  @include media-breakpoint-up($lg) {
-    padding-right: 45px;
   }
   @include media-breakpoint-down($sm) {
     grid-row-gap: 30px;
