@@ -4,27 +4,19 @@
 .colors-and-type-wrapper {
   display: grid;
   grid: {
-    template-columns: 3fr 2fr;
+    template-columns: 700px 450px;
     -webkit-column-gap: 10px;
        -moz-column-gap: 10px;
             column-gap: 10px; 
   }
-  @include media-breakpoint-down($lg) {
-    grid-template-columns: 2fr 3fr;
-  }
-  @include media-breakpoint-down($sm) {
-    grid: {
-      template-columns: 1fr;
-      row-gap: 30px;
-    }
-  }
 }
 
 .type-samples {
+  width: 405px;
   display: grid;
   grid: {
     template-columns: auto 1fr;
-    template-rows: repeat(5, auto);
+    template-rows: repeat(4, auto);
     -webkit-column-gap: 30px;
        -moz-column-gap: 30px;
             column-gap: 30px;
@@ -32,7 +24,7 @@
   }
   -ms-flex-line-pack: start;
       align-content: flex-start;
-  padding: 6px;
+  padding-top: 6px;
   margin: 0;
   &__h1-text,
   &__h1-label {
@@ -41,6 +33,10 @@
   &__h2-text,
   &__h2-label {
     @extend %h2;
+  }
+  &__h1-label,
+  &__h2-label {
+    font-family: 'Montserrat', 'Arial', sans-serif;
   }
   &__h3-text,
   &__h3-label {
@@ -59,8 +55,5 @@
   }
   &__text {
     margin: 0;
-  }
-  @include media-breakpoint-down($sm) {
-    grid-row-gap: 30px;
   }
 }

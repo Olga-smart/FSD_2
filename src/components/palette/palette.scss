@@ -21,11 +21,6 @@
     height: 70px;
     border-radius: 6px;
     margin-right: 40px;
-    @include media-breakpoint-down($md) {
-      width: 50px;
-      height: 50px;
-      margin-right: 20px;
-    }
   }
   &__color-legend {
     font: {
@@ -33,9 +28,6 @@
       size: 1.36rem;
     }
     line-height: 1.5;
-    @include media-breakpoint-down($md) {
-      font-size: 1rem;
-    }
   }
   &__color-name {
     font-weight: bold;
@@ -43,9 +35,5 @@
   }
   &__color-code {
     margin: 0;
-  }
-  @include media-breakpoint-between($xs, $sm) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
   }
 }
