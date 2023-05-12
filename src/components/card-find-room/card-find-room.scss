@@ -11,7 +11,7 @@
     -webkit-column-gap: 1.43rem;
        -moz-column-gap: 1.43rem;
             column-gap: 1.43rem;
-    row-gap: 1.3rem; 
+    row-gap: 1.15rem; 
   }
   &_over-image {
     @extend %card-over-image;
@@ -23,6 +23,6 @@
     grid-column: 1/-1;
   }  
   &__submit {
-    margin-top: 0.9rem;
+    margin-top: 1.2rem;
   }
 }
