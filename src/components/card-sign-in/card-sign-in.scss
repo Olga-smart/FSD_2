@@ -11,19 +11,23 @@
   }
   &__title {
     @extend %h1;
-    margin-bottom: 1.4rem;
+    margin-bottom: 0.7rem;
   }
   &__submit {
-    margin-top: 0.85rem;
+    margin-top: 0.7rem;
   }
   &__footer {
     display: grid;
     grid: {
       template-columns: 1fr 7.07rem;
-      column-gap: 0.7rem;
+      -webkit-column-gap: 0.7rem;
+         -moz-column-gap: 0.7rem;
+              column-gap: 0.7rem;
     }    
-    align-items: baseline;
-    margin-top: 2.14rem;
+    -webkit-box-align: baseline;    
+        -ms-flex-align: baseline;    
+            align-items: baseline;
+    margin-top: 1.43rem;
   }
   &__footer-text {
     margin: 0;
