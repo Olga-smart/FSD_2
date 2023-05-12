@@ -20,7 +20,7 @@
     border-bottom: none;
     padding: 0;
     min-height: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 2.8rem;
     &-title {
       font: {
         family: 'Open Sans', 'Arial', sans-serif;
@@ -40,7 +40,9 @@
       background: {
         repeat: no-repeat;
         position: center;  
-      }     
+        size: 16px;
+      }
+      width: 24px;  
       & svg {
         display: none;
       }
