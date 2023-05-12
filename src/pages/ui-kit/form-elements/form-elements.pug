@@ -26,14 +26,14 @@ block body
       include ../../../components/pagination/pagination
       
       .col
-        .default-text-field
+        .field-with-caption(data-caption="default")
           +input({
             label: "text field",
             placeholder: "Email",
             type: "email"
           })  
         
-        .hover-focus-text-field
+        .hover-focus-text-field.field-with-caption(data-caption="hover / focus")
           +input({
             label: "text field",
             value: "This is pretty awesome",
@@ -220,7 +220,7 @@ block body
       .dropdown-row.mt-5px    
         .col
           .col-266.gap-20px
-            .default-dropdown
+            .field-with-caption(data-caption="default")
               +dropdown({
                 type: "facilities",
                 label: "Dropdown",
@@ -230,7 +230,7 @@ block body
                 bedsMinCount: 1
               })
 
-            .expanded-dropdown
+            .field-with-caption(data-caption="expanded")
               +dropdown({
                 type: "facilities",
                 label: "Dropdown",

@@ -5,17 +5,18 @@
   display: grid;
   grid: {
     template-columns: repeat(3, 320px);
-    gap: 100px; 
+    row-gap: 100px;
   }
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   &__heading {
     @extend %h3;
   }
-  .default-text-field,
-  .hover-focus-text-field,
-  .default-dropdown,
-  .expanded-dropdown {
+  .field-with-caption {
     position: relative;
     &::before {
+      content: attr(data-caption);
       position: absolute;
       text-transform: uppercase;
       top: 0;
@@ -24,22 +25,10 @@
       line-height: 1.22rem;
     }
   }
-  .default-text-field::before {
-    content: 'default';
-  }
   .hover-focus-text-field {
-    &::before {
-      content: 'hover / focus';
-    }
     input {
       border-color: $primary-medium;
     }
-  }
-  .default-dropdown::before {
-    content: 'default';
-  }
-  .expanded-dropdown::before {
-    content: 'expanded'
   }
   .double-datepicker-wrap {
     display: grid;
@@ -55,7 +44,7 @@
     display: grid;
     grid-gap: 1.21rem;
     -ms-flex-line-pack: start;
-        align-content: start;
+        align-content: start;    
   }
   .col-266 {
     width: 266px;
