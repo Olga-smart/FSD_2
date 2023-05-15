@@ -10,6 +10,7 @@
   display: grid;
   grid: {
     row-gap: 1.15rem;
+    row-gap: 1.1rem;
     -webkit-column-gap: 1.43rem;
        -moz-column-gap: 1.43rem;
             column-gap: 1.43rem;
@@ -88,8 +89,8 @@
       color: $primary-very-dark;
       td {
         padding: {
-          top: 1.45rem;
-          bottom: 0.36rem; 
+          top: 1.4rem;
+          bottom: 0.35rem; 
         }
       }
       td:first-child {
