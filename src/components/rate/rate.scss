@@ -12,6 +12,7 @@
        -moz-column-gap: 4px;
             column-gap: 4px; 
   }
+  padding: 2px;
   &__star-factory {
     @extend %visually-hidden;
   }

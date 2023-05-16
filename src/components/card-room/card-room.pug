@@ -35,12 +35,14 @@ mixin card-room(options = {})
           height = 152
         )
     .card-room__info
-      span(class = numberClass)= number
-      span.card-room__price !{prettifyPrice(price)}₽ 
+      .card-room__info-row
+        span(class = numberClass)= number
+        span.card-room__price !{prettifyPrice(price)}₽ 
       .card-room__line
-      +rate(rate)
-      span.card-room__comments.js-card-room__comments(
-        data-word = ' Отзывов'
-      )= commentsNumber
+      .card-room__info-row
+        +rate(rate)
+        span.card-room__comments.js-card-room__comments(
+          data-word = ' Отзывов'
+        ) !{prettifyPrice(commentsNumber)}
         
         
