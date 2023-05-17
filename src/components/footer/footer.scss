@@ -38,7 +38,7 @@
       -webkit-column-gap: 2.86rem;
          -moz-column-gap: 2.86rem;
               column-gap: 2.86rem;
-      row-gap: 1.6rem;
+      row-gap: 1.43rem;
     }
     line-height: 1.22;
     padding-top: 0.29rem;
@@ -71,7 +71,7 @@
     display: grid;
     grid: {
       column: 10/-1;
-      row-gap: 1.5rem;
+      row-gap: 1.43rem;
     }
     -ms-flex-line-pack: start;
         align-content: start;
@@ -96,8 +96,8 @@
         -ms-flex-align: center;
             align-items: center;
     padding: {
-      top: 1.5rem;
-      bottom: 1.5rem;
+      top: 1.7rem;
+      bottom: 1.7rem;
     }
   }
   &__copyright {
@@ -113,7 +113,7 @@
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
-            user-select: none;
+            user-select: none;         
   }
   &__socials-item + &__socials-item {
     margin-left: 1.43rem;
@@ -121,6 +121,7 @@
   &__socials-link {
     display: block;
     width: 24px;
+    height: 24px;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
