@@ -33,7 +33,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    row-gap: 0.7rem;
+    row-gap: 0.63rem;
     align: {
       items: baseline;
     }
@@ -48,7 +48,7 @@
             justify-content: space-between;
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
-            align-items: baseline;        
+            align-items: baseline;
   }
   &__number {
     font-size: 1.29rem;

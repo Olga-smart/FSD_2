@@ -19,6 +19,9 @@ const renderRoomCard = (item) => {
   const info = document.createElement('div');
   info.className = 'card-room__info';
 
+  const infoRow1 = document.createElement('div');
+  infoRow1.className = 'card-room__info-row';
+
   const number = document.createElement('span');
   number.className = 'card-room__number';
   number.textContent = item.number;
@@ -35,8 +38,13 @@ const renderRoomCard = (item) => {
   };
   price.textContent = `${prettifyPrice(item.price)}₽`;
 
+  infoRow1.append(number, price);
+
   const hr = document.createElement('div');
   hr.className = 'card-room__line';
+
+  const infoRow2 = document.createElement('div');
+  infoRow2.className = 'card-room__info-row';
 
   const rate = document.createElement('div');
   rate.className = 'rate';
@@ -76,11 +84,11 @@ const renderRoomCard = (item) => {
   comments.textContent = `${item.comments} `;
   comments.dataset.word = ' Отзывов';
 
-  info.append(number);
-  info.append(price);
+  infoRow2.append(rate, comments);
+
+  info.append(infoRow1);
   info.append(hr);
-  info.append(rate);
-  info.append(comments);
+  info.append(infoRow2);
 
   card.append(slider);
   card.append(info);

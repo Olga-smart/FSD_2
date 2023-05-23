@@ -43,6 +43,9 @@
       }
     }
   }
+  &__facilities {
+    margin-top: -5px;
+  }
   &__h1 {
     @extend %h1;
     margin-top: 0.34rem;
@@ -65,8 +68,11 @@
           align-content: start;
     }
   }
+  &__guests {
+    margin-top: -0.9rem;
+  }
   &__pagination {
-    margin-top: 3.1rem;
+    margin-top: 3rem;
     grid-column: 1/-1;
   }
 }
