@@ -1,18 +1,18 @@
 import 'slick-carousel/slick/slick.min';
 
 class SlickCarousel {
-  constructor(selector) {
-    this._selector = selector;
+  constructor(element) {
+    this._element = element;
     this.initPlugin();
   }
 
-  static init(selector) {
-    const component = new SlickCarousel(selector);
+  static init(element) {
+    const component = new SlickCarousel(element);
     return component;
   }
 
   initPlugin() {
-    $(this._selector).slick({
+    $(this._element).slick({
       dots: true,
     });
   }
