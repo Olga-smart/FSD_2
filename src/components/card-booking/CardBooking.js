@@ -30,7 +30,7 @@ class CardBooking {
     this._price = Number(CardBooking._extractNumbers(this._priceElement.textContent));
     this._priceForXDays = component.querySelector('.js-card-booking__price-for-x-days');
 
-    this._serviceFeeElement = component.querySelector('.js-card-booking__discount');
+    this._serviceFeeElement = component.querySelector('.js-card-booking__service-fee');
     this._serviceFee = Number(CardBooking._extractNumbers(this._serviceFeeElement.textContent));
 
     this._discountElement = component.querySelector('.js-card-booking__discount');
@@ -43,6 +43,15 @@ class CardBooking {
     this._totalElement = component.querySelector('.js-card-booking__total');
 
     this._infoIcons = component.querySelectorAll('.js-card-booking__info-icon');
+  }
+
+  _attachEventHandlers() {
+    [...this._infoIcons].forEach((icon) => {
+      icon.addEventListener('mouseover', CardBooking._handleInfoIconMouseover);
+    });
+
+    this._inputArrival.addEventListener('input', this._handleDateChange.bind(this));
+    this._inputDeparture.addEventListener('input', this._handleDateChange.bind(this));
   }
 
   static _prettifyPrice(num) {
@@ -83,22 +92,14 @@ class CardBooking {
     this._dateDeparture = Date.parse(`${year}-${month}-${day}`);
 
     this._updateDaysNum();
-  }
-
-  _attachEventHandlers() {
-    [...this._infoIcons].forEach((icon) => {
-      icon.addEventListener('mouseover', CardBooking._handleInfoIconMouseover);
-    });
-
-    this._inputArrival.addEventListener('input', this._handleDateChange.bind(this));
-    this._inputDeparture.addEventListener('input', this._handleDateChange.bind(this));
+    this._updateDaysWord(this._days);
+    this._updatePriceForXDays();
+    this._updateTotal();
   }
 
   _updateDaysNum() {
     this._days = Math.floor((this._dateDeparture - this._dateArrival) / (1000 * 3600 * 24));
     this._daysNumElement.textContent = this._days;
-    this._updateDaysWord(this._days);
-    this._updatePriceForXDays();
   }
 
   _updateDaysWord() {
@@ -111,7 +112,6 @@ class CardBooking {
 
   _updatePriceForXDays() {
     this._priceForXDays.textContent = `${CardBooking._prettifyPrice(this._price * this._days)}₽`;
-    this._updateTotal();
   }
 
   _updateTotal() {
