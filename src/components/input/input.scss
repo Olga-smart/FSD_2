@@ -18,6 +18,8 @@
       size: 1rem;
       family: inherit;
     }
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
     &:hover, &_hovered,
     &:focus-visible, &_focused {
       outline: none;
