@@ -142,20 +142,6 @@ class Dropdown {
     }
   }
 
-  static _counterCanBeDecreased(item) {
-    if (item.dataset.minCount) {
-      return item._input.value > item.dataset.minCount;
-    }
-    return item._input.value > 0;
-  }
-
-  static _counterCanBeIncreased(item) {
-    if (item.dataset.maxCount) {
-      return item._input.value < item.dataset.maxCount;
-    }
-    return true;
-  }
-
   static _counterValueIsMinimal(item) {
     return item._input.value === item.dataset.minCount || item._input.value === '0';
   }
@@ -194,7 +180,7 @@ class Dropdown {
   _handleMinusClick(event) {
     const item = event.target.closest('.js-dropdown__item');
 
-    if (Dropdown._counterCanBeDecreased(item)) {
+    if (!Dropdown._counterValueIsMinimal(item)) {
       item._input.value -= 1;
 
       if (Dropdown._counterValueIsMinimal(item)) {
@@ -218,7 +204,7 @@ class Dropdown {
   _handlePlusClick(event) {
     const item = event.target.closest('.js-dropdown__item');
 
-    if (Dropdown._counterCanBeIncreased(item)) {
+    if (!Dropdown._counterValueIsMaximal(item)) {
       item._input.value = Number(item._input.value) + 1;
 
       if (Dropdown._counterValueIsMaximal(item)) {
