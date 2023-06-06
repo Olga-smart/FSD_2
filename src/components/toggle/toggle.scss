@@ -1,0 +1,65 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
+
+.toggle {
+  &__field {
+    width: auto;
+    height: auto;
+    position: absolute;
+    opacity: 0;
+    &:checked + .toggle__label::before {
+      border-color: $accent-main;
+    }
+    &:checked + .toggle__label::after {
+      @include gradient;
+      left: 24px;
+    }
+  }
+  &__label {
+    display: grid;
+    grid: {
+      template-columns: auto 1fr;
+      -webkit-column-gap: 10px;
+         -moz-column-gap: 10px;
+              column-gap: 10px;
+    }        
+    line-height: 1.29;
+    cursor: pointer;
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 20px;
+      border: 1px solid $primary-light;
+      border-radius: 10px;
+      grid: {
+        row: 1/2;
+        column: 1/2; 
+      }
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+    &::after {
+      content: '';
+      display:  block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: -o-linear-gradient($primary-light, $primary-light);
+      background: -webkit-gradient(linear, left top, left bottom, from($primary-light), to($primary-light));
+      background: linear-gradient($primary-light, $primary-light);
+      grid: {
+        row: 1/2;
+        column: 1/2;
+      }
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+  }  
+}

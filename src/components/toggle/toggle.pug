@@ -1,0 +1,28 @@
+
+mixin toggle(options = {})
+  -
+    let {
+      id = undefined,
+      label = undefined,
+      value = undefined,
+      name = undefined,
+      checked = false,
+      tabIndex = undefined,
+      required = false,
+      attributesObject = {},
+      readonly = false
+    } = options
+
+  .toggle    
+    input.toggle__field(
+      id = id
+      type = "checkbox"
+      name = name
+      tabIndex = tabindex
+      required = required
+      checked = checked
+      value = value
+    )&attributes(attributesObject)
+    label.toggle__label(
+      for = id
+    ) !{label}

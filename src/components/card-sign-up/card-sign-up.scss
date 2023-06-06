@@ -1,6 +1,8 @@
 @import '../../styles/mixins-and-templates.scss';
 @import '../button/button.scss';
 @import  '../input/input.scss';
+@import  '../radio/radio.scss';
+@import  '../toggle/toggle.scss';
 
 .card-sign-up {
   @extend %card;
@@ -17,9 +19,13 @@
     display: grid;
     grid: {
       template-columns: auto auto;
-      column-gap: 1.43rem; 
+      -webkit-column-gap: 1.43rem;
+         -moz-column-gap: 1.43rem;
+              column-gap: 1.43rem; 
     }
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     margin-bottom: 0.7rem;
   }
   &__birthday {
@@ -32,9 +38,13 @@
     display: grid;
     grid: {
       template-columns: 1fr 7.07rem;
-      column-gap: 0.7rem; 
+      -webkit-column-gap: 0.7rem;
+         -moz-column-gap: 0.7rem;
+              column-gap: 0.7rem; 
     }
-    align-items: baseline;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
     margin-top: 1.5rem;
   }
   &__footer-text {

@@ -1,0 +1,56 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins-and-templates.scss';
+
+.checkbox {
+  &__field {
+    width: auto;
+    height: auto;
+    position: absolute;
+    opacity: 0;
+    &:checked + .checkbox__label::before {
+      background: {
+        image: url(./img/check_mark.svg);
+        repeat: no-repeat;
+        position: center; 
+      }
+      border-color: $accent-main;
+    }
+  }
+  &__label {
+    display: grid;
+    grid: {
+      template-columns: auto 1fr;
+      -webkit-column-gap: 10px;
+         -moz-column-gap: 10px;
+              column-gap: 10px;
+    }        
+    line-height: 1.29;
+    cursor: pointer;
+    color: $primary-medium;
+    &::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $primary-light;
+      border-radius: 4px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+    &::after {
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  &__main-label {
+    font-weight: 700;
+    margin-bottom: 0.38rem;
+    color: $primary-dark;
+  }
+  &__sublabel {
+    font-size: 0.86rem;
+    line-height: 1.17;
+  }
+}

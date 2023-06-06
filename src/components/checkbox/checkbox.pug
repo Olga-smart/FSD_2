@@ -1,0 +1,36 @@
+
+mixin checkbox(options = {})
+  -
+    let {
+      id = undefined,
+      label = undefined,
+      sublabel = undefined,
+      name = undefined,
+      checked = false,
+      value = undefined,
+      tabIndex = undefined,
+      required = false,
+      attributesObject = {},
+      readonly = false
+    } = options
+
+  - let blockClass = ""
+  - let inputClass = ""
+
+  .checkbox
+
+    if (sublabel)
+      - label = "<span class='checkbox__main-label'>" + label + "</span><br>" + "<span class='checkbox__sublabel'>" + sublabel + "</span>"               
+    
+    input.checkbox__field(
+      id = id
+      type = "checkbox"
+      name = name
+      tabIndex = tabindex
+      required = required
+      checked = checked
+      value = value
+    )&attributes(attributesObject)
+    label.checkbox__label(
+      for = id
+    ) !{label}

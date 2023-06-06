@@ -11,6 +11,9 @@ block body
   .ui-kit-container
     .form-elements
       include ../../../components/input/input
+      include ../../../components/checkbox/checkbox
+      include ../../../components/radio/radio
+      include ../../../components/toggle/toggle
       include ../../../components/dropdown/dropdown
       include ../../../components/button/button
       include ../../../components/calendar/calendar
@@ -106,32 +109,30 @@ block body
         
         .radio-container
           .form-elements__heading Radio buttons
-          +input({
+          +radio({
             label: "Мужчина",
             type: "radio",
             name: "checkbox",
             checked: true,
-            inputId: "radio-1"
+            id: "radio-1"
           })
-          +input({
+          +radio({
             label: "Женщина",
             type: "radio",
             name: "checkbox",
-            inputId: "radio-2"
+            id: "radio-2"
           })
         
         .toggle-container
           .form-elements__heading Toggle
-          +input({
+          +toggle({
             label: "Получать спецпредложения",
-            type: "toggle",
             checked: true,
-            inputId: "toggle-1"
+            id: "toggle-1"
           })
-          +input({
+          +toggle({
             label: "Получать спецпредложения",
-            type: "toggle",
-            inputId: "toggle-2"
+            id: "toggle-2"
           })
         
         .like-container

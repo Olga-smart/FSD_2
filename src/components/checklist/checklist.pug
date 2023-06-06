@@ -1,4 +1,4 @@
-include ../../components/input/input
+include ../../components/checkbox/checkbox
 
 mixin checklist(options = {})
   - 
@@ -26,9 +26,8 @@ mixin checklist(options = {})
 
     .checklist__list(class = listClass)
       - for (let i = 0; i < items.length; i++)
-        +input({
+        +checkbox({
           label: items[i].label,
-          type: "checkbox",
           checked: items[i].checked,
-          inputId: `${uniqueName}-${i + 1}`
+          id: `${uniqueName}-${i + 1}`
         })

@@ -1,4 +1,4 @@
-include ../../components/input/input
+include ../../components/checkbox/checkbox
 
 mixin rich-checklist(options = {})
   -
@@ -17,10 +17,9 @@ mixin rich-checklist(options = {})
       .rich-checklist__title= title
     .rich-checklist__list
       - for (let i = 0; i < items.length; i++)
-        +input({
+        +checkbox({
           label: items[i].label,
           sublabel: items[i].sublabel,
-          type: "checkbox",
           checked: items[i].checked,
-          inputId: uniqueName + "-" + i
+          id: uniqueName + "-" + i
         })

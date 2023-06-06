@@ -1,0 +1,28 @@
+
+mixin radio(options = {})
+  -
+    let {
+      id = undefined,
+      label = undefined,
+      name = undefined,
+      checked = false,
+      value = undefined,
+      tabIndex = undefined,
+      required = false,
+      attributesObject = {},
+      readonly = false,
+    } = options
+
+  .radio   
+    input.radio__field(
+      id = id
+      type = "radio"
+      name = name
+      tabIndex = tabindex
+      required = required
+      checked = checked
+      value = value
+    )&attributes(attributesObject)
+    label.radio__label(
+      for = id
+    ) !{label}

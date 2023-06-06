@@ -2,14 +2,12 @@
 mixin input(options = {})
   -
     let {
-      inputId = undefined,
+      id = undefined,
       label = undefined,
-      sublabel = undefined,
       placeholder = undefined,
       type = "text",
       value = undefined,
       name = undefined,
-      checked = false,
       tabIndex = undefined,
       required = false,
       attributesObject = {},
@@ -21,9 +19,6 @@ mixin input(options = {})
 
   - let blockClass = ""
   - let inputClass = ""
-
-  if (type)
-    - blockClass = `input_${type}`
 
   if (button)
     - blockClass += blockClass ? " input_with-button" : "input_with-button"  
@@ -40,50 +35,26 @@ mixin input(options = {})
   - let tag = button ? "form" : "div"
   - let blockAttributes = button ? {method: "post"} : "";
 
-  #{tag}.input.js-input(class = blockClass)&attributes(blockAttributes)
-
-    if (sublabel)
-      - label = "<span class='input__main-label'>" + label + "</span><br>" + "<span class='input__sublabel'>" + sublabel + "</span>"       
+  #{tag}.input.js-input(class = blockClass)&attributes(blockAttributes)      
 
     - let inputType = type
 
-    if (type == "toggle")
-      - inputType = "checkbox"
-
-    if (type == "date")
+    if (type === "date")
       - inputType = "text"
       - inputClass += inputClass ? ` js-input__field_date` : 'js-input__field_date'          
     
-    case type
-      when "checkbox"
-      when "radio"
-      when "toggle"
-        input.input__field(
-          class = inputClass
-          id = inputId
-          type = inputType
-          name = name
-          tabIndex = tabindex
-          required = required
-          value = value
-          checked = checked
-        )&attributes(attributesObject)
-        label.input__label(
-          for = inputId
-        ) !{label}
-      default
-        label.input__label !{label}
-          input.input__field.js-input__field(
-            class = inputClass
-            id = inputId
-            type = InputType
-            name = name
-            placeholder = placeholder
-            pattern = pattern
-            tabIndex = tabindex
-            required = required
-            value = value
-            readonly = readonly
-          )&attributes(attributesObject)
-        if (button)
-          button.input__submit-button(type = "submit")
+    label.input__label !{label}
+      input.input__field.js-input__field(
+        class = inputClass
+        id = id
+        type = inputType
+        name = name
+        placeholder = placeholder
+        pattern = pattern
+        tabIndex = tabIndex
+        required = required
+        value = value
+        readonly = readonly
+      )&attributes(attributesObject)
+    if (button)
+      button.input__submit-button(type = "submit")

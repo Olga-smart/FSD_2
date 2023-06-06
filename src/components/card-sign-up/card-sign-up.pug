@@ -1,4 +1,6 @@
 include ../../components/input/input
+include ../../components/radio/radio
+include ../../components/toggle/toggle
 include ../../components/button/button
 
 mixin card-sign-up(options = {})
@@ -35,18 +37,18 @@ mixin card-sign-up(options = {})
       required: true
     }) 
     .card-sign-up__gender
-      +input({
+      +radio({
         label: "Мужчина",
         type: "radio",
         name: "checkbox",
         checked: true,
-        inputId: "radio-1"
+        id: "radio-1"
       })
-      +input({
+      +radio({
         label: "Женщина",
         type: "radio",
         name: "checkbox",
-        inputId: "radio-2"
+        id: "radio-2"
       })
     .card-sign-up__birthday  
       +input({
@@ -68,10 +70,9 @@ mixin card-sign-up(options = {})
       name: "password",
       required: true
     }) 
-    +input({
+    +toggle({
       label: "Получать спецпредложения",
-      type: "toggle",
-      inputId: "toggle",
+      id: "toggle",
       name: "offers"
     })
     .card-sign-up__submit
