@@ -49,13 +49,12 @@ mixin calendar(options = {})
     class = blockModifier
   )
     +input({
-      view: "arrow_down",
-      inputId: id,
+      id: id,
       label: label,
       placeholder: placeholder,
       value: value,
       attributesObject: attributesObject,
-      views: ["clickable"],
+      views: ["arrow_down", "clickable"],
       readonly: true
     })
   
