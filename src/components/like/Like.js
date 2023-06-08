@@ -4,16 +4,6 @@ class Like {
     this._attachEventHandlers();
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new Like(element));
-    });
-
-    return arr;
-  }
-
   static _handleClick(event) {
     const component = event.currentTarget;
 

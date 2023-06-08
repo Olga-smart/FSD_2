@@ -5,16 +5,6 @@ class Input {
     this._initFields(component);
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new Input(element));
-    });
-
-    return arr;
-  }
-
   static handleDropdownToggle(element) {
     element.classList.toggle('input__field_dropdown_open');
     element.classList.toggle('input__field_focused');

@@ -6,16 +6,6 @@ class Diagram {
     this._updateVotesWord();
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new Diagram(element));
-    });
-
-    return arr;
-  }
-
   _initFields(component) {
     this._component = component;
     this._votesElement = component.querySelector('.js-diagram__votes');

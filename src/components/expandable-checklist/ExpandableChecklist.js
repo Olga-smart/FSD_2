@@ -4,16 +4,6 @@ class ExpandableChecklist {
     this._attachEventHandlers();
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new ExpandableChecklist(element));
-    });
-
-    return arr;
-  }
-
   _initFields(component) {
     this._component = component;
     this._title = component.querySelector('.js-expandable-checklist__title');

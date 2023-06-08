@@ -6,5 +6,5 @@ paginationElements.forEach((pagination) => {
   const itemsContainer = document.getElementById(pagination.dataset.itemsContainer);
   const itemsCollection = itemsContainer.querySelectorAll('.js-pagination__item');
   const itemsArray = [...itemsCollection];
-  Pagination.init(pagination, itemsArray);
+  return new Pagination(pagination, itemsArray);
 });

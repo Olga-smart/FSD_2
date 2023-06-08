@@ -8,11 +8,6 @@ class IonRangeSlider {
     this.initPlugin();
   }
 
-  static init(input, output) {
-    const component = new IonRangeSlider(input, output);
-    return component;
-  }
-
   initPlugin() {
     const output = this._output;
 

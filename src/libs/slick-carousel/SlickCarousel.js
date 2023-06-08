@@ -6,11 +6,6 @@ class SlickCarousel {
     this.initPlugin();
   }
 
-  static init(element) {
-    const component = new SlickCarousel(element);
-    return component;
-  }
-
   initPlugin() {
     $(this._element).slick({
       dots: true,

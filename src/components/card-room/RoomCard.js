@@ -8,16 +8,6 @@ class RoomCard {
     this._initSlider();
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new RoomCard(element));
-    });
-
-    return arr;
-  }
-
   _initFields(component) {
     this._component = component;
 
@@ -27,7 +17,7 @@ class RoomCard {
   }
 
   _initSlider() {
-    SlickCarousel.init(this._component.querySelector('.js-card-room__slider'));
+    return new SlickCarousel(this._component.querySelector('.js-card-room__slider'));
   }
 }
 

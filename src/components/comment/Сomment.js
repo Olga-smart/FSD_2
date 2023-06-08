@@ -6,16 +6,6 @@ class Comment {
     this._convertDateToText(this._dateElement);
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new Comment(element));
-    });
-
-    return arr;
-  }
-
   static _getDaysPassed(date) {
     const today = new Date();
     return Math.floor((today - date) / (60 * 60 * 24 * 1000));

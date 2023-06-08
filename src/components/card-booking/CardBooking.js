@@ -4,16 +4,6 @@ class CardBooking {
     this._attachEventHandlers();
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new CardBooking(element));
-    });
-
-    return arr;
-  }
-
   _initFields(component) {
     this._component = component;
 

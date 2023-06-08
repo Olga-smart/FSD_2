@@ -1,4 +1,4 @@
 import Header from './Header';
 
 const headers = document.querySelectorAll('.header');
-Header.init(headers);
+[...headers].forEach((header) => new Header(header));

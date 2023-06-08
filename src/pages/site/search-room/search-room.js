@@ -18,7 +18,7 @@ filtersToggle.addEventListener('click', handleFiltersToggleClick);
 
 const paginationArr = roomCards;
 const pagination = document.querySelector('.js-pagination');
-Pagination.init(pagination, paginationArr, {
+(() => new Pagination(pagination, paginationArr, {
   formatItemFunction: renderRoomCard,
-  callback: () => RoomCard.init($('.js-card-room')),
-});
+  callback: () => [...$('.js-card-room')].forEach((card) => new RoomCard(card)),
+}))();

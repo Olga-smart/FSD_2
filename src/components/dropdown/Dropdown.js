@@ -15,16 +15,6 @@ class Dropdown {
     this._attachEventHandlers();
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new Dropdown(element));
-    });
-
-    return arr;
-  }
-
   _initFields(component) {
     this._component = component;
     this._type = component.dataset.type;

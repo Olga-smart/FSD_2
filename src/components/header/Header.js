@@ -4,16 +4,6 @@ class Header {
     this._attachEventHandlers();
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new Header(element));
-    });
-
-    return arr;
-  }
-
   _initFields(component) {
     this._component = component;
     this._burger = component.querySelector('.js-header__burger');

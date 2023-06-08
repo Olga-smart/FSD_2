@@ -12,11 +12,6 @@ class PaginationJs {
     this.initPlugin(options);
   }
 
-  static init(pagination, items, options) {
-    const component = new PaginationJs(pagination, items, options);
-    return component;
-  }
-
   initPlugin(options = {}) {
     const template = (data) => {
       let html = '';

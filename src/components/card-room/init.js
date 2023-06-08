@@ -1,4 +1,4 @@
 import RoomCard from './RoomCard';
 
 const cards = document.querySelectorAll('.js-card-room');
-RoomCard.init(cards);
+[...cards].forEach((card) => new RoomCard(card));

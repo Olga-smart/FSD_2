@@ -12,16 +12,6 @@ class AirDatepicker {
     }
   }
 
-  static init(elements) {
-    const arr = [];
-
-    [...elements].forEach((element) => {
-      arr.push(new AirDatepicker(element));
-    });
-
-    return arr;
-  }
-
   _initFields(component) {
     this._component = component;
     this._input = component.querySelector('input');

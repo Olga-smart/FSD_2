@@ -5,10 +5,6 @@ class Pagination {
     Pagination.initPlugin(pagination, items, options);
   }
 
-  static init(pagination, items, options) {
-    return new Pagination(pagination, items, options);
-  }
-
   static initPlugin(pagination, items, options = {}) {
     const pluginOptions = options;
 
@@ -18,7 +14,7 @@ class Pagination {
       pluginOptions.itemsNumberPerPage = 12;
     }
 
-    PaginationJs.init(pagination, items, options);
+    return new PaginationJs(pagination, items, options);
   }
 }
 
