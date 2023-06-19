@@ -19,6 +19,7 @@ class Dropdown {
     this._component = component;
     this._type = component.dataset.type;
     this._outputElement = component.querySelector('.js-dropdown__output input');
+    this._outputAPI = new Input(component.querySelector('.js-dropdown__output'));
 
     this._items = component.querySelectorAll('.js-dropdown__item');
     [...this._items].forEach((item) => {
@@ -125,10 +126,14 @@ class Dropdown {
 
   _toggle() {
     this._component.classList.toggle('dropdown_menu_open');
-    Input.handleDropdownToggle(this._outputElement);
 
     if (this._component.classList.contains('dropdown_menu_open')) {
+      this._outputAPI.addFlatBottom();
+      this._outputAPI.addFocusStyle();
       window.addEventListener('click', this._handleOutsideClick);
+    } else {
+      this._outputAPI.removeFlatBottom();
+      this._outputAPI.removeFocusStyle();
     }
   }
 

@@ -25,7 +25,7 @@ mixin input(options = {})
 
   if (views)
     - const viewsForBlockClass = ["arrow_down"]
-    - const viewsForInputClass = ["dropdown_open", "focused", "clickable"]
+    - const viewsForInputClass = ["bottom_flat", "focused", "clickable"]
     each view in views
       if (viewsForBlockClass.includes(view))
         - blockClass += blockClass ? ` input_${view}` : `input_${view}`

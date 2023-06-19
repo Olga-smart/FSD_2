@@ -1,4 +1,4 @@
-import Input from './Input';
+import initDateField from '../../libs/cleave/init';
 
-const inputs = document.querySelectorAll('.js-input');
-[...inputs].forEach((input) => new Input(input));
+const inputsWithDate = document.querySelectorAll('.js-input__field_date');
+[...inputsWithDate].forEach((input) => initDateField(input));
