@@ -165,6 +165,7 @@ class Dropdown {
       currentItem._minus.disabled = true;
     });
 
+    this._setProperties();
     this._updateOutput();
   }
 
