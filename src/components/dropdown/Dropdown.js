@@ -18,7 +18,7 @@ class Dropdown {
   _initFields(component) {
     this._component = component;
     this._type = component.dataset.type;
-    this._outputElement = component.querySelector('.js-dropdown__output input');
+    this._outputElement = component.querySelector('.js-dropdown__output');
     this._outputAPI = new Input(component.querySelector('.js-dropdown__output'));
 
     this._items = component.querySelectorAll('.js-dropdown__item');
@@ -80,13 +80,13 @@ class Dropdown {
 
   _updateOutput() {
     if (this._sumValues() === 0) {
-      this._outputElement.value = this._zeroValue;
+      this._outputAPI.setValue(this._zeroValue);
     } else {
       if (this._type === 'guests') {
         if (this._babiesCount === 0) {
-          this._outputElement.value = `${this._guestsCount} ${this._guestsWord}`;
+          this._outputAPI.setValue(`${this._guestsCount} ${this._guestsWord}`);
         } else {
-          this._outputElement.value = `${this._guestsCount} ${this._guestsWord}, ${this._babiesCount} ${this._babiesWord}`;
+          this._outputAPI.setValue(`${this._guestsCount} ${this._guestsWord}, ${this._babiesCount} ${this._babiesWord}`);
         }
       }
 
@@ -111,7 +111,7 @@ class Dropdown {
           result += `${this._bathroomsCount} ${this._bathroomsWord}`;
         }
 
-        this._outputElement.value = result;
+        this._outputAPI.setValue(result);
       }
     }
   }

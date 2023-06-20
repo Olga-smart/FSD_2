@@ -3,6 +3,10 @@ class Input {
     this._initFields(component);
   }
 
+  setValue(value) {
+    this._input.value = value;
+  }
+
   addFlatBottom() {
     this._input.classList.add('input__field_bottom_flat');
   }
