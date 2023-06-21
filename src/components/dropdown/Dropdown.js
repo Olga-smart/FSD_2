@@ -4,6 +4,7 @@ import Input from '../input/Input';
 class Dropdown {
   constructor(component) {
     this._initFields(component);
+    this._disablePlusMinusButtons();
     this._setProperties();
     this._updateOutput();
 
@@ -22,20 +23,6 @@ class Dropdown {
     this._outputAPI = new Input(component.querySelector('.js-dropdown__output'));
 
     this._items = component.querySelectorAll('.js-dropdown__item');
-    [...this._items].forEach((item) => {
-      const currentItem = item;
-
-      currentItem._input = item.querySelector('.js-dropdown__item-input');
-      currentItem._minus = item.querySelector('.js-dropdown__button-minus');
-      currentItem._plus = item.querySelector('.js-dropdown__button-plus');
-
-      if (Dropdown._counterValueIsMinimal(item)) {
-        currentItem._minus.disabled = true;
-      }
-      if (Dropdown._counterValueIsMaximal(item)) {
-        currentItem._plus.disabled = true;
-      }
-    });
 
     this._applyButton = component.querySelector('.js-dropdown__button-apply');
     this._resetButton = component.querySelector('.js-dropdown__button-reset');
@@ -49,6 +36,19 @@ class Dropdown {
     }
   }
 
+  _disablePlusMinusButtons() {
+    [...this._items].forEach((item) => {
+      const currentItem = item;
+
+      if (Dropdown._counterValueIsMinimal(item)) {
+        currentItem.querySelector('.js-dropdown__button-minus').disabled = true;
+      }
+      if (Dropdown._counterValueIsMaximal(item)) {
+        currentItem.querySelector('.js-dropdown__button-plus').disabled = true;
+      }
+    });
+  }
+
   _setProperties() {
     if (this._type === 'guests') {
       this._setGuestsProperties();
@@ -60,21 +60,22 @@ class Dropdown {
   }
 
   _setGuestsProperties() {
-    this._guestsCount = Number(this._items[0]._input.value) + Number(this._items[1]._input.value);
+    this._guestsCount = Number(this._items[0].querySelector('.js-dropdown__item-input').value)
+                      + Number(this._items[1].querySelector('.js-dropdown__item-input').value);
     this._guestsWord = wordToPlural(this._guestsCount, 'гость', 'гостя', 'гостей');
 
-    this._babiesCount = Number(this._items[2]._input.value);
+    this._babiesCount = Number(this._items[2].querySelector('.js-dropdown__item-input').value);
     this._babiesWord = wordToPlural(this._babiesCount, 'младенец', 'младенца', 'младенцев');
   }
 
   _setFacilitiesProperties() {
-    this._bedroomsCount = Number(this._items[0]._input.value);
+    this._bedroomsCount = Number(this._items[0].querySelector('.js-dropdown__item-input').value);
     this._bedroomsWord = wordToPlural(this._bedroomsCount, 'спальня', 'спальни', 'спален');
 
-    this._bedsCount = Number(this._items[1]._input.value);
+    this._bedsCount = Number(this._items[1].querySelector('.js-dropdown__item-input').value);
     this._bedsWord = wordToPlural(this._bedsCount, 'кровать', 'кровати', 'кроватей');
 
-    this._bathroomsCount = Number(this._items[2]._input.value);
+    this._bathroomsCount = Number(this._items[2].querySelector('.js-dropdown__item-input').value);
     this._bathroomsWord = wordToPlural(this._bathroomsCount, 'ванная', 'ванные', 'ванных');
   }
 
@@ -119,7 +120,7 @@ class Dropdown {
   _sumValues() {
     let sum = 0;
     [...this._items].forEach((item) => {
-      sum += Number(item._input.value);
+      sum += Number(item.querySelector('.js-dropdown__item-input').value);
     });
     return sum;
   }
@@ -138,18 +139,23 @@ class Dropdown {
   }
 
   static _counterValueIsMinimal(item) {
-    return item._input.value === item.dataset.minCount || item._input.value === '0';
+    const { value } = item.querySelector('.js-dropdown__item-input');
+    return value === item.dataset.minCount || value === '0';
   }
 
   static _counterValueIsMaximal(item) {
-    return item._input.value === item.dataset.maxCount;
+    const { value } = item.querySelector('.js-dropdown__item-input');
+    return value === item.dataset.maxCount;
   }
 
   _buttonResetIsNecessary() {
     const mayBeReset = (item) => {
-      if (item._input.value === '0' || item._input.value === item.dataset.minCount) {
+      const { value } = item.querySelector('.js-dropdown__item-input');
+
+      if (value === '0' || value === item.dataset.minCount) {
         return false;
       }
+
       return true;
     };
 
@@ -161,8 +167,9 @@ class Dropdown {
   _reset() {
     [...this._items].forEach((item) => {
       const currentItem = item;
-      currentItem._input.value = item.dataset.minCount || 0;
-      currentItem._minus.disabled = true;
+      currentItem.querySelector('.js-dropdown__item-input').value = item.dataset.minCount || 0;
+      currentItem.querySelector('.js-dropdown__button-minus').disabled = true;
+      currentItem.querySelector('.js-dropdown__button-plus').disabled = false;
     });
 
     this._setProperties();
@@ -177,13 +184,13 @@ class Dropdown {
     const item = event.target.closest('.js-dropdown__item');
 
     if (!Dropdown._counterValueIsMinimal(item)) {
-      item._input.value -= 1;
+      item.querySelector('.js-dropdown__item-input').value -= 1;
 
       if (Dropdown._counterValueIsMinimal(item)) {
-        item._minus.disabled = true;
+        item.querySelector('.js-dropdown__button-minus').disabled = true;
       }
 
-      item._plus.disabled = false;
+      item.querySelector('.js-dropdown__button-plus').disabled = false;
     }
 
     this._setProperties();
@@ -201,13 +208,14 @@ class Dropdown {
     const item = event.target.closest('.js-dropdown__item');
 
     if (!Dropdown._counterValueIsMaximal(item)) {
-      item._input.value = Number(item._input.value) + 1;
+      const input = item.querySelector('.js-dropdown__item-input');
+      input.value = Number(input.value) + 1;
 
       if (Dropdown._counterValueIsMaximal(item)) {
-        item._plus.disabled = true;
+        item.querySelector('.js-dropdown__button-plus').disabled = true;
       }
 
-      item._minus.disabled = false;
+      item.querySelector('.js-dropdown__button-minus').disabled = false;
     }
 
     this._setProperties();
@@ -241,8 +249,8 @@ class Dropdown {
     this._outputElement.addEventListener('click', this._handleOutputClick.bind(this));
 
     [...this._items].forEach((item) => {
-      item._minus.addEventListener('click', this._handleMinusClick.bind(this));
-      item._plus.addEventListener('click', this._handlePlusClick.bind(this));
+      item.querySelector('.js-dropdown__button-minus').addEventListener('click', this._handleMinusClick.bind(this));
+      item.querySelector('.js-dropdown__button-plus').addEventListener('click', this._handlePlusClick.bind(this));
     });
 
     this._resetButton.addEventListener('click', this._handleResetButtonClick.bind(this));
