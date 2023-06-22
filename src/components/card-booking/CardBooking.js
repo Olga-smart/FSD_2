@@ -69,6 +69,7 @@ class CardBooking {
       if (tooltip) {
         tooltip.remove();
       }
+      target.removeEventListener('mouseout', handleInfoIconMouseout);
     };
 
     target.addEventListener('mouseout', handleInfoIconMouseout);
