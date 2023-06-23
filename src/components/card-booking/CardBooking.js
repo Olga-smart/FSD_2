@@ -1,3 +1,5 @@
+import Input from '../input/Input';
+
 class CardBooking {
   constructor(component) {
     this._initFields(component);
@@ -7,8 +9,8 @@ class CardBooking {
   _initFields(component) {
     this._component = component;
 
-    this._inputArrival = component.querySelector('.js-card-booking__arrival input');
-    this._inputDeparture = component.querySelector('.js-card-booking__departure input');
+    this._inputArrivalAPI = new Input(component.querySelector('.js-card-booking__arrival'));
+    this._inputDepartureAPI = new Input(component.querySelector('.js-card-booking__departure'));
     this._dateArrival = undefined;
     this._dateDeparture = undefined;
 
@@ -40,8 +42,13 @@ class CardBooking {
       icon.addEventListener('mouseover', CardBooking._handleInfoIconMouseover);
     });
 
-    this._inputArrival.addEventListener('input', this._handleDateChange.bind(this));
-    this._inputDeparture.addEventListener('input', this._handleDateChange.bind(this));
+    this._inputArrivalAPI.onChange = () => {
+      this._handleDateChange();
+    };
+
+    this._inputDepartureAPI.onChange = () => {
+      this._handleDateChange();
+    };
   }
 
   static _prettifyPrice(num) {
@@ -76,10 +83,10 @@ class CardBooking {
   }
 
   _handleDateChange() {
-    let [day, month, year] = this._inputArrival.value.split('.');
+    let [day, month, year] = this._inputArrivalAPI.getValue().split('.');
     this._dateArrival = Date.parse(`${year}-${month}-${day}`);
 
-    [day, month, year] = this._inputDeparture.value.split('.');
+    [day, month, year] = this._inputDepartureAPI.getValue().split('.');
     this._dateDeparture = Date.parse(`${year}-${month}-${day}`);
 
     this._updateDaysNum();

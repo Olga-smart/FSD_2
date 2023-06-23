@@ -1,10 +1,15 @@
 class Input {
   constructor(component) {
     this._initFields(component);
+    this._attachEventHandlers();
   }
 
   setValue(value) {
     this._input.value = value;
+  }
+
+  getValue() {
+    return this._input.value;
   }
 
   addFlatBottom() {
@@ -26,6 +31,16 @@ class Input {
   _initFields(component) {
     this._component = component;
     this._input = component.querySelector('.js-input__field');
+  }
+
+  _attachEventHandlers() {
+    this._input.addEventListener('input', this._handleValueChange.bind(this));
+  }
+
+  _handleValueChange() {
+    if (this.onChange) {
+      this.onChange(this._input.value);
+    }
   }
 }
 
