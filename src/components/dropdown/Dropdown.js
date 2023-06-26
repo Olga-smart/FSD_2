@@ -19,11 +19,9 @@ class Dropdown {
   _initFields(component) {
     this._component = component;
     this._type = component.dataset.type;
-    this._outputElement = component.querySelector('.js-dropdown__output');
-    this._outputAPI = new Input(component.querySelector('.js-dropdown__output'));
-
-    this._items = component.querySelectorAll('.js-dropdown__item');
-
+    this._output = component.querySelector('.js-dropdown__output');
+    this._outputAPI = new Input(this._output);
+    this._items = this._makeItemsArray();
     this._applyButton = component.querySelector('.js-dropdown__button-apply');
     this._resetButton = component.querySelector('.js-dropdown__button-reset');
 
@@ -36,15 +34,30 @@ class Dropdown {
     }
   }
 
+  _makeItemsArray() {
+    const arr = [];
+
+    [...this._component.querySelectorAll('.js-dropdown__item')].forEach((item) => {
+      arr.push({
+        item,
+        input: item.querySelector('.js-dropdown__item-input'),
+        minus: item.querySelector('.js-dropdown__button-minus'),
+        plus: item.querySelector('.js-dropdown__button-plus'),
+      });
+    });
+
+    return arr;
+  }
+
   _disablePlusMinusButtons() {
     [...this._items].forEach((item) => {
       const currentItem = item;
 
-      if (Dropdown._counterValueIsMinimal(item)) {
-        currentItem.querySelector('.js-dropdown__button-minus').disabled = true;
+      if (Dropdown._counterValueIsMinimal(currentItem.item)) {
+        currentItem.minus.disabled = true;
       }
-      if (Dropdown._counterValueIsMaximal(item)) {
-        currentItem.querySelector('.js-dropdown__button-plus').disabled = true;
+      if (Dropdown._counterValueIsMaximal(currentItem.item)) {
+        currentItem.plus.disabled = true;
       }
     });
   }
@@ -60,22 +73,22 @@ class Dropdown {
   }
 
   _setGuestsProperties() {
-    this._guestsCount = Number(this._items[0].querySelector('.js-dropdown__item-input').value)
-                      + Number(this._items[1].querySelector('.js-dropdown__item-input').value);
+    this._guestsCount = Number(this._items[0].input.value)
+                      + Number(this._items[1].input.value);
     this._guestsWord = wordToPlural(this._guestsCount, 'гость', 'гостя', 'гостей');
 
-    this._babiesCount = Number(this._items[2].querySelector('.js-dropdown__item-input').value);
+    this._babiesCount = Number(this._items[2].input.value);
     this._babiesWord = wordToPlural(this._babiesCount, 'младенец', 'младенца', 'младенцев');
   }
 
   _setFacilitiesProperties() {
-    this._bedroomsCount = Number(this._items[0].querySelector('.js-dropdown__item-input').value);
+    this._bedroomsCount = Number(this._items[0].input.value);
     this._bedroomsWord = wordToPlural(this._bedroomsCount, 'спальня', 'спальни', 'спален');
 
-    this._bedsCount = Number(this._items[1].querySelector('.js-dropdown__item-input').value);
+    this._bedsCount = Number(this._items[1].input.value);
     this._bedsWord = wordToPlural(this._bedsCount, 'кровать', 'кровати', 'кроватей');
 
-    this._bathroomsCount = Number(this._items[2].querySelector('.js-dropdown__item-input').value);
+    this._bathroomsCount = Number(this._items[2].input.value);
     this._bathroomsWord = wordToPlural(this._bathroomsCount, 'ванная', 'ванные', 'ванных');
   }
 
@@ -120,7 +133,7 @@ class Dropdown {
   _sumValues() {
     let sum = 0;
     [...this._items].forEach((item) => {
-      sum += Number(item.querySelector('.js-dropdown__item-input').value);
+      sum += Number(item.input.value);
     });
     return sum;
   }
@@ -150,9 +163,9 @@ class Dropdown {
 
   _buttonResetIsNecessary() {
     const mayBeReset = (item) => {
-      const { value } = item.querySelector('.js-dropdown__item-input');
+      const { value } = item.input;
 
-      if (value === '0' || value === item.dataset.minCount) {
+      if (value === '0' || value === item.item.dataset.minCount) {
         return false;
       }
 
@@ -167,9 +180,9 @@ class Dropdown {
   _reset() {
     [...this._items].forEach((item) => {
       const currentItem = item;
-      currentItem.querySelector('.js-dropdown__item-input').value = item.dataset.minCount || 0;
-      currentItem.querySelector('.js-dropdown__button-minus').disabled = true;
-      currentItem.querySelector('.js-dropdown__button-plus').disabled = false;
+      currentItem.input.value = item.item.dataset.minCount || 0;
+      currentItem.minus.disabled = true;
+      currentItem.plus.disabled = false;
     });
 
     this._setProperties();
@@ -246,11 +259,11 @@ class Dropdown {
   }
 
   _attachEventHandlers() {
-    this._outputElement.addEventListener('click', this._handleOutputClick.bind(this));
+    this._output.addEventListener('click', this._handleOutputClick.bind(this));
 
     [...this._items].forEach((item) => {
-      item.querySelector('.js-dropdown__button-minus').addEventListener('click', this._handleMinusClick.bind(this));
-      item.querySelector('.js-dropdown__button-plus').addEventListener('click', this._handlePlusClick.bind(this));
+      item.minus.addEventListener('click', this._handleMinusClick.bind(this));
+      item.plus.addEventListener('click', this._handlePlusClick.bind(this));
     });
 
     this._resetButton.addEventListener('click', this._handleResetButtonClick.bind(this));
