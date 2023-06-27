@@ -4,7 +4,7 @@ class Like {
     this._attachEventHandlers();
   }
 
-  static _handleClick(event) {
+  _handleClick(event) {
     const component = event.currentTarget;
 
     component.classList.toggle('like_checked');
@@ -20,7 +20,7 @@ class Like {
   }
 
   _attachEventHandlers() {
-    this._component.addEventListener('click', Like._handleClick);
+    this._component.addEventListener('click', this._handleClick);
   }
 }
 

@@ -6,7 +6,7 @@ class Comment {
     this._convertDateToText(this._dateElement);
   }
 
-  static _getDaysPassed(date) {
+  _getDaysPassed(date) {
     const today = new Date();
     return Math.floor((today - date) / (60 * 60 * 24 * 1000));
   }
@@ -18,7 +18,7 @@ class Comment {
 
   _convertDateToText() {
     const commentDate = new Date(Date.parse(this._dateElement.textContent));
-    const days = Comment._getDaysPassed(commentDate);
+    const days = this._getDaysPassed(commentDate);
     if (days >= 365) {
       const years = Math.floor(days / 365);
       this._dateElement.textContent = `${years} ${wordToPlural(years, 'год', 'года', 'лет')} назад`;

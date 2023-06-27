@@ -19,17 +19,17 @@ class CardBooking {
     this._days = Number(this._daysNumElement.textContent);
 
     this._priceElement = component.querySelector('.js-card-booking__price');
-    this._price = Number(CardBooking._extractNumbers(this._priceElement.textContent));
+    this._price = Number(this._extractNumbers(this._priceElement.textContent));
     this._priceForXDays = component.querySelector('.js-card-booking__price-for-x-days');
 
     this._serviceFeeElement = component.querySelector('.js-card-booking__service-fee');
-    this._serviceFee = Number(CardBooking._extractNumbers(this._serviceFeeElement.textContent));
+    this._serviceFee = Number(this._extractNumbers(this._serviceFeeElement.textContent));
 
     this._discountElement = component.querySelector('.js-card-booking__discount');
-    this._discount = Number(CardBooking._extractNumbers(this._discountElement.textContent));
+    this._discount = Number(this._extractNumbers(this._discountElement.textContent));
 
     this._additionalServiceFeeElement = component.querySelector('.js-card-booking__additional-service-fee');
-    this._additionalServiceFee = Number(CardBooking
+    this._additionalServiceFee = Number(this
       ._extractNumbers(this._additionalServiceFeeElement.textContent));
 
     this._totalElement = component.querySelector('.js-card-booking__total');
@@ -39,7 +39,7 @@ class CardBooking {
 
   _attachEventHandlers() {
     [...this._infoIcons].forEach((icon) => {
-      icon.addEventListener('mouseover', CardBooking._handleInfoIconMouseover);
+      icon.addEventListener('mouseover', this._handleInfoIconMouseover);
     });
 
     this._inputArrivalAPI.onChange = () => {
@@ -51,16 +51,16 @@ class CardBooking {
     };
   }
 
-  static _prettifyPrice(num) {
+  _prettifyPrice(num) {
     const n = num.toString();
     return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, '$1 ');
   }
 
-  static _extractNumbers(string) {
+  _extractNumbers(string) {
     return string.replace(/\D+/g, '');
   }
 
-  static _handleInfoIconMouseover(event) {
+  _handleInfoIconMouseover(event) {
     const { target } = event;
 
     const tooltip = document.createElement('div');
@@ -109,14 +109,14 @@ class CardBooking {
   }
 
   _updatePriceForXDays() {
-    this._priceForXDays.textContent = `${CardBooking._prettifyPrice(this._price * this._days)}₽`;
+    this._priceForXDays.textContent = `${this._prettifyPrice(this._price * this._days)}₽`;
   }
 
   _updateTotal() {
     if (this._days === 0) {
       this._totalElement.textContent = '0₽';
     } else {
-      this._totalElement.textContent = `${CardBooking._prettifyPrice(this._price * this._days + this._serviceFee - this._discount + this._additionalServiceFee)}₽`;
+      this._totalElement.textContent = `${this._prettifyPrice(this._price * this._days + this._serviceFee - this._discount + this._additionalServiceFee)}₽`;
     }
   }
 }

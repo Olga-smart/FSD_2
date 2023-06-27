@@ -12,7 +12,9 @@
     "fsd"
   ],
   "rules": {
-    "no-underscore-dangle": 0 // Airbnb rule is overridden by MetaLamp rule
+    "no-underscore-dangle": 0, // Airbnb rule is overridden by MetaLamp rule
+    "class-methods-use-this": 0 // Reviewer suggested to do so
+
   },
   "ignorePatterns": ["webpack.config.js"],
   "globals": {

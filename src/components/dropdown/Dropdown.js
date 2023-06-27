@@ -53,10 +53,10 @@ class Dropdown {
     [...this._items].forEach((item) => {
       const currentItem = item;
 
-      if (Dropdown._counterValueIsMinimal(currentItem.item)) {
+      if (this._counterValueIsMinimal(currentItem.item)) {
         currentItem.minus.disabled = true;
       }
-      if (Dropdown._counterValueIsMaximal(currentItem.item)) {
+      if (this._counterValueIsMaximal(currentItem.item)) {
         currentItem.plus.disabled = true;
       }
     });
@@ -151,12 +151,12 @@ class Dropdown {
     }
   }
 
-  static _counterValueIsMinimal(item) {
+  _counterValueIsMinimal(item) {
     const { value } = item.querySelector('.js-dropdown__item-input');
     return value === item.dataset.minCount || value === '0';
   }
 
-  static _counterValueIsMaximal(item) {
+  _counterValueIsMaximal(item) {
     const { value } = item.querySelector('.js-dropdown__item-input');
     return value === item.dataset.maxCount;
   }
@@ -196,10 +196,10 @@ class Dropdown {
   _handleMinusClick(event) {
     const item = event.target.closest('.js-dropdown__item');
 
-    if (!Dropdown._counterValueIsMinimal(item)) {
+    if (!this._counterValueIsMinimal(item)) {
       item.querySelector('.js-dropdown__item-input').value -= 1;
 
-      if (Dropdown._counterValueIsMinimal(item)) {
+      if (this._counterValueIsMinimal(item)) {
         item.querySelector('.js-dropdown__button-minus').disabled = true;
       }
 
@@ -220,11 +220,11 @@ class Dropdown {
   _handlePlusClick(event) {
     const item = event.target.closest('.js-dropdown__item');
 
-    if (!Dropdown._counterValueIsMaximal(item)) {
+    if (!this._counterValueIsMaximal(item)) {
       const input = item.querySelector('.js-dropdown__item-input');
       input.value = Number(input.value) + 1;
 
-      if (Dropdown._counterValueIsMaximal(item)) {
+      if (this._counterValueIsMaximal(item)) {
         item.querySelector('.js-dropdown__button-plus').disabled = true;
       }
 
