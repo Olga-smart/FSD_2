@@ -21,8 +21,8 @@ mixin card-booking(options = {})
       serviceFee = 0,
       discount = 0,
       additionalServiceFee = 0,
-      idForInputStart = undefined,
-      idForInputEnd = undefined,
+      idForInputStart = "calendarStart",
+      idForInputEnd = "calendarEnd",
     } = options
 
   - let numberClass = 'card-booking__number'
@@ -38,8 +38,8 @@ mixin card-booking(options = {})
         label: "прибытие",
         value: arrival,
         type: "start",
-        id: idForInputStart || "calendarStart",
-        relatedInput: idForInputEnd || "calendarEnd"
+        id: idForInputStart,
+        relatedInput: idForInputEnd
       })
     
     .js-card-booking__departure
@@ -47,8 +47,8 @@ mixin card-booking(options = {})
         label: "выезд",
         value: departure,
         type: "end",
-        id: idForInputEnd || "calendarEnd",
-        relatedInput: idForInputStart || "calendarStart"
+        id: idForInputEnd,
+        relatedInput: idForInputStart
       })
 
     .card-booking__guests

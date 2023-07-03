@@ -5,17 +5,8 @@ mixin checkbox(options = {})
       id = undefined,
       label = undefined,
       sublabel = undefined,
-      name = undefined,
-      checked = false,
-      value = undefined,
-      tabIndex = undefined,
-      required = false,
-      attributesObject = {},
-      readonly = false
+      checked = false
     } = options
-
-  - let blockClass = ""
-  - let inputClass = ""
 
   .checkbox
 
@@ -25,12 +16,8 @@ mixin checkbox(options = {})
     input.checkbox__field(
       id = id
       type = "checkbox"
-      name = name
-      tabIndex = tabindex
-      required = required
       checked = checked
-      value = value
-    )&attributes(attributesObject)
+    )
     label.checkbox__label(
       for = id
     ) !{label}

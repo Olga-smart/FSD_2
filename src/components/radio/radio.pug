@@ -5,12 +5,7 @@ mixin radio(options = {})
       id = undefined,
       label = undefined,
       name = undefined,
-      checked = false,
-      value = undefined,
-      tabIndex = undefined,
-      required = false,
-      attributesObject = {},
-      readonly = false,
+      checked = false
     } = options
 
   .radio   
@@ -18,11 +13,8 @@ mixin radio(options = {})
       id = id
       type = "radio"
       name = name
-      tabIndex = tabindex
-      required = required
       checked = checked
-      value = value
-    )&attributes(attributesObject)
+    )
     label.radio__label(
       for = id
     ) !{label}

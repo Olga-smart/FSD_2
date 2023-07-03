@@ -6,8 +6,8 @@ mixin card-find-room(options = {})
   - 
     const {
       view = undefined,
-      idForInputStart = undefined,
-      idForInputEnd = undefined,
+      idForInputStart = "calendarStart",
+      idForInputEnd = "calendarEnd",
 
     } = options
 
@@ -29,14 +29,14 @@ mixin card-find-room(options = {})
     +calendar({
       type: "start",
       label: "прибытие",
-      id: idForInputStart || "calendarStart",
-      relatedInput: idForInputEnd || "calendarEnd"
+      id: idForInputStart,
+      relatedInput: idForInputEnd
     })
     +calendar({
       type: "end",
       label: "выезд",
-      id: idForInputEnd || "calendarEnd",
-      relatedInput: idForInputStart || "calendarStart"
+      id: idForInputEnd,
+      relatedInput: idForInputStart
     })
     .card-find-room__guests
       +dropdown({

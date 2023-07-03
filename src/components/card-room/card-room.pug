@@ -23,8 +23,6 @@ mixin card-room(options = {})
   if (lux)
     - numberClass += ' card-room__number_lux'
 
-  - let commentsNumber = comments || 0 
-
   .card-room.js-card-room
     .card-room__slider.js-card-room__slider
       each img in images
@@ -43,6 +41,6 @@ mixin card-room(options = {})
         +rate(rate)
         span.card-room__comments.js-card-room__comments(
           data-word = ' Отзывов'
-        ) !{prettifyPrice(commentsNumber)}
+        ) !{prettifyPrice(comments)}
         
         
