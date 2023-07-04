@@ -1,13 +1,14 @@
 mixin button(options = {})
   - 
     const {
-      tag = "button",
       text = "Click me",
       type = "button",
       view = undefined,
       disabled = false,
       href = undefined
     } = options
+
+  - const tag = href ? "a" : "button"  
 
   - const classArray = ["button"]
   

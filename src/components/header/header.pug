@@ -70,14 +70,12 @@ mixin header(options = {})
           ul.header__user-nav    
             li.header__button-sign-in  
               +button({
-                tag: "button",
                 text: "Войти",
                 type: "button",
                 view: ["outline", "height_small"]
               })
             li.header__button-sign-up  
               +button({
-                tag: "button",
                 text: "Зарегистрироваться",
                 type: "button",
                 view: ["fill", "height_small"]
