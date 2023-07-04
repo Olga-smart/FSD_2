@@ -2,20 +2,6 @@
 @import '../../styles/mixins-and-templates.scss';
 
 .checkbox {
-  &__field {
-    width: auto;
-    height: auto;
-    position: absolute;
-    opacity: 0;
-    &:checked + .checkbox__label::before {
-      background: {
-        image: url(./img/check_mark.svg);
-        repeat: no-repeat;
-        position: center; 
-      }
-      border-color: $accent-main;
-    }
-  }
   &__label {
     display: grid;
     grid: {
@@ -43,6 +29,14 @@
       -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
     }
+    &:has(.checkbox__field:checked)::before {
+      background: {
+        image: url(./img/check_mark.svg);
+        repeat: no-repeat;
+        position: center; 
+      }
+      border-color: $accent-main;
+    }
   }
   &__main-label {
     font-weight: 700;
@@ -52,5 +46,11 @@
   &__sublabel {
     font-size: 0.86rem;
     line-height: 1.17;
+  }
+  &__field {
+    width: auto;
+    height: auto;
+    position: absolute;
+    opacity: 0;
   }
 }

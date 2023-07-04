@@ -4,7 +4,6 @@ mixin checklist(options = {})
   - 
     const {
       title = "",
-      uniqueName = "uniqueName",
       items = [
         {label: "пункт 1", checked: true},
         {label: "пункт 2", checked: false},
@@ -17,7 +16,7 @@ mixin checklist(options = {})
     if (title)
       .checklist__title= title
 
-    - listClass = ""
+    - let listClass = ""
 
     - const possibleRowGaps = ["small"]
 
@@ -28,6 +27,5 @@ mixin checklist(options = {})
       - for (let i = 0; i < items.length; i++)
         +checkbox({
           label: items[i].label,
-          checked: items[i].checked,
-          id: `${uniqueName}-${i + 1}`
+          checked: items[i].checked
         })

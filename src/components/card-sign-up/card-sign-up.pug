@@ -39,16 +39,12 @@ mixin card-sign-up(options = {})
     .card-sign-up__gender
       +radio({
         label: "Мужчина",
-        type: "radio",
-        name: "checkbox",
-        checked: true,
-        id: "radio-1"
+        name: "gender",
+        checked: true
       })
       +radio({
         label: "Женщина",
-        type: "radio",
-        name: "checkbox",
-        id: "radio-2"
+        name: "gender"
       })
     .card-sign-up__birthday  
       +input({
@@ -72,7 +68,6 @@ mixin card-sign-up(options = {})
     }) 
     +toggle({
       label: "Получать спецпредложения",
-      id: "toggle",
       name: "offers"
     })
     .card-sign-up__submit

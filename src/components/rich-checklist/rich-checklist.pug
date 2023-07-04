@@ -4,7 +4,6 @@ mixin rich-checklist(options = {})
   -
     const {
       title = "",
-      uniqueName = "uniqueName",
       items = [
         {label: "пункт 1", sublabel: "подзаголовок пункта 1", checked: true},
         {label: "пункт 2", sublabel: "подзаголовок пункта 2", checked: false},
@@ -20,6 +19,5 @@ mixin rich-checklist(options = {})
         +checkbox({
           label: items[i].label,
           sublabel: items[i].sublabel,
-          checked: items[i].checked,
-          id: uniqueName + "-" + i
+          checked: items[i].checked
         })

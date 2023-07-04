@@ -91,7 +91,6 @@ block body
       .col.gap-40px          
         +checklist({
           title: "Checkbox buttons",
-          uniqueName: "checklist-example",
           items:[
             {
               label: "Можно курить"
@@ -111,28 +110,22 @@ block body
           .form-elements__heading Radio buttons
           +radio({
             label: "Мужчина",
-            type: "radio",
-            name: "checkbox",
-            checked: true,
-            id: "radio-1"
+            name: "gender",
+            checked: true
           })
           +radio({
             label: "Женщина",
-            type: "radio",
-            name: "checkbox",
-            id: "radio-2"
+            name: "gender"
           })
         
         .toggle-container
           .form-elements__heading Toggle
           +toggle({
             label: "Получать спецпредложения",
-            checked: true,
-            id: "toggle-1"
+            checked: true
           })
           +toggle({
-            label: "Получать спецпредложения",
-            id: "toggle-2"
+            label: "Получать спецпредложения"
           })
         
         .like-container
@@ -262,7 +255,6 @@ block body
         .col-266.gap-37px
           +expandable-checklist({
             title: "Expandable checkbox list",
-            uniqueName: "expandable-checklist-example1",
             items: [
               {
                 label: "Завтрак"
@@ -287,7 +279,6 @@ block body
         
           +expandable-checklist({
             title: "Expandable checkbox list",
-            uniqueName: "expandable-checklist-example2",
             opened: true,
             items: [
               {
@@ -317,7 +308,6 @@ block body
       .col
         +rich-checklist({
           title: "Rich checkbox buttons",
-          uniqueName: "rich-checklist-example",
           items: [
             {
               label: "Широкий коридор",

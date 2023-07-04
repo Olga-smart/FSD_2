@@ -4,7 +4,6 @@ mixin expandable-checklist(options = {})
   -
     const {
       title = "Expandable checkbox list",
-      uniqueName = "expandable-checklist",
       opened = false,
       items = [
         {label: "пункт 1", checked: true},
@@ -22,6 +21,5 @@ mixin expandable-checklist(options = {})
     .expandable-checklist__list
       +checklist({
         items: items,
-        uniqueName: uniqueName,
         rowGap: "small"
       })

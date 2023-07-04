@@ -2,19 +2,6 @@
 @import '../../styles/mixins-and-templates.scss';
 
 .toggle {
-  &__field {
-    width: auto;
-    height: auto;
-    position: absolute;
-    opacity: 0;
-    &:checked + .toggle__label::before {
-      border-color: $accent-main;
-    }
-    &:checked + .toggle__label::after {
-      @include gradient;
-      left: 24px;
-    }
-  }
   &__label {
     display: grid;
     grid: {
@@ -61,5 +48,20 @@
       -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
     }
-  }  
+    &:has(.toggle__field:checked) {
+      &::before {
+        border-color: $accent-main;
+      }
+      &::after {
+        @include gradient;
+        left: 24px;
+      }
+    }
+  }
+  &__field {
+    width: auto;
+    height: auto;
+    position: absolute;
+    opacity: 0;
+  } 
 }

@@ -2,19 +2,15 @@
 mixin toggle(options = {})
   -
     let {
-      id = undefined,
       label = undefined,
       name = undefined,
       checked = false
     } = options
 
-  .toggle    
-    input.toggle__field(
-      id = id
-      type = "checkbox"
-      name = name
-      checked = checked
-    )
-    label.toggle__label(
-      for = id
-    ) !{label}
+  .toggle
+    label.toggle__label !{label}
+      input.toggle__field(
+        type = "checkbox"
+        name = name
+        checked = checked
+      )

@@ -2,20 +2,6 @@
 @import '../../styles/mixins-and-templates.scss';
 
 .radio {
-  &__field {
-    width: auto;
-    height: auto;
-    position: absolute;
-    opacity: 0;
-  }
-  &__field:checked + .radio__label {
-    color: $primary-dark;
-    &::before {
-      @include gradient;
-      -webkit-box-shadow: inset 0 0 0 3px #fff;
-              box-shadow: inset 0 0 0 3px #fff;
-    }
-  }
   &__label {
     display: grid;
     grid: {
@@ -43,5 +29,19 @@
       -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
     }
+    &:has(.radio__field:checked) {
+      color: $primary-dark;
+      &::before {
+        @include gradient;
+        -webkit-box-shadow: inset 0 0 0 3px #fff;
+                box-shadow: inset 0 0 0 3px #fff;
+      }
+    }
+  }
+  &__field {
+    width: auto;
+    height: auto;
+    position: absolute;
+    opacity: 0;
   }
 }
