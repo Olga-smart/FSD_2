@@ -5,7 +5,30 @@ mixin header(options = {})
   -
     const {
       loggedIn = false,
-      userName = "Юлий Цезарь"
+      userName = "Юлий Цезарь",
+      links = [
+        {
+          title: "Пункт 1",
+          href: "/mock-address/change-me"
+        },
+        {
+          title: "Пункт 2",
+          href: "/mock-address/change-me"
+        },
+        {
+          title: "Пункт 3",
+          children: [
+            {
+              title: "Пункт 1",
+              href: "/mock-address/change-me" 
+            },
+            {
+              title: "Пункт 2",
+              href: "/mock-address/change-me" 
+            }
+          ]
+        }
+      ]
     } = options
 
   header.header
@@ -16,56 +39,23 @@ mixin header(options = {})
         .header__logo
           +logo
         ul.header__menu.js-header__menu
-          li.header__menu-item
-            a.header__menu-link(
-              href = "/mock-address/change-me"
-            ) О нас
-          li.header__menu-item.header__menu-item_dropdown
-            span.header__menu-link(
-              tabIndex = "0"
-            ) Услуги
-            ul.header__sub-menu
-              li.header__sub-menu-item
-                a.header__sub-menu-link(
-                  href = "/mock-address/change-me"
-                ) Трансфер
-              li.header__sub-menu-item
-                a.header__sub-menu-link(
-                  href = "/mock-address/change-me"
-                ) Экскурсии
-              li.header__sub-menu-item
-                a.header__sub-menu-link(
-                  href = "/mock-address/change-me"
-                ) Аренда бытовых приборов 
-              li.header__sub-menu-item
-                a.header__sub-menu-link(
-                  href = "/mock-address/change-me"
-                ) Массаж  
-          li.header__menu-item  
-            a.header__menu-link(
-              href = "/mock-address/change-me"
-            ) Вакансии
-          li.header__menu-item  
-            a.header__menu-link(
-              href = "/mock-address/change-me"
-            ) Новости
-          li.header__menu-item.header__menu-item_dropdown  
-            span.header__menu-link(
-              tabIndex = "0"
-            ) Соглашения
-            ul.header__sub-menu
-              li.header__sub-menu-item
-                a.header__sub-menu-link(
-                  href="/mock-address/change-me"
-                ) Соглашение 1
-              li.header__sub-menu-item
-                a.header__sub-menu-link(
-                  href="/mock-address/change-me"
-                ) Соглашение 2
-              li.header__sub-menu-item
-                a.header__sub-menu-link(
-                  href="/mock-address/change-me"
-                ) Соглашение 3
+          each link in links
+            if link.children
+              li.header__menu-item.header__menu-item_dropdown
+                span.header__menu-link(
+                  tabIndex = "0"
+                )= link.title
+                ul.header__sub-menu
+                  each child in link.children
+                    li.header__sub-menu-item
+                      a.header__sub-menu-link(
+                        href = child.href
+                      )= child.title
+            else
+              li.header__menu-item
+                a.header__menu-link(
+                  href = link.href
+                )= link.title
         if loggedIn !== true        
           ul.header__user-nav    
             li.header__button-sign-in  

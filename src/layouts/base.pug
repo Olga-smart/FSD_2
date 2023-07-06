@@ -10,7 +10,60 @@ block variables
 
 block body
 
-  +header
+  +header({
+    links: [
+      {
+        title: "О нас",
+        href: "/mock-address/change-me"
+      },
+      {
+        title: "Услуги",
+        children: [
+          {
+            title: "Трансфер",
+            href: "/mock-address/change-me"
+          },
+          {
+            title: "Экскурсии",
+            href: "/mock-address/change-me"
+          },
+          {
+            title: "Аренда бытовых приборов",
+            href: "/mock-address/change-me"
+          },
+          {
+            title: "Массаж",
+            href: "/mock-address/change-me"
+          }
+        ]
+      },
+      {
+        title: "Вакансии",
+        href: "/mock-address/change-me"
+      },
+      {
+        title: "Новости",
+        href: "/mock-address/change-me"
+      },
+      {
+        title: "Соглашения",
+        children: [
+          {
+            title: "Соглашение 1",
+            href: "/mock-address/change-me",
+          },
+          {
+            title: "Соглашение 2",
+            href: "/mock-address/change-me",
+          },
+          {
+            title: "Соглашение 3",
+            href: "/mock-address/change-me",
+          }
+        ]
+      }
+    ]
+  })
   
   block content
   
