@@ -12,9 +12,7 @@ mixin expandable-checklist(options = {})
       ]
     } = options
 
-  - let modifier
-  if (opened)
-   - modifier = "expandable-checklist_open"
+  - const modifier = opened ? "expandable-checklist_open" : ""
    
   .expandable-checklist.js-expandable-checklist(class = modifier)
     .expandable-checklist__title.js-expandable-checklist__title= title

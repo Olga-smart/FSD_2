@@ -15,9 +15,9 @@ mixin rich-checklist(options = {})
     if (title)
       .rich-checklist__title= title
     .rich-checklist__list
-      - for (let i = 0; i < items.length; i++)
+      each item in items
         +checkbox({
-          label: items[i].label,
-          sublabel: items[i].sublabel,
-          checked: items[i].checked
+          label: item.label,
+          sublabel: item.sublabel,
+          checked: item.checked
         })

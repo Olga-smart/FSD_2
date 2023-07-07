@@ -2,7 +2,7 @@ include ../../components/input/input
 
 mixin calendar(options = {})
   -
-    let {
+    const {
       id = undefined,
       label = undefined,
       placeholder = "ДД.ММ.ГГГГ",
@@ -12,10 +12,8 @@ mixin calendar(options = {})
       relatedInput = undefined
     } = options
 
-  - let blockModifier = undefined
-  - const possibleTypes = ["start", "end"]
-  if (type && possibleTypes.includes(type))
-    - blockModifier = `js-calendar_${type}`
+  - const possibleTypes = ["start", "end"];
+  - const blockModifier = possibleTypes.includes(type) ? `js-calendar_${type}` : undefined;
 
   if (relatedInput)
     - attributesObject["data-related-input"] = relatedInput

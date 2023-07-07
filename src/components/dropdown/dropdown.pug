@@ -3,7 +3,7 @@ include ../../components/button/button
 
 mixin dropdown(options = {})
   -
-    let {
+    const {
       type = "guests",
       label = undefined,
       open = false,
@@ -31,59 +31,59 @@ mixin dropdown(options = {})
   if (!possibleTypes.includes(type))
     - type = "guests"
 
-  - let blockModifier = ""
+  - const blockModifier = open ? "dropdown_menu_open" : ""
 
-  - let views = ["arrow_down", "clickable"]
+  - const views = ["arrow_down", "clickable"]
 
   if (open) 
-    - blockModifier = "dropdown_menu_open" 
     - views.push("bottom_flat", "focused")
     
-  - let items = [];
+  - const items = getItems()
   - 
-    if (type === "guests")
-      items = [
-        {
-          label: "взрослые",
-          defaultCount: adultsDefaultCount,
-          minCount: adultsMinCount,
-          maxCount: adultsMaxCount 
-        },
-        {
-          label: "дети",
-          defaultCount: childrenDefaultCount,
-          minCount: childrenMinCount,
-          maxCount: childrenMaxCount
-        },
-        {
-          label: "младенцы",
-          defaultCount: babiesDefaultCount,
-          minCount: babiesMinCount,
-          maxCount: babiesMaxCount
-        }
-      ]
-    if (type === "facilities")
-      items = [
-        {
-          label: "спальни",
-          defaultCount: bedroomsDefaultCount,
-          minCount: bedroomsMinCount,
-          maxCount: bedroomsMaxCount 
-        },
-        {
-          label: "кровати",
-          defaultCount: bedsDefaultCount,
-          minCount: bedsMinCount,
-          maxCount: bedsMaxCount
-        },
-        {
-          label: "ванные комнаты",
-          defaultCount: bathroomsDefaultCount,
-          minCount: bathroomsMinCount,
-          maxCount: bathroomsMaxCount
-        }
-      ]
-    
+    function getItems() {
+      if (type === "guests")
+        return [
+          {
+            label: "взрослые",
+            defaultCount: adultsDefaultCount,
+            minCount: adultsMinCount,
+            maxCount: adultsMaxCount 
+          },
+          {
+            label: "дети",
+            defaultCount: childrenDefaultCount,
+            minCount: childrenMinCount,
+            maxCount: childrenMaxCount
+          },
+          {
+            label: "младенцы",
+            defaultCount: babiesDefaultCount,
+            minCount: babiesMinCount,
+            maxCount: babiesMaxCount
+          }
+        ]
+      if (type === "facilities")
+        return [
+          {
+            label: "спальни",
+            defaultCount: bedroomsDefaultCount,
+            minCount: bedroomsMinCount,
+            maxCount: bedroomsMaxCount 
+          },
+          {
+            label: "кровати",
+            defaultCount: bedsDefaultCount,
+            minCount: bedsMinCount,
+            maxCount: bedsMaxCount
+          },
+          {
+            label: "ванные комнаты",
+            defaultCount: bathroomsDefaultCount,
+            minCount: bathroomsMinCount,
+            maxCount: bathroomsMaxCount
+          }
+        ]
+    }    
 
   .dropdown.js-dropdown(
     class = blockModifier

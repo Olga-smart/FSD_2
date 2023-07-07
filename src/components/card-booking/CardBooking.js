@@ -83,11 +83,11 @@ class CardBooking {
   }
 
   _handleDateChange() {
-    let [day, month, year] = this._inputArrivalAPI.getValue().split('.');
-    this._dateArrival = Date.parse(`${year}-${month}-${day}`);
+    const [arrivalDay, arrivalMonth, arrivalYear] = this._inputArrivalAPI.getValue().split('.');
+    this._dateArrival = Date.parse(`${arrivalYear}-${arrivalMonth}-${arrivalDay}`);
 
-    [day, month, year] = this._inputDepartureAPI.getValue().split('.');
-    this._dateDeparture = Date.parse(`${year}-${month}-${day}`);
+    const [departureDay, departureMonth, departureYear] = this._inputDepartureAPI.getValue().split('.');
+    this._dateDeparture = Date.parse(`${departureYear}-${departureMonth}-${departureDay}`);
 
     this._updateDaysNum();
     this._updateDaysWord(this._days);

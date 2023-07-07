@@ -6,17 +6,10 @@ class Like {
 
   _handleClick(event) {
     const component = event.currentTarget;
-
     component.classList.toggle('like_checked');
-    let value = Number(component.textContent);
-
-    if (component.classList.contains('like_checked')) {
-      value += 1;
-      component.textContent = value;
-    } else {
-      value -= 1;
-      component.textContent = value;
-    }
+    const value = Number(component.textContent);
+    const newValue = component.classList.contains('like_checked') ? value + 1 : value - 1;
+    component.textContent = newValue;
   }
 
   _attachEventHandlers() {

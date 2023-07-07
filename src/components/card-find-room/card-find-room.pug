@@ -16,8 +16,8 @@ mixin card-find-room(options = {})
   - const possibleViews = ["over-image"]
 
   if (view)
-    if ( Array.isArray(view) )      
-      - for (let item of view)
+    if ( Array.isArray(view) )
+      each item in view
         if (possibleViews.includes(item))
           - classArray.push("card-find-room_" + item)
     else

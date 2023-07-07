@@ -16,16 +16,12 @@ mixin checklist(options = {})
     if (title)
       .checklist__title= title
 
-    - let listClass = ""
-
     - const possibleRowGaps = ["small"]
-
-    if (rowGap && possibleRowGaps.includes(rowGap))
-      - listClass = `checklist__list_row-gap_${rowGap}`
+    - const listClass = possibleRowGaps.includes(rowGap) ? `checklist__list_row-gap_${rowGap}` : ''
 
     .checklist__list(class = listClass)
-      - for (let i = 0; i < items.length; i++)
+      each item in items
         +checkbox({
-          label: items[i].label,
-          checked: items[i].checked
+          label: item.label,
+          checked: item.checked
         })

@@ -4,8 +4,7 @@ include ../../components/calendar/calendar
 include ../../components/dropdown/dropdown
 
 - function prettifyPrice(num)
-  - let n = num.toString()
-  - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
+  - return num.toString().replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
 
 mixin card-booking(options = {})
   - 
@@ -25,9 +24,7 @@ mixin card-booking(options = {})
       idForInputEnd = "calendarEnd",
     } = options
 
-  - let numberClass = 'card-booking__number'
-  if (lux)
-    - numberClass += ' card-booking__number_lux'
+  - const numberClass = `card-booking__number${lux ? ' card-booking__number_lux' : ''}`;
 
   form.card-booking.js-card-booking
     span(class = numberClass)= number   
@@ -60,9 +57,11 @@ mixin card-booking(options = {})
         babiesDefaultCount: babies
       })  
   
-    - let days = 0;
-    if (arrival && departure)
-      - days = ( Date.parse(departure) - Date.parse(arrival) ) / (1000 * 3600 * 24)
+    - function countDays(arrival, departure)
+      - if (!arrival || !departure) return
+      - return ( Date.parse(departure) - Date.parse(arrival) ) / (1000 * 3600 * 24)
+
+    - const days = (arrival && departure) ? countDays(arrival, departure) : 0
     
     table.card-booking__calculation
       tbody

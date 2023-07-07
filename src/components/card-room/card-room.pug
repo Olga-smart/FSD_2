@@ -1,8 +1,7 @@
 include ../../components/rate/rate
 
 - function prettifyPrice(num)
-  - let n = num.toString()
-  - return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
+  - return num.toString().replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
 
 mixin card-room(options = {})
   -
@@ -19,9 +18,7 @@ mixin card-room(options = {})
       comments = 0
     } = options
 
-  - let numberClass = 'card-room__number'
-  if (lux)
-    - numberClass += ' card-room__number_lux'
+  - const numberClass = `card-room__number${lux ? ' card-room__number_lux' : ''}`;  
 
   .card-room.js-card-room
     .card-room__slider.js-card-room__slider

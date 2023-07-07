@@ -15,8 +15,8 @@ mixin button(options = {})
   - const possibleViews = ["fill", "outline", "width_full", "arrow_right", "height_small"]
 
   if (view)
-    if ( Array.isArray(view) )      
-      - for (let item of view)
+    if ( Array.isArray(view) )
+      each item in view
         if (possibleViews.includes(item))
           - classArray.push("button_" + item)
     else

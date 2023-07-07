@@ -1,18 +1,14 @@
 
 mixin checkbox(options = {})
   -
-    let {
+    const {
       label = undefined,
       sublabel = undefined,
       checked = false
     } = options
 
-  .checkbox
-
-    if (sublabel)
-      - label = "<span class='checkbox__main-label'>" + label + "</span><br>" + "<span class='checkbox__sublabel'>" + sublabel + "</span>"               
-    
-    label.checkbox__label !{label}
+  .checkbox   
+    label.checkbox__label !{sublabel ? `<span class='checkbox__main-label'>${label}</span><br><span class='checkbox__sublabel'>${sublabel}</span>` : label}
       input.checkbox__field(
         type = "checkbox"
         checked = checked

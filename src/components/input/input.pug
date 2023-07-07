@@ -1,7 +1,7 @@
 
 mixin input(options = {})
   -
-    let {
+    const {
       id = undefined,
       label = undefined,
       placeholder = undefined,
@@ -30,15 +30,14 @@ mixin input(options = {})
       if (viewsForInputClass.includes(view))
         - inputClass += inputClass ? ` input__field_${view}` : `input__field_${view}`
 
-  - let tag = button ? "form" : "div"
-  - let blockAttributes = button ? {method: "post"} : "";
+  - const tag = button ? "form" : "div"
+  - const blockAttributes = button ? {method: "post"} : "";
 
   #{tag}.input.js-input(class = blockClass)&attributes(blockAttributes)      
 
-    - let inputType = type
+    - const inputType = (type === "date") ? "text" : type
 
     if (type === "date")
-      - inputType = "text"
       - inputClass += inputClass ? ` js-input__field_date` : 'js-input__field_date'          
     
     label.input__label !{label}

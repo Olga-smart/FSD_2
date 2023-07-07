@@ -141,11 +141,8 @@ class AirDatepicker {
   }
 
   static _formatDateForValueAttribute(date) {
-    let formattedDate = new Date(date);
-    formattedDate = new Date(formattedDate.getTime()
-                  - (formattedDate.getTimezoneOffset() * 60 * 1000));
-    [formattedDate] = formattedDate.toISOString().split('T');
-
+    const jsDate = new Date(date);
+    const [formattedDate] = new Date(jsDate.getTime() - (jsDate.getTimezoneOffset() * 60 * 1000)).toISOString().split('T');
     return formattedDate;
   }
 

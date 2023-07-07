@@ -15,7 +15,7 @@ mixin card-sign-up(options = {})
 
   if (view)
     if ( Array.isArray(view) )      
-      - for (let item of view)
+      each item in view
         if (possibleViews.includes(item))
           - classArray.push("card-sign-up_" + item)
     else

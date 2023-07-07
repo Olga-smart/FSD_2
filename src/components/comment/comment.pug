@@ -19,8 +19,7 @@ mixin comment(options = {})
         height = 50
       )
     else
-      - let avatarLetter = name[0]
-      .comment__avatar !{avatarLetter} 
+      .comment__avatar !{name[0]} 
     div
       p.comment__name= name
       time.comment__date.js-comment__date(
