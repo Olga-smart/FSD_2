@@ -12,7 +12,21 @@
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none;        
+          user-select: none;
+  @include media-breakpoint-down(450px) {
+    position: fixed;
+    left: 50vw !important;
+    top: 50vh !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+        -ms-transform: translate(-50%, -50%) !important;
+            transform: translate(-50%, -50%) !important;
+    pointer-events: none;
+  }
+  &.active {
+    @include media-breakpoint-down(450px) {
+      pointer-events: all;
+    }
+  }
   &--pointer {
     display: none;
   }
@@ -279,21 +293,6 @@
     color: $accent-main;
     &:hover {
       background: none;
-    }
-  }
-}
-
-@include media-breakpoint-down(450px) {
-  .datepicker {
-    position: fixed;
-    left: 50vw !important;
-    top: 50vh !important;
-    -webkit-transform: translate(-50%, -50%) !important;
-        -ms-transform: translate(-50%, -50%) !important;
-            transform: translate(-50%, -50%) !important;
-    pointer-events: none;        
-    &.active {
-      pointer-events: all;
     }
   }
 }

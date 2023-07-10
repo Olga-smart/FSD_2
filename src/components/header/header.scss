@@ -28,6 +28,11 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    @include media-breakpoint-down($md) {
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;              
+    }        
   }
   &__burger {
     width: 19px;
@@ -46,6 +51,9 @@
     -webkit-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
+    @include media-breakpoint-down($md) {
+      display: block;
+    }
     &::before, &::after {
       content: '';
       position: absolute;
@@ -102,6 +110,38 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;      
     list-style-type: none;
+    @include media-breakpoint-down($md) {
+      position: absolute;
+      background-color: #fff;
+      top: 100%;
+      left: 0;
+      right: 0;   
+      -webkit-box-pack: center;   
+          -ms-flex-pack: center;   
+              justify-content: center;
+      -webkit-transform: perspective(1000px) rotateX(-90deg) {
+        origin: top;
+      }
+              transform: perspective(1000px) rotateX(-90deg) {
+        origin: top;
+      }
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      padding: {
+        top: 1rem;
+        bottom: 1rem;
+      }
+      -webkit-box-shadow: 0 10px 20px rgba($primary-very-dark, .05);
+              box-shadow: 0 10px 20px rgba($primary-very-dark, .05);
+      z-index: 5;
+    }
+    &_open {
+      @include media-breakpoint-down($md) {
+        -webkit-transform: perspective(1000px) rotateX(0deg);
+                transform: perspective(1000px) rotateX(0deg);
+      }
+    }
   }
   &__menu-item {
     &_dropdown {
@@ -211,12 +251,20 @@
       left: 0.71rem;
     }
     padding: 0;
+    @include media-breakpoint-down($md) {
+      display: none;
+    }
   }
   &__user-profile {
     padding-left: 1.43rem;
     margin-left: 0.71rem;
     border-left: 1px solid rgba($primary-very-dark, 0.1);
     position: relative;
+    @include media-breakpoint-down($md) {
+      padding-left: 0;
+      margin-left: 0;
+      border: none;
+    }
     &:focus-within .header__user-menu {
       opacity: 1;
       pointer-events: auto;
@@ -232,6 +280,9 @@
       size: inherit;
       family: inherit;
     }
+    @include media-breakpoint-down($md) {
+      display: none;
+    }
   }
   &__user-icon {
     display: none;
@@ -240,6 +291,9 @@
     padding: 0;
     background-color: transparent;
     cursor: pointer;
+    @include media-breakpoint-down($md) {
+      display: block;
+    }
   }
   &__user-icon-img {
     width: 100%;
@@ -279,68 +333,11 @@
     padding: 0;
     background-color: transparent;
     cursor: pointer;
+    @include media-breakpoint-down($md) {
+      display: block;
+    }
   }
   &__icon-sign-in-img {
     width: 100%;
-  }
-}
-
-@include media-breakpoint-down($md) {
-  .header {
-    &__nav {
-      -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between;
-    }
-    &__burger {
-      display: block;
-    }
-    &__menu {
-      position: absolute;
-      background-color: #fff;
-      top: 100%;
-      left: 0;
-      right: 0;   
-      -webkit-box-pack: center;   
-          -ms-flex-pack: center;   
-              justify-content: center;
-      -webkit-transform: perspective(1000px) rotateX(-90deg) {
-        origin: top;
-      }
-              transform: perspective(1000px) rotateX(-90deg) {
-        origin: top;
-      }
-      -webkit-transition: all 0.3s ease-in-out;
-      -o-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out;
-      padding: {
-        top: 1rem;
-        bottom: 1rem;
-      }
-      -webkit-box-shadow: 0 10px 20px rgba($primary-very-dark, .05);
-              box-shadow: 0 10px 20px rgba($primary-very-dark, .05);
-      z-index: 5;
-      &_open {
-        -webkit-transform: perspective(1000px) rotateX(0deg);
-                transform: perspective(1000px) rotateX(0deg);
-      }
-    }
-    &__user-nav {
-      display: none;
-    }
-    &__user-profile {
-      padding-left: 0;
-      margin-left: 0;
-      border: none;
-    }
-    &__user-name {
-      display: none;
-    }
-    &__user-icon {
-      display: block;
-    }
-    &__icon-sign-in {
-      display: block;
-    }
   }
 }

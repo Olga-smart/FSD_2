@@ -36,8 +36,8 @@
   }
   &-prev {
     left: 0;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), color-stop(99.99%, rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 0)));
     background: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), color-stop(99.99%, rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 0)));
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);  
     &::before {
       left: 1.43rem;
@@ -48,8 +48,8 @@
   }
   &-next {
     right: 0;
-    background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), color-stop(99.99%, rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 0)));
     background: -o-linear-gradient(right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), color-stop(99.99%, rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 0)));
     background: linear-gradient(-90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
     &::before {
       right: 1.43rem;

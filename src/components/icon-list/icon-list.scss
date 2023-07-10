@@ -13,7 +13,9 @@
     display: grid;
     grid: {
       template-columns: 3.43rem 1fr;
-      column-gap: 0.7rem;
+      -webkit-column-gap: 0.7rem;
+         -moz-column-gap: 0.7rem;
+              column-gap: 0.7rem;
     }
     padding-bottom: 1.45rem;
     border-bottom: 1px solid rgba($primary-very-dark, 0.1);

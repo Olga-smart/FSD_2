@@ -11,6 +11,21 @@
       template-columns: 68% 32%;
       template-rows: 243px 243px; 
     }
+    @include media-breakpoint-between($sm, $md) {
+      grid-template-rows: 200px 200px;
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid: {
+        template-rows: 150px 150px;
+        template-columns: 1fr 1fr;
+      }
+    }
+    @include media-breakpoint-down($xs) {
+      grid: {
+        template-rows: 150px 150px;
+        template-columns: 1fr 1fr; 
+      }
+    }
     &-item {
       &-1 {
         grid: {
@@ -55,13 +70,59 @@
       top: 5rem;
       bottom: 5rem;
     }
+    @include media-breakpoint-between($sm, $md) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid: {
+        template-columns: 1fr 1fr;
+        -webkit-column-gap: 0.7rem;
+           -moz-column-gap: 0.7rem;
+                column-gap: 0.7rem;
+      }
+    }
+    @include media-breakpoint-down($xs) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__info {
+    @include media-breakpoint-between($xs, $sm) {
+      grid-column: span 2;
+      width: 50%;
+      justify-self: center; 
+    }
+  }
+  &__info-h2 {
+    @include media-breakpoint-between($xs, $sm) {
+      text-align: center;
+    }
   }
   &__h2 {
     @extend %h2;
     margin-bottom: 1.43rem; 
   }
+  &__votes {
+    @include media-breakpoint-between($xs, $sm) {
+      grid-column: span 2;
+      width: 50%;
+      justify-self: center;
+    }
+  }
+  &__votes-h2 {
+    @include media-breakpoint-between($xs, $sm) {
+      text-align: center;
+    }
+  }
   &__booking {
     grid-row: span 2;
+    @include media-breakpoint-between($sm, $md) {
+      grid-column: span 2;
+      width: 50%;
+      justify-self: center;
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid-column: span 2;
+    }
   }
   &__reviews {
     display: grid;
@@ -72,6 +133,9 @@
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;
+    @include media-breakpoint-down($xs) {
+      grid-column: span 1;
+    }
   }
   &__comment {
     grid-column: span 2;
@@ -82,76 +146,5 @@
   &__comments-number {
     color: $primary-medium;
     line-height: 1;
-  }
-}
-
-@include media-breakpoint-between($sm, $md) {
-  .room-details {
-    &__gallery {
-      grid-template-rows: 200px 200px;
-    }
-    &__container {
-      grid-template-columns: 1fr 1fr;
-    }
-    &__booking {
-      grid-column: span 2;
-      width: 50%;
-      justify-self: center;
-    }
-  }
-}
-
-@include media-breakpoint-between($xs, $sm) {
-  .room-details {
-    &__gallery {
-      grid: {
-        template-rows: 150px 150px;
-        template-columns: 1fr 1fr;
-      }
-    }
-    &__container {
-      grid: {
-        template-columns: 1fr 1fr;
-        -webkit-column-gap: 0.7rem;
-           -moz-column-gap: 0.7rem;
-                column-gap: 0.7rem;
-      }
-    }
-    &__info {
-      grid-column: span 2;
-      width: 50%;
-      justify-self: center; 
-      &-h2 {
-        text-align: center;
-      }
-    }
-    &__votes {
-      grid-column: span 2;
-      width: 50%;
-      justify-self: center;
-      &-h2 {
-        text-align: center;
-      }
-    }
-    &__booking {
-      grid-column: span 2;
-    }
-  }
-}
-
-@include media-breakpoint-down($xs) {
-  .room-details {
-    &__gallery {
-      grid: {
-        template-rows: 150px 150px;
-        template-columns: 1fr 1fr; 
-      }
-    }
-    &__container {
-      grid-template-columns: 1fr;
-    }
-    &__reviews {
-      grid-column: span 1;
-    }
   }
 }

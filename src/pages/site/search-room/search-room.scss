@@ -20,6 +20,12 @@
       top: 1.8rem;
       bottom: 5.1rem;
     }
+    @include media-breakpoint-between($md, 1210px) {
+      grid-column-gap: 2rem;
+    }
+    @include media-breakpoint-down($md) {
+      grid-template-columns: 1fr;
+    }
   }
   &__filters {
     display: grid;
@@ -28,23 +34,143 @@
       content: start;
       items: start;
     }
-    &-toggle {
-      display: none;
-      text-transform: uppercase;
-      font: {
-        weight: 700;
-        size: 0.86rem;
+    @include media-breakpoint-down($md) {
+      padding-bottom: 2rem;
+      -webkit-box-align: baseline;
+          -ms-flex-align: baseline;
+              align-items: baseline;
+    }
+    @include media-breakpoint-between($sm, $md) {
+      grid:  {
+        template-columns: 1fr 1fr 1fr;
+        -webkit-column-gap: 0.86rem;
+           -moz-column-gap: 0.86rem;
+                column-gap: 0.86rem;
       }
-      cursor: pointer;
-      padding-bottom: 1rem;
-      text-align: center;
-      &:hover {
-        opacity: 0.7;
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid: {
+        template-columns: 1fr 1fr;
+        -webkit-column-gap: 0.86rem;
+           -moz-column-gap: 0.86rem;
+                column-gap: 0.86rem;
+      }
+    }
+    @include media-breakpoint-down($sm) {
+      height: 0;
+      opacity: 0; 
+    }
+    &_open {
+      @include media-breakpoint-down($sm) {
+        height: auto;
+        opacity: 1;
+      }
+    }
+  }
+  &__filters-toggle {
+    display: none;
+    text-transform: uppercase;
+    font: {
+      weight: 700;
+      size: 0.86rem;
+    }
+    cursor: pointer;
+    padding-bottom: 1rem;
+    text-align: center;
+    @include media-breakpoint-down($sm) {
+      display: block;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &__dates {
+    @include media-breakpoint-between($sm, $md) {
+      grid: {
+        row: 1/2;
+        column: 1/2;
+      }
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid-column: 2/3;
+    }
+  }
+  &__guests {
+    margin-top: -0.9rem;
+    @include media-breakpoint-between($sm, $md) {
+      grid: {
+        row: 1/2;
+        column: 2/3;
+      }
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid: {
+        column: 2/3;
+        row: 2/3; 
+      }
+    }
+  }
+  &__price {
+    @include media-breakpoint-between($sm, $md) {
+      grid: {
+        row: 2/3;
+        column: 3/4; 
+      }
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid-column: 1/3;
+    }
+  }
+  &__rules {
+    @include media-breakpoint-between($sm, $md) {
+      grid: {
+        row: 2/4;
+        column: 1/2;
+      }
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid: {
+        column: 1/2;
+        row: 1/3;
+      }
+    }
+  }
+  &__accessibility {
+    @include media-breakpoint-between($sm, $md) {
+      grid: {
+        row: 2/4;
+        column: 2/3; 
+      }
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid: {
+        column: 1/2;
+        row: 3/5; 
       }
     }
   }
   &__facilities {
     margin-top: -5px;
+    @include media-breakpoint-between($sm, $md) {
+      grid: {
+        row: 1/2;
+        column: 3/4; 
+      }
+    }
+    @include media-breakpoint-between($xs, $sm) {
+      grid: {
+        column: 2/3;
+        row: 3/4;
+      }
+    }
+  }
+  &__additional {
+    @include media-breakpoint-between($xs, $sm) {
+      grid: {
+        column: 2/3;
+        row: 4/5; 
+      }
+    }
   }
   &__h1 {
     @extend %h1;
@@ -68,148 +194,11 @@
           align-content: start;
     }
   }
-  &__guests {
-    margin-top: -0.9rem;
-  }
   &__pagination {
     margin-top: 3rem;
     grid-column: 1/-1;
   }
 }
 
-@include media-breakpoint-between($md, 1210px) {
-  .search-room {
-    &__container {
-      grid-column-gap: 2rem;
-    }
-  }
-}
 
-@include media-breakpoint-down($md) {
-  .search-room {
-    &__container {
-      grid-template-columns: 1fr;
-    }
-    &__filters {
-      padding-bottom: 2rem;
-      -webkit-box-align: baseline;
-          -ms-flex-align: baseline;
-              align-items: baseline;
-    }
-  }
-} 
-
-@include media-breakpoint-between($sm, $md) {
-  .search-room {
-    &__filters {
-      grid:  {
-        template-columns: 1fr 1fr 1fr;
-        -webkit-column-gap: 0.86rem;
-           -moz-column-gap: 0.86rem;
-                column-gap: 0.86rem;
-      }
-    }
-    &__dates {
-      grid: {
-        row: 1/2;
-        column: 1/2;
-      }
-    }
-    &__guests {
-      grid: {
-        row: 1/2;
-        column: 2/3;
-      }
-    }
-    &__facilities {
-      grid: {
-        row: 1/2;
-        column: 3/4; 
-      }
-    }
-    &__rules {
-      grid: {
-        row: 2/4;
-        column: 1/2;
-      }
-    }
-    &__accessibility {
-      grid: {
-        row: 2/4;
-        column: 2/3; 
-      }
-    }
-    &__price {
-      grid: {
-        row: 2/3;
-        column: 3/4; 
-      }
-    }
-  }
-}
-
-@include media-breakpoint-between($xs, $sm) {
-  .search-room {
-    &__filters {
-      grid: {
-        template-columns: 1fr 1fr;
-        -webkit-column-gap: 0.86rem;
-           -moz-column-gap: 0.86rem;
-                column-gap: 0.86rem;
-      }
-    }
-    &__dates {
-      grid-column: 2/3;
-    }
-    &__guests {
-      grid: {
-        column: 2/3;
-        row: 2/3; 
-      }
-    }
-    &__facilities {
-      grid: {
-        column: 2/3;
-        row: 3/4;
-      }
-    }
-    &__additional {
-      grid: {
-        column: 2/3;
-        row: 4/5; 
-      }
-    }
-    &__rules {
-      grid: {
-        column: 1/2;
-        row: 1/3;
-      }
-    }
-    &__accessibility {
-      grid: {
-        column: 1/2;
-        row: 3/5; 
-      }
-    }
-    &__price {
-      grid-column: 1/3;
-    }
-  }
-}
-
-@include media-breakpoint-down($sm) {
-  .search-room {
-    &__filters {
-      height: 0;
-      opacity: 0;      
-      &-toggle {
-        display: block;
-      }
-      &_open {
-        height: auto;
-        opacity: 1;
-      }
-    }
-  }
-}
 
