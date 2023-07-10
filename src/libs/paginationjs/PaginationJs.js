@@ -13,13 +13,7 @@ class PaginationJs {
   }
 
   initPlugin(options = {}) {
-    const template = (data) => {
-      let html = '';
-      $.each(data, (index, item) => {
-        html += item.outerHTML;
-      });
-      return html;
-    };
+    const template = (data) => data.reduce((result, item) => result + item.outerHTML, '');
 
     const items = this._items;
     const itemsContainer = this._itemsContainer;
